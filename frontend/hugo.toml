@@ -4,10 +4,218 @@ title = 'Varebil leasing'
 publishDir = "public"
 port = 1316
 
+baseURL = "http://localhost:1316/"
+locale = 'nb-no'
+title = 'Varebil leasing'
+publishDir = "public"
+port = 1316
+
 [permalinks]
-  # Dette gjør at alle sider i merke-mapper følger samme mønster
-  # f.eks. /citroen/navn-pa-bil/
-  "*" = "/:section/:contentbasename/"
+  posts = "/:section/:filename/"
+
+[taxonomies]
+  drivlinje = "drivlinje"
+  gir = "gir"
+  trekk = "trekk"
+  biltype = "biltype"
+  
+  [menu]
+  # --- TOPPMENY (main) ---
+  
+  [[menu.main]]
+    identifier = "merker"
+    name = "Våre merker"
+    url = "/biler/"
+    weight = 8
+    
+  [[menu.main]]
+    parent = "merker"
+    name = "Citroën"
+    url = "/citroen/"
+    weight = 9
+
+  [[menu.main]]
+    parent = "merker"
+    name = "Ford"
+    url = "/ford/"
+    weight = 10
+
+  [[menu.main]]
+    parent = "merker"
+    name = "Isuzu"
+    url = "/isuzu/"
+    weight = 11
+
+  [[menu.main]]
+    parent = "merker"
+    name = "Kia"
+    url = "/kia/"
+    weight = 12
+
+  [[menu.main]]
+    parent = "merker"
+    name = "Maxus"
+    url = "/maxus/"
+    weight = 13
+
+  [[menu.main]]
+    parent = "merker"
+    name = "Mercedes"
+    url = "/mercedes/"
+    weight = 14
+
+  [[menu.main]]
+    parent = "merker"
+    name = "Opel"
+    url = "/opel/"
+    weight = 15
+
+  [[menu.main]]
+    parent = "merker"
+    name = "Peugeot"
+    url = "/peugeot/"
+    weight = 16
+
+  [[menu.main]]
+    parent = "merker"
+    name = "Renault"
+    url = "/renault/"
+    weight = 17
+
+  [[menu.main]]
+    parent = "merker"
+    name = "Toyota"
+    url = "/toyota/"
+    weight = 18
+
+  [[menu.main]]
+    parent = "merker"
+    name = "Volkswagen"
+    url = "/volkswagen/"
+    weight = 19
+
+  [[menu.main]]
+    name = "Kundeomtaler"
+    url = "/omtaler/"
+    weight = 30
+
+  [[menu.main]]
+    name = "Artikler"
+    url = "/artikler/"
+    weight = 31
+
+  [[menu.main]]
+    name = "Kontakt"
+    url = "/kontakt/"
+    weight = 40
+
+  [[menu.main]]
+    name = "Tjenester"
+    identifier = "tjenester"
+    url = "/tjenester/"
+    weight = 3
+
+  # Dropdown-elementer under Tjenester
+  [[menu.main]]
+      name = "Leasing"
+      parent = "tjenester"
+      url = "/tjenester/leasing/"
+      weight = 1
+
+  [[menu.main]]
+      name = "Forsikring"
+      parent = "tjenester"
+      url = "/tjenester/forsikring/"
+      weight = 2
+
+  [[menu.main]]
+      name = "Releasing"
+      parent = "tjenester"
+      url = "/tjenester/releasing/"
+      weight = 3
+
+
+  # --- BUNNMENY (footer) ---
+
+  [[menu.footer]]
+    name = "Citroën"
+    url = "/citroen/"
+    weight = 9
+
+  [[menu.footer]]
+    name = "Ford"
+    url = "/ford/"
+    weight = 10
+
+  [[menu.footer]]
+    name = "Isuzu"
+    url = "/isuzu/"
+    weight = 11
+
+  [[menu.footer]]
+    name = "Kia"
+    url = "/kia/"
+    weight = 12
+
+  [[menu.footer]]
+    name = "Maxus"
+    url = "/maxus/"
+    weight = 13
+
+  [[menu.footer]]
+    name = "Mercedes"
+    url = "/mercedes/"
+    weight = 14
+
+  [[menu.footer]]
+    name = "Opel"
+    url = "/opel/"
+    weight = 15
+
+  [[menu.footer]]
+    name = "Peugeot"
+    url = "/peugeot/"
+    weight = 16
+
+  [[menu.footer]]
+    name = "Renault"
+    url = "/renault/"
+    weight = 17
+
+  [[menu.footer]]
+    name = "Toyota"
+    url = "/toyota/"
+    weight = 18
+
+  [[menu.footer]]
+    name = "Volkswagen"
+    url = "/volkswagen/"
+    weight = 19
+
+  [[menu.footer]]
+    name = "Kundeomtaler"
+    url = "/omtaler/"
+    weight = 20
+
+  [[menu.footer]]
+    name = "Nyheter & Artikler"
+    url = "/artikler/"
+    weight = 30
+  
+  [[menu.footer]]
+    name = "Våre Tjenester"
+    url = "/tjenester/"
+    weight = 40
+
+  [[menu.footer]]
+    name = "Kontakt oss"
+    url = "/kontakt/"
+    weight = 50
+
+  [[menu.footer]]
+    name = "Sideoversikt"
+    url = "/sitemap/"
+    weight = 60
 
 [taxonomies]
   drivlinje = "drivlinje"
