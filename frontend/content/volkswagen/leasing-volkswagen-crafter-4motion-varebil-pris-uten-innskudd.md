@@ -1,0 +1,22 @@
+---
+title: "Crafter "
+brand: "Volkswagen"
+descriptionHtml: "<h2>Volkswagen Crafter 2.0 TDI 177hk 4MOTION Auto 35 L3H2 leasing varebil uten innskudd</h2><p>Volkswagen Crafter 35 L3H2 med 4MOTION firehjulstrekk er en av markedets mest solide og fleksible varebiler for krevende oppdrag. Med 2.0 TDI-dieselmotor på 177 hestekrefter og automatgir leverer den både kraft og komfort, samtidig som den byr på god fremkommelighet året rundt.</p><p>Bilen kombinerer robusthet og moderne teknologi i en perfekt balanse for bedrifter som krever mer. Det store varerommet, det brukervennlige førermiljøet med digital cockpit, trådløs App-Connect og avanserte førerassistentsystemer gjør Crafter til et trygt og effektivt arbeidsverktøy. Den høye tillatte totalvekten og en hengervekt på opptil 3000 kg gir deg stor fleksibilitet til å løse oppdragene dine.</p>"
+equipment: "<p>Tilhengerfeste</p><p>Digital Cockpit 13,2&quot;</p><p>LED hovedlys og LED kjørelys</p><p>Sidemarkeringslys</p><p>Skyvedør venstre</p><p>Ekstra batteri</p><p>Tregulv i varerom</p><p>Oppvarmet MLT.ratt</p><p>Ergoactivee avfjæret førersete</p><p>Belysning innsteg</p><p>Påbygg-tilkobl. (IS2)</p><p>Stigtr.bak høyre</p><p>Navi discovery media</p><p>Loyds gulv pg kledning med hjulhus</p><p>Crafter utvidet skillevegg</p>"
+modeldescription: "35 L3H2 4Motion"
+price0: "8990"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/d46abaa0e5c5001ffb06cfc79704c67fd0f5e028-1000x500.jpg"
+fuel: "Fossilt"
+gear: "Automat"
+drive: "Forhjulsdrift"
+range: ""
+capacity: "14"
+performance: "177"
+doors: "4"
+seats: "3"
+yearmodel: "2025"
+color: ""
+interest: "Fast"
+towbar: true
+layout: "single"
+---

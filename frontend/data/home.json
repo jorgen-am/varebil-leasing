@@ -1,0 +1,11 @@
+{
+  "_createdAt": "2026-04-03T08:37:24Z",
+  "_id": "pageHome",
+  "_rev": "ynEzU8fAREdnbwKH9oXUcP",
+  "_type": "pageHome",
+  "_updatedAt": "2026-04-03T08:37:30Z",
+  "hero": {
+    "title": "Varebil leasing"
+  },
+  "title": "Hovedforside"
+}

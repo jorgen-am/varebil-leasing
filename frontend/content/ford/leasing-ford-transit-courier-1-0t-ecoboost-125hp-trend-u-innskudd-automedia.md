@@ -1,0 +1,22 @@
+---
+title: "Transit Courier "
+brand: "Ford"
+descriptionHtml: "<h2>Ford Transit Courier 1.0T EcoBoost Trend leasing varebil uten innskudd</h2><p>Ford Transit Courier 1.0T EcoBoost Trend (2025) er en kompakt og praktisk varebil utviklet for småbedrifter og servicefolk som trenger en driftssikker, fleksibel og drivstoffgjerrig firmabil. Den leveres med 4 dører, 2 seter og forhjulsdrift (FWD), en 1,0-liters EcoBoost bensinmotor på 125 hestekrefter, kombinert med en responsiv 7-trinns automatgirkasse. Perfekt for bykjøring, leveranser og regionale oppdrag hvor smidighet og lave driftskostnader er viktig.</p><p>Bagasjerommet rommer opptil 2,9 m³ med en nyttelast på rundt 700 kg, og med praktiske skyvedører samt lav innlastingshøyde blir arbeidsdagen både enklere og mer effektiv. Den kompakte størrelsen gjør bilen lett å manøvrere i trange bygater, samtidig som den har kapasitet nok til å håndtere profesjonelle transportbehov.</p><p>Utstyrslisten på Trend-utgaven inkluderer blant annet moderne infotainmentsystem, klimaanlegg, parkeringssensorer, multifunksjonsratt og avanserte sikkerhetssystemer fra Ford. Med kombinasjonen av komfort, teknologi og funksjonalitet er Transit Courier EcoBoost et trygt valg for bedrifter som ønsker en pålitelig og økonomisk varebil.</p>"
+equipment: ""
+modeldescription: "1.0T ECOBOOST 125HP TREND"
+price0: "4790"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/c53d3cd2054b3053d557d2bbf55dc4b9c08d2e63-850x450.jpg"
+fuel: "Fossilt"
+gear: "Automat"
+drive: "Forhjulsdrift"
+range: ""
+capacity: "2.9"
+performance: "125"
+doors: "5"
+seats: "2"
+yearmodel: ""
+color: ""
+interest: "Fast"
+towbar: false
+layout: "single"
+---

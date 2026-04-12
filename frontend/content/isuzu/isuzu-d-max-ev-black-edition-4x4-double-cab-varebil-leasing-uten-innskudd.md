@@ -1,0 +1,22 @@
+---
+title: "D-MAX EV "
+brand: "Isuzu"
+descriptionHtml: "<h2>Isuzu D-Max EV Black Edition 4x4 Double Cab varebil leasing uten innskudd</h2><p>Isuzu D-Max EV Black Edition 4x4 Double Cab er en helelektrisk pickup utviklet for virksomheter som trenger ekte arbeidskapasitet kombinert med moderne drift. Med permanent <strong>4x4</strong>, plass til <strong>5 personer</strong>, solid rammechassis og hele <strong>3 500 kg hengervekt</strong>, får du en elektrisk varebil som leverer der tradisjonelle dieselpickuper tidligere har dominert.</p><h3>Black Edition med riktig kombinasjon av styrke og komfort</h3><p>Black Edition gir bilen et markant og profesjonelt uttrykk med sorte detaljer, 18&quot; sorte lettmetallfelger og mørke ruter bak. Samtidig er dette langt mer enn en tøff pickup – den er også godt utstyrt for en effektiv arbeidshverdag.</p><p>Innvendig møter du digitalt instrumentpanel og 9&quot; infotainmentskjerm med navigasjon, Apple CarPlay og Android Auto. Adaptiv cruisekontroll, ryggekamera og moderne førerassistentsystemer gir trygg og komfortabel kjøring både i byen og på lengre etapper. Oppvarmet ratt og forseter, automatisk klimaanlegg og nøkkelfri adgang gjør bilen like komfortabel på vinterføre som på sommeroppdrag.</p><p>Denne bilen er levert med praktisk og verdifullt ekstrautstyr som bedliner for slitesterkt lasteplan, fast hengerfeste med 13-pins kontakt, 32A ladekabel til Wallbox, metallic lakk og gummimatter foran og bak – løsninger som gjør den klar for arbeid fra første dag.</p><h3>Elektrisk drift uten kompromiss</h3><p>Med <strong>66,9 kWh batteri</strong> og opptil <strong>263 km WLTP rekkevidde</strong> dekker D-Max EV de fleste daglige kjøremønstre innen service, anlegg og entreprenørvirksomhet. Elektrisk drift gir lavere drivstoffkostnader, mindre vedlikehold og stillegående fremdrift – uten at det går på bekostning av trekkraft eller robusthet.</p><p>Isuzu D-Max EV Black Edition passer for bedrifter som trenger en solid arbeidsbil med firehjulstrekk, høy hengervekt og god plass – men som samtidig ønsker en fremtidsrettet elektrisk løsning.</p>"
+equipment: "<p>Bedliner</p><p>Hengerfeste, fast kule (13-pin kontaktsats)</p><p>Ladekabel 32A (til WallBox)</p><p>Metallic lakk</p><p>Gummimatter front og bak</p><p>18&quot; sorte lettmetallfelger</p><p>Black Edition stylingpakke</p><p>Sort grill</p><p>Sort sportsbøyle</p><p>Sort stigtrinn</p><p>Mørke ruter bak</p><p>LED hovedlys</p><p>LED kjørelys</p><p>LED baklys</p><p>Automatisk fjernlys</p><p>Regnsensor</p><p>Oppvarmet multifunksjonsratt i skinn</p><p>Oppvarmede forseter</p><p>Elektrisk justerbart førersete</p><p>Automatisk klimaanlegg</p><p>9&quot; infotainmentskjerm</p><p>Navigasjon</p><p>Apple CarPlay</p><p>Android Auto</p><p>Digitalt instrumentpanel</p><p>Ryggekamera</p><p>Parkeringssensorer bak</p><p>Adaptiv cruisekontroll</p><p>Lane Assist</p><p>Blindsonevarsling</p><p>Frontkollisjonsvarsling</p><p>Nødbremsassistent</p><p>Hill Descent Control</p><p>Hill Start Assist</p><p>Elektrisk innfellbare og oppvarmede sidespeil</p><p>Keyless entry</p><p>Keyless start</p><p>DAB+ radio</p><p>ISOFIX</p><p>Låsbart baklokk</p>"
+modeldescription: "BEV 4WD D Cab Black Edition"
+price0: "10290"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/47daa861d0096fa8fd85279e347d158fbc9430e5-850x450.jpg"
+fuel: "Elektrisk"
+gear: "Automat"
+drive: "AWD"
+range: "263"
+capacity: ""
+performance: "190"
+doors: "4"
+seats: "5"
+yearmodel: ""
+color: "Metallic lakk"
+interest: "Fast"
+towbar: true
+layout: "single"
+---

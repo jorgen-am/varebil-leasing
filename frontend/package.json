@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@portabletext/to-html": "^5.0.2",
+    "@sanity/client": "^7.20.0"
+  }
+}

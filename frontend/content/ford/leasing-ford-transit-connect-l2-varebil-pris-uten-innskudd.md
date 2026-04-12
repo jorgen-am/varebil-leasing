@@ -1,0 +1,22 @@
+---
+title: "Transit Connect "
+brand: "Ford"
+descriptionHtml: "<h2>Ford Transit Connect TDCi L2 Trend leasing varebil uten innskudd</h2><p>Ford Transit Connect TDCi L2 Trend er en effektiv og praktisk varebil skapt for bedrifter med behov for driftssikker transport og god lastekapasitet. L2-utgaven gir ekstra vareromsplass, mens manuell girkasse og økonomisk dieselmotor sørger for lave driftskostnader og god kontroll i hverdagen.</p><p>Denne modellen har en 1.5-liters Ford EcoBlue dieselmotor med 100 hestekrefter, forhjulstrekk og manuell girkasse. Den har 2 seter, 4 dører, skyvedører på begge sider og god tilgjengelighet til varerommet. Bilen leveres med praktisk utstyr som oppvarmet frontrute, LED kjørelys, parkeringssensorer bak og moderne infotainment med 10&quot; skjerm og trådløs tilkobling. Tilhengerfeste er inkludert som ekstrautstyr, med hengervekt opptil 1 400 kg.</p>"
+equipment: "<p>Tilhengerfeste L2 – lang utgave</p><p>4 dører og 2 seter</p><p>Nyttelast opp mot 800 kg</p><p>Skyvedør på begge sider</p><p>Vindu i høyre skyvedør og bakdør med spyler og visker</p><p>10&quot; berøringsskjerm med SYNC 4</p><p>Trådløs Apple CarPlay og Android Auto</p><p>Parkeringssensorer bak</p><p>Oppvarmet frontrute og oppvarmede seter</p><p>LED kjørelys og automatisk fjernlys</p>"
+modeldescription: "TDCI L2 Trend"
+price0: "4483"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/fe235e99f39e4f371e84ced6ad90abc336314527-850x450.jpg"
+fuel: "Fossilt"
+gear: "Manuell"
+drive: "Forhjulsdrift"
+range: ""
+capacity: "3.7"
+performance: "100"
+doors: ""
+seats: ""
+yearmodel: "2025"
+color: ""
+interest: "Fast"
+towbar: true
+layout: "single"
+---

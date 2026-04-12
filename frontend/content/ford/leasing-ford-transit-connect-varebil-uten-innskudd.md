@@ -1,0 +1,22 @@
+---
+title: "Transit Connect "
+brand: "Ford"
+descriptionHtml: "<h2>Leasing av Ford Transit Connect L2 Trend AWD som firmabil uten innskudd – Automedia AS</h2><p>Ford Transit Connect L2 Trend AWD er en ny og moderne varebil i kompaktklassen som kombinerer høy komfort, avanserte førerstøttesystemer og smarte praktiske løsninger. Med lang akselavstand (L2) og firehjulstrekk (AWD) er denne modellen et perfekt valg for bedrifter som trenger fleksibilitet, god fremkommelighet og god plass.</p><p>Ford Transit Connect L2 Trend AWD er utstyrt med en 2,0-liters EcoBlue dieselmotor som yter 122 hestekrefter. Varebilen har 4 dører, 2 seter, og et lastevolum på opptil 3,7 m³. Den kan leveres med tilhengerfeste og har da en maksimal hengervekt på 1 500 kg. Nyttelasten er inntil 770 kg. Denne annonserte modellen har i tillegg fabrikkmontert ekstrautstyr som skyvedør på begge sider, vindu i høyre skyvedør, vindu bak med visker og spyler samt fastmontert tilhengerfeste.</p>"
+equipment: "<p>8,25&quot; berøringsskjerm med Ford SYNC 4 infotainmentsystem</p><p>Apple CarPlay og Android Auto for enkel smarttelefontilkobling</p><p>Oppvarmet frontrute for bedre sikt på kalde dager</p><p>Parkeringssensorer foran og bak for trygg manøvrering</p><p>Adaptiv cruisekontroll og skiltgjenkjenning</p><p>Filholderassistent og automatisk nødbrems</p><p>LED hovedlys med automatiske fjernlys</p><p>Elektriske vindusheiser og nøkkelfri start</p><p>Skyvedører på begge sider, vindu i høyre skyvedør</p><p>Vindu bak med visker og spyler</p><p>Tilhengerfeste med hengervekt opptil 1 500 kg</p>"
+modeldescription: "2.0 ECOBLUE L2 TREND"
+price0: "5330"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/2e7fbdbfa43615c411753ea156b4433fcc2b0a1c-850x450.jpg"
+fuel: "Fossilt"
+gear: "Manuell"
+drive: "AWD"
+range: ""
+capacity: "3.7"
+performance: "122"
+doors: "4"
+seats: "2"
+yearmodel: "2025"
+color: ""
+interest: "Fast"
+towbar: true
+layout: "single"
+---

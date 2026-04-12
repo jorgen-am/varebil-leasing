@@ -1,0 +1,22 @@
+---
+title: "Transit Connect "
+brand: "Ford"
+descriptionHtml: "<h2>Ford Transit Connect leasing varebil uten innskudd</h2><p>Ford Transit Connect 1.5 TDCi Proff L1 Automat er en kompakt og pålitelig varebil, ideell for bedrifter som trenger en effektiv transportløsning i både by- og landeveismiljøer. Med moderne teknologi og praktiske funksjoner er denne modellen designet for å gjøre arbeidsdagen mer produktiv.</p><h3>Hvorfor velge Ford Transit Connect 1.5 TDCi Proff L1 Automat som firmabil?</h3><ul><li>Motor: 1,5-liters TDCi dieselmotor med 120 hk og 270 Nm dreiemoment</li><li>Girkasse: 8-trinns automatgir for jevn og responsiv kjøring</li><li>Drivstofforbruk (WLTP): Kombinert 5,1 l/100 km</li><li>CO₂-utslipp (WLTP): 134 g/km</li><li>Lastevolum: Opptil 3.1 m³</li><li>Nyttelast: Opptil 982 kg</li><li>Maksimal lastelengde: 2 152 mm (3 400 mm med foldbar skillevegg)</li><li>Tilhengervekt: Opptil 1 200 kg</li><li>Seter og dører: 2 seter og 4 dører</li><li>Komfort: Oppvarmede seter, ergonomisk førermiljø og Ford SYNC 3 infotainmentsystem med 6&quot; berøringsskjerm</li><li>Sikkerhet: Kollisjonsvarsler, filholderassistent og ryggekamera</li></ul>"
+equipment: "<p>Oppvarmede seter og ergonomisk førermiljø</p><p>Ford SYNC 3 infotainmentsystem med 6&quot; berøringsskjerm, DAB+ radio og Bluetooth</p><p>Kollisjonsvarsler, filholderassistent og ryggekamera</p><p>Tåkelys foran og 16&quot; stålfelger for et moderne utseende</p><p>‍</p>"
+modeldescription: "1.5T DCI Proff L1"
+price0: "0"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/605b3489a0010ac50f29c66cc6d73540eb9e0df6-850x450.jpg"
+fuel: "Fossilt"
+gear: "Automat"
+drive: "Forhjulsdrift"
+range: ""
+capacity: "3.1"
+performance: "100"
+doors: "4"
+seats: "2"
+yearmodel: "2025"
+color: ""
+interest: ""
+towbar: false
+layout: "single"
+---

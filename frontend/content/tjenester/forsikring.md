@@ -1,0 +1,11 @@
+---
+title: "Forsikring - kanskje markedets beste på leasing"
+image: "[object Object]"
+alt: "Leaser du bil gjennom Automedia så har du anledning til å tegne forsikring i Gjensidige sin svært fordelaktige flåteforsikring."
+email: "jorgen@automedia.as"
+salesman: "Jørgen"
+metatitle: "Releasing - videreformidling av leasingavtale"
+metadescription: "Leaser du bil gjennom Automedia så har du anledning til å tegne forsikring i vår svært fordelaktige privatforsikring, eller i vår flåteforsikring."
+bodyHtml: "<h2>Forsikring av leasingbil gjennom Automedia AS</h2><p>Hos oss får du anledning til å tegne en svært fordelaktig forsikring via våre forsikringspartnere. Vi kan levere enten flåteforsikring via leasingselskapet, eller privatforsikring gjennom våre partnere.</p><p>‍</p><p>Gjennom å ha flere tilbydere med forskjellige egenskaper, så kan vi sikre at du som forbruker få de mest riktige alternativene for akkurat ditt bilhold.</p><p>‍</p><p>Derfor vil vi alltid kunne formidle forsikringer som er svært konkurransedyktige på pris.</p><p>‍</p><p>‍</p><h3>Fordeler oppsummert</h3><ul><li><strong>De laveste prisene*</strong><br/>Det spiller ingen rolle hvilken bil du leaser. Ettersom vi kan levere både forsikring til fast og variabel pris, så vil du alltid kunne få den mest fordelaktige avtalen tilgjengelig.<br/>‍</li><li><strong>Velg å la forsikringen ikke stå på deg</strong><br/>Når forsikringen står på leasingselskapet, så mister du ikke opparbeidet bonus på din private forsikring selv om bilen blir skadet.<br/>‍</li><li><strong>Eller ta den privat og få avtalen rimelig*</strong><br/>Har du full bonus og ryddig historikk så vil vi kunne formidle lavere priser på de aller fleste biler på markedet.<br/>‍</li><li><strong>Trafikkforsikringsavgiften inkludert.</strong><br/>Trafikkforsikringsavgiften / TFA er kommer gjerne som ekstra post på din forsikringsregning. I stedet for å måtte ta denne store regningen, spre den heller ut over alle årets måneder sammen med den vanlige forsikringen. Da blir den så liten at den *nesten* forsvinner.</li></ul><p><br/><em>* Enkelte modeller har avvik. Dette gjelder biler i øverste prisklasse og på spesielt høy kilometer</em></p><p><br/>Under kan du lese en mer utfyllende spesfikasjon av hver de enkelte forsikringene:</p>"
+layout: "single"
+---

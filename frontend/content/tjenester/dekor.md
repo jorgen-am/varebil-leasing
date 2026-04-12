@@ -1,0 +1,11 @@
+---
+title: "Reklame / dekor på din firmabil"
+image: "[object Object]"
+alt: "Lease firmabil av Automedia AS, og hent den fiks ferdig med deres reklame montert - vi baker dekorkostnaden inn i månedsleien"
+email: "jorgen@automedia.as"
+salesman: "Mattias"
+metatitle: "Reklame på bil - synlighet som ikke kan swipes vekk"
+metadescription: "Lease firmabil av Automedia AS, og hent den fiks ferdig med deres reklame montert - vi baker dekorkostnaden inn i månedsleien"
+bodyHtml: "<h2>Bildekor synes i trafikken - hver dag - alltid</h2><p>Å annonsere for ditt firma på bilen kan være en effektiv og kostnadseffektiv måte å markedsføre deg på.</p><p>Bilen din er i konstant bevegelse og blir derfor sett av mange mennesker hver dag, noe som gir en utmerket mulighet til å vise frem bedriftens navn, logo og kontaktinformasjon.</p><p>Vi tilbyr alt fra design og dekor til montering av reklame på bilen din. Vårt team av erfarne designere og montører vil sørge for at din bilreklame er profesjonell, iøynefallende og av høy kvalitet.</p><p>‍</p><h3>Bruk den gratis reklameplassen din firmabil tilbyr for å tiltrekke deg nye potensielle kunder</h3><p>En firmabil kan være en utmerket måte å markedsføre virksomheten din på og tiltrekke seg nye potensielle kunder.</p><p>En firmabil er en konstant synlig og mobilt reklameplattform som kan nå ut til et bredt publikum på veien.</p><p>Her er noen måter du kan bruke den gratis reklameplassen din firmabil tilbyr for å markedsføre virksomheten din.</p><p>‍</p><h3>Full service</h3><p>Vi tar oss av alt det praktiske med dekorering av bilen, slik at du kan fokusere på din virksomhet. Samtidig vil du bli overrasket over hvor rimelig det er å reklamere på våre nye biler. Vi har ingen store oppstartskostnader, og den ekstra kostnaden per måned er minimal.</p><p>Når du sender inn en forespørsel til oss, vil vi ta kontakt og svare på alle dine spørsmål.</p><p>‍</p><p><strong>Ønsker du å snakke med meg om dekor på firmabil?</strong></p><p><strong>Fyll ut skjema under, eller ring på 966 44 001.</strong></p>"
+layout: "single"
+---

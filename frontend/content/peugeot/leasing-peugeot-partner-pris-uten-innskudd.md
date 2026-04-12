@@ -1,0 +1,22 @@
+---
+title: "Partner "
+brand: "Peugeot"
+descriptionHtml: "<h2>Peugeot Partner 1.5 BlueHDi 130 hk L1 Mester Automat varebil leasing uten innskudd</h2><p>Peugeot Partner L1 Mester Automat er en moderne og effektiv varebil utviklet for profesjonell bruk. Med 130 hk dieselmotor, automatgir og høy komfort passer denne modellen godt for håndverkere, servicebedrifter og virksomheter som trenger en driftssikker arbeidsbil i hverdagen.</p><h3>Utstyrsnivå / Mester</h3><p>Mester-utgaven leveres med et omfattende standardutstyr som gir en funksjonell og komfortabel arbeidsplass bak rattet. Adaptiv cruisekontroll med Stop&amp;Go, parkeringssensorer foran og bak samt ryggekamera bidrar til trygg og effektiv kjøring. Webasto parkeringsvarmer, oppvarmet ratt og varme i seter og frontrute gjør bilen godt tilpasset norske forhold.</p><p>Digitalt instrumentpanel og Peugeot i-Connect Advanced med 10&quot; berøringsskjerm gir enkel tilgang til navigasjon, kommunikasjon og infotainment. ModuWork passasjerbenk gir fleksibel løsning for både passasjer og last.</p><h3>Lasterom, kapasitet og fleksibilitet</h3><p>Partner L1 har et praktisk varerom med skillevegg med vindu, to skyvedører og sidehengslede bakdører. Med <strong>kledning på vegger og gulv</strong> samt <strong>hengerfeste</strong> er bilen klar for krevende oppdrag fra første dag. 230V-uttak og LED-belysning i varerommet gjør arbeidshverdagen mer effektiv.</p><p>Kompakt lengde kombinert med høy lastekapasitet gjør bilen godt egnet både i bytrafikk og på større arbeidsplasser.</p><h3>Varebil med forutsigbar løsning</h3><p>Peugeot Partner kan leveres som leasing uten innskudd med forutsigbare rammer. 5 års nybilgaranti / 200 000 km gir ekstra trygghet, samtidig som virksomheten får en moderne og kostnadseffektiv varebil uten kapitalbinding.</p>"
+equipment: "<p>Hengerfeste</p><p>Kledning vegger i varerom</p><p>Kledning gulv i varerom</p><p>Parkeringssensorer foran, bak og på siden</p><p>Surround rear vision ryggekamera</p><p>Sidelollisjonsputer foran og gardin</p><p>Frontkollisjonspute for fører og passasjer</p><p>Dekktrykksvarsling</p><p>Håndbrems, elektrisk</p><p>Skapbelysning og automatisk tenning av kjørelys</p><p>Automatisk nødbrems med radar og kamera</p><p>Døvvinkelovervåker</p><p>Filskiftevarsling</p><p>Fjernlysassistent</p><p>Skiltgjenkjenning med tretthetsvarsel</p><p>ESP elektronisk stabilitetskontroll</p><p>Elektriske innfellbare og oppvarmede speil</p><p>Adaptiv cruisekontroll Stop&amp;Go</p><p>Lane Positioning Assist</p><p>Cruise control med hastighetsbegrenser</p><p>Understellsbehandling</p><p>Digitalt instrumentpanel</p><p>Peugeot i-Connect Advanced</p><p>Multimediasystem med intuitiv stemmestyring</p><p>10&quot; HD berøringsskjerm</p><p>Bluetooth handsfree og streaming</p><p>Mirror Screen med trådløs Apple CarPlay og Android Auto</p><p>Connected SOS og nødoppringning</p><p>e-Call</p><p>BSRF 4G-modul med OTA-oppdatering</p><p>Connect Plus med aktivering via MyPeugeot</p><p>Live traffic</p><p>TomTom kartverk med OTA-oppdatering</p><p>ECO LED hovedlamper</p><p>Tåkelys foran</p><p>16&quot; hjul med heldekkende kapsler</p><p>Lakkerte støtfangere og speil</p><p>Webasto parkeringsvarmer med fjernbetjening</p><p>Oppvarmet multifunksjonsratt i skinn</p><p>Varme i frontrute</p><p>Varme i fører og ytre passasjersete</p><p>Justerbare forseter</p><p>ModuWork passasjerbenk</p><p>Keyless Go</p><p>Trådløs lading</p><p>Automatisk klimaanlegg</p><p>Interiør i stoff</p><p>Skillevegg med vindu</p><p>To skyvedører med vinduer til å åpne</p><p>Sidehengslet bakdør uten vinduer</p><p>230V uttak i varerom</p><p>12V uttak i varerom</p><p>LED lys i varerom</p><p>5 års nybilgaranti / 200 000 km</p>"
+modeldescription: "1.5 BlueHDi 130 hk L1 Mester Automat"
+price0: "4890"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/3c410caad2a715b6a5d8e3b73b3727b3be16cdbf-850x450.jpg"
+fuel: "Fossilt"
+gear: "Automat"
+drive: "Forhjulsdrift"
+range: ""
+capacity: "3.3"
+performance: "130"
+doors: "4"
+seats: "3"
+yearmodel: ""
+color: ""
+interest: "Fast"
+towbar: true
+layout: "single"
+---

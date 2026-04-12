@@ -1,0 +1,61 @@
+<section class="form-container" id="interesseskjema" style="max-width: 650px; margin: 40px auto; padding: 30px; background: #ffffff; border: 1px solid #eee; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+    <h2 style="margin-top: 0;">Interessert i {{ .Title }}?</h2>
+    <p style="font-size: 0.9em; color: #666; margin-bottom: 20px;">Fyll ut skjemaet under, så kontakter vi deg med et uforpliktende tilbud på denne bilen.</p>
+    
+    <form action="https://usebasin.com/f/81664e07f373" method="POST">
+        <input type="hidden" name="side_kilde" value="{{ .Title }}">
+        <input type="hidden" name="url_kilde" value="{{ .Permalink }}">
+        <input type="hidden" name="_next" value="{{ "/takk/" | absURL }}">
+
+        <div style="margin-bottom: 20px;">
+            <label style="display: block; font-weight: bold; margin-bottom: 10px;">Velg prisalternativ:</label>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 10px; border: 1px solid #eee; border-radius: 6px;">
+                    <input type="radio" name="pris_valg" value="pris-0-innskudd" checked>
+                    <div style="display: flex; flex-direction: column;">
+                        <span style="font-weight: bold;">{{ with .Params.price0 }}</span>
+                        <span style="font-size: 0.9em; color: #555;">Fra kr {{ . }},- mnd.</span>
+                        {{ end }}
+                    </div>
+                </label>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <label style="display: block; font-weight: bold; margin-bottom: 10px;">Ønskede tilvalg:</label>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <label style="cursor: pointer;"><input type="checkbox" name="tilvalg_dekor" value="ja"> Bildekor</label>
+                <label style="cursor: pointer;"><input type="checkbox" name="tilvalg_kjorebok" value="ja"> Kjørebok digital</label>
+                <label style="cursor: pointer;"><input type="checkbox" name="tilvalg_forsikring" value="ja"> Forsikring</label>
+                <label style="cursor: pointer;"><input type="checkbox" name="tilvalg_service" value="ja"> Serviceavtale</label>
+                <label style="cursor: pointer;"><input type="checkbox" name="tilvalg_dekkhotell" value="ja"> Dekkhotell</label>
+                <label style="cursor: pointer;"><input type="checkbox" name="tilvalg_bombrikke" value="ja"> Bombrikke</label>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+            <input type="text" name="fornavn" placeholder="Fornavn *" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;">
+            <input type="text" name="etternavn" placeholder="Etternavn *" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;">
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+            <input type="tel" name="telefon" placeholder="Telefonnummer *" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;">
+            <input type="email" name="email" placeholder="E-post *" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;">
+        </div>
+
+        <input type="text" name="id_nummer" placeholder="Personnummer / Orgnummer *" required style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 6px;">
+        
+        <textarea name="melding" placeholder="Eventuelle spørsmål eller spesielle ønsker..." style="width: 100%; padding: 12px; height: 100px; border: 1px solid #ccc; border-radius: 6px; margin-bottom: 15px;"></textarea>
+
+        <div style="margin-bottom: 15px; font-size: 0.9em;">
+            <label style="cursor: pointer; display: flex; align-items: flex-start; gap: 8px;">
+                <input type="checkbox" name="godkjenn_nyhetsbrev" required style="margin-top: 4px;">
+                <span>Jeg godtar å bli kontaktet vedrørende dette tilbudet og samtykker til utsendelse av nyhetsbrev. *</span>
+            </label>
+        </div>
+
+        <button type="submit" style="width: 100%; padding: 18px; background: #000; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 1.1em; font-weight: bold; transition: background 0.3s;">
+            Send uforpliktende forespørsel
+        </button>
+    </form>
+</section>

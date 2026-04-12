@@ -1,0 +1,27 @@
+{{ define "main" }}
+<article style="max-width: 850px; margin: 0 auto; padding: 60px 20px;">
+    <header style="margin-bottom: 40px;">
+        <h1 style="font-size: 2.5em; margin-bottom: 20px;">{{ .Title }}</h1>
+        {{ if .Params.image }}
+            <img src="{{ .Params.image }}" alt="{{ .Params.alt }}" style="width: 100%; border-radius: 20px; margin-bottom: 30px;">
+        {{ end }}
+    </header>
+
+    <div class="service-content" style="line-height: 1.8; font-size: 1.1em;">
+        {{ .Params.bodyHtml | safeHTML }}
+    </div>
+    
+    {{ if .Params.salesman }}
+    <div style="margin-top: 50px; padding: 30px; background: #f9f9f9; border-radius: 15px; display: flex; align-items: center; gap: 20px;">
+        <div style="font-size: 1.5em;">👤</div>
+        <div>
+            <p style="margin: 0; color: #666; font-size: 0.9em;">Kontaktperson:</p>
+            <h4 style="margin: 5px 0;">{{ .Params.salesman }}</h4>
+            {{ if .Params.email }}
+                <a href="mailto:{{ .Params.email }}" style="color: #007bff; text-decoration: none;">{{ .Params.email }}</a>
+            {{ end }}
+        </div>
+    </div>
+    {{ end }}
+</article>
+{{ end }}

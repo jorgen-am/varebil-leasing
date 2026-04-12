@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ .Title }}</title>
+    <link rel="stylesheet" href="/css/globals.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+
+            <div class="logo">
+                <!--a href="/">{{ .Site.Data.settings.title }}</a-->
+                <a href="/">Varebil leasing</a>
+            </div>
+
+            <nav>
+                <ul class="nav-menu" style="list-style: none; display: flex; gap: 20px;">
+                    
+                    <li class="nav-item dropdown">
+                        <a href="/biler/" style="font-weight: bold;">Biler ▼</a>
+                        <ul class="dropdown-menu">
+                            {{ $exclude := slice "ansatte" "biler" "post" "review" "omtaler" "artikler" "tjenester" "kontakt-oss" "takk" }}
+                            {{ range .Site.Sections.ByTitle }}
+                                {{ if and (not (in $exclude (lower .Section))) (not (in .RelPermalink "xn--citron")) }}
+                                    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                                {{ end }}
+                            {{ end }}
+                        </ul>
+                    </li>
+            
+                    <li class="nav-item dropdown">
+                        <a href="/tjenester/" style="font-weight: bold;">Tjenester ▼</a>
+                        <ul class="dropdown-menu">
+                            {{ with .Site.GetPage "/tjenester" }}
+                                {{ range .Pages.ByTitle }}
+                                    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                                {{ end }}
+                            {{ end }}
+                        </ul>
+                    </li>
+            
+                    <li class="nav-item dropdown">
+                        <a href="/post/">Artikler ▼</a>
+                        <ul class="dropdown-menu">
+                            {{ with .Site.GetPage "/post" }}
+                                {{ range .Sections.ByTitle }}
+                                    {{ if and (not (in .Title "http")) (ne .Title "Generelt") }}
+                                        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                                    {{ end }}
+                                {{ end }}
+                            {{ end }}
+                        </ul>
+                    </li>
+            
+                    <li><a href="/omtaler/">Omtaler</a></li>
+
+                    <li class="nav-item dropdown">
+                        <a href="#" style="font-weight: bold;">Om oss ▼</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/ansatte/">Ansatte</a></li>
+                            <li><a href="/kontakt-oss/">Kontakt oss</a></li>
+                        </ul>
+                    </li>
+            
+                </ul>
+            </nav>
+            
+            <div class="contact-info">
+                <a href="tel:{{ .Site.Data.settings.phone }}">{{ .Site.Data.settings.phone }}</a>
+            </div>
+        </div>
+    </header>
+    <main>    
+    {{ block "main" . }}{{ end }}
+    </main>    
+
+    {{ partial "footer.html" . }}
+</body>
+</html>

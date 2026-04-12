@@ -1,0 +1,22 @@
+---
+title: "D-Max firmabil"
+brand: "Isuzu"
+descriptionHtml: "<h2>Isuzu D-Max Black Edition Double Cab firmabil leasing uten innskudd</h2><p>Isuzu D-Max Black Edition er en robust og driftssikker pickup utviklet for profesjonell bruk. Denne utgaven er registrert som varebil med <strong>2 seter</strong>, og passer godt for virksomheter som trenger høy fremkommelighet, solid lastekapasitet og pålitelig 4x4 i arbeidshverdagen.</p><p>Med Double Cab-karosseri, automatgir og firehjulstrekk er dette en firmabil som håndterer krevende forhold året rundt – enten det er byggeplass, anlegg, landbruk eller serviceoppdrag.</p><h3>Arbeidsbil tilpasset norske forhold</h3><p>Isuzu D-Max Black Edition leveres ferdig tilpasset norske forhold, med understellsbehandling inkludert og solide løsninger for daglig bruk. Pickupen er utstyrt med fast hengerfeste og plansprøyting, noe som gjør den godt egnet til transport av både utstyr og materialer.</p><p>Trooper Edition hardtop med vinduer på alle sider gir et lukket og anvendelig lasterom, mens bedliner og gummimatter bidrar til enkel rengjøring og slitestyrke i hverdagen. Mørke ruter frem til B-stolpe gir et røffere uttrykk og bedre komfort.</p><h3>Firmabil med forutsigbar drift</h3><p>Som firmabil gir Isuzu D-Max en løsning med høy brukerverdi og lang levetid. Leasing uten innskudd gir virksomheten en forutsigbar bilavtale uten kapitalbinding, samtidig som bilen er klar til bruk fra dag én.</p><p>Dette er et godt valg for bedrifter som trenger en ekte arbeidsbil med høy kapasitet, solid konstruksjon og dokumentert driftssikkerhet.</p>"
+equipment: "<p>Trooper Edition: Lakkert hardtop med vinduer alle sider</p><p>OL-Senteret hengerfeste</p><p>Hengerfeste, fast kule, Kontaktsett 13 pin</p><p>Understellsbehandling i Norge</p><p>Mørke ruter frem til b-stolpe</p><p>Vortex plansprøyting</p><p>Gummimatte, front sett à 2 stk</p><p>Metallic</p>"
+modeldescription: "Black Edition Double Cab 164 HK automat 4x4"
+price0: "7590"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/7ec83f62eff63aed4ce103ab79477f0403b63183-1000x500.jpg"
+fuel: "Fossilt"
+gear: "Automat"
+drive: "AWD"
+range: "263"
+capacity: ""
+performance: "164"
+doors: "4"
+seats: "2"
+yearmodel: ""
+color: "Metallic"
+interest: "Fast"
+towbar: true
+layout: "single"
+---

@@ -1,0 +1,53 @@
+{{ define "main" }}
+<section style="padding: 80px 20px; background: #fdfdfd; min-height: 80vh;">
+    <div style="max-width: 800px; margin: 0 auto;">
+        
+        <header style="text-align: center; margin-bottom: 60px;">
+            <h1 style="font-size: 2.8em; margin-bottom: 15px;">{{ .Title }}</h1>
+            <div style="color: #ffbc00; font-size: 1.4em;">★★★★★</div>
+        </header>
+
+        <div style="display: grid; gap: 40px;">
+            {{/* Siden reviews.json nå er ferdig sortert fra scriptet, bruker vi bare range */}}
+            {{ range .Site.Data.reviews }}
+            <div class="review-card" style="background: white; border: 1px solid #eee; padding: 40px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+                
+                <div style="color: #ffbc00; font-size: 1.1em; margin-bottom: 15px;">
+                    {{ if ge .rating 5 }}★★★★★{{ else if eq .rating 4 }}★★★★☆{{ else }}★★★☆☆{{ end }}
+                </div>
+
+                <p style="font-size: 1.1em; line-height: 1.6; color: #333; white-space: pre-line; margin-bottom: 25px;">
+                    "{{ .content }}"
+                </p>
+
+                {{ if .answer }}
+                <div style="background: #f8f9fa; border-left: 4px solid #007bff; padding: 20px; margin-bottom: 25px; border-radius: 0 12px 12px 0;">
+                    <strong style="display: block; margin-bottom: 5px; color: #007bff; font-size: 0.9em; text-transform: uppercase;">Svar fra Automedia</strong>
+                    <p style="margin: 0; font-size: 1em; color: #555; line-height: 1.5;">{{ .answer }}</p>
+                </div>
+                {{ end }}
+
+                <div style="display: flex; align-items: center; gap: 15px; border-top: 1px solid #f5f5f5; padding-top: 25px;">
+                    <div style="width: 40px; height: 40px; background: #eef6ff; color: #007bff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; text-transform: uppercase;">
+                        {{ if .author }}{{ substr .author 0 1 }}{{ else }}A{{ end }}
+                    </div>
+                    <div>
+                        <strong style="display: block; font-size: 1em;">{{ .author }}</strong>
+                        <span style="font-size: 0.85em; color: #888;">
+                            {{/* Vi klipper strengen manuelt for å unngå Hugo-feil */}}
+                            {{ $d := .date }}
+                            {{ if gt (len $d) 15 }}
+                                {{/* Endrer 'Wed Oct 22 2025...' til 'Oct 22 2025' */}}
+                                {{ substr $d 4 11 }}
+                            {{ else }}
+                                {{ $d }}
+                            {{ end }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}

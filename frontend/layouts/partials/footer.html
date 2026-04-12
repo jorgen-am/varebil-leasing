@@ -1,0 +1,51 @@
+<footer style="background: #222; color: white; padding: 60px 20px; margin-top: 80px;">
+    <div>
+        <h2>Følg oss</h2>
+        <behold-widget feed-id="gmGbEIJSilsSP0hszxXt"></behold-widget>
+        
+        <script>
+            (() => {
+                if (window.__beholdLoaded) return;
+                window.__beholdLoaded = true;
+                const s = document.createElement("script");
+                s.type = "module";
+                s.src = "https://w.behold.so/widget.js";
+                document.head.appendChild(s);
+            })();
+        </script>
+    </div>
+
+    <div>
+        <h2>Nyhetsbrev</h2>
+        Motta de beste tilbudene, relevant informasjon, oppdateringer om biler og lavere priser før alle andre.
+        <form>
+            <fieldset>
+                <label>Fornavn:<input type="text"></label>
+                <label>Etternavn:<input type="text"></label>
+                <label>Epost<input type="email"></label>
+                <input type="submit" data-action="submit" data-callback="onSubmit" class="newsletterfield goto-submit" value="Meld meg på!">
+            </fieldset>
+        </form>
+    </div>
+
+    <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px;">
+
+        <div>
+            <h2>Om Automedia AS</h2>
+            <p>Automedia AS gjør det enklere å lease bil – både for privatpersoner og bedrifter. Vi kombinerer leasing, markedsføring og teknologi for å gi kundene våre forutsigbare bilavtaler, tydelig kommunikasjon og gode totalopplevelser.</p>
+            <p>Gjennom Automedia får du tilgang til et bredt utvalg biler, konkurransedyktige vilkår og løsninger som er tilpasset både hverdagsbruk og profesjonelle behov.Vi leverer biler over hele Norge og legger stor vekt på personlig oppfølging, transparens og trygghet i alle ledd.</p>
+        </div>
+
+        <div class="footer-links" style="display: flex; gap: 15px; justify-content: center;">
+            {{ range .Site.Menus.footer }}
+            <a href="{{ .URL }}" style="color: #888; text-decoration: none; font-size: 0.9em;">
+                {{ .Name }}
+            </a>
+            {{ end }}
+        </div>
+
+        <div style="border-top: 1px solid #333; width: 100%; padding-top: 20px; text-align: center; color: #666; font-size: 0.85em;">
+            &copy; {{ now.Format "2006" }} Automedia AS. Alle rettigheter reservert.
+        </div>
+    </div>
+</footer>

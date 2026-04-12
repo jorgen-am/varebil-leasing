@@ -1,0 +1,22 @@
+---
+title: "ID. Buzz "
+brand: "Volkswagen"
+descriptionHtml: "<h2>VW ID. Buzz Cargo Pluss 79 kWh 340hk 4MOTION leasing varebil uten innskudd</h2><p>VW ID. Buzz Cargo Pluss 4MOTION er en elektrisk varebil for bedrifter som stiller høye krav til fremkommelighet, utstyrsnivå og helårsbruk. Med firehjulsdrift, kraftig motor og gjennomtenkte løsninger er dette en varebil som fungerer like godt i bymiljø som på krevende vinterføre.<strong>‍</strong></p><p><strong>NB! Kampanje i en begrenset periode, lavere pris og mer utstyr - ta kontakt i dag!</strong></p><h3>Automedia Edition – utstyr og tilpasning</h3><p>Denne leveransen er satt opp som Automedia Edition, med et utstyrsnivå og tilpasninger som er valgt for praktisk og effektiv bruk i arbeidshverdagen. Bilen leveres med blant annet IQ.LIGHT LED Matrix hovedlykter, Area View 360° kamera, adaptiv cruise control og Side Assist. I varerommet er bilen utstyrt med skillevegg med vindu, tregulv og LED-belysning, som gir et funksjonelt og ryddig arbeidsmiljø. Elektrisk svingbart tilhengerfeste gir ekstra fleksibilitet ved behov for tilhenger.</p><h3>Kampanje med bildekor inkludert</h3><p>I denne kampanjen leveres VW ID. Buzz Cargo varebil med bildekor inkludert i leasingavtalen. Det omfatter design, produksjon og montering, tilpasset medium mengde. Dette gir bedriften tydelig og profesjonell profilering fra første dag, uten ekstra kostnader eller separat bestilling.</p><p><a href=\"https://www.automedia.as/leasing/medium-profilering-bildekor\">Les mer om medium profilering</a></p><p>‍</p><h3>Fremkommelighet, rekkevidde og lading</h3><p>Med 4MOTION firehjulsdrift og motoreffekt på 340 hk gir ID. Buzz Cargo trygg fremdrift under varierende forhold. WLTP-rekkevidden er opptil 423 km, godt tilpasset både daglig bruk og lengre oppdrag. Hurtiglading fra 20–80 % tar rundt 30 minutter, og bilen støtter AC-lading med opptil 11 kW.</p><h3>Kapasitet og daglig bruk</h3><p>Varebilen har et vareromsvolum på ca. 3,9 m³, som gir god plass til verktøy, utstyr og materiell. Med hengerkapasitet opptil 1 800 kg er bilen også godt egnet for oppdrag som krever tilhenger. Ryggekamera og parkeringssensorer foran og bak gjør manøvrering enklere i trange omgivelser.</p><p>Leasing av varebil uten innskudd gir en oversiktlig løsning med forutsigbare kostnader og uten kapitalbinding.</p>"
+equipment: "<p>Lakkerte støtfangere</p><p>LED Lys i bakluke</p><p>Area View med Ryggekamera</p><p>Førerassistentpakke +</p><p>Parkeringsassistent +</p><p>Sidekledning varerom</p><p>Loyds gulv for biler med innredning</p><p>IQ.LIGHT LED Matrix hovedlykter</p><p>Adaptiv cruise control</p><p>Ryggekamera</p><p>Parkeringssensorer foran og bak</p><p>Area View 360° kamera</p><p>Side Assist (blindsonovervåking)</p><p>Lane Assist</p><p>Keyless Access</p><p>2-soners Climatronic</p><p>Oppvarmede forseter</p><p>Varmepumpe</p><p>Skillevegg med vindu</p><p>Tregulv i varerom</p><p>LED-belysning i varerom</p><p>Elektrisk svingbart tilhengerfeste</p>"
+modeldescription: "Cargo Pluss 79 kWh 340hk 4MOTION"
+price0: "6596"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/ecc3dbe18699ddde3b586333fe970529972fa0e7-1000x500.jpg"
+fuel: "Elektrisk"
+gear: "Automat"
+drive: "AWD"
+range: "423"
+capacity: "3.9"
+performance: "340"
+doors: "4"
+seats: "2"
+yearmodel: ""
+color: ""
+interest: "Fast"
+towbar: true
+layout: "single"
+---

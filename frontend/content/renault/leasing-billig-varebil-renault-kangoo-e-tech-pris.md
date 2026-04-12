@@ -1,0 +1,22 @@
+---
+title: "Kangoo E-Tech "
+brand: "Renault"
+descriptionHtml: "<h2>Renault Kangoo E-Tech Electric – elektrisk leasing varebil uten innskudd</h2><p>Renault Kangoo E-Tech Electric L1 Start 45 kWh er en kompakt og helelektrisk varebil som kombinerer innovativ teknologi med praktiske løsninger. Den er ideell for bedrifter som ønsker å redusere sitt miljøavtrykk uten å gå på kompromiss med funksjonalitet eller kapasitet. Med sin stillegående elektriske motor og smarte design, tilbyr Kangoo E-Tech en fremtidsrettet løsning for profesjonelle transportbehov.</p><h3>Hvorfor velge Renault Kangoo E-Tech Electric som firmabil?</h3><ul><li>Motor og ytelse: Elektrisk motor med 122 hk (90 kW) og forhjulsdrift (FWD) for jevn og responsiv kjøring</li><li>Batterikapasitet: 45 kWh for optimal energilagring</li><li>Rekkevidde: Opptil 285 km (WLTP), perfekt for daglig bruk og bykjøring</li><li>Ladetid: Hurtiglading fra 10-80 % på ca. 30 minutter med 80 kW DC-lader</li><li>Antall seter og dører: 2 seter og 4 dører for enkel tilgang og komfort</li><li>Lastevolum: 3,3 m³ med smart plassutnyttelse</li><li>Lastekapasitet: Opptil 600 kg nyttelast, ideelt for utstyr og varer</li><li>Tilhengervekt: Opptil 1 500 kg, for fleksible transportbehov</li><li>Standardutstyr (Start-nivå):<ul><li>Komfort: Manuelt klimaanlegg og oppvarmede seter for økt førerkomfort</li><li>Teknologi: Easy Link 8&quot; berøringsskjerm med Apple CarPlay og Android Auto, DAB+ radio</li><li>Sikkerhet: Aktivt nødbremsesystem, filholderassistent og parkeringssensorer bak</li><li>Praktiske løsninger: 180° bakdører og en skyvedør på høyre side for enkel lasting</li></ul></li></ul>"
+equipment: ""
+modeldescription: "Electric L1 Start 45 kWh"
+price0: "0"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/151ab794f060df378ef63702eb1c9a965be63f23-894x481.jpg"
+fuel: "Elektrisk"
+gear: "Automat"
+drive: "Forhjulsdrift"
+range: "285"
+capacity: "3.3"
+performance: "122"
+doors: "4"
+seats: "2"
+yearmodel: "2025"
+color: ""
+interest: ""
+towbar: false
+layout: "single"
+---

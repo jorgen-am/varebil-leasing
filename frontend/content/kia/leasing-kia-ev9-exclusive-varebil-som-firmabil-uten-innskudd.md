@@ -1,0 +1,22 @@
+---
+title: "EV9 firmabil"
+brand: "Kia"
+descriptionHtml: "<h2>KIA EV9 AWD Exclusive leasing varebil uten innskudd</h2><p>KIA EV9 AWD Exclusive varebil er en helelektrisk SUV med firehjulstrekk, 384 hestekrefter og en rekkevidde på opptil 505 km (WLTP). Den akselererer fra 0–100 km/t på bare 5,3 sekunder, og hurtiglader fra 10–80 % på rundt 24 minutter. EV9 byr på romslig plass og avansert teknologi, og som varebilvariant leveres den med to seter og god lastekapasitet.</p><p>Exclusive-utgaven kombinerer kraft, komfort og innovasjon. Her får du blant annet 360°-kamera, adaptiv cruise control, filholderassistent, blindsonemonitor og head-up display. I tillegg får du komfortfunksjoner som oppvarmede og ventilerte forseter, trådløs mobillading, premium lydanlegg og et stort 12,3&quot; infotainmentsystem med trådløse oppdateringer og navigasjon. Bilen leveres med tilhengerfeste og kan trekke opptil 2.500 kg.</p>"
+equipment: "<p>Panorama soltak</p><p>ambient belysning</p><p>3D-kamera med 360° visning</p><p>Oppvarmede og ventilerte seter</p><p>Blindsonekamera og filskiftassistent</p><p>Trådløs Apple CarPlay og Android Auto</p><p>12,3&quot; skjerm infotainment og klimakontroll</p><p>Avanserte OTA-oppdateringer og full tilkoblingsfunksjonalitet</p>"
+modeldescription: "Exclusive varebil"
+price0: "9689"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/058e114ba73fc5a429780000f251ecdae3197c1b-700x450.jpg"
+fuel: "Elektrisk"
+gear: "Automat"
+drive: "AWD"
+range: "512"
+capacity: ""
+performance: "384"
+doors: "5"
+seats: "3"
+yearmodel: ""
+color: ""
+interest: "Fast"
+towbar: true
+layout: "single"
+---

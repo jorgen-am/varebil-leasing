@@ -1,0 +1,22 @@
+---
+title: "Kangoo "
+brand: "Renault"
+descriptionHtml: "<h2>Renault Kangoo L2 Advance leasing varebil uten innskudd</h2><p>Renault Kangoo L2 115 hk med automatgir er en praktisk og moderne varebil som leverer både komfort og funksjonalitet for bedrifter i bevegelse. Med sin lengre L2-versjon får du ekstra lastekapasitet, kombinert med praktiske løsninger og smarte detaljer som forenkler hverdagen. Bilen er utstyrt med en drivstoffeffektiv dieselmotor (EURO 6E) og forhjulstrekk, og leveres med automatgir og 3-seters løsning i førerhuset.</p><p>Den leveres i Advance-utstyrsnivå, med nyttig standardutstyr som Easy Link 8&quot; display med Apple CarPlay/Android Auto, ryggekamera, cruise control og elektrisk innfellbare speil med varme. LED hovedlys og tåkelys gir bedre sikt, mens skinnratt og regnsensor bidrar til komfort og brukervennlighet. Bilen leveres også med tilhengerfeste, sidehengslede bakdører med 180° åpning og plastkledd vareromsgulv – ideelt for tung eller skitten last. Lastekapasiteten er på over 4,2 m³, og den tekniske tilhengervekten er opptil 1.500 kg.</p>"
+equipment: "<p>LED hovedlys</p><p>Skinnratt</p><p>Ryggekamera</p><p>LED tåkelys foran</p><p>Hill Start Assist</p><p>Tilhengerfeste (13-pins)</p><p>Parkeringssensor bak</p><p>Plastbelagt gulv i varerom</p><p>Sidehengslede bakdører 180°</p><p>Sidekledning varerom i halvhøyde</p><p>Sideairbags og gardinairbags</p><p>Cruise control og hastighetsbegrenser</p><p>Dobbelt passasjersete med oppbevaringsrom</p><p>Regnsensor og automatisk tenning av nærlys</p><p>Elektrisk justerbare og innfellbare speil med varme</p><p>Easy Link 8&quot; display med Apple CarPlay og Android Auto</p>"
+modeldescription: "Advance 7-gir automat L2"
+price0: "5539"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/fbfea00435f7765390b9448859882470ae5f6891-650x350.jpg"
+fuel: "Fossilt"
+gear: "Automat"
+drive: "Forhjulsdrift"
+range: "0"
+capacity: "3.3"
+performance: "115"
+doors: "5"
+seats: "3"
+yearmodel: ""
+color: ""
+interest: "Fast"
+towbar: true
+layout: "single"
+---

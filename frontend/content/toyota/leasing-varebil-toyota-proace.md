@@ -1,0 +1,22 @@
+---
+title: "Proace "
+brand: "Toyota"
+descriptionHtml: "<h2>Toyota Proace diesel leasing varebil uten innskudd</h2><p>Toyota Proace Comfort er en praktisk og komfortabel varebil som er skreddersydd for deg med en travel arbeidsdag. Toyota Proace leveres med avanserte og drivstoffeffektive dieselmotorer med fire ulike drivlinjer – fra 95 til 177 hk – og veltilpassede girkasser. Bilen er lettkjørt, går stille og stødig på veien, og har god komfort i forsetene – selv med tre personer.</p><p>Med Smart Cargo-løsningen får du mobilt kontor, sammenleggbart forsete og gjennomlastingsluke bak – noe som gjør bilen enda mer fleksibel og anvendelig. I tillegg kan Proace Comfort leveres med 7&quot; multimediaskjerm med navigasjon, slik at du enkelt holder deg oppdatert og navigerer effektivt i løpet av arbeidsdagen. Toyota Traction Select (TTS) gir forbedret veigrep og stabilitet på krevende underlag som snø, søle og is – noe som øker tryggheten uansett årstid.</p>"
+equipment: "<p>Smart Cargo-løsning med gjennomlastingsluke og mobilt kontor.</p><p>7&quot; multimediaskjerm med navigasjon (avhengig av utstyrsnivå).</p><p>Oppvarmede seter.</p><p>3 seter foran med komfortabel sittestilling.</p><p>Klimaanlegg.</p><p>Toyota Traction Select (TTS).</p><p>Elektriske vinduer og speil.</p><p>Cruisekontroll med fartsbegrenser.</p>"
+modeldescription: "Comfort L1"
+price0: "0"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/aea833017d92d341ee102587b83e9add8bc9884d-850x450.jpg"
+fuel: "Fossilt"
+gear: "Automat"
+drive: "Forhjulsdrift"
+range: ""
+capacity: "5.3"
+performance: "144"
+doors: ""
+seats: ""
+yearmodel: ""
+color: ""
+interest: "Fast"
+towbar: false
+layout: "single"
+---

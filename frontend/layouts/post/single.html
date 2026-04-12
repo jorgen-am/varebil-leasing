@@ -1,0 +1,15 @@
+{{ define "main" }}
+<article style="max-width: 800px; margin: 0 auto; padding: 40px 20px;">
+    <h1>{{ .Title }}</h1>
+    <p style="font-size: 1.2em; color: #555; font-style: italic; margin-top: 20px;">{{ .Params.excerpt }}</p>
+    <p style="color: #666;">{{ .Date.Format "02.01.2006" }} | {{ .Params.kategori | humanize }}</p>
+
+    {{ if .Params.bildeUrl }}
+    <img src="{{ .Params.bildeUrl }}" alt="{{ .Title }}" style="width: 100%; border-radius: 15px; margin: 20px 0;">
+    {{ end }}
+
+    <div class="post-content" style="line-height: 1.8; font-size: 1.1em; margin-top: 30px;">
+        {{ .Params.bodyHtml | safeHTML }}
+    </div>
+</article>
+{{ end }}

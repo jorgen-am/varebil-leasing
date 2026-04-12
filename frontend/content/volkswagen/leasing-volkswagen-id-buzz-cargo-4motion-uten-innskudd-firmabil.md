@@ -1,0 +1,22 @@
+---
+title: "ID. Buzz "
+brand: "Volkswagen"
+descriptionHtml: "<h2>VW ID. Buzz Cargo 79 kWh 340hk 4MOTION leasing varebil uten innskudd</h2><p>VW ID. Buzz Cargo 4MOTION er en elektrisk varebil med firehjulsdrift, utviklet for bedrifter som trenger sikker fremkommelighet, god lastekapasitet og moderne løsninger i arbeidshverdagen. Denne leveransen er satt opp med utvalgt ekstrautstyr og ombygging som gir en funksjonell og gjennomtenkt varebil.</p><h3>Kampanje med bildekor inkludert</h3><p>I denne kampanjen leveres VW ID. Buzz Cargo varebil med bildekor inkludert i leasingavtalen. Det omfatter design, produksjon og montering, tilpasset medium mengde. Dette gir bedriften en tydelig og profesjonell profilering fra første dag, uten ekstra kostnader eller separat bestilling.</p><p><a href=\"https://www.automedia.as/leasing/medium-profilering-bildekor\">Les mer om medium profilering</a></p><h3>Utstyr og tilpasning – Automedia Edition</h3><p>Denne bilen leveres med ekstrautstyr som skyvedør på venstre side, lakkerte støtfangere og elektrisk svingbart tilhengerfeste. I varerommet er bilen tilpasset med taktrekk samt enkel kledningspakke (2SK), som gir bedre beskyttelse og et mer robust arbeidsmiljø. Skillevegg mot varerom, tregulv og LED-belysning bidrar til praktisk bruk i det daglige.</p><h3>Fremkommelighet, rekkevidde og lading</h3><p>Med 4MOTION firehjulsdrift gir ID. Buzz Cargo trygg fremdrift på glatt føre og varierende underlag. WLTP-rekkevidden er opptil 428 km, godt tilpasset både bynær kjøring og lengre oppdrag. Hurtiglading fra 20–80 % tar rundt 30 minutter, og bilen støtter AC-lading med opptil 11 kW.</p><h3>Kapasitet og daglig bruk</h3><p>Varebilen har et vareromsvolum på ca. 3,9 m³, som gir god plass til verktøy, utstyr og materiell. Med hengerkapasitet opptil 1 800 kg gir bilen høy fleksibilitet også ved behov for tilhenger. Parkeringssensorer og ryggekamera gjør manøvrering enklere i trange omgivelser.</p><p>Leasing av varebil uten innskudd gir en oversiktlig løsning med forutsigbare kostnader og uten kapitalbinding.</p>"
+equipment: "<p>Bildekor inkludert i leasing (design, produksjon og montering – medium mengde) ta kontakt</p><p>Adaptiv cruise control</p><p>Parkeringssensorer foran og bak</p><p>Ryggekamera</p><p>Lane Assist</p><p>Side Assist (blindsonovervåking)</p><p>2-soners Climatronic</p><p>Oppvarmede forseter</p><p>Skillevegg mot varerom</p><p>Tregulv i varerom</p><p>LED-belysning i varerom</p><p>Skyvedør venstre side</p><p>Lak­kerte støtfangere</p><p>Elektrisk svingbart tilhengerfeste</p><p>Taktrekk i varerom</p><p>Kledningspakke i varerom (enkel, 2SK)</p>"
+modeldescription: "Cargo 79 kWh 340hk 4MOTION"
+price0: "7150"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/ecc3dbe18699ddde3b586333fe970529972fa0e7-1000x500.jpg"
+fuel: "Elektrisk"
+gear: "Automat"
+drive: "AWD"
+range: "428"
+capacity: "3.9"
+performance: "340"
+doors: "4"
+seats: "2"
+yearmodel: ""
+color: ""
+interest: "Fast"
+towbar: true
+layout: "single"
+---

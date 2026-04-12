@@ -1,0 +1,22 @@
+---
+title: "Transit Custom "
+brand: "Ford"
+descriptionHtml: "<h2>Ford Transit Custom leasing varebil uten innskudd</h2><p>Ford Transit Custom 2.0 TDCi Trend L2 er en robust og allsidig varebil, ideell for bedrifter som trenger en pålitelig transportløsning med god lastekapasitet. Med moderne teknologi og praktiske funksjoner er denne modellen designet for å gjøre arbeidsdagen mer effektiv.</p><h3>Hvorfor velge Ford Transit Custom 2.0 TDCi Trend L2 som firmabil?</h3><ul><li>Motor: 2,0-liters TDCi dieselmotor med 130 hk og 385 Nm dreiemoment</li><li>Girkasse: 6-trinns manuell girkasse for presis og responsiv kjøring</li><li>Drivstofforbruk (WLTP): Kombinert 6,5 l/100 km</li><li>CO₂-utslipp (WLTP): 171 g/km</li><li>Lastevolum: Opptil 6,8 m³</li><li>Nyttelast: Opptil 1 327 kg</li><li>Maksimal lastelengde: 3 400 mm</li><li>Tilhengervekt: Opptil 2 800 kg</li><li>Seter og dører: 3 seter og 5 dører</li><li>Komfort: Oppvarmede seter, ergonomisk førermiljø og Ford SYNC 3 infotainmentsystem med 8&quot; berøringsskjerm</li><li>Sikkerhet: Kollisjonsvarsler, filholderassistent og ryggekamera</li></ul>"
+equipment: ""
+modeldescription: "2.0TD Trend L2"
+price0: "0"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/251a86e7ab33db6cd0acf9c74b1118760c43d697-850x450.jpg"
+fuel: "Fossilt"
+gear: "Manuell"
+drive: "Forhjulsdrift"
+range: ""
+capacity: "6.8"
+performance: "130"
+doors: "5"
+seats: "3"
+yearmodel: "2025"
+color: ""
+interest: ""
+towbar: false
+layout: "single"
+---

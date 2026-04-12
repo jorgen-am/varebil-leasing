@@ -1,0 +1,22 @@
+---
+title: "Citan "
+brand: "Mercedes"
+descriptionHtml: "<h2>Leasing av Mercedes-Benz Citan uten innskudd – Automedia AS</h2><p>Mercedes-Benz Citan 112 CDI LWB er en kompakt og effektiv varebil med lang akselavstand, høy komfort og smarte løsninger. Med 5 dører, automatgir og moderne førerassistentsystemer er dette en varebil som gjør arbeidsdagen enklere – enten du kjører i byen eller på lengre oppdrag.</p><p>Denne modellen leveres med en 1,5-liters dieselmotor med 116 hk og forhjulstrekk (FWD). Med lang akselavstand (LWB) får du et lastevolum på opptil 3,8 m³ og en nyttelast på opptil 800 kg. Bilen har en tilhengervekt på opptil 1 500 kg (med brems), og leveres med både parkeringssensorer og ryggekamera som standard. Her får du en praktisk og fleksibel arbeidsbil med premiumfølelse.</p><p>Citan er utstyrt med 7&quot; berøringsskjerm, MBUX infotainmentsystem, LED hovedlys og omfattende sikkerhetsteknologi, inkludert blindsonevarsler og aktiv bremseassistent. Alt dette i en varebil med to seter og høy komfort.</p>"
+equipment: "<p>Automatgir (DCT)</p><p>Lang utgave (LWB)</p><p>Lastevolum: opptil 3,8 m³</p><p>Nyttelast: opptil 800 kg</p><p>Tilhengervekt: opptil 1 500 kg (med brems)</p><p>7&quot; berøringsskjerm med MBUX infotainmentsystem</p><p>Trådløs Apple CarPlay og Android Auto</p><p>Parkeringssensorer foran og bak</p><p>Ryggekamera</p><p>LED hovedlys med automatisk fjernlys</p><p>Blindsonevarsler og aktiv bremseassistent</p>"
+modeldescription: "5-dørs 112 CDI LWB"
+price0: "5750"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/c8d6957ee22e49fc3d7df33f375de209e9e3642d-850x450.jpg"
+fuel: "Fossilt"
+gear: "Automat"
+drive: "Forhjulsdrift"
+range: ""
+capacity: "3.1"
+performance: "116"
+doors: "5"
+seats: "2"
+yearmodel: "2025"
+color: ""
+interest: "Fast"
+towbar: true
+layout: "single"
+---

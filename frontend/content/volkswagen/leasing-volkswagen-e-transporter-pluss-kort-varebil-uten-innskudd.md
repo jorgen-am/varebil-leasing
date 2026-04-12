@@ -1,0 +1,22 @@
+---
+title: "e-Transporter "
+brand: "Volkswagen"
+descriptionHtml: "<h2>VW e-Transporter Pluss leasing varebil uten innskudd</h2><p>VW e-Transporter Pluss 210 kW (286 hk) er den helelektriske utgaven av Volkswagens legendariske varebil – nå med nullutslipp, moderne førerstøttesystemer og høy komfort. Denne modellen er utviklet for profesjonelle brukere som ønsker en kraftfull, driftssikker og fremtidsrettet løsning i arbeidshverdagen.</p><p>Bilen leveres med en elektrisk motor på 210 kW (286 hk), automatgir og fem dører med to seter. Det romslige varerommet på ca. 5,8 m³ gir god plass til utstyr og varer, mens standard tilhengerfeste med tillatt hengervekt på opptil 2 500 kg gjør den til et solid arbeidsverktøy. Med hurtiglading fra 10–80 % på rundt 40 minutter (avhengig av ladeeffekt) kombinerer e-Transporter kraft, praktiske løsninger og elektrisk mobilitet – perfekt for både bykjøring og lange oppdrag.</p>"
+equipment: "<p>Ryggekamera</p><p>LED hovedlys</p><p>LED baklamper</p><p>Setevarme foran</p><p>Stop&amp;Go-funksjon</p><p>Navigasjon og radio</p><p>Adaptiv cruisekontroll</p><p>Digital Cockpit m 13,2” skjerm</p><p>Tilhengerfeste opptil 2 500 kg</p><p>Parkeringssensorer foran og bak</p><p>Trådløs App-Connect (Apple/Android)</p><p>Front Assist og Lane Assist (Premium)</p><p>Komfort-førersete med 8-veis regulering</p><p>Multifunksjonsratt i kunstskinn med varme</p><p>Skillevegg med vindu og gjennomlastingsluke</p><p>Varmedempende sidevinduer og &quot;privacy glass&quot;</p><p>Oppvarmet frontrute med varmedempende glass</p><p>Høy sidekledning og tregulv med skinner i varerom</p><p>Dobbelt passasjersete m/oppbevaringsrom og nedfellbart bord</p>"
+modeldescription: "BEV 83KWH Pluss kort"
+price0: "9149"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/7ec6e95e12a4a6ab22345a5517ec74909f5411d9-1000x500.jpg"
+fuel: "Elektrisk"
+gear: "Automat"
+drive: "Bakhjulsdrift"
+range: "310"
+capacity: "5.8"
+performance: "260"
+doors: "5"
+seats: "3"
+yearmodel: "2025"
+color: ""
+interest: "Fast"
+towbar: true
+layout: "single"
+---

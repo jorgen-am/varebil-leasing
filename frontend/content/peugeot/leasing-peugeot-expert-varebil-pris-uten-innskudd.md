@@ -1,0 +1,22 @@
+---
+title: "Expert "
+brand: "Peugeot"
+descriptionHtml: "<h2>Peugeot Expert leasing varebil uten innskudd</h2><h3>Opplev fremtiden med Peugeot Expert som firmabil</h3><p>Peugeot Expert 2.0 145Hk L2 Auto Mester gir bedrifter en pålitelig og effektiv varebil med topp moderne teknologi og ytelse. Med firmaleasing fra Automedia AS kan din bedrift dra nytte av denne allsidige varebilen uten å bekymre seg for verditap eller store innskuddsbetalinger.</p><h3>Peugeot Expert - Høydepunkter</h3><ul><li>Motor: 2.0 BlueHDi 145 hk</li><li>Drivlinje: Forhjulsdrift</li><li>Gir: Automatgir</li><li>Lastekapasitet: Opptil 1400 kg nyttelast</li><li>Lastevolum: Opptil 5.8 m³</li><li>Lengde: 4,95 meter (L2)</li><li>Sikkerhet: Avanserte sikkerhetssystemer inkludert kollisjonsunngåelse, blindsonevarsling og adaptiv cruise control</li><li>Infotainment: 10-tommers berøringsskjerm med Peugeot i-Cockpit, Apple CarPlay og Android Auto‍</li></ul><h3>Fordeler med firmaleasing fra Automedia AS</h3><ul><li>Ingen innskudd: Start leasingperioden uten behov for store forskuddsbetalinger</li><li>Fleksible avtaler: Velg en leasingperiode som passer bedriftens behov</li><li>Gunstige priser på tilleggstjenester: Vi tilbyr konkurransedyktige priser på forsikring, service og dekkskifte som tilleggstjenester</li><li>Full service kring bildekor: Vi tilbyr design, produksjon og montering av firmareklame på bilen uten store oppstartskostnader, alt bakt inn i månedsprisen</li></ul><h3>Avanserte funksjoner for optimal kjøreopplevelse</h3><p>Peugeot Expert er utstyrt med den nyeste teknologien som gir en sømløs kjøreopplevelse for dine ansatte. Med funksjoner som Peugeot i-Cockpit, adaptiv cruise control og 180° ryggekamera, kan kjøringen tilpasses etter behov.</p><h3>Bærekraftig kjøring med stil</h3><p>Peugeot Expert er designet med fokus på både ytelse og bærekraft. Med en effektiv BlueHDi dieselmotor som gir lavere utslipp, er denne bilen ideell for bedrifter som ønsker å redusere sitt karbonavtrykk samtidig som de opprettholder høy produktivitet.</p>"
+equipment: ""
+modeldescription: "L2 Auto Mester 2.0 l"
+price0: "6564"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/d95dc9e1347f1721d67705d927943b06decba788-1000x500.jpg"
+fuel: "Fossilt"
+gear: "Automat"
+drive: "Forhjulsdrift"
+range: ""
+capacity: "5.8"
+performance: "145"
+doors: "3"
+seats: ""
+yearmodel: ""
+color: ""
+interest: "Fast"
+towbar: false
+layout: "single"
+---

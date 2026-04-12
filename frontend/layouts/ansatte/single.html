@@ -1,0 +1,27 @@
+{{ define "main" }}
+<article style="max-width: 800px; margin: 60px auto; padding: 0 20px; text-align: center;">
+    
+    {{ if .Params.image }}
+        <img src="{{ .Params.image }}" alt="{{ .Title }}" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 5px solid #eee;">
+    {{ end }}
+
+    <h1>{{ .Title }}</h1>
+    <p style="font-size: 1.2em; color: #007bff; font-weight: bold;">{{ .Params.position }}</p>
+
+    <div style="margin: 20px 0; display: flex; justify-content: center; gap: 20px;">
+        {{ if .Params.email }}
+            <a href="mailto:{{ .Params.email }}">📧 {{ .Params.email }}</a>
+        {{ end }}
+        {{ if .Params.phone }}
+            <a href="tel:{{ .Params.phone }}">📞 {{ .Params.phone }}</a>
+        {{ end }}
+    </div>
+
+    <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
+
+    <div class="employee-content" style="text-align: left; line-height: 1.8; font-size: 1.1em;">
+        {{ .Content }}
+    </div>
+
+</article>
+{{ end }}

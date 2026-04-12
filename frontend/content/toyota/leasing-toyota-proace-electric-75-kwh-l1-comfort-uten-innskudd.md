@@ -1,0 +1,22 @@
+---
+title: "Proace "
+brand: "Toyota"
+descriptionHtml: "<h2>Toyota Proace L1 Comfort leasing varebil uten innskudd</h2><p>Toyota Proace varebil i L1 Comfort-utgave er et solid valg for bedrifter som trenger en romslig og driftssikker elektrisk varebil til daglig bruk. Modellen er godt egnet for service, håndverk og distribusjon, med løsninger som gjør arbeidsdagen effektiv og forutsigbar.</p><h3>Kampanje med bildekor inkludert</h3><p>I denne kampanjen leveres Toyota Proace varebil med bildekor inkludert i leasingavtalen. Dette omfatter design, produksjon og montering, tilpasset medium mengde. Kampanjen gir bedriften profesjonell profilering fra første dag, uten ekstra kostnader eller separat bestilling.</p><p><a href=\"https://www.automedia.as/leasing/medium-profilering-bildekor\">Les mer om medium profilering</a></p><h3>Praktiske løsninger for arbeidsdagen</h3><p>Toyota Proace Electric har en WLTP-rekkevidde på opptil 347 km, godt tilpasset daglig bruk i urbane og regionale kjøremønstre. Varebilen leveres med funksjonelt utstyr som hengerfeste samt gulv og kledning i varerom. Skillevegg mot varerom, skyvedører på begge sider og LED-belysning i varerom gjør lasting og bruk enklere. Parkeringssensorer bak og ryggekamera bidrar til trygg manøvrering i hverdagen.</p><p>Leasing av varebil uten innskudd gir en oversiktlig løsning med forutsigbare kostnader og uten kapitalbinding.</p>"
+equipment: "<p>Bildekor inkludert i leasing (design, produksjon og montering – medium mengde) ta kontakt</p><p>Hengerfeste</p><p>Gulv i varerom</p><p>Kledning i varerom</p><p>LED belysning i varerom</p><p>Skillevegg mot varerom</p><p>Skyvedører på begge sider</p><p>Parkeringssensorer bak</p><p>Ryggekamera</p><p>Adaptiv cruise control</p><p>Automatisk klimaanlegg</p><p>Oppvarmede forseter</p><p>Elektrisk håndbrems</p>"
+modeldescription: "75 kWh L1 Comfort"
+price0: "6144"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/5cea8a83aa3043d5aaa7acd17992c696092d040f-1000x500.jpg"
+fuel: "Elektrisk"
+gear: ""
+drive: "Forhjulsdrift"
+range: "347"
+capacity: "4.6"
+performance: "136"
+doors: "5"
+seats: "2"
+yearmodel: ""
+color: ""
+interest: "Fast"
+towbar: true
+layout: "single"
+---

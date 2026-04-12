@@ -1,0 +1,75 @@
+{{ define "main" }}
+    <main style="max-width: 1000px; margin: 0 auto; padding: 20px;">
+        {{ if .Params.mainImageUrl }}
+            <img src="{{ .Params.mainImageUrl }}" alt="{{ .Title }}" style="width: 100%; border-radius: 12px; margin-bottom: 20px;">
+        {{ end }}
+        
+        <h1>
+            {{ .Title }} 
+            {{ with .Params.price0 }} fra kr {{ . }},- pr mnd{{ end }}
+        </h1>
+        
+        <div class="specs-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px;">
+            {{ with .Params.fuel }}<div class="spec-item"><strong>Drivstoff:</strong> {{ . }}</div>{{ end }}
+            {{ with .Params.gear }}<div class="spec-item"><strong>Girkasse:</strong> {{ . }}</div>{{ end }}
+            {{ with .Params.drive }}<div class="spec-item"><strong>Hjuldrift:</strong> {{ . }}</div>{{ end }}
+            {{ with .Params.range }}<div class="spec-item"><strong>Rekkevidde:</strong> {{ . }}</div>{{ end }}
+            {{ with .Params.capacity }}<div class="spec-item"><strong>Lasterom:</strong> {{ . }}</div>{{ end }}
+            {{ with .Params.performance }}<div class="spec-item"><strong>Ytelse:</strong> {{ . }}</div>{{ end }}
+            {{ with .Params.doors }}<div class="spec-item"><strong>Antall dører:</strong> {{ . }}</div>{{ end }}
+            {{ with .Params.seats }}<div class="spec-item"><strong>Seter:</strong> {{ . }}</div>{{ end }}
+            {{ with .Params.yearmodel }}<div class="spec-item"><strong>Årsmodell:</strong> {{ . }}</div>{{ end }}
+            {{ with .Params.color }}<div class="spec-item"><strong>Farge:</strong> {{ . }}</div>{{ end }}
+            {{ with .Params.interest }}<div class="spec-item"><strong>Rente:</strong> {{ . }}</div>{{ end }}
+            
+            {{/* Spesialhåndtering for TRUE/FALSE feltet towbar */}}
+            {{ if isset .Params "towbar" }}
+                <div class="spec-item">
+                    <strong>Tilhengerfeste:</strong> {{ if .Params.towbar }}Ja{{ else }}Nei{{ end }}
+                </div>
+            {{ end }}
+        </div>
+
+        {{/* Skjema */}}
+        {{ partial "skjema-interessent.html" . }}
+
+        <section class="description" style="margin: 40px 0; line-height: 1.6;">
+            {{ .Params.descriptionHtml | safeHTML }}
+        </section>
+
+        {{/* Utstyrsliste */}}
+        {{ if .Params.equipment }}
+        <div class="equipment-list" style="margin-bottom: 40px;">
+            <h2>Inkludert utstyr:</h2>
+            <div style="column-count: 2; column-gap: 40px;">
+                {{ .Params.equipment | safeHTML }}
+            </div>
+        </div>
+        {{ end }}
+
+        <section style="background: #eef6ff; padding: 30px; border-radius: 8px; margin-bottom: 40px;">
+            <h2>Hvorfor velge Varebil Leasing?</h2>
+            <p>Vi tilbyr rask levering, gunstige betingelser og personlig oppfølging gjennom hele leasingperioden.</p>
+        </section>
+
+        <section class="employees" style="margin-top: 50px;">
+            <h2>Snakk med en av våre rådgivere</h2>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                {{ range .Site.Data.employees }}
+                <div class="employee-card" style="border: 1px solid #eee; padding: 20px; border-radius: 10px; text-align: center; width: 250px; background: white;">
+                    {{ if .bildeUrl }}
+                        <img src="{{ .bildeUrl }}" alt="{{ .title }}" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 10px;">
+                    {{ else }}
+                        <div style="width: 120px; height: 120px; border-radius: 50%; background: #ddd; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center;">👤</div>
+                    {{ end }}
+                    <h3 style="margin: 10px 0 5px 0; font-size: 1.2em;">{{ .title }}</h3>
+                    {{ if .tagtwo }}
+                        <p style="margin: 5px 0;"><a href="mailto:{{ .tagtwo }}" style="color: #007bff; text-decoration: none;">{{ .tagtwo }}</a></p>
+                    {{ end }}
+                </div>
+                {{ end }}
+            </div>
+        </section>
+
+    </main>
+{{ end }}

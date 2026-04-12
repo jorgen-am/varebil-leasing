@@ -1,0 +1,22 @@
+---
+title: "e-Partner "
+brand: "Peugeot"
+descriptionHtml: "<h2>Peugeot E-Partner BEV 50 kWh L2 Mester leasing varebil uten innskudd</h2><p>Peugeot E-Partner BEV 50 kWh L2 Mester er en helelektrisk varebil med 4 dører, 3 seter foran og et praktisk varerom på opptil 4,4 m³. Med en elektrisk rekkevidde på opptil 343 km (WLTP) og hurtiglading fra 20–80 % på ca. 30 minutter, er dette et effektivt valg for bedrifter som trenger en driftssikker og utslippsfri arbeidsbil.</p><p>Bilen leveres med en nyttelast på opptil 728 kg og kan utstyres med hengerfeste som gir økt fleksibilitet. Forhjulsdrift gir gode kjøreegenskaper året rundt, og 11 kW AC-lading sørger for effektiv lading i hverdagen. Vareromskledning gulv og vegg bidrar til lengre levetid og bedre beskyttelse under tøff bruk.</p><h3>Skreddersydde leasingløsninger for bedrifter</h3>"
+equipment: "<p>Vareromskledning gulv og vegg</p><p>Hengerfeste fast kule</p><p>AC-lading 11 kW</p><p>Nyttelast opptil 728 kg</p><p>Skyvedører på begge sider</p><p>3 seter foran</p>"
+modeldescription: "BEV 50 kWh L2 Mester"
+price0: "4990"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/4b9e177da7b524a4f17b234c89b14816a2247ae0-1000x500.jpg"
+fuel: "Elektrisk"
+gear: "Automat"
+drive: "Forhjulsdrift"
+range: "343"
+capacity: "4.4"
+performance: "136"
+doors: "3"
+seats: "3"
+yearmodel: ""
+color: ""
+interest: "Fast"
+towbar: true
+layout: "single"
+---

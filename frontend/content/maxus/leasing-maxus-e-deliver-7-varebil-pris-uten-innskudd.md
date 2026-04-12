@@ -1,0 +1,22 @@
+---
+title: "E-Deliver 7 "
+brand: "Maxus"
+descriptionHtml: "<h2>Maxus E-Deliver 7 leasing varebil uten innskudd</h2><p>Maxus E-Deliver 7 BEV 88kWh L2H1 er en helelektrisk varebil designet for bedrifter som trenger stor plass, pålitelig ytelse og miljøvennlig drift. Med fire dører, to seter og en lastekapasitet som dekker de fleste transportbehov, tilbyr E-Deliver 7 både effektivitet og komfort. Varebilen har en kraftig elektrisk motor med 204 hk og forhjulsdrift (FWD), som gjør den stabil og godt egnet for bykjøring og lengre turer.</p><h3>Gjør din bedrift grønnere med Maxus E-Deliver 7 – klar for rask levering!</h3><h3>Hvorfor velge Maxus E-Deliver 7 som firmabil?</h3><ul><li>Motor: Elektrisk med 204 hk, forhjulsdrift (FWD)</li><li>Rekkevidde: Opptil 363 km (WLTP), ideelt for daglig bruk</li><li>Lading: Hurtiglading fra 20-80 % på ca. 45 minutter</li><li>Antall seter og dører: 2 seter og 4 dører for enkel tilgang og god plass</li><li>Lastekapasitet: Imponerende nyttelastkapasitet på over 1 tonn, perfekt for transport</li><li>Lastevolum: Ca. 6,9 m³, tilpasset bedriftens behov for stor vareplass</li><li>Komfort: Oppvarmede seter, moderne førermiljø med digital skjerm, og skyvedører på begge sider</li><li>Sikkerhet: Kollisjonsvarsler, filholderassistent og ryggekamera</li><li>Klimapakke: Inkludert oppvarmede speil og vinduer, tilpasset nordiske forhold</li><li>Tilhengerfeste: Tilgjengelig som ekstrautstyr</li></ul><p>Maxus E-Deliver 7 tilbyr et intuitivt infotainmentsystem med Apple CarPlay og Android Auto, som gjør arbeidsdagen mer effektiv og praktisk. Med høy takhøyde og stor lasteplass er dette en optimal varebil for bedrifter som ønsker både plass og bærekraft.</p>"
+equipment: "<p>Understellsbehandlet i Norge - Tectyl er inklusive i prisen.</p>"
+modeldescription: "L2 H1 88 kWh 6,9 M3"
+price0: "0"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/29ee90cbb837803bbb5c719f62c7f530635c5fbe-1000x500.jpg"
+fuel: "Elektrisk"
+gear: "Automat"
+drive: "Bakhjulsdrift"
+range: "363"
+capacity: "6.9"
+performance: "204"
+doors: "4"
+seats: "3"
+yearmodel: ""
+color: ""
+interest: "Fast"
+towbar: false
+layout: "single"
+---
