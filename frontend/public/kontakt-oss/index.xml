@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kontakt oss on Varebil leasing</title>
-    <link>http://localhost:1313/kontakt-oss/</link>
+    <link>http://localhost:1316/kontakt-oss/</link>
     <description>Recent content in Kontakt oss on Varebil leasing</description>
     <generator>Hugo</generator>
     <language>nb-no</language>
-    <atom:link href="http://localhost:1313/kontakt-oss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1316/kontakt-oss/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

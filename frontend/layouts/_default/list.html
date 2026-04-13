@@ -1,13 +1,11 @@
 {{ define "main" }}
 <section style="padding: 50px 20px; max-width: 1200px; margin: 0 auto;">
     <h1 style="text-align: center; margin-bottom: 40px;">{{ .Title }}</h1>
-    {{/* Logikk for å velge hvilke sider som skal vises */}}
     {{ $displayPages := .Pages }}
     {{ if or (eq .RelPermalink "/biler/") (.IsHome) }}
-        {{/* Henter alle biler på tvers av alle merke-mapper */}}
-        {{ $displayPages = where (where .Site.RegularPages "Section" "!=" "ansatte") "Params.layout" "==" "single" }}
+        {{/* Henter alle sider fra hele nettstedet som har feltet 'brand' definert */}}
+        {{ $displayPages = where .Site.RegularPages "Params.brand" "!=" nil }}
     {{ end }}
-
     <h2 style="text-align: center; color: #666; font-size: 1.2em; font-weight: normal; margin-bottom: 40px;">
         Våre biler ({{ len $displayPages }} funnet)
     </h2>
