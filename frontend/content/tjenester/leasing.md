@@ -1,6 +1,6 @@
 ---
 title: "Leasing av bil – Hva du bør vite"
-image: "[object Object]"
+image: "https://cdn.sanity.io/images/1lzskaub/production/60dac5ddd06ca0344471ab04ff8c7c456f460163-704x473.jpg"
 alt: "Ønsker du å gå ut av leasingavtalen før tiden? Med releasing hjelper vi deg gjøre det billigere, raskere, enkelt og helt trygt."
 email: "post@automedia.as"
 salesman: "Mattias"

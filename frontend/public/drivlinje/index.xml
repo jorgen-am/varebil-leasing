@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Drivlinje on Varebil leasing</title>
-    <link>http://localhost:1316/varebil-leasing/drivlinje/</link>
+    <link>http://localhost:1316/drivlinje/</link>
     <description>Recent content in Drivlinje on Varebil leasing</description>
     <generator>Hugo</generator>
     <language>nb-no</language>
-    <atom:link href="http://localhost:1316/varebil-leasing/drivlinje/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1316/drivlinje/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Elektrisk</title>
-      <link>http://localhost:1316/varebil-leasing/drivlinje/elektrisk/</link>
+      <link>http://localhost:1316/drivlinje/elektrisk/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/varebil-leasing/drivlinje/elektrisk/</guid>
+      <guid>http://localhost:1316/drivlinje/elektrisk/</guid>
       <description></description>
     </item>
     <item>
       <title>Fossilt</title>
-      <link>http://localhost:1316/varebil-leasing/drivlinje/fossilt/</link>
+      <link>http://localhost:1316/drivlinje/fossilt/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/varebil-leasing/drivlinje/fossilt/</guid>
+      <guid>http://localhost:1316/drivlinje/fossilt/</guid>
       <description></description>
     </item>
   </channel>

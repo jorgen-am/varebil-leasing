@@ -870,15 +870,15 @@
   {
     "_createdAt": "2026-04-03T12:17:50Z",
     "_id": "post-mattias-spangberg",
-    "_rev": "vJDRc1F66PgHR585XRyVf6",
+    "_rev": "BsycCMsYX1ZJdBHTaqCTta",
     "_system": {
       "base": {
         "id": "post-mattias-spangberg",
-        "rev": "Bnp4WdBBve7ifvDpXO2WoG"
+        "rev": "vJDRc1F66PgHR585XRyVf6"
       }
     },
     "_type": "post",
-    "_updatedAt": "2026-04-11T11:13:26Z",
+    "_updatedAt": "2026-04-13T07:12:04Z",
     "alt": "Mattias Spångberg portrett ute",
     "bildeUrl": "https://cdn.sanity.io/images/1lzskaub/production/38f713cdd127059d3eb8d5b965ad87ab42ace67c-319x319.jpg",
     "body": [
@@ -956,7 +956,7 @@
     "campaignlink": "Daglig leder / Gründer",
     "category": "ansatt",
     "ctatext": "https://www.instagram.com/mattias_spangberg/",
-    "excerpt": "Jeg startet Automedia AS i 2009 med noen få bilmerker og en tydelig ambisjon om å tilby en mer uavhengig og transparent bilformidling.",
+    "excerpt": "Jeg startet Automedia AS i 2009 med noen få bilmerker og en tydelig ambisjon om å tilby en mer uavhengig og transparent bilformidling",
     "kategoriNavn": "ansatt",
     "landing": false,
     "mainImage": {

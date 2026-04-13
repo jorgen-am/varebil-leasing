@@ -249,7 +249,10 @@ ${blocksToText(kat.body)}`;
     }
 
     // Hent tjenester fra data-objektet (Sørg for at "tjenester": *[_type == "service"] er med i fetch-spørringen din øverst)
-    const tjenester = await client.fetch(`*[_type == "service"]`);
+    const tjenester = await client.fetch(`*[_type == "service"] {
+      ...,
+      "image": image.asset->url
+    }`);
 
     tjenester.forEach(service => {
       const slug = service.slug?.current || service.title.toLowerCase().replace(/\s+/g, '-');

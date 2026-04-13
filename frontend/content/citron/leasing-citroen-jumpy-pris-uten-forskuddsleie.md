@@ -1,0 +1,22 @@
+---
+title: "Jumpy "
+brand: "Citroën"
+descriptionHtml: "<h2>Citroën Jumpy L2 leasing varebil uten innskudd</h2><p>Citroën Jumpy L2 er en fleksibel varebil som kombinerer moderne design med praktiske løsninger, ideell for bedrifter som trenger en pålitelig transportløsning i både urbane og regionale områder.</p><h3>Hvorfor velge Citroën Jumpy L2 som firmabil?</h3><ul><li>Motor: 2,0-liters BlueHDi dieselmotor med 145 hk</li><li>Girkasse: 6-trinns manuell girkasse for presis kjøring</li><li>Drivstofforbruk (WLTP): Kombinert 7,3 l/100 km</li><li>CO₂-utslipp (WLTP): 192 g/km</li><li>Lastevolum: 5,3–5,8 m³</li><li>Nyttelast: Opptil 1 200 kg</li><li>Maksimal lastelengde: 2 390 mm (3 674 mm med Moduwork-system)</li><li>Tilhengervekt: Opptil 2 500 kg</li><li>Seter og dører: 3 seter og 4 dører</li><li>Komfort: Ergonomiske seter og moderne infotainmentsystem</li><li>Sikkerhet: Avanserte førerassistentsystemer som filskiftevarsling og skiltgjenkjenning</li></ul>"
+equipment: ""
+modeldescription: "L2"
+price0: "0"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/67eb0fea8e79ed5f61187e5092606ef60d900cca-950x450.jpg"
+fuel: "Fossilt"
+gear: "Automat"
+drive: "Forhjulsdrift"
+range: "0"
+capacity: "5.8"
+performance: "145"
+doors: "4"
+seats: "3"
+yearmodel: "2025"
+color: ""
+interest: ""
+towbar: false
+layout: "single"
+---

@@ -1,6 +1,6 @@
 ---
 title: "Reklame / dekor på din firmabil"
-image: "[object Object]"
+image: "https://cdn.sanity.io/images/1lzskaub/production/06dc78e691ad54cb1dc1b4801192dfb3405d5856-800x600.jpg"
 alt: "Lease firmabil av Automedia AS, og hent den fiks ferdig med deres reklame montert - vi baker dekorkostnaden inn i månedsleien"
 email: "jorgen@automedia.as"
 salesman: "Mattias"

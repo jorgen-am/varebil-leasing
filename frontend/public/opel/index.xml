@@ -2,37 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Leasing av Opel varebil on Varebil leasing</title>
-    <link>http://localhost:1316/varebil-leasing/opel/</link>
+    <link>http://localhost:1316/opel/</link>
     <description>Recent content in Leasing av Opel varebil on Varebil leasing</description>
     <generator>Hugo</generator>
     <language>nb-no</language>
-    <atom:link href="http://localhost:1316/varebil-leasing/opel/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1316/opel/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Combo </title>
-      <link>http://localhost:1316/varebil-leasing/opel/leasing-opel-combo-varebil-pris-uten-innskudd/</link>
+      <link>http://localhost:1316/opel/leasing-opel-combo-varebil-pris-uten-innskudd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/varebil-leasing/opel/leasing-opel-combo-varebil-pris-uten-innskudd/</guid>
+      <guid>http://localhost:1316/opel/leasing-opel-combo-varebil-pris-uten-innskudd/</guid>
       <description></description>
     </item>
     <item>
       <title>Combo-e </title>
-      <link>http://localhost:1316/varebil-leasing/opel/varebil-leasing-opel-combo-e-pris/</link>
+      <link>http://localhost:1316/opel/varebil-leasing-opel-combo-e-pris/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/varebil-leasing/opel/varebil-leasing-opel-combo-e-pris/</guid>
+      <guid>http://localhost:1316/opel/varebil-leasing-opel-combo-e-pris/</guid>
       <description></description>
     </item>
     <item>
       <title>Vivaro </title>
-      <link>http://localhost:1316/varebil-leasing/opel/leasing-opel-vivaro-l3-varebil-pris/</link>
+      <link>http://localhost:1316/opel/leasing-opel-vivaro-l3-varebil-pris/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/varebil-leasing/opel/leasing-opel-vivaro-l3-varebil-pris/</guid>
+      <guid>http://localhost:1316/opel/leasing-opel-vivaro-l3-varebil-pris/</guid>
       <description></description>
     </item>
     <item>
       <title>Vivaro </title>
-      <link>http://localhost:1316/varebil-leasing/opel/opel-vivaro-l2-varebil/</link>
+      <link>http://localhost:1316/opel/opel-vivaro-l2-varebil/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/varebil-leasing/opel/opel-vivaro-l2-varebil/</guid>
+      <guid>http://localhost:1316/opel/opel-vivaro-l2-varebil/</guid>
       <description></description>
     </item>
   </channel>

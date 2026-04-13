@@ -1,0 +1,22 @@
+---
+title: "e-Jumpy "
+brand: "Citroën"
+descriptionHtml: "<h2>Citroën ë-Jumpy Electric Proff L2 leasing varebil uten innskudd</h2><p>Citroën ë-Jumpy Electric Proff L2 er en helelektrisk varebil som kombinerer praktiske løsninger med utslippsfri drift. Modellen har en batteripakke på 75 kWh som gir en rekkevidde på opptil 330 km (WLTP). Motoren leverer 136 hestekrefter og 260 Nm dreiemoment, noe som gir en smidig og stillegående kjøreopplevelse – perfekt for både bykjøring og lengre arbeidsdager.</p><p>Bilen kan hurtiglades fra 0–80 % på rundt 45 minutter med 100 kW DC-lading. Med 1.000 kg nyttelast, 1.000 kg hengervekt og et lastevolum på opptil 6,1 m³, er ë-Jumpy et solid valg for deg som trenger en effektiv og romslig arbeidsbil.</p><p>Proff L2-utgaven byr på et moderne førermiljø med 7-tommers berøringsskjerm, Apple CarPlay/Android Auto, klimaanlegg, parkeringssensorer bak og nøkkelfri start. Sikkerhetsutstyr som fartsholder, filvarsling og automatisk nødbrems er også standard.</p><h2>‍</h2>"
+equipment: ""
+modeldescription: "Electric Proff L2 75 kWh"
+price0: "6292"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/3820a8e965855ad8cf5cbcfe2158fcc7d4391652-850x450.jpg"
+fuel: "Elektrisk"
+gear: "Automat"
+drive: "Forhjulsdrift"
+range: "350"
+capacity: "5.8"
+performance: "136"
+doors: "5"
+seats: "3"
+yearmodel: ""
+color: ""
+interest: ""
+towbar: false
+layout: "single"
+---

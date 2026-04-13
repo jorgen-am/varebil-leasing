@@ -1,6 +1,6 @@
 ---
 title: "Reklame på bil - synlighet i trafikken"
-image: "[object Object]"
+image: "https://cdn.sanity.io/images/1lzskaub/production/5388f66c6c2dbe0116a83d8d45b1216b4cee18c8-650x358.png"
 alt: "Ønsker du daglig tilstedeværelse hos målgruppen som ikke kan klikkes, lukkes eller swipes bort? Reklame på bil gir deg langsiktig synlighet i trafikk og lokalområdet"
 email: "jorgen@automedia.as"
 salesman: "Mattias"
