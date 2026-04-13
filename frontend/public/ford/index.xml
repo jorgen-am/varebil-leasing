@@ -2,128 +2,128 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Leasing av Ford varebil on Varebil leasing</title>
-    <link>http://localhost:1316/ford/</link>
+    <link>http://localhost:1316/varebil-leasing/ford/</link>
     <description>Recent content in Leasing av Ford varebil on Varebil leasing</description>
     <generator>Hugo</generator>
     <language>nb-no</language>
-    <atom:link href="http://localhost:1316/ford/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1316/varebil-leasing/ford/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>E-Transit Courier </title>
-      <link>http://localhost:1316/ford/leasing-ford-e-transit-courier-trend-varebil-uten-innskudd/</link>
+      <link>http://localhost:1316/varebil-leasing/ford/leasing-ford-e-transit-courier-trend-varebil-uten-innskudd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/ford/leasing-ford-e-transit-courier-trend-varebil-uten-innskudd/</guid>
+      <guid>http://localhost:1316/varebil-leasing/ford/leasing-ford-e-transit-courier-trend-varebil-uten-innskudd/</guid>
       <description></description>
     </item>
     <item>
       <title>E-Transit Courier BEV </title>
-      <link>http://localhost:1316/ford/leasing-uten-innskudd-ford-e-transit-courier-bev-varebil-firmabil/</link>
+      <link>http://localhost:1316/varebil-leasing/ford/leasing-uten-innskudd-ford-e-transit-courier-bev-varebil-firmabil/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/ford/leasing-uten-innskudd-ford-e-transit-courier-bev-varebil-firmabil/</guid>
+      <guid>http://localhost:1316/varebil-leasing/ford/leasing-uten-innskudd-ford-e-transit-courier-bev-varebil-firmabil/</guid>
       <description></description>
     </item>
     <item>
       <title>E-Transit Custom </title>
-      <link>http://localhost:1316/ford/ford-e-transit-custom-varebil-uten-innskudd/</link>
+      <link>http://localhost:1316/varebil-leasing/ford/ford-e-transit-custom-varebil-uten-innskudd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/ford/ford-e-transit-custom-varebil-uten-innskudd/</guid>
+      <guid>http://localhost:1316/varebil-leasing/ford/ford-e-transit-custom-varebil-uten-innskudd/</guid>
       <description></description>
     </item>
     <item>
       <title>F-150 Lightning </title>
-      <link>http://localhost:1316/ford/leasing-ford-f-150-lightning-varebil-pris/</link>
+      <link>http://localhost:1316/varebil-leasing/ford/leasing-ford-f-150-lightning-varebil-pris/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/ford/leasing-ford-f-150-lightning-varebil-pris/</guid>
+      <guid>http://localhost:1316/varebil-leasing/ford/leasing-ford-f-150-lightning-varebil-pris/</guid>
       <description></description>
     </item>
     <item>
       <title>Ranger</title>
-      <link>http://localhost:1316/ford/leasing-pickup-ford-ranger-wildtrak-pris-uten-innskudd/</link>
+      <link>http://localhost:1316/varebil-leasing/ford/leasing-pickup-ford-ranger-wildtrak-pris-uten-innskudd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/ford/leasing-pickup-ford-ranger-wildtrak-pris-uten-innskudd/</guid>
+      <guid>http://localhost:1316/varebil-leasing/ford/leasing-pickup-ford-ranger-wildtrak-pris-uten-innskudd/</guid>
       <description></description>
     </item>
     <item>
       <title>Ranger firmabil</title>
-      <link>http://localhost:1316/ford/leasing-ford-ranger-raptor-uten-innskudd-pa-firma/</link>
+      <link>http://localhost:1316/varebil-leasing/ford/leasing-ford-ranger-raptor-uten-innskudd-pa-firma/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/ford/leasing-ford-ranger-raptor-uten-innskudd-pa-firma/</guid>
+      <guid>http://localhost:1316/varebil-leasing/ford/leasing-ford-ranger-raptor-uten-innskudd-pa-firma/</guid>
       <description></description>
     </item>
     <item>
       <title>Transit Connect </title>
-      <link>http://localhost:1316/ford/ford-transit-connect-varebil-ingen-innskudd/</link>
+      <link>http://localhost:1316/varebil-leasing/ford/ford-transit-connect-varebil-ingen-innskudd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/ford/ford-transit-connect-varebil-ingen-innskudd/</guid>
+      <guid>http://localhost:1316/varebil-leasing/ford/ford-transit-connect-varebil-ingen-innskudd/</guid>
       <description></description>
     </item>
     <item>
       <title>Transit Connect </title>
-      <link>http://localhost:1316/ford/leasing-ford-transit-connect-2-0-eco-pris-uten-innskudd-firmabil-automedia/</link>
+      <link>http://localhost:1316/varebil-leasing/ford/leasing-ford-transit-connect-2-0-eco-pris-uten-innskudd-firmabil-automedia/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/ford/leasing-ford-transit-connect-2-0-eco-pris-uten-innskudd-firmabil-automedia/</guid>
+      <guid>http://localhost:1316/varebil-leasing/ford/leasing-ford-transit-connect-2-0-eco-pris-uten-innskudd-firmabil-automedia/</guid>
       <description></description>
     </item>
     <item>
       <title>Transit Connect </title>
-      <link>http://localhost:1316/ford/leasing-ford-transit-connect-l2-varebil-pris-uten-innskudd/</link>
+      <link>http://localhost:1316/varebil-leasing/ford/leasing-ford-transit-connect-l2-varebil-pris-uten-innskudd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/ford/leasing-ford-transit-connect-l2-varebil-pris-uten-innskudd/</guid>
+      <guid>http://localhost:1316/varebil-leasing/ford/leasing-ford-transit-connect-l2-varebil-pris-uten-innskudd/</guid>
       <description></description>
     </item>
     <item>
       <title>Transit Connect </title>
-      <link>http://localhost:1316/ford/leasing-ford-transit-connect-varebil-uten-innskudd/</link>
+      <link>http://localhost:1316/varebil-leasing/ford/leasing-ford-transit-connect-varebil-uten-innskudd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/ford/leasing-ford-transit-connect-varebil-uten-innskudd/</guid>
+      <guid>http://localhost:1316/varebil-leasing/ford/leasing-ford-transit-connect-varebil-uten-innskudd/</guid>
       <description></description>
     </item>
     <item>
       <title>Transit Connect </title>
-      <link>http://localhost:1316/ford/varebil-ford-transit-connect-leasing/</link>
+      <link>http://localhost:1316/varebil-leasing/ford/varebil-ford-transit-connect-leasing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/ford/varebil-ford-transit-connect-leasing/</guid>
+      <guid>http://localhost:1316/varebil-leasing/ford/varebil-ford-transit-connect-leasing/</guid>
       <description></description>
     </item>
     <item>
       <title>Transit Connect </title>
-      <link>http://localhost:1316/ford/varebil-ford-transit-connect-rask-levering/</link>
+      <link>http://localhost:1316/varebil-leasing/ford/varebil-ford-transit-connect-rask-levering/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/ford/varebil-ford-transit-connect-rask-levering/</guid>
+      <guid>http://localhost:1316/varebil-leasing/ford/varebil-ford-transit-connect-rask-levering/</guid>
       <description></description>
     </item>
     <item>
       <title>Transit Courier </title>
-      <link>http://localhost:1316/ford/leasing-ford-transit-courier-1-0t-ecoboost-125hp-trend-u-innskudd-automedia/</link>
+      <link>http://localhost:1316/varebil-leasing/ford/leasing-ford-transit-courier-1-0t-ecoboost-125hp-trend-u-innskudd-automedia/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/ford/leasing-ford-transit-courier-1-0t-ecoboost-125hp-trend-u-innskudd-automedia/</guid>
+      <guid>http://localhost:1316/varebil-leasing/ford/leasing-ford-transit-courier-1-0t-ecoboost-125hp-trend-u-innskudd-automedia/</guid>
       <description></description>
     </item>
     <item>
       <title>Transit Custom </title>
-      <link>http://localhost:1316/ford/leasing-ford-transit-custom-l2-varebil-uten-forskudd-pris/</link>
+      <link>http://localhost:1316/varebil-leasing/ford/leasing-ford-transit-custom-l2-varebil-uten-forskudd-pris/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/ford/leasing-ford-transit-custom-l2-varebil-uten-forskudd-pris/</guid>
+      <guid>http://localhost:1316/varebil-leasing/ford/leasing-ford-transit-custom-l2-varebil-uten-forskudd-pris/</guid>
       <description></description>
     </item>
     <item>
       <title>Transit Custom </title>
-      <link>http://localhost:1316/ford/leasing-ford-transit-custom-varebil-uten-forskudd-pris/</link>
+      <link>http://localhost:1316/varebil-leasing/ford/leasing-ford-transit-custom-varebil-uten-forskudd-pris/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/ford/leasing-ford-transit-custom-varebil-uten-forskudd-pris/</guid>
+      <guid>http://localhost:1316/varebil-leasing/ford/leasing-ford-transit-custom-varebil-uten-forskudd-pris/</guid>
       <description></description>
     </item>
     <item>
       <title>Transit Custom </title>
-      <link>http://localhost:1316/ford/varebil-ford-transit-custom-leasing/</link>
+      <link>http://localhost:1316/varebil-leasing/ford/varebil-ford-transit-custom-leasing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/ford/varebil-ford-transit-custom-leasing/</guid>
+      <guid>http://localhost:1316/varebil-leasing/ford/varebil-ford-transit-custom-leasing/</guid>
       <description></description>
     </item>
     <item>
       <title>Transit Custom </title>
-      <link>http://localhost:1316/ford/varebil-leasing-ford-transit-custom-uten-innskudd/</link>
+      <link>http://localhost:1316/varebil-leasing/ford/varebil-leasing-ford-transit-custom-uten-innskudd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/ford/varebil-leasing-ford-transit-custom-uten-innskudd/</guid>
+      <guid>http://localhost:1316/varebil-leasing/ford/varebil-leasing-ford-transit-custom-uten-innskudd/</guid>
       <description></description>
     </item>
   </channel>

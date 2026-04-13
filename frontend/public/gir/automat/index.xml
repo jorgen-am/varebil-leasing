@@ -2,44 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Automat on Varebil leasing</title>
-    <link>http://localhost:1316/gir/automat/</link>
+    <link>http://localhost:1316/varebil-leasing/gir/automat/</link>
     <description>Recent content in Automat on Varebil leasing</description>
     <generator>Hugo</generator>
     <language>nb-no</language>
-    <atom:link href="http://localhost:1316/gir/automat/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1316/varebil-leasing/gir/automat/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Berlingo </title>
-      <link>http://localhost:1316/citroen/leasing-varebil-citroen-berlingo-pris-uten-innskudd/</link>
+      <link>http://localhost:1316/varebil-leasing/citroen/leasing-varebil-citroen-berlingo-pris-uten-innskudd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/citroen/leasing-varebil-citroen-berlingo-pris-uten-innskudd/</guid>
+      <guid>http://localhost:1316/varebil-leasing/citroen/leasing-varebil-citroen-berlingo-pris-uten-innskudd/</guid>
       <description></description>
     </item>
     <item>
       <title>e-Berlingo </title>
-      <link>http://localhost:1316/citroen/leasing-citroen-e-berlingo-varebil-pris-uten-innskudd/</link>
+      <link>http://localhost:1316/varebil-leasing/citroen/leasing-citroen-e-berlingo-varebil-pris-uten-innskudd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/citroen/leasing-citroen-e-berlingo-varebil-pris-uten-innskudd/</guid>
+      <guid>http://localhost:1316/varebil-leasing/citroen/leasing-citroen-e-berlingo-varebil-pris-uten-innskudd/</guid>
       <description></description>
     </item>
     <item>
       <title>e-Jumpy </title>
-      <link>http://localhost:1316/citroen/leasing-citroen-e-jumpy-varebil-pris/</link>
+      <link>http://localhost:1316/varebil-leasing/citroen/leasing-citroen-e-jumpy-varebil-pris/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/citroen/leasing-citroen-e-jumpy-varebil-pris/</guid>
+      <guid>http://localhost:1316/varebil-leasing/citroen/leasing-citroen-e-jumpy-varebil-pris/</guid>
       <description></description>
     </item>
     <item>
       <title>e-Jumpy </title>
-      <link>http://localhost:1316/citroen/leasing-varebil-citroen-e-jumpy-pris/</link>
+      <link>http://localhost:1316/varebil-leasing/citroen/leasing-varebil-citroen-e-jumpy-pris/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/citroen/leasing-varebil-citroen-e-jumpy-pris/</guid>
+      <guid>http://localhost:1316/varebil-leasing/citroen/leasing-varebil-citroen-e-jumpy-pris/</guid>
       <description></description>
     </item>
     <item>
       <title>Jumpy </title>
-      <link>http://localhost:1316/citroen/leasing-citroen-jumpy-pris-uten-forskuddsleie/</link>
+      <link>http://localhost:1316/varebil-leasing/citroen/leasing-citroen-jumpy-pris-uten-forskuddsleie/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/citroen/leasing-citroen-jumpy-pris-uten-forskuddsleie/</guid>
+      <guid>http://localhost:1316/varebil-leasing/citroen/leasing-citroen-jumpy-pris-uten-forskuddsleie/</guid>
       <description></description>
     </item>
   </channel>

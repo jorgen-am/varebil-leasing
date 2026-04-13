@@ -2,114 +2,114 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Leasing av Volkswagen varebil on Varebil leasing</title>
-    <link>http://localhost:1316/volkswagen/</link>
+    <link>http://localhost:1316/varebil-leasing/volkswagen/</link>
     <description>Recent content in Leasing av Volkswagen varebil on Varebil leasing</description>
     <generator>Hugo</generator>
     <language>nb-no</language>
-    <atom:link href="http://localhost:1316/volkswagen/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1316/varebil-leasing/volkswagen/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Amarok </title>
-      <link>http://localhost:1316/volkswagen/leasing-pickup-volkswagen-amarok-pris-uten-innskudd/</link>
+      <link>http://localhost:1316/varebil-leasing/volkswagen/leasing-pickup-volkswagen-amarok-pris-uten-innskudd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/volkswagen/leasing-pickup-volkswagen-amarok-pris-uten-innskudd/</guid>
+      <guid>http://localhost:1316/varebil-leasing/volkswagen/leasing-pickup-volkswagen-amarok-pris-uten-innskudd/</guid>
       <description></description>
     </item>
     <item>
       <title>Caddy </title>
-      <link>http://localhost:1316/volkswagen/leasing-volkswagen-caddy-automat-varebil-kampanje-pris/</link>
+      <link>http://localhost:1316/varebil-leasing/volkswagen/leasing-volkswagen-caddy-automat-varebil-kampanje-pris/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/volkswagen/leasing-volkswagen-caddy-automat-varebil-kampanje-pris/</guid>
+      <guid>http://localhost:1316/varebil-leasing/volkswagen/leasing-volkswagen-caddy-automat-varebil-kampanje-pris/</guid>
       <description></description>
     </item>
     <item>
       <title>Caddy </title>
-      <link>http://localhost:1316/volkswagen/leasing-volkswagen-caddy-cargo-pluss-4motion-uten-innskudd-kampanje/</link>
+      <link>http://localhost:1316/varebil-leasing/volkswagen/leasing-volkswagen-caddy-cargo-pluss-4motion-uten-innskudd-kampanje/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/volkswagen/leasing-volkswagen-caddy-cargo-pluss-4motion-uten-innskudd-kampanje/</guid>
+      <guid>http://localhost:1316/varebil-leasing/volkswagen/leasing-volkswagen-caddy-cargo-pluss-4motion-uten-innskudd-kampanje/</guid>
       <description></description>
     </item>
     <item>
       <title>Caddy </title>
-      <link>http://localhost:1316/volkswagen/leasing-volkswagen-caddy-varebil-pris-kampanje/</link>
+      <link>http://localhost:1316/varebil-leasing/volkswagen/leasing-volkswagen-caddy-varebil-pris-kampanje/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/volkswagen/leasing-volkswagen-caddy-varebil-pris-kampanje/</guid>
+      <guid>http://localhost:1316/varebil-leasing/volkswagen/leasing-volkswagen-caddy-varebil-pris-kampanje/</guid>
       <description></description>
     </item>
     <item>
       <title>Caddy </title>
-      <link>http://localhost:1316/volkswagen/leasing-volkswagen-caddy-varebil-pris/</link>
+      <link>http://localhost:1316/varebil-leasing/volkswagen/leasing-volkswagen-caddy-varebil-pris/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/volkswagen/leasing-volkswagen-caddy-varebil-pris/</guid>
+      <guid>http://localhost:1316/varebil-leasing/volkswagen/leasing-volkswagen-caddy-varebil-pris/</guid>
       <description></description>
     </item>
     <item>
       <title>Caddy </title>
-      <link>http://localhost:1316/volkswagen/pris-leasing-uten-innskudd-volkswagen-caddy-varebil/</link>
+      <link>http://localhost:1316/varebil-leasing/volkswagen/pris-leasing-uten-innskudd-volkswagen-caddy-varebil/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/volkswagen/pris-leasing-uten-innskudd-volkswagen-caddy-varebil/</guid>
+      <guid>http://localhost:1316/varebil-leasing/volkswagen/pris-leasing-uten-innskudd-volkswagen-caddy-varebil/</guid>
       <description></description>
     </item>
     <item>
       <title>Crafter </title>
-      <link>http://localhost:1316/volkswagen/leasing-volkswagen-crafter-4motion-varebil-pris-uten-innskudd/</link>
+      <link>http://localhost:1316/varebil-leasing/volkswagen/leasing-volkswagen-crafter-4motion-varebil-pris-uten-innskudd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/volkswagen/leasing-volkswagen-crafter-4motion-varebil-pris-uten-innskudd/</guid>
+      <guid>http://localhost:1316/varebil-leasing/volkswagen/leasing-volkswagen-crafter-4motion-varebil-pris-uten-innskudd/</guid>
       <description></description>
     </item>
     <item>
       <title>Crafter </title>
-      <link>http://localhost:1316/volkswagen/leasing-volkswagen-crafter-varebil-pris-uten-forskudd/</link>
+      <link>http://localhost:1316/varebil-leasing/volkswagen/leasing-volkswagen-crafter-varebil-pris-uten-forskudd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/volkswagen/leasing-volkswagen-crafter-varebil-pris-uten-forskudd/</guid>
+      <guid>http://localhost:1316/varebil-leasing/volkswagen/leasing-volkswagen-crafter-varebil-pris-uten-forskudd/</guid>
       <description></description>
     </item>
     <item>
       <title>e-Transporter </title>
-      <link>http://localhost:1316/volkswagen/leasing-volkswagen-e-transporter-pluss-kort-varebil-uten-innskudd/</link>
+      <link>http://localhost:1316/varebil-leasing/volkswagen/leasing-volkswagen-e-transporter-pluss-kort-varebil-uten-innskudd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/volkswagen/leasing-volkswagen-e-transporter-pluss-kort-varebil-uten-innskudd/</guid>
+      <guid>http://localhost:1316/varebil-leasing/volkswagen/leasing-volkswagen-e-transporter-pluss-kort-varebil-uten-innskudd/</guid>
       <description></description>
     </item>
     <item>
       <title>ID. Buzz </title>
-      <link>http://localhost:1316/volkswagen/leasing-firmabil-volkswagen-id-buzz-cargo-pluss-4motion-uten-innskudd/</link>
+      <link>http://localhost:1316/varebil-leasing/volkswagen/leasing-firmabil-volkswagen-id-buzz-cargo-pluss-4motion-uten-innskudd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/volkswagen/leasing-firmabil-volkswagen-id-buzz-cargo-pluss-4motion-uten-innskudd/</guid>
+      <guid>http://localhost:1316/varebil-leasing/volkswagen/leasing-firmabil-volkswagen-id-buzz-cargo-pluss-4motion-uten-innskudd/</guid>
       <description></description>
     </item>
     <item>
       <title>ID. Buzz </title>
-      <link>http://localhost:1316/volkswagen/leasing-volkswagen-id-buzz-cargo-4motion-uten-innskudd-firmabil/</link>
+      <link>http://localhost:1316/varebil-leasing/volkswagen/leasing-volkswagen-id-buzz-cargo-4motion-uten-innskudd-firmabil/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/volkswagen/leasing-volkswagen-id-buzz-cargo-4motion-uten-innskudd-firmabil/</guid>
+      <guid>http://localhost:1316/varebil-leasing/volkswagen/leasing-volkswagen-id-buzz-cargo-4motion-uten-innskudd-firmabil/</guid>
       <description></description>
     </item>
     <item>
       <title>ID. Buzz </title>
-      <link>http://localhost:1316/volkswagen/leasing-volkswagen-id-buzz-varebil-4motion-pris-uten-innskudd/</link>
+      <link>http://localhost:1316/varebil-leasing/volkswagen/leasing-volkswagen-id-buzz-varebil-4motion-pris-uten-innskudd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/volkswagen/leasing-volkswagen-id-buzz-varebil-4motion-pris-uten-innskudd/</guid>
+      <guid>http://localhost:1316/varebil-leasing/volkswagen/leasing-volkswagen-id-buzz-varebil-4motion-pris-uten-innskudd/</guid>
       <description></description>
     </item>
     <item>
       <title>ID. Buzz </title>
-      <link>http://localhost:1316/volkswagen/leasing-vw-id-buzz-cargo-340hk-4motion-firmabil/</link>
+      <link>http://localhost:1316/varebil-leasing/volkswagen/leasing-vw-id-buzz-cargo-340hk-4motion-firmabil/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/volkswagen/leasing-vw-id-buzz-cargo-340hk-4motion-firmabil/</guid>
+      <guid>http://localhost:1316/varebil-leasing/volkswagen/leasing-vw-id-buzz-cargo-340hk-4motion-firmabil/</guid>
       <description></description>
     </item>
     <item>
       <title>ID. Buzz </title>
-      <link>http://localhost:1316/volkswagen/leasing-vw-id-buzz-gtx-lang-varebil-uten-innskudd/</link>
+      <link>http://localhost:1316/varebil-leasing/volkswagen/leasing-vw-id-buzz-gtx-lang-varebil-uten-innskudd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/volkswagen/leasing-vw-id-buzz-gtx-lang-varebil-uten-innskudd/</guid>
+      <guid>http://localhost:1316/varebil-leasing/volkswagen/leasing-vw-id-buzz-gtx-lang-varebil-uten-innskudd/</guid>
       <description></description>
     </item>
     <item>
       <title>Transporter </title>
-      <link>http://localhost:1316/volkswagen/leasing-varebil-volkswagen-transporter-uten-innskudd/</link>
+      <link>http://localhost:1316/varebil-leasing/volkswagen/leasing-varebil-volkswagen-transporter-uten-innskudd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/volkswagen/leasing-varebil-volkswagen-transporter-uten-innskudd/</guid>
+      <guid>http://localhost:1316/varebil-leasing/volkswagen/leasing-varebil-volkswagen-transporter-uten-innskudd/</guid>
       <description></description>
     </item>
   </channel>

@@ -2,65 +2,65 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Våre Tjenester on Varebil leasing</title>
-    <link>http://localhost:1316/tjenester/</link>
+    <link>http://localhost:1316/varebil-leasing/tjenester/</link>
     <description>Recent content in Våre Tjenester on Varebil leasing</description>
     <generator>Hugo</generator>
     <language>nb-no</language>
-    <atom:link href="http://localhost:1316/tjenester/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1316/varebil-leasing/tjenester/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bedre tilbud på leasing</title>
-      <link>http://localhost:1316/tjenester/bedre-tilbud/</link>
+      <link>http://localhost:1316/varebil-leasing/tjenester/bedre-tilbud/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/tjenester/bedre-tilbud/</guid>
+      <guid>http://localhost:1316/varebil-leasing/tjenester/bedre-tilbud/</guid>
       <description></description>
     </item>
     <item>
       <title>Firmaavtaler - de beste leasingprisene av bil for firma</title>
-      <link>http://localhost:1316/tjenester/firmaavtaler/</link>
+      <link>http://localhost:1316/varebil-leasing/tjenester/firmaavtaler/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/tjenester/firmaavtaler/</guid>
+      <guid>http://localhost:1316/varebil-leasing/tjenester/firmaavtaler/</guid>
       <description></description>
     </item>
     <item>
       <title>Forsikring - kanskje markedets beste på leasing</title>
-      <link>http://localhost:1316/tjenester/forsikring/</link>
+      <link>http://localhost:1316/varebil-leasing/tjenester/forsikring/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/tjenester/forsikring/</guid>
+      <guid>http://localhost:1316/varebil-leasing/tjenester/forsikring/</guid>
       <description></description>
     </item>
     <item>
       <title>Innlevering av leasingbil</title>
-      <link>http://localhost:1316/tjenester/innvevering-av-leasingbil/</link>
+      <link>http://localhost:1316/varebil-leasing/tjenester/innvevering-av-leasingbil/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/tjenester/innvevering-av-leasingbil/</guid>
+      <guid>http://localhost:1316/varebil-leasing/tjenester/innvevering-av-leasingbil/</guid>
       <description></description>
     </item>
     <item>
       <title>Leasing av bil – Hva du bør vite</title>
-      <link>http://localhost:1316/tjenester/leasing/</link>
+      <link>http://localhost:1316/varebil-leasing/tjenester/leasing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/tjenester/leasing/</guid>
+      <guid>http://localhost:1316/varebil-leasing/tjenester/leasing/</guid>
       <description></description>
     </item>
     <item>
       <title>Reklame / dekor på din firmabil</title>
-      <link>http://localhost:1316/tjenester/dekor/</link>
+      <link>http://localhost:1316/varebil-leasing/tjenester/dekor/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/tjenester/dekor/</guid>
+      <guid>http://localhost:1316/varebil-leasing/tjenester/dekor/</guid>
       <description></description>
     </item>
     <item>
       <title>Reklame på bil - synlighet i trafikken</title>
-      <link>http://localhost:1316/tjenester/reklame-pa-bil/</link>
+      <link>http://localhost:1316/varebil-leasing/tjenester/reklame-pa-bil/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/tjenester/reklame-pa-bil/</guid>
+      <guid>http://localhost:1316/varebil-leasing/tjenester/reklame-pa-bil/</guid>
       <description></description>
     </item>
     <item>
       <title>Releasing - videreformidling av leasingavtale</title>
-      <link>http://localhost:1316/tjenester/releasing/</link>
+      <link>http://localhost:1316/varebil-leasing/tjenester/releasing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/tjenester/releasing/</guid>
+      <guid>http://localhost:1316/varebil-leasing/tjenester/releasing/</guid>
       <description></description>
     </item>
   </channel>
