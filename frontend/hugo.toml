@@ -1,3 +1,4 @@
+canonifyURLs = true
 baseURL = "https://jorgen-am.github.io/varebil-leasing/"
 locale = 'nb-no'
 title = 'Varebil leasing'
