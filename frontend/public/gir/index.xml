@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gir on Varebil leasing</title>
-    <link>http://localhost:1316/gir/</link>
+    <link>http://localhost:1313/varebil-leasing/gir/</link>
     <description>Recent content in Gir on Varebil leasing</description>
     <generator>Hugo</generator>
     <language>nb-no</language>
-    <atom:link href="http://localhost:1316/gir/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/varebil-leasing/gir/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Automat</title>
-      <link>http://localhost:1316/gir/automat/</link>
+      <link>http://localhost:1313/varebil-leasing/gir/automat/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/gir/automat/</guid>
+      <guid>http://localhost:1313/varebil-leasing/gir/automat/</guid>
       <description></description>
     </item>
     <item>
       <title>Manuell</title>
-      <link>http://localhost:1316/gir/manuell/</link>
+      <link>http://localhost:1313/varebil-leasing/gir/manuell/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1316/gir/manuell/</guid>
+      <guid>http://localhost:1313/varebil-leasing/gir/manuell/</guid>
       <description></description>
     </item>
   </channel>

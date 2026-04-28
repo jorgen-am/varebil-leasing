@@ -1,4 +1,0 @@
----
-title: "Citroën"
-layout: "list"
----

@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Varebil leasing</title>
-    <link>http://localhost:1316/post/</link>
+    <link>http://localhost:1313/varebil-leasing/post/</link>
     <description>Recent content in Posts on Varebil leasing</description>
     <generator>Hugo</generator>
     <language>nb-no</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="http://localhost:1316/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/varebil-leasing/post/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
