@@ -16,13 +16,13 @@
   ],
   "dependencies": {
     "@sanity/block-tools": "^3.70.0",
-    "@sanity/vision": "^5.20.0",
+    "@sanity/vision": "^3.89.0",
     "axios": "^1.14.0",
     "jsdom": "^29.0.1",
     "papaparse": "^5.5.3",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "sanity": "^5.20.0",
+    "sanity": "^3.70.0",
     "styled-components": "^6.1.18"
   },
   "devDependencies": {

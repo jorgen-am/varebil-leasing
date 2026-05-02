@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Alle leasingbiler on Varebil leasing</title>
+    <title>Våre biler on Varebil leasing</title>
     <link>http://localhost:1313/varebil-leasing/biler/</link>
-    <description>Recent content in Alle leasingbiler on Varebil leasing</description>
+    <description>Recent content in Våre biler on Varebil leasing</description>
     <generator>Hugo</generator>
     <language>nb-no</language>
     <atom:link href="http://localhost:1313/varebil-leasing/biler/index.xml" rel="self" type="application/rss+xml" />

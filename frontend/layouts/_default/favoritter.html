@@ -1,0 +1,17 @@
+{{ define "main" }}
+<section>
+    <h1>{{ .Title }}</h1>
+    <div id="favorites-loader" style="text-align: center; padding: 50px;">
+        Laster dine favoritter...
+    </div>
+    <div id="favorites-container" class="grid-container">
+        <!-- Bilene rendres her av JavaScript -->
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        renderFavorites();
+    });
+</script>
+{{ end }}

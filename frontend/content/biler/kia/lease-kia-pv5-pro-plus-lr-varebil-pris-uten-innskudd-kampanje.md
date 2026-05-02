@@ -1,0 +1,22 @@
+---
+title: "PV5 "
+brand: "Kia"
+descriptionHtml: "<h2>Kia PV5 Pro Plus LR leasing varebil uten innskudd</h2><h3>Automedia AS – firmaleasing uten innskudd</h3><p>Kia PV5 Pro Plus LR er en ny generasjon helelektrisk varebil skapt for profesjonell bruk. Med solid rekkevidde på opptil 416 km (WLTP), høy komfort og moderne sikkerhetssystemer, leverer den alt du forventer av en fremtidsrettet firmabil – og mer.</p><p>Den kraftige el-motoren på 163 hk gir jevn og responsiv kjøring, mens batteriet på 71,2 kWh sikrer lang driftstid gjennom arbeidsdagen. Hurtiglading via CCS gjør at du kan lade fra 10–80 % på rundt 30 minutter, slik at bilen raskt er klar for neste oppdrag.</p><p>PV5 er bygget med fokus på effektivitet og praktisk bruk. Varerommet på 4,4 m³ gir god plass til verktøy og utstyr, og bilen tåler en nyttelast på opptil 690 kg.</p><p>Pro Plus-utgaven kombinerer komfort og funksjonalitet med moderne teknologi. LED-belysning, avansert infotainmentskjerm, trådløs Apple CarPlay / Android Auto, 360°-kamera og adaptiv cruise control gir deg en trygg og effektiv arbeidshverdag. Varmepumpe, oppvarmede seter og ratt samt automatisk klimaanlegg sørger for komfort uansett årstid. Vehicle-to-Load (V2L) med 220 V kontakt i varerommet gir deg strøm til verktøy og utstyr på farten.<br/></p>"
+equipment: "<p>12,9” infotainmentskjerm med DAB+, navigasjon og trådløs Apple CarPlay / Android Auto‍LED-lys rundt hele bilen (front, bak og brems)‍360° kamera, parkeringssensorer og adaptiv cruise control‍Varmepumpe, automatisk klimaanlegg og oppvarmede seter/ratt‍Vehicle-to-Load (V2L) med 220V/16A kontakt i varerommet‍Smart Key, digital nøkkel og elektrisk innfellbare speil</p>"
+modeldescription: "Pro Plus LR"
+price0: "5590"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/fe72c4aaa577bea153e19d3997ec334e1b360afc-1000x500.jpg?fm=webp&q=80"
+fuel: "Elektrisk"
+gear: "Automat"
+drive: "Forhjulsdrift"
+range: "416"
+capacity: ""
+performance: "163"
+doors: "5"
+seats: "2"
+yearmodel: ""
+color: ""
+interest: "Fast"
+towbar: false
+layout: "single"
+---

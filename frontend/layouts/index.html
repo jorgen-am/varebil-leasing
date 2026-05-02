@@ -1,29 +1,31 @@
 {{ define "main" }}
     <!-- Hero -->
-    <section class="hero" style="background: #f4f4f4; padding: 80px 20px; text-align: center;">
+    <section class="hero">
         <h1>Leasing av varebil til din bedrift</h1>
         <p>Finn den perfekte arbeidsbilen med gunstig finansiering og reklame inkludert.</p>
         <a href="#biler" class="btn" style="background: #007bff; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold;">Se alle biler</a>
     </section>
 
     <!-- Biler -->    
-    <section class="car-grid">
+    <section class="cars">
         {{ $allCars := where .Site.RegularPages "Params.brand" "!=" nil }}
         <h2>Våre Biler ({{ len $allCars }} funnet)</h2>
         
-        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;">
+        <div class="grid-container auto">
             {{ range $allCars }}
-            <div class="car-card" style="border: 1px solid #ccc; padding: 15px; border-radius: 8px; background: white;">
+            <div class="car-card" data-slug="{{ .Params.slug.current }}">
+                <button class="favorite-btn" data-slug="{{ .File.TranslationBaseName }}" onclick="toggleFavorite(this.getAttribute('data-slug'), this)"> <span class="heart-icon">♡</span>Lagre som favoritt</button>
+
                 {{ if .Params.mainImageUrl }}
-                    <img src="{{ .Params.mainImageUrl }}" alt="{{ .Title }}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 4px;">
+                    <img src="{{ .Params.mainImageUrl }}" alt="{{ .Title }}">
                 {{ end }}
     
-                <h3 style="margin: 10px 0 5px 0;">{{ .Params.brand }} {{ .Title }}</h3>
-                <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;">{{ .Params.modeldescription }}</p>
-                <p style="font-size: 0.85em; color: #444; margin-bottom: 10px;">
-                    {{ if .Params.fuel }}<span style="background: #f0f0f0; padding: 2px 6px; border-radius: 4px;">{{ .Params.fuel | humanize }}</span>{{ end }}
-                    {{ if .Params.drive }} <span style="background: #f0f0f0; padding: 2px 6px; border-radius: 4px;">{{ .Params.drive | humanize }}</span>{{ end }}
-                    {{ if .Params.gear }} <span style="background: #f0f0f0; padding: 2px 6px; border-radius: 4px;">{{ .Params.gear | humanize }}</span>{{ end }}
+                <h3>{{ .Params.brand }} {{ .Title }}</h3>
+                <p class="car-subheader">{{ .Params.modeldescription }}</p>
+                <p class="car-main-properties">
+                    {{ if .Params.fuel }}<span>{{ .Params.fuel | humanize }}</span>{{ end }}
+                    {{ if .Params.drive }} <span>{{ .Params.drive | humanize }}</span>{{ end }}
+                    {{ if .Params.gear }} <span>{{ .Params.gear | humanize }}</span>{{ end }}
                 </p>    
                 <p><strong>Fra kr {{ .Params.price0 }},- mva</strong></p>
                 
@@ -38,8 +40,8 @@
     </section>
     
     <!-- hvorfor -->
-    <section style="background: #222; color: white; padding: 60px 20px;">
-        <div style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: center;">
+    <section class="why">
+        <div class="grid-container two">
             <div>
                 <h3>Prisgaranti</h3>
                 <p>Vi tilbyr markedets beste betingelser på leasing med bildekor.</p>
@@ -56,68 +58,67 @@
     </section>
     
     <!-- omtaler -->
-    <section style="padding: 60px 20px; background: #fff;">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <h2 style="text-align: center; margin-bottom: 40px;">Hva våre kunder sier</h2>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-                {{/* Vi henter de 3 første (nyeste) fra den ferdig sorterte JSON-filen */}}
-                {{ range first 9 .Site.Data.reviews }}
-                <div style="border: 1px solid #eee; padding: 30px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between;">
-                    
-                    <div>
-                        <div style="color: #ffbc00; margin-bottom: 10px;">
-                            {{ if ge .rating 5 }}★★★★★{{ else if eq .rating 4 }}★★★★☆{{ else }}★★★☆☆{{ end }}
-                        </div>
-                        <p style="font-style: italic; color: #444; line-height: 1.5; margin-bottom: 20px;">
-                            "{{ if gt (len .content) 150 }}{{ substr .content 0 150 }}...{{ else }}{{ .content }}{{ end }}"
-                        </p>
+    <section class="reviews">
+        <h2>Hva våre kunder sier</h2>
+        <div class="grid-container auto" >
+            {{/* Vi henter de 3 første (nyeste) fra den ferdig sorterte JSON-filen */}}
+            {{ range first 9 .Site.Data.reviews }}
+            <div style="border: 1px solid #eee; padding: 30px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between;">
+                
+                <div>
+                    <div style="color: #ffbc00; margin-bottom: 10px;">
+                        {{ if ge .rating 5 }}★★★★★{{ else if eq .rating 4 }}★★★★☆{{ else }}★★★☆☆{{ end }}
                     </div>
-    
-                    <div style="display: flex; align-items: center; gap: 12px; border-top: 1px solid #f9f9f9; padding-top: 15px;">
-                        <div style="width: 35px; height: 35px; background: #eef6ff; color: #007bff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9em;">
-                            {{ substr .author 0 1 }}
-                        </div>
-                        <div>
-                            <strong style="display: block; font-size: 0.9em;">{{ .author }}</strong>
-                            <span style="font-size: 0.75em; color: #999;">
-                                {{ substr .date 4 11 }}
-                            </span>
-                        </div>
+                    <p style="font-style: italic; color: #444; line-height: 1.5; margin-bottom: 20px;">
+                        "{{ if gt (len .content) 150 }}{{ substr .content 0 150 }}...{{ else }}{{ .content }}{{ end }}"
+                    </p>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 12px; border-top: 1px solid #f9f9f9; padding-top: 15px;">
+                    <div style="width: 35px; height: 35px; background: #eef6ff; color: #007bff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9em;">
+                        {{ substr .author 0 1 }}
+                    </div>
+                    <div>
+                        <strong style="display: block; font-size: 0.9em;">{{ .author }}</strong>
+                        <span style="font-size: 0.75em; color: #999;">
+                            {{ substr .date 4 11 }}
+                        </span>
                     </div>
                 </div>
-                {{ end }}
             </div>
-    
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="/omtaler/" style="display: inline-block; padding: 12px 30px; background: #007bff; color: white; text-decoration: none; border-radius: 50px; font-weight: bold;">
-                    Les alle 124 omtaler
-                </a>
-            </div>
+            {{ end }}
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="/omtaler/" style="display: inline-block; padding: 12px 30px; background: #007bff; color: white; text-decoration: none; border-radius: 50px; font-weight: bold;">
+                Les alle 124 omtaler
+            </a>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section style="padding: 60px 20px; background-color: #f9f9f9;">
-        <div style="max-width: 1100px; margin: 0 auto;">
-            <h2 style="text-align: center; margin-bottom: 40px;">Ofte stilte spørsmål (FAQ)</h2>
-    
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-                {{/* Vi henter sider fra mappen /post/faq/ */}}
-                {{ range (where .Site.RegularPages "Section" "post").ByPublishDate.Reverse }}
-                    {{ if eq .Params.kategori "faq" }}
-                        <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-                            <h3 style="font-size: 1.1em; margin-top: 0; color: #333;">{{ .Title }}</h3>
-                            <p style="font-size: 0.9em; color: #666; line-height: 1.6;">
-                                {{ .Summary | truncate 150 }}
-                            </p>
-                            <a href="{{ .RelPermalink }}" style="color: #007bff; text-decoration: none; font-weight: bold; font-size: 0.85em;">
+    <section class="faq">
+        <h2>Ofte stilte spørsmål (FAQ)</h2>
+        <div class="column-container two">
+            {{/* Vi henter sider fra mappen /post/faq/ */}}
+            {{ range (where .Site.RegularPages "Section" "post").ByPublishDate.Reverse }}
+                {{ if eq .Params.kategori "faq" }}
+                    <div class="faq-card" onclick="toggleFaq(this)">
+                        <h3>{{ .Title }}</h3>
+                        <div class="faq-content">
+                            {{ if .Params.excerpt }}
+                                <p class="faq-excerpt">
+                                    {{ .Params.excerpt }}
+                                </p>
+                            {{ end }}
+                        
+                            <a href="{{ .RelPermalink }}" class="read-more">
                                 Les hele svaret →
                             </a>
                         </div>
-                    {{ end }}
+                    </div>
                 {{ end }}
-            </div>
+            {{ end }}
     
             <div style="text-align: center; margin-top: 40px;">
                 <a href="/post/faq/" style="padding: 12px 25px; background: #007bff; color: white; border-radius: 5px; text-decoration: none; font-weight: bold;">
@@ -128,9 +129,9 @@
     </section>
 
     <!-- ansatte -->
-    <section class="employees" style="margin-top: 50px;">
+    <section class="employees">
         <h2>Snakk med en av våre rådgivere</h2>
-        <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+        <div class="grid-container auto">
             {{ range .Site.Data.employees }}
             {{ $slug := .slug.current }}
             <div class="employee-card" style="border: 1px solid #eee; padding: 20px; border-radius: 10px; text-align: center; width: 250px; background: white; transition: transform 0.2s ease;">

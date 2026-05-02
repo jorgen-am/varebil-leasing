@@ -1,0 +1,15 @@
+[
+  {{- $bilSider := where .Site.RegularPages "Section" "biler" -}}
+  {{- range $index, $page := $bilSider -}}
+  {{- if $index -}},{{- end -}}
+  {
+    "title": {{ $page.Title | jsonify }},
+    "permalink": {{ $page.Permalink | jsonify }},
+    "slug": {{ $page.File.TranslationBaseName | jsonify }},
+    "merke": {{ $page.Params.brand | jsonify }},
+    "modell": {{ $page.Params.modeldescription | jsonify }},
+    "pris": {{ $page.Params.price0 | jsonify }},
+    "bilde": {{ $page.Params.mainImageUrl | jsonify }}
+  }
+  {{- end -}}
+]

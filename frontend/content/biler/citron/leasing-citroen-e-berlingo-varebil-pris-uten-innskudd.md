@@ -1,0 +1,22 @@
+---
+title: "e-Berlingo "
+brand: "Citroën"
+descriptionHtml: "<h2>Citroën ë-Berlingo 50 kW Proff L1 leasing uten innskudd</h2><p>Citroën ë-Berlingo 50 kW Proff er en praktisk og helelektrisk varebil som passer godt for deg som trenger en effektiv arbeidsbil på leasing uten innskudd. Modellen kombinerer god lastekapasitet, smarte løsninger og komfortabel kjøreopplevelse, og er godt egnet for både håndverkere, servicebedrifter og annen næringsvirksomhet i by og nærområder.</p><h3>Praktisk arbeidsplass med god plass</h3><p>Førerplassen i ë-Berlingo Proff er utviklet med fokus på funksjonalitet og komfort gjennom en travel arbeidsdag. Modellen leveres med oversiktlig førermiljø, moderne infotainmentsystem med berøringsskjerm og støtte for Apple CarPlay og Android Auto, slik at du enkelt holder kontakt og navigerer mellom oppdrag.</p><p>Varebilen har et romslig varerom med god lastehøyde og brede skyvedører som gjør inn- og utlasting enkel. Med inntil rundt 3,3 m³ lastevolum (M-utgave) og nyttelast tilpasset profesjonelt bruk, får du plass til både verktøy, utstyr og materialer. Smarte oppbevaringsløsninger i kupeen gir ekstra fleksibilitet i hverdagen.</p><h3>Elektrisk drift, rekkevidde og effektiv hverdag</h3><p>Citroën ë-Berlingo 50 kW Proff leveres med elektrisk motor og batteripakke som gir en oppgitt rekkevidde på inntil ca. 275 km WLTP (avhengig av utstyr og kjøremønster). Dette dekker behovet for mange daglige kjøreruter i by og nærliggende områder.</p><p>Den elektriske drivlinjen gir stillegående og smidig fremdrift, noe som bidrar til en komfortabel arbeidsdag – spesielt i tett trafikk. Hurtiglading gjør det mulig å lade batteriet til 80 % på rundt 30 minutter under optimale forhold, slik at bilen raskt kan tas i bruk igjen mellom oppdrag.</p><p>Førerassistentsystemer som parkeringssensorer, cruisekontroll og ulike sikkerhetssystemer bidrar til trygg og effektiv kjøring – både i bymiljø og på landevei.</p><h3>Elektrisk varebil for moderne bedrifter</h3><p>Som elektrisk varebil på leasing uten innskudd gir Citroën ë-Berlingo 50 kW Proff en forutsigbar og fleksibel løsning for bedrifter. Du slipper stor kapitalbinding, samtidig som du får en miljøvennlig og driftsøkonomisk arbeidsbil som er godt tilpasset dagens krav til utslippsfri transport.</p>"
+equipment: "<p>Ryggekamera</p><p>To skyvedører</p><p>Sidehengslet bakdør</p><p>Automatisk klimaanlegg</p><p>Dynamic Surround Vision</p><p>Elektrisk parkeringsbrems</p><p>Trådløs tilkobling infotainment</p><p>Apple CarPlay og Android Auto</p><p>Parkeringssensorer foran og bak</p><p>2-seters passasjerbenk med varme i ytre sete</p>"
+modeldescription: "Proff L1 50 kWh"
+price0: "4990"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/6757cf14b795b9516f92f566e272fbb234839b49-850x450.jpg?fm=webp&q=80"
+fuel: "Elektrisk"
+gear: "Automat"
+drive: "Forhjulsdrift"
+range: "320"
+capacity: "3.3"
+performance: "136"
+doors: "5"
+seats: ""
+yearmodel: ""
+color: ""
+interest: ""
+towbar: false
+layout: "single"
+---

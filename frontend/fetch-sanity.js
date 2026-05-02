@@ -58,7 +58,8 @@ async function run() {
       "alle_poster": *[_type == "post"] {
         ...,
         "kategoriNavn": category,
-        "bildeUrl": mainImage.asset->url
+        "bildeUrl": mainImage.asset->url,
+        excerpt // Hente meta description
       }
     }`);
 
@@ -130,11 +131,12 @@ async function run() {
       
       const content = `---
 title: "${(post.title || '').replace(/"/g, '\\"')}"
+excerpt: "${(post.excerpt || '').replace(/"/g, '\\"').replace(/\n/g, ' ')}"
 date: "${post.publishedAt || new Date().toISOString()}"
 kategori: "${rawCategory.toLowerCase()}"
 bildeUrl: "${post.bildeUrl || ''}"
 bodyHtml: "${bodyHtml.replace(/"/g, '\\"').replace(/\n/g, '')}"
-layout: "post"
+layout: "body"
 ---`; 
 // Vi lar det være tomt her nede nå
 
@@ -166,39 +168,66 @@ ${blocksToText(person.body)}`;
     });
     fs.writeFileSync(path.join(dataDir, 'employees.json'), JSON.stringify(ansatte, null, 2));
 
-    // --- 5. BILER (Salgsobjekter) ---
-    data.biler.forEach(car => {
-      if (!car.brand) return; // Hopp over hvis merke mangler
+// --- 5. BILER (Salgsobjekter) ---
+console.log('Sweep: Bygger /biler/ mappen med korrekt menystruktur...');
+const bilerBaseDir = path.join(__dirname, 'content', 'biler');
 
-      // 1. Definer mappen (f.eks. content/toyota)
-      const brandSlug = car.brand.toLowerCase().replace(/[^\w\s]/g, "").replace(/\s+/g, '-');
-      const brandDir = path.join(__dirname, 'content', brandSlug);
+if (fs.existsSync(bilerBaseDir)) {
+    fs.rmSync(bilerBaseDir, { recursive: true, force: true });
+}
+fs.mkdirSync(bilerBaseDir, { recursive: true });
 
-      // 2. Lag mappen hvis den ikke finnes
-      if (!fs.existsSync(brandDir)) {
-          fs.mkdirSync(brandDir, { recursive: true });
-      }
+// Hovedsiden for biler
+fs.writeFileSync(path.join(bilerBaseDir, '_index.md'), `---
+title: "Våre biler"
+layout: "list"
+url: "/biler/"
+---`);
 
-      // 3. Lag _index.md for merket hvis den ikke finnes (viktig for filtrering/merkesider)
-      const brandIndex = path.join(brandDir, '_index.md');
-      if (!fs.existsSync(brandIndex)) {
-          fs.writeFileSync(brandIndex, `---\ntitle: "${car.brand}"\nlayout: "list"\n---`);
-      }
+data.biler.forEach(car => {
+  if (!car.brand) return;
+
+  const brandSlug = car.brand.toLowerCase().replace(/[^\w\s]/g, "").replace(/\s+/g, '-');
+  const brandDir = path.join(bilerBaseDir, brandSlug);
+
+  if (!fs.existsSync(brandDir)) {
+      fs.mkdirSync(brandDir, { recursive: true });
       
-      const carSlug = car.slug?.current || `bil-${Math.random().toString(36).substr(2, 5)}`;
-            
-      // KONVERTERING TIL HTML:
-      const equipmentHtml = toHTML(car.equipment || []);
-      const descriptionHtml = toHTML(car.description || []);
+      // Finn SEO-dokumentet som matcher denne bilens merke (brandSlug)
+      const seoData = data.kategorier.find(kat => kat.slug === brandSlug);
 
-      const content = `---
+      // Definer titler og beskrivelser. Bruker data fra Sanity hvis de finnes, ellers fallback.
+      const finalTitle = seoData?.title || `Varebil leasing av ${car.brand}`;
+      const finalMeta = seoData?.description || `Finn gode tilbud på leasing av ${car.brand} varebil hos Automedia.`;
+      
+      // Konverter Portable Text (body) til HTML
+      const finalBody = seoData?.body ? toHTML(seoData.body) : "";
+
+      fs.writeFileSync(path.join(brandDir, '_index.md'), `---
+title: "${finalTitle.replace(/"/g, '\\"')}"
+metadescription: "${finalMeta.replace(/"/g, '\\"')}"
+layout: "list"
+url: "/biler/${brandSlug}/"
+menu:
+  main:
+    name: "${car.brand}"
+    parent: "Biler"
+---
+${finalBody}`);
+  }
+
+  const carSlug = car.slug?.current || `bil-${Math.random().toString(36).substr(2, 5)}`;
+  const equipmentHtml = toHTML(car.equipment || []);
+  const descriptionHtml = toHTML(car.description || []);
+
+  const content = `---
 title: "${(car.title || '').replace(/"/g, '\\"')}"
 brand: "${car.brand || ''}"
 descriptionHtml: "${descriptionHtml.replace(/"/g, '\\"').replace(/\n/g, '')}"
 equipment: "${equipmentHtml.replace(/"/g, '\\"').replace(/\n/g, '')}"
 modeldescription: "${(car.modeldescription || '').replace(/"/g, '\\"')}"
 price0: "${car.price0 || '0'}"
-mainImageUrl: "${car.mainImageUrl || ''}"
+mainImageUrl: "${car.mainImageUrl ? car.mainImageUrl + '?fm=webp&q=80' : ''}"
 fuel: "${car.fuel || ''}"
 gear: "${car.gear || ''}"
 drive: "${car.drive || ''}"
@@ -212,31 +241,13 @@ color: "${car.color || ''}"
 interest: "${car.interest || ''}"
 towbar: ${car.towbar || false}
 layout: "single"
----`; 
-// Vi lar feltet under --- være tomt nå siden alt er flyttet opp
+---`;
 
-      fs.writeFileSync(path.join(brandDir, `${carSlug}.md`), content);
-    });
+  fs.writeFileSync(path.join(brandDir, `${carSlug}.md`), content);
+});
 
-    console.log(`✅ Lagret ${data.biler.length} biler med HTML-formatering.`);
+console.log(`✅ Lagret ${data.biler.length} biler i /biler/[merke]/.`);
 
-    // --- 6. KATEGORISIDER (Biler/SEO) ---
-    if (data.kategorier) {
-      data.kategorier.forEach(kat => {
-        if (!kat.slug) return;
-        const katDir = path.join(__dirname, 'content', kat.slug);
-        if (!fs.existsSync(katDir)) fs.mkdirSync(katDir, { recursive: true });
-        const content = `---
-title: "${kat.title}"
-description: "${(kat.description || '').replace(/"/g, '\\"')}"
-layout: "list"
----
-${blocksToText(kat.body)}`;
-        fs.writeFileSync(path.join(katDir, '_index.md'), content);
-      });
-    }
-
-    console.log(`✅ Ferdig! Prosesserte ${omtalerFinal.length} omtaler og ${data.biler.length} biler.`);
 
     // --- 7. TJENESTER ---
     const servicesDir = path.join(__dirname, 'content', 'tjenester');

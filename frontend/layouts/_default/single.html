@@ -1,5 +1,7 @@
 {{ define "main" }}
     <main style="max-width: 1000px; margin: 0 auto; padding: 20px;">
+        <button class="favorite-btn" data-slug="{{ .File.TranslationBaseName }}" onclick="toggleFavorite(this.getAttribute('data-slug'), this)"> <span class="heart-icon">♡</span>Lagre som favoritt</button>
+
         {{ if .Params.mainImageUrl }}
             <img src="{{ .Params.mainImageUrl }}" alt="{{ .Title }}" style="width: 100%; border-radius: 12px; margin-bottom: 20px;">
         {{ end }}

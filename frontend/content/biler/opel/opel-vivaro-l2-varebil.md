@@ -1,0 +1,22 @@
+---
+title: "Vivaro "
+brand: "Opel"
+descriptionHtml: "<h2>Opel Vivaro 2.0 D L2 Elite leasing varebil uten innskudd</h2><p>Opel Vivaro 2.0 D L2 Elite er en allsidig og romslig varebil, ideell for bedrifter som trenger pålitelig transport med høy kapasitet. Med moderne teknologi og praktiske løsninger er denne modellen designet for å gjøre arbeidsdagen mer effektiv.</p><h3>Hvorfor velge Opel Vivaro 2.0 D L2 Elite som firmabil?</h3><ul><li>Motor: 2,0-liters dieselmotor med 145 hk</li><li>Girkasse: 6-trinns manuell girkasse for smidig kjøring</li><li>Drivstofforbruk (WLTP): Kombinert 5,5 l/100 km</li><li>CO₂-utslipp (WLTP): 144 g/km</li><li>Lastevolum: Opptil 5.8 m³</li><li>Nyttelast: Opptil 1 245 kg</li><li>Maksimal lastelengde: 3 670 mm</li><li>Tilhengervekt: Opptil 2 500 kg</li><li>Seter og dører: 3 seter og 4 dører</li><li>Komfort: ErgoComfort førersete og moderne infotainmentsystem med Apple CarPlay og Android Auto</li><li>Sikkerhet: Avanserte førerassistentsystemer som ryggekamera og IntelliGrip</li></ul>"
+equipment: ""
+modeldescription: "2.0 D L2 Elite"
+price0: "0"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/d915babbb347b4c4f4e14a2974c9ed57b132b94f-850x450.jpg?fm=webp&q=80"
+fuel: "Fossilt"
+gear: "Manuell"
+drive: "Forhjulsdrift"
+range: ""
+capacity: "5.8"
+performance: "145"
+doors: "4"
+seats: "3"
+yearmodel: ""
+color: ""
+interest: ""
+towbar: false
+layout: "single"
+---

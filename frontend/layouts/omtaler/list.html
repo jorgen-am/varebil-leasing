@@ -1,11 +1,11 @@
 {{ define "main" }}
 <section style="padding: 80px 20px; background: #fdfdfd; min-height: 80vh;">
-    <div style="max-width: 800px; margin: 0 auto;">
-        
-        <header style="text-align: center; margin-bottom: 60px;">
-            <h1 style="font-size: 2.8em; margin-bottom: 15px;">{{ .Title }}</h1>
-            <div style="color: #ffbc00; font-size: 1.4em;">★★★★★</div>
-        </header>
+    <header style="text-align: center; margin-bottom: 60px;">
+        <h1 style="font-size: 2.8em; margin-bottom: 15px;">{{ .Title }}</h1>
+        <div style="color: #ffbc00; font-size: 1.4em;">★★★★★</div>
+    </header>
+
+    <div class="column-container">
 
         <div style="display: grid; gap: 40px;">
             {{/* Siden reviews.json nå er ferdig sortert fra scriptet, bruker vi bare range */}}

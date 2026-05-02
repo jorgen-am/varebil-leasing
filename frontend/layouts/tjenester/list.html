@@ -1,8 +1,8 @@
 {{ define "main" }}
-<section style="padding: 60px 20px; max-width: 1200px; margin: 0 auto;">
-    <h1 style="text-align: center; margin-bottom: 40px;">{{ .Title }}</h1>
+<section>
+    <h1>{{ .Title }}</h1>
     
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px;">
+    <div class="grid-container">
         {{ range .Pages }}
         <div style="border: 1px solid #eee; border-radius: 15px; overflow: hidden; background: #fff; display: flex; flex-direction: column;">
             {{ if .Params.image }}

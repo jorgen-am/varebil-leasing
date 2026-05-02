@@ -1,0 +1,22 @@
+---
+title: "Proace "
+brand: "Toyota"
+descriptionHtml: "<h2>Toyota Proace L1 Comfort leasing varebil uten innskudd</h2><p>Toyota Proace varebil i L1 Comfort-utgave med dieselmotor og automatgir er et solid valg for bedrifter som trenger en driftssikker og romslig varebil til daglig bruk. Modellen passer godt til service, håndverk og distribusjon, med løsninger som bidrar til effektiv bruk gjennom arbeidsdagen.</p><h3>Kampanje med bildekor inkludert</h3><p>I denne kampanjen leveres Toyota Proace varebil med bildekor inkludert i leasingavtalen. Det omfatter design, produksjon og montering, tilpasset medium mengde. Dette gir bedriften en tydelig og profesjonell profilering fra første dag, uten ekstra kostnader eller separat bestilling.</p><p><a href=\"https://www.automedia.as/leasing/medium-profilering-bildekor\">Les mer om medium profilering</a></p><h3>Praktiske løsninger for arbeidsdagen</h3><p>Varebilen leveres med hengerfeste samt gulv og kledning i varerom, som gir et robust og funksjonelt arbeidsmiljø. Skillevegg mot varerom, skyvedører på begge sider og LED-belysning i varerom gjør lasting og bruk enklere. Parkeringssensorer bak og ryggekamera bidrar til trygg manøvrering i hverdagen.</p><h3>Kapasitet og bruk i praksis</h3><p>Toyota Proace L1 har et vareromsvolum på 4,6 m³, godt egnet for verktøy, utstyr og materialer. Med en hengerkapasitet på 2 500 kg gir bilen høy fleksibilitet også ved transport av tyngre last og tilhenger.</p><p>Leasing av varebil uten innskudd gir en oversiktlig løsning med forutsigbare kostnader og uten kapitalbinding.</p>"
+equipment: "<p>Bildekor inkludert i leasing (design, produksjon og montering – medium mengde) ta kontakt</p><p>Hengerfest</p><p>Gulv i varerom</p><p>Kledning i varerom</p><p>LED belysning i varerom</p><p>Skillevegg mot varerom</p><p>Skyvedører på begge sider</p><p>Parkeringssensorer bak</p><p>Ryggekamera</p><p>Adaptiv cruise control</p><p>Automatisk klimaanlegg</p><p>Oppvarmede forseter</p><p>Elektrisk håndbrems</p>"
+modeldescription: "2,2 l L1 Comfort Auto"
+price0: "7290"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/01abd96c84ab4dc9a153637de1f01395213c85c2-1000x500.jpg?fm=webp&q=80"
+fuel: "Fossilt"
+gear: "Automat"
+drive: "Forhjulsdrift"
+range: ""
+capacity: "4.6"
+performance: "150"
+doors: "5"
+seats: "2"
+yearmodel: ""
+color: ""
+interest: "Fast"
+towbar: true
+layout: "single"
+---

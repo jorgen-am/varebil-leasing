@@ -3,7 +3,7 @@
     <h1>{{ .Title }}</h1> 
     <p>Utforsk våre artikler innen {{ .Title | lower }}.</p>
     
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
+    <div  class="grid-container">
         {{/* .RecursiveSections.RegularPages henter alle artikler fra alle undermapper (kategorier) */}}
         {{ $artikler := .RegularPagesRecursive }}
         

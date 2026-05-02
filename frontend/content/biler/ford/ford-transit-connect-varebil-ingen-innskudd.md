@@ -1,0 +1,22 @@
+---
+title: "Transit Connect "
+brand: "Ford"
+descriptionHtml: "<h2>Ford Transit Connect TDCi 100 hk L1 Trend leasing varebil uten innskudd</h2><p>Ford Transit Connect TDCi L1 Trend er en kompakt og praktisk varebil som kombinerer effektivitet, komfort og funksjonalitet. Den er utstyrt med en drivstoffgjerrig 1,5-liters TDCi-dieselmotor som yter opptil 120 hestekrefter og leverer et dreiemoment på 270 Nm. Motoren er koblet til en presis 6-trinns manuell girkasse, noe som gir en balansert og smidig kjøreopplevelse både i by og på landevei.</p><p>L1-varianten byr på et varerom på opptil 3,0 m³ og en lastekapasitet på opptil 720 kg, med smarte løsninger som gjennomlastingsluke og lave lastekant for enkel inn- og utlasting. Bilen har 2 seter, 5 dører, og er registrert som varebil klasse 2 – ideell for håndverkere, småbedrifter og leveranser i urbane områder. Trend-utgaven leveres med utstyr som aircondition, oppvarmet frontrute, Parkeringssensorer bak, Cruisekontroll, Bluetooth med handsfree, 8-tommers berøringsskjerm med SYNC 3 infotainment, og multifunksjonsratt. I tillegg får du oppvarmede seter, LED kjørelys og fjernstyrt sentrallås som standard.</p>"
+equipment: "<p>Keyless</p><p>Start/stopp</p><p>Klimaanlegg</p><p>Cruise control</p><p>Filskifteassistent</p><p>Multifunksjonsratt</p><p>USB ladeport foran</p><p>Ryggespeil/kamera</p><p>Oppvarmet frontrute</p><p>Elektronisk antispinn</p><p>Trafikkskiltgjenkjenning</p><p>Apple CarPlay, Android</p><p>10,00&quot; berøringsskjerm</p><p>Skyvedør passasjersiden</p><p>Bremseassistanse system</p><p>Individuell førersete med varme</p><p>Park. sensor foran og bak (radar + kamera)</p>"
+modeldescription: "TDCI L1 Trend"
+price0: "4890"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/fe235e99f39e4f371e84ced6ad90abc336314527-850x450.jpg?fm=webp&q=80"
+fuel: "Fossilt"
+gear: "Automat"
+drive: "Forhjulsdrift"
+range: ""
+capacity: "3.1"
+performance: "100"
+doors: "4"
+seats: "2"
+yearmodel: "2025"
+color: ""
+interest: ""
+towbar: true
+layout: "single"
+---

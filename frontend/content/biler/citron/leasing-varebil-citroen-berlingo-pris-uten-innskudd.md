@@ -1,0 +1,22 @@
+---
+title: "Berlingo "
+brand: "Citroën"
+descriptionHtml: "<h2>Citroën Berlingo L2 Proff leasing varebil uten innskudd</h2><p>Citroën Berlingo L2 Proff er en moderne og driftssikker varebil utviklet for norske arbeidsforhold. Med høy komfort, smarte løsninger og praktisk design er dette en ideell arbeidspartner for deg som ønsker effektiv transport og pålitelig ytelse i hverdagen.</p><p>Den lange L2-utgaven leveres med en 1.5 BlueHDi dieselmotor på 130 hk og automatgir (EAT8). Bilen har forhjulstrekk (FWD), et lastevolum på hele 4,4 m³ og en nyttelast på opptil 861 kg. Med tilhengervekt på 1 350 kg og avansert førerassistanse er Berlingo både funksjonell og komfortabel. Den leveres med 4 dører og 2 seter, og byr på moderne teknologi som digitalt instrumentpanel, ryggekamera og trådløs mobiltilkobling.</p>"
+equipment: "<p>Tilhengerfeste</p><p>Nyttelast: opptil 861 kg</p><p>LED kjørelys og automatisk fjernlys</p><p>Parkeringssensorer og ryggekamera</p><p>Trådløs Apple CarPlay og Android Auto</p><p>Tilhengervekt: opptil 1 350 kg (med brems)</p><p>10&quot; berøringsskjerm og digitalt instrumentp</p><p>L2 (lang utgave) med inntil 4,4 m³ lastevolum</p><p>Peugeot i-Cockpit med kompakt ratt og moderne førermiljø</p><p>Dynamic Surround Vision – digitalt bakspeil for bedre oversikt</p>"
+modeldescription: "L2 Proff"
+price0: "4456"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/dcb2ddd97ae543fc1668cd15e2e6540e1379c058-850x450.jpg?fm=webp&q=80"
+fuel: "Fossilt"
+gear: "Automat"
+drive: "Forhjulsdrift"
+range: "0"
+capacity: "4.4"
+performance: "130"
+doors: "4"
+seats: "2"
+yearmodel: "2025"
+color: ""
+interest: "Fast"
+towbar: true
+layout: "single"
+---

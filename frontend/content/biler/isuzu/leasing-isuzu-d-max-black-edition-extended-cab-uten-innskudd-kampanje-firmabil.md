@@ -1,0 +1,22 @@
+---
+title: "D-Max "
+brand: "Isuzu"
+descriptionHtml: "<h2>Isuzu D-Max Premium Black Edition 4x4 Extended Cab leasing varebil uten innskudd</h2><p>Isuzu D-Max Premium Black Edition Extended Cab er en kraftig pickup tilpasset profesjonell bruk. Med 2 dører, 2 seter, firehjulsdrift med lavserie og 6-trinns automatgir, leverer den solid ytelse og driftssikkerhet – uansett underlag.</p><p>Under panseret sitter en 1.9 liters turbodiesel med 164 hk. Bilen har en lastekapasitet på hele 1085 kg, og et lasteplan på ca. 1,35 m³. Den leveres med bedliner og gummimatter foran – og i dette tilbudet er både plantrekk Truxedo og hengerfeste med fast kule inkludert som ekstrautstyr.</p><p>D-Max Black Edition har rikelig med utstyr som adaptive cruise control, parkeringssensorer foran og bak, ryggekamera, BI-LED frontlykter med automatisk fjernlys, filholder og blindsonevarsling. Interiøret byr på sorte skinnseter, oppvarmet skinnratt, og en moderne 7&quot; multimedieskjerm med Apple CarPlay og Android Auto.</p>"
+equipment: "<p>Bedliner</p><p>Plantrekk Truxedo, Extended Cab</p><p>Hengerfeste med fast kule</p><p>Gummimatter foran</p><p>Ryggekamera</p><p>Sorte skinnseter</p><p>Oppvarmet skinnratt</p><p>Lastekapasitet: 1085 kg</p><p>Lastevolum: ca. 1,35 m³</p><p>Parkeringssensor bak</p><p>Parkeringssensor foran</p><p>BI-LED frontlys med auto-fjernlys</p><p>Filholder, filskifte- og bremsevarsling</p><p>Adaptive cruise control og blindsonevarsling</p><p>Elektronisk differensialsperre og lavserie 4x4</p><p>7&quot; multimedieskjerm med Apple CarPlay/Android Auto</p><p>Frontkollisjonsvarsling og nødbremsassistent</p>"
+modeldescription: "Premium Black Edition Extended Cab"
+price0: "6410"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/3c75d26236c28e4be7b38b87faff063be96f6d88-1000x500.jpg?fm=webp&q=80"
+fuel: "Fossilt"
+gear: "Automat"
+drive: "AWD"
+range: ""
+capacity: "1.4"
+performance: "164"
+doors: "4"
+seats: "2"
+yearmodel: ""
+color: "Metallic"
+interest: "Fast"
+towbar: true
+layout: "single"
+---

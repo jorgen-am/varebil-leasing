@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ .Title }}</title>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <link rel="stylesheet" href="/css/globals.css">
 </head>
 <body>
@@ -12,26 +17,25 @@
 
             <div class="logo">
                 <!--a href="/">{{ .Site.Data.settings.title }}</a-->
-                <a href="/">Varebil leasing</a>
+                <a href="/"><img src="/images/logo.png" alt="Varebil leasing logo">Varebil Leasing</a>
             </div>
 
             <nav>
-                <ul class="nav-menu" style="list-style: none; display: flex; gap: 20px;">
+                <ul class="nav-menu">
                     
                     <li class="nav-item dropdown">
-                        <a href="/biler/" style="font-weight: bold;">Biler ▼</a>
+                        <a href="/biler/">Biler ▼</a>
                         <ul class="dropdown-menu">
-                            {{ $exclude := slice "ansatte" "biler" "post" "review" "omtaler" "artikler" "tjenester" "kontakt-oss" "takk" }}
-                            {{ range .Site.Sections.ByTitle }}
-                                {{ if and (not (in $exclude (lower .Section))) (not (in .RelPermalink "xn--citron")) }}
+                            {{ with .Site.GetPage "/biler" }}
+                                {{ range .Sections.ByTitle }}
                                     <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
                                 {{ end }}
                             {{ end }}
                         </ul>
                     </li>
-            
+                                
                     <li class="nav-item dropdown">
-                        <a href="/tjenester/" style="font-weight: bold;">Tjenester ▼</a>
+                        <a href="/tjenester/">Tjenester ▼</a>
                         <ul class="dropdown-menu">
                             {{ with .Site.GetPage "/tjenester" }}
                                 {{ range .Pages.ByTitle }}
@@ -54,10 +58,12 @@
                         </ul>
                     </li>
             
+                    <li><a href="/favoritter/">Favoritter</a></li>
+
                     <li><a href="/omtaler/">Omtaler</a></li>
 
                     <li class="nav-item dropdown">
-                        <a href="#" style="font-weight: bold;">Om oss ▼</a>
+                        <a href="#">Om oss ▼</a>
                         <ul class="dropdown-menu">
                             <li><a href="/ansatte/">Ansatte</a></li>
                             <li><a href="/kontakt-oss/">Kontakt oss</a></li>
@@ -66,10 +72,17 @@
             
                 </ul>
             </nav>
-            
+                          
             <div class="contact-info">
                 <a href="tel:{{ .Site.Data.settings.phone }}">{{ .Site.Data.settings.phone }}</a>
             </div>
+        </div>
+        <div class="container">
+            <form action="{{ "sok/" | relURL }}" method="get" class="search-form">
+                <input type="text" id="search-input" name="q" placeholder="Søk etter varebil...">
+                <button type="submit">Søk</button>
+                <ul id="search-results"></ul> <!-- Dette er for hurtigsøket ditt -->
+            </form>
         </div>
     </header>
     <main>    
@@ -77,5 +90,207 @@
     </main>    
 
     {{ partial "footer.html" . }}
+
+<script src="/js/fuse.js"></script>
+<script>
+// --- 1. GLOBALE FUNKSJONER (Tilgjengelige overalt) ---
+
+function getFavorites() {
+    return JSON.parse(localStorage.getItem('car_favorites')) || [];
+}
+
+function toggleFavorite(slug, button) {
+    // 1. Logg hva vi mottar for å feilsøke
+    console.log("Mottatt slug:", slug);
+
+    // 2. Hvis slug er tom, prøv en siste gang å hente fra knappen eller forelder
+    if (!slug || slug === "undefined" || slug === "") {
+        slug = button.getAttribute('data-slug') || button.closest('[data-slug]')?.dataset.slug;
+    }
+
+    if (!slug) {
+        console.error("KRITISK FEIL: Knappen mangler slug-data.", button);
+        return;
+    }
+
+    let favorites = getFavorites().filter(item => item && item !== "");
+    const heart = button.querySelector('.heart-icon');
+    const index = favorites.indexOf(slug);
+    
+    if (index > -1) {
+        favorites.splice(index, 1);
+        button.classList.remove('is-favorite');
+        if (heart) heart.innerText = '♡';
+        console.log("Fjernet:", slug);
+    } else {
+        favorites.push(slug);
+        button.classList.add('is-favorite');
+        if (heart) heart.innerText = '♥';
+        console.log("Lagt til:", slug);
+    }
+    
+    localStorage.setItem('car_favorites', JSON.stringify(favorites));
+}
+
+function toggleFaq(element) {
+    const allCards = document.querySelectorAll('.faq-card');
+    allCards.forEach(card => {
+        if (card !== element && card.classList.contains('open')) {
+            card.classList.remove('open');
+        }
+    });
+    element.classList.toggle('open');
+}
+
+// Funksjon for å sjekke om favorittlisten er tom (brukes på favoritt-siden)
+function checkEmptyFavs() {
+    const container = document.getElementById('favorites-container');
+    if (container && container.children.length === 0) {
+        container.innerHTML = "<p>Du har ikke lagret noen favoritter ennå.</p>";
+    }
+}
+
+// Oppdaterer hjerte-ikoner på knapper som allerede ligger i HTML-en når siden lastes
+function updateFavoriteUI() {
+    const favorites = getFavorites();
+    
+    document.querySelectorAll('.favorite-btn').forEach(btn => {
+        // Hent slug fra knappen selv ELLER fra car-card forelderen
+        const slug = btn.getAttribute('data-slug') || btn.closest('[data-slug]')?.dataset.slug;
+
+        if (slug && favorites.includes(slug)) {
+            btn.classList.add('is-favorite');
+            const heart = btn.querySelector('.heart-icon');
+            if (heart) heart.innerText = '♥';
+        } else {
+            btn.classList.remove('is-favorite');
+            const heart = btn.querySelector('.heart-icon');
+            if (heart) heart.innerText = '♡';
+        }
+    });
+}
+
+// --- 2. HOVEDLOGIKK (Kjører når siden er klar) ---
+
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // Oppdater statiske hjerter med en gang
+    updateFavoriteUI();
+
+    // --- DROPDOWN NAV LOGIKK ---
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                menu.style.display = 'none';
+                setTimeout(() => { menu.style.display = ''; }, 500);
+            });
+        }
+    });
+
+    // --- FAQ STOP PROPAGATION ---
+    document.querySelectorAll('.read-more').forEach(link => {
+        link.addEventListener('click', (e) => e.stopPropagation());
+    });
+
+
+    // --- HENTING AV DATA (Søk og Favoritt-side) ---
+    const jsonPath = '/varebil-leasing/index.json';
+
+    fetch(jsonPath)
+    .then(response => {
+        if (!response.ok) throw new Error("Fant ikke JSON-filen");
+        return response.json();
+    })
+    .then(data => {
+        // A) Initialiser Søk hvis feltet finnes
+        const searchInput = document.getElementById('search-input');
+        if (searchInput) {
+            setupSearch(data, searchInput);
+        }
+
+        // B) Initialiser Favoritt-siden hvis containeren finnes
+        const favContainer = document.getElementById('favorites-container');
+        if (favContainer) {
+            renderFavorites(data, favContainer);
+        }
+    })
+    .catch(err => console.error("Feil ved lasting av bildata:", err));
+});
+
+
+// --- 3. HJELPEFUNKSJONER FOR SØK OG RENDER ---
+
+function setupSearch(data, input) {
+    const resultsList = document.getElementById('search-results');
+    const fuse = new Fuse(data, {
+        keys: ['title', 'merke', 'modell'],
+        threshold: 0.3
+    });
+
+    input.addEventListener('input', () => {
+        const results = fuse.search(input.value);
+        const favorites = getFavorites();
+        resultsList.innerHTML = ''; 
+        
+        results.forEach(result => {
+            const item = result.item;
+            const isFav = favorites.includes(item.slug);
+            
+            resultsList.innerHTML += `
+                <li class="car-card-mini" style="display: flex; align-items: center; padding: 10px; border-bottom: 1px solid #eee;">
+                    <img src="${item.bilde}" style="width: 50px; margin-right: 15px; border-radius: 4px;">
+                    <div style="flex-grow: 1;">
+                        <a href="${item.permalink}" style="text-decoration: none; color: inherit;">
+                            <strong>${item.merke || ''} ${item.title}</strong>
+                        </a>
+                    </div>
+                    <button class="favorite-btn ${isFav ? 'is-favorite' : ''}" 
+                            onclick="event.stopPropagation(); toggleFavorite('${item.slug}', this)">
+                        <span class="heart-icon">${isFav ? '♥' : '♡'}</span>
+                    </button>
+                </li>`;
+        });
+    });
+}
+
+function renderFavorites(allCars, container) {
+    if (!container) container = document.getElementById('favorites-container');
+    const loader = document.getElementById('favorites-loader');
+    const favSlugs = getFavorites();
+
+    if (loader) loader.style.display = 'none';
+    if (!container) return;
+
+    if (favSlugs.length === 0) {
+        container.innerHTML = '<p>Du har ikke lagret noen favoritter ennå.</p>';
+        return;
+    }
+
+    // Filtrer bilene basert på slug-feltet vi nettopp la til i JSON
+    const favoriteCars = allCars.filter(car => favSlugs.includes(car.slug));
+    container.innerHTML = '';
+
+    favoriteCars.forEach(item => {
+        // Bruk pris0 fra din JSON
+        const prisTekst = (item.pris && item.pris > 0) ? `fra kr ${item.pris},- mva` : "Kontakt for pris";
+        
+        container.innerHTML += `
+            <div class="car-card" data-slug="${item.slug}">
+                <img src="${item.bilde}" alt="${item.title}">
+                <div class="car-card-content">
+                    <h3>${item.merke || ''} ${item.title}</h3>
+                    <p class="price">${prisTekst}</p>
+                    <div class="car-card-buttons">
+                        <a href="${item.permalink}" class="btn">Les mer</a>
+                        <button class="favorite-btn is-favorite" 
+                                onclick="toggleFavorite('${item.slug}', this); this.closest('.car-card').remove(); checkEmptyFavs();">
+                            <span class="heart-icon">♥</span> Fjern
+                        </button>
+                    </div>
+                </div>
+            </div>`;
+    });
+}
+</script>
 </body>
 </html>

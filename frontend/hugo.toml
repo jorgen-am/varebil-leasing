@@ -5,6 +5,10 @@ title = 'Varebil leasing'
 publishDir = "public"
 port = 1316
 
+# internsøk
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
 [permalinks]
   posts = "/:section/:filename/"
 
@@ -17,75 +21,75 @@ port = 1316
 [menu]
   # --- TOPPMENY (main) ---
   [[menu.main]]
-    identifier = "merker"
-    name = "Våre merker"
+    identifier = "Biler"
+    name = "Våre biler"
     url = "/biler/"
     weight = 8
 
   [[menu.main]]
-    parent = "merker"
+    parent = "Biler"
     name = "Citroën"
-    url = "/citroen/"
+    url = "/biler/citroen/"
     weight = 9
 
   [[menu.main]]
-    parent = "merker"
+    parent = "Biler"
     name = "Ford"
-    url = "/ford/"
+    url = "/biler/ford/"
     weight = 10
 
   [[menu.main]]
-    parent = "merker"
+    parent = "Biler"
     name = "Isuzu"
-    url = "/isuzu/"
+    url = "/biler/isuzu/"
     weight = 11
 
   [[menu.main]]
-    parent = "merker"
+    parent = "Biler"
     name = "Kia"
-    url = "/kia/"
+    url = "/biler/kia/"
     weight = 12
 
   [[menu.main]]
-    parent = "merker"
+    parent = "Biler"
     name = "Maxus"
-    url = "/maxus/"
+    url = "/biler/maxus/"
     weight = 13
 
   [[menu.main]]
-    parent = "merker"
+    parent = "Biler"
     name = "Mercedes"
-    url = "/mercedes/"
+    url = "/biler/mercedes/"
     weight = 14
 
   [[menu.main]]
-    parent = "merker"
+    parent = "Biler"
     name = "Opel"
-    url = "/opel/"
+    url = "/biler/opel/"
     weight = 15
 
   [[menu.main]]
-    parent = "merker"
+    parent = "Biler"
     name = "Peugeot"
-    url = "/peugeot/"
+    url = "/biler/peugeot/"
     weight = 16
 
   [[menu.main]]
-    parent = "merker"
+    parent = "Biler"
     name = "Renault"
-    url = "/renault/"
+    url = "/biler/renault/"
     weight = 17
 
   [[menu.main]]
-    parent = "merker"
+    parent = "Biler"
     name = "Toyota"
-    url = "/toyota/"
+    url = "/biler/toyota/"
     weight = 18
 
   [[menu.main]]
-    parent = "merker"
+    parent = "Biler"
     name = "Volkswagen"
-    url = "/volkswagen/"
+    url = "/biler/volkswagen/"
     weight = 19
 
   [[menu.main]]
@@ -130,57 +134,57 @@ port = 1316
   # --- BUNNMENY (footer) ---
   [[menu.footer]]
     name = "Citroën"
-    url = "/citroen/"
+    url = "/biler/citroen/"
     weight = 9
 
   [[menu.footer]]
     name = "Ford"
-    url = "/ford/"
+    url = "/biler/ford/"
     weight = 10
 
   [[menu.footer]]
     name = "Isuzu"
-    url = "/isuzu/"
+    url = "/biler/isuzu/"
     weight = 11
 
   [[menu.footer]]
     name = "Kia"
-    url = "/kia/"
+    url = "/biler/kia/"
     weight = 12
 
   [[menu.footer]]
     name = "Maxus"
-    url = "/maxus/"
+    url = "/biler/maxus/"
     weight = 13
 
   [[menu.footer]]
     name = "Mercedes"
-    url = "/mercedes/"
+    url = "/biler/mercedes/"
     weight = 14
 
   [[menu.footer]]
     name = "Opel"
-    url = "/opel/"
+    url = "/biler/opel/"
     weight = 15
 
   [[menu.footer]]
     name = "Peugeot"
-    url = "/peugeot/"
+    url = "/biler/peugeot/"
     weight = 16
 
   [[menu.footer]]
     name = "Renault"
-    url = "/renault/"
+    url = "/biler/renault/"
     weight = 17
 
   [[menu.footer]]
     name = "Toyota"
-    url = "/toyota/"
+    url = "/biler/toyota/"
     weight = 18
 
   [[menu.footer]]
     name = "Volkswagen"
-    url = "/volkswagen/"
+    url = "/biler/volkswagen/"
     weight = 19
 
   [[menu.footer]]

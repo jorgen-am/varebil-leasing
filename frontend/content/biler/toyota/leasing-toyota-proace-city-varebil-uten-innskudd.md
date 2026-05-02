@@ -1,0 +1,22 @@
+---
+title: "Proace City "
+brand: "Toyota"
+descriptionHtml: "<h2>Toyota Proace City L2 leasing varebil uten innskudd</h2><p>Ønsker din bedrift en kompakt og allsidig varebil som er perfekt for både bykjøring og transportoppgaver? Toyota Proace City L2 er en praktisk firmabil med stor lastekapasitet, moderne design og effektive løsninger som gjør arbeidsdagen enklere.</p><h3>Toyota Proace City L2 – Høydepunkter:</h3><ul><li>Antall dører og seter: 5 dører og 3 seter.</li><li>Motor: 1,5-liters dieselmotor med 130 hk for kraftfull ytelse og drivstoffeffektivitet.</li><li>Drivlinje: Diesel.</li><li>Hjuldrift: Forhjulsdrift (FWD).</li><li>Lastekapasitet: Opptil 1 000 kg nyttelast og et lasterom på 4,4 m³.</li><li>Tilhengervekt: Kan trekke opptil 1 500 kg for fleksible transportbehov.</li><li>Bagasjeromsvolum: 500 liter med alle seter i bruk.</li><li>Design: Kompakt eksteriør med to skyvedører for enkel tilgang til lasterommet.</li><li>Komfort: Ergonomisk førerplass med avansert infotainmentsystem og justerbart sete.</li><li>Sikkerhet: Toyota Safety Sense med kollisjonsvern, filskiftevarsler og skiltgjenkjenning.</li></ul><p>Toyota Proace City L2 gir deg alt du trenger i en firmabil – funksjonalitet, effektivitet og komfort i én pakke.</p>"
+equipment: ""
+modeldescription: "1.5D Comfort L2"
+price0: "0"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/4c95c60019664b3734e3b8abad622394b9776925-850x450.jpg?fm=webp&q=80"
+fuel: "Fossilt"
+gear: "Automat"
+drive: "Forhjulsdrift"
+range: ""
+capacity: "4.4"
+performance: "130"
+doors: "5"
+seats: "3"
+yearmodel: ""
+color: ""
+interest: "Fast"
+towbar: false
+layout: "single"
+---

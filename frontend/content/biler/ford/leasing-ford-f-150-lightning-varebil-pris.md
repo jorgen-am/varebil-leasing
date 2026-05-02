@@ -1,0 +1,22 @@
+---
+title: "F-150 Lightning "
+brand: "Ford"
+descriptionHtml: "<h2>Ford F-150 Lightning Lariat Launch Edition leasing varebil uten innskudd</h2><p>Ford F-150 Lightning Lariat Launch Edition er en helelektrisk pickup-klassifisert varebil med 2 seter, 4 dører, 452 hestekrefter og firehjulstrekk (AWD/4x4). Med batteripakke på 98 kWt (Standard Range) og rekkevidde på opptil 483 km (WLTP), er dette et av de kraftigste elektriske nyttekjøretøyene på markedet. Bilen hurtiglades fra 10–80 % på rundt 41 minutter med CCS-lading, og har tilhengerfeste som standard – godkjent for opptil 3.500 kg hengervekt.</p><p>Med sin elektriske frunk (ca. 400 liter), lukkede plan og digitale løsninger som SYNC 4A og Pro Trailer Backup Assist, er F-150 Lightning en moderne, komfortabel og arbeidseffektiv løsning. Lariat-pakken inkluderer massasjefunksjon i forsetene, elektrisk nedfellbart bord, B&amp;O Premium Sound System og avansert førerassistanseteknologi som 360° kamera og aktiv cruisekontroll.</p>"
+equipment: "<p>Tillhengerfeste</p><p>Oppvarmet frontrute</p><p>Elektrisk nedfellbart bord</p><p>B&amp;O Premium Sound System</p><p>Adaptive cruisekontroll</p><p>Elektrisk tilhengerbrems</p><p>15,5&quot; touchskjerm med SYNC 4A</p><p>Massasjeseter med elektrisk justering</p><p>360° kamera og parkeringsassistent</p><p>Pro Trailer Backup Assist og navigasjon</p>"
+modeldescription: "Lariat Launch Edition"
+price0: "10600"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/596573e244ef567ee2f939be600aa2d843848574-1000x500.jpg?fm=webp&q=80"
+fuel: "Elektrisk"
+gear: "Automat"
+drive: "AWD"
+range: "429"
+capacity: ""
+performance: "452"
+doors: "4"
+seats: "2"
+yearmodel: ""
+color: ""
+interest: "Fast"
+towbar: true
+layout: "single"
+---

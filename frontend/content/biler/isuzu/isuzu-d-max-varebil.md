@@ -1,0 +1,22 @@
+---
+title: "D-Max "
+brand: "Isuzu"
+descriptionHtml: "<h2>Isuzu D-Max Black Edition Double Cab firmabil leasing uten innskudd</h2><p>Isuzu D-Max Black Edition er en robust og driftssikker pickup som egner seg svært godt som firmabil for virksomheter med behov for firehjulstrekk, høy trekkapasitet og solid fremkommelighet. Denne Double Cab-utgaven kombinerer praktiske løsninger for arbeidshverdagen med komfort og gjennomført utstyrsnivå.</p><h3>Solid pickup til profesjonell bruk</h3><p>Isuzu D-Max er kjent for sin pålitelighet og sterke konstruksjon, og Black Edition-utgaven gir et ekstra tøft og funksjonelt uttrykk. Med 4x4, automatgir og kraftig turbodieselmotor er dette en firmabil som håndterer både krevende arbeidsforhold, tung last og variert terreng gjennom hele året.</p><p>Double Cab-løsningen gir god plass i kupeen, samtidig som planet gir fleksible muligheter for transport av utstyr, materialer og verktøy. Hardtop med vinduer på alle sider bidrar til både sikkerhet og praktisk bruk.</p><h3>Utstyr og tilpasninger for arbeidshverdagen</h3><p>Denne Isuzu D-Max leveres med blant annet fast hengerfeste, understellsbehandling tilpasset norske forhold og plansprøyting for økt slitestyrke. Mørke ruter og gummimatter bidrar til både komfort og praktisk bruk i hverdagen, mens hardtop-løsningen gir et lukket og anvendelig lasterom.</p><p>Kombinasjonen av solid chassis, firehjulstrekk og gjennomtenkte arbeidsløsninger gjør bilen godt egnet for håndverkere, entreprenører, landbruk og andre næringer med høye krav til kjøretøyet.</p><h3>Firmabil med forutsigbar drift</h3><p>Som firmabil gir Isuzu D-Max en løsning med høy brukerverdi og forutsigbar drift over tid. Leasing uten innskudd gjør det mulig å ta bilen i bruk uten kapitalbinding, samtidig som virksomheten får kontroll på bilkostnadene.</p><p>Ønsker du en pickup som er bygget for jobb – og levert ferdig tilpasset norske forhold – er Isuzu D-Max Black Edition et svært aktuelt valg.</p>"
+equipment: "<p>Firehjulstrekk (4x4)</p><p>Automatgir</p><p>Black Edition utvendig styling</p><p>Double Cab</p><p>Hardtop med vinduer på alle sider</p><p>Fast hengerfeste</p><p>Understellsbehandling</p><p>Plansprøyting</p><p>Mørke ruter</p><p>Gummimatter kupe</p><p>Gummimatte plan</p>"
+modeldescription: "Double Cab Premium Black Edition"
+price0: "7490"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/7ec83f62eff63aed4ce103ab79477f0403b63183-1000x500.jpg?fm=webp&q=80"
+fuel: "Fossilt"
+gear: "Automat"
+drive: "AWD"
+range: ""
+capacity: ""
+performance: "164"
+doors: "4"
+seats: "2"
+yearmodel: ""
+color: ""
+interest: "Fast"
+towbar: true
+layout: "single"
+---

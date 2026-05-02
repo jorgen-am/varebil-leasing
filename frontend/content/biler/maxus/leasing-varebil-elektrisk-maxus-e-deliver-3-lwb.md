@@ -1,0 +1,22 @@
+---
+title: "E-Deliver 3 "
+brand: "Maxus"
+descriptionHtml: "<h2>Maxus E-Deliver 3 LWB som leasing varebil uten innskudd</h2><p>Maxus e-Deliver 3 LWB med 52,5 kWh batteri er en romslig og effektiv elektrisk varebil, ideell for bedrifter som ønsker en miljøvennlig transportløsning uten å gå på kompromiss med kapasitet. Med moderne teknologi og praktiske funksjoner er denne modellen designet for å gjøre arbeidsdagen mer produktiv.</p><h3>Hvorfor velge Maxus e-Deliver 3 som firmabil?</h3><ul><li>Motor: Elektrisk motor med 122 hk (90 kW)</li><li>Batterikapasitet: 52,5 kWh</li><li>Rekkevidde: Opptil 342 km (WLTP)</li><li>Ladetid: Hurtiglading fra 0 til 80 % på ca. 45 minutter</li><li>Lastevolum: 6,3 m³</li><li>Nyttelast: Opptil 895 kg</li><li>Maksimal lastelengde: 2 690 mm</li><li>Tilhengervekt: Opptil 1 025 kg</li><li>Seter og dører: 2 seter og 4 dører</li><li>Komfort: Automatisk klimaanlegg, Apple CarPlay, og ergonomisk førermiljø</li><li>Sikkerhet: Ryggekamera, antispinn, og stabilitetssystem</li></ul>"
+equipment: ""
+modeldescription: "52,5 kwh 6.3 m3 LWB"
+price0: "0"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/c08d20d8328e763227bcfca4df5bfffe0c31f6d2-850x450.jpg?fm=webp&q=80"
+fuel: "Elektrisk"
+gear: "Automat"
+drive: "Forhjulsdrift"
+range: "342"
+capacity: "6.3"
+performance: "122"
+doors: "4"
+seats: "2"
+yearmodel: "2025"
+color: ""
+interest: ""
+towbar: false
+layout: "single"
+---

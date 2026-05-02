@@ -1,0 +1,22 @@
+---
+title: "Partner "
+brand: "Peugeot"
+descriptionHtml: "<h2>Peugeot Partner leasing varebil uten innskudd</h2><h3>Leasing av Peugeot Partner L2 Mester 4X4 Automat som firmabil uten innskudd – Automedia AS</h3><p>Peugeot Partner L2 Mester 4X4 Automat er en robust og moderne varebil som kombinerer praktisk funksjonalitet med fremkommelighet i toppklasse. Denne modellen er spesielt utviklet for profesjonelle brukere som trenger en driftssikker bil som takler både krevende arbeidsdager og utfordrende kjøreforhold.</p><p>Med automatgir og firehjulstrekk får du både komfort og kontroll – uansett vær og vei. Bilen leveres med en kraftig 1.5 BlueHDi dieselmotor på 130 hk og EAT8 automatgir, som gir en smidig og effektiv kjøreopplevelse.</p><p>Lastevolumet er opptil 4,4 m³, med en nyttelast på opptil 861 kg, og tillatt tilhengervekt med brems på hele 1 350 kg. Partner L2 Mester 4X4 har 4 dører og 2 seter, og byr på utmerket plass, enkel tilgang og høy komfort – perfekt for håndverkere og bedrifter som stiller høye krav til både kvalitet og fleksibilitet.</p>"
+equipment: "<p>10&quot; berøringsskjerm</p><p>Inntil 4,4 m³ lasterom</p><p>digitalt instrumentpanel</p><p>Nyttelast: opptil 861 kg</p><p>Tilhengervekt: 1 350 kg m brems</p><p>LED kjørelys og automatisk fjernlys</p><p>Trådløs Apple CarPlay og Android Auto</p><p>Dynamic Surround Vision – digitalt bakspeil</p>"
+modeldescription: "L2 Mester 4X4 Automat"
+price0: "7390"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/9a405e9b6e454e9f9c69c714a6b0d1a891987a02-850x450.jpg?fm=webp&q=80"
+fuel: "Fossilt"
+gear: "Automat"
+drive: "Forhjulsdrift"
+range: ""
+capacity: "4.4"
+performance: "130"
+doors: "4"
+seats: "2"
+yearmodel: ""
+color: ""
+interest: "Fast"
+towbar: true
+layout: "single"
+---

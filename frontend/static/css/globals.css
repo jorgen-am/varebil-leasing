@@ -1,2 +1,51 @@
+* {position: relative; font-family: Arial, Helvetica, sans-serif;}
 body{margin:0px;padding:0px;}
-header,main,footer{margin:0px;padding:40px; color:red;}
+header,main,footer{margin:0px;padding:40px; }
+
+/* HEADER */
+.logo a { font-size: 30px; text-decoration: none; color:black; }
+.logo a img { width: 30px; vertical-align: top; display: inline-block; margin: -3px 15px 0 0;}
+
+/* NAV */
+ul.nav-menu { list-style: none; display: flex; gap: 20px; }
+/* 1. Skjul menyen som standard */
+.nav-item .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #fff; list-style: none; padding: 15px; min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); z-index: 1000; margin: 0; }
+/* 2. Vis menyen ved hover på li-elementet */
+.nav-item.dropdown:hover > .dropdown-menu { display: block;}
+/* 3. Et triks for å unngå at menyen forsvinner med en gang: */
+.nav-item.dropdown::after { content: ""; position: absolute; bottom: -10px; left: 0; width: 100%; height: 10px; }
+
+/*****************************/
+/* FORSIDE */
+
+/* SECTIONS */
+section.hero {background: #f4f4f4; padding: 60px 20px; text-align: center;}
+section.why,
+section.reviews,
+section.faq,
+section.employees {padding: 60px 20px;}
+
+/* KOLONNE LAYOUT */
+.grid-container {display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;}
+.column-container.auto {display: block; column-width: 350px; gap: 20px;}
+.column-container.two { display: block; columns: 2; gap: 60px;}
+.column-container.two div { display: block; break-inside: avoid; }
+
+/* BILER */
+.grid-container .car-card {border: 1px solid #ccc; padding: 15px; border-radius: 8px; background: white;}
+.grid-container .car-card img {width: 100%; height: 150px; object-fit: cover; border-radius: 4px;}
+.grid-container .car-card h3 {margin: 10px 0 5px 0;}
+.grid-container .car-card .car-subheader { color: #666; font-size: 0.9em; margin-bottom: 10px;}
+.grid-container .car-card .car-main-properties {font-size: 0.85em; color: #444; margin-bottom: 10px;}
+.grid-container .car-card .car-main-properties span {background: #f0f0f0; padding: 2px 6px; border-radius: 4px;}
+
+/* FAQ  */
+.faq-excerpt { font-size: 16px; color: #4b5563; line-height: 1.5; margin: 15px 0; }
+.faq-card a.read-more {color: #007bff; font-weight: 600; text-decoration: none;}
+.faq-card h3:after { content: '+'; float: right; transition: transform 0.3s ease;}
+.faq-card.open h3:after { transform: rotate(45deg); color: #007bff;}
+
+/* FAQ toggle */
+.faq-card { cursor: pointer; transition: all 0.3s ease; border: 1px solid #eee; padding: 20px; background: #fff; margin-bottom: 15px; overflow: hidden; }
+.faq-card .faq-content { max-height: 0; opacity: 0; transition: max-height 0.4s ease, opacity 0.3s ease; pointer-events: none; }
+.faq-card.open .faq-content { max-height: 500px; opacity: 1; margin-top: 15px; pointer-events: auto;}

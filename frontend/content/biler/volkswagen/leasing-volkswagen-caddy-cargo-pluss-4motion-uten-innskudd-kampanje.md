@@ -1,0 +1,22 @@
+---
+title: "Caddy "
+brand: "Volkswagen"
+descriptionHtml: "<h2>Leasing av VW Caddy Cargo Pluss 122 4Motion uten innskudd – Automedia AS</h2><p>Denne firmabilen som kan leveres raskt kommer med <em>LED hovedlys, parkeringssensorer foran og bak, parkeringsvarmer med fjernkontroll</em> og leveres i <strong>Cargo Pluss-utførelse</strong> med utvidet komfort og moderne førermiljø. Dette gjør modellen særlig attraktiv for virksomheter som trenger en pålitelig varebil med solid fremkommelighet og høy driftssikkerhet gjennom hele året. Varianten leveres med <strong>skyvedør på høyre side</strong> for enkel tilgang til varerommet, og en <strong>topphengslet bakluke med vindu</strong>, som gir bedre sikt og enkel håndtering av last i trange områder.</p><p>VW Caddy Cargo Pluss 122 4Motion er utstyrt med en effektiv 2.0 TDI-motor og <strong>firehjulsdrift</strong>, som gir trygg fremkommelighet på vinterføre og ujevn vei. Den stabile plattformen gjør bilen godt tilpasset bedrifter med variert kjøring, enten det gjelder byoppdrag, servicearbeid eller transport av utstyr. Varerommet er praktisk utformet med <strong>halvhøy sidekledning og LED-lys</strong>, som gir et ryddig og oversiktlig arbeidsområde gjennom hele dagen.</p><p>Førerplassen er utviklet med fokus på ergonomi og effektivitet, og leveres med <strong>Digital Cockpit</strong>, <strong>multifunksjonsratt i skinn</strong>, <strong>ryggekamera</strong> og <strong>Climatic klimaanlegg</strong>. Dette gir føreren et moderne og intuitivt arbeidsmiljø, som bidrar til komfort på både korte og lange turer. <strong>Adaptiv Cruise Control</strong> gjør det enklere å holde jevn kjøreflyt i krevende trafikk, og parkeringsløsningsene gir trygg manøvrering i trange bygater eller tett bebyggelse.</p><p>Leasing uten innskudd gir bedriften <strong>forutsigbare kostnader</strong>, der både drift, budsjettstyring og tilgjengelighet ivaretas uten større engangsinvesteringer. For virksomheter som ønsker en praktisk varebil med god kapasitet, stabil fremkommelighet og høy komfort i arbeidshverdagen, fremstår VW Caddy Cargo Pluss 122 4Motion som et solid og profesjonelt valg.</p>"
+equipment: "<p>Tilhengerfeste</p><p>LED hovedlys med separate LED kjørelys</p><p>Ryggekamera</p><p>Parkeringssensorer foran og bak</p><p>Adaptiv Cruise Control med hastighetsbegrenser</p><p>Parkeringsvarmer med fjernkontroll</p><p>Digital Cockpit</p><p>Multifunksjonsratt i skinn</p><p>Climatic klimaanlegg</p><p>Topp­hengslet bakluke med vindu, varme og spyler</p><p>Halvhøy sidekledning og LED-lys i varerom</p>"
+modeldescription: "Cargo Pluss 2.0 TDI 4Motion"
+price0: "5090"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/7584a0df19f4f168d057cac7fc9c3149c37bd0fc-1000x500.jpg?fm=webp&q=80"
+fuel: "Fossilt"
+gear: "Manuell"
+drive: "AWD"
+range: "0"
+capacity: "3.7"
+performance: "122"
+doors: "5"
+seats: "2"
+yearmodel: ""
+color: ""
+interest: "Fast"
+towbar: true
+layout: "single"
+---

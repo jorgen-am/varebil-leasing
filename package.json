@@ -1,0 +1,18 @@
+{
+  "name": "varebil-leasing-main",
+  "version": "1.0.0",
+  "scripts": {
+    "pull": "git pull origin main",
+    "data": "cd frontend && node fetch-sanity.js",
+    "hugo": "cd frontend && hugo server -D --baseURL='http://localhost:1313/varebil-leasing/'",
+    "studio": "cd studio && npx sanity dev",
+    "start": "npm run pull && npm run data && concurrently \"npm run hugo\" \"npm run studio\"",
+    "clean": "rm -rf frontend/public frontend/resources",
+    "nuke-studio": "rm -rf studio/node_modules studio/package-lock.json && npm install --prefix studio --legacy-peer-deps",
+    "build": "npm run clean && npm run data && cd frontend && hugo --minify",
+    "deploy": "npm run build && git add . && git commit -m 'Rent bygg og deploy' && git push origin main"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}

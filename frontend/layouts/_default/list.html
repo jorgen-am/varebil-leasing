@@ -1,5 +1,5 @@
 {{ define "main" }}
-<section style="padding: 50px 20px; max-width: 1200px; margin: 0 auto;">
+<section>
     <h1 style="text-align: center; margin-bottom: 40px;">{{ .Title }}</h1>
     {{ $displayPages := .Pages }}
     {{ if or (eq .RelPermalink "/biler/") (.IsHome) }}
@@ -10,12 +10,13 @@
         Våre biler ({{ len $displayPages }} funnet)
     </h2>
     
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;">
+    <div class="grid-container">
     
         {{ range $displayPages }}
-          <div class="car-card" style="border: 1px solid #eee; padding: 15px; border-radius: 12px; background: #fff;">
+        <div class="car-card" data-slug="{{ .Params.slug.current }}">
+            <button class="favorite-btn" data-slug="{{ .File.TranslationBaseName }}" onclick="toggleFavorite(this.getAttribute('data-slug'), this)"> <span class="heart-icon">♡</span>Lagre som favoritt</button>
             {{ if .Params.mainImageUrl }}
-                <img src="{{ .Params.mainImageUrl }}" alt="{{ .Title }}" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+            <img src="{{ .Params.mainImageUrl }}" alt="{{ .Title }}" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
             {{ end }}
 
             <h3 style="margin: 10px 0 5px 0;">{{ .Params.brand }} {{ .Title }}</h3>

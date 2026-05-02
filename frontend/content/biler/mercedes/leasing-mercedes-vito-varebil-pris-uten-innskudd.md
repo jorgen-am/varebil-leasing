@@ -1,0 +1,22 @@
+---
+title: "Vito "
+brand: "Mercedes"
+descriptionHtml: "<h2>Mercedes-Benz Vito leasing varebil med service og forsikring inkludert i prisen!</h2><p>Mercedes-Benz Vito 119 CDI PRO A2 er en kraftfull og fleksibel varebil med høy komfort og pålitelig ytelse. Denne modellen leveres med 190 hk og 9-trinns automatgir, og er ideell for bedrifter som ønsker en driftssikker og moderne firmabil med lang levetid og gode kjøreegenskaper.</p><p>Bilen har 4 dører og 3 seter, og et romslig varerom tilpasset kravene i en hektisk arbeidshverdag. Med fabrikkmontert tilhengerfeste kan du trekke inntil 2 500 kg. Vito 119 CDI leveres med bakhjulsdrift og en rekke teknologier som gjør hverdagen enklere – som parkeringspakke med ryggekamera, LED High Performance frontlykter og det intuitive MBUX infotainmentsystemet.</p><p>I denne leasingpakken er både forsikring og serviceavtale inkludert, slik at du får full kostnadskontroll og en forutsigbar biløkonomi.</p>"
+equipment: "<p>Aktiv førerassistent med styring</p><p>Avstandskontroll, DISTRONIC PLUS</p><p>Live trafikkinformasjon</p><p>Trafikkskiltassistent</p><p>Parkeringspakke med ryggekamera</p><p>Oppgradert automatisk start/stopp-funksjon</p><p>Rute-basert fartstilpasning</p><p>Aktiv fartsbegrensningsassistent</p><p>Førerassistentpakke</p><p>Oppvarmet ratt</p><p>Navigasjonssystem</p><p>Kjøre-/parkeringsvarmer, tidsur, varmtvann</p><p>Oppvarmede komfortseter</p><p>MULTIBEAM LED hovedlykter</p><p>Skyvedør venstre side</p><p>Tregulv i varerom</p><p>Sidekledning opp til tak i varerom (tre)</p><p>Mørke ruter i passasjerrom</p><p>Thule 3 stativer</p><p>Serviceavtale</p><p>Forsikring/TFA</p>"
+modeldescription: "PRO 119 CDI A2"
+price0: "10545"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/1321b726b68d9e63e26a8e110536cdcf7081bb0a-1000x500.jpg?fm=webp&q=80"
+fuel: "Fossilt"
+gear: "Automat"
+drive: "AWD"
+range: ""
+capacity: "6.6"
+performance: "190"
+doors: "4"
+seats: "3"
+yearmodel: "2025"
+color: ""
+interest: "Fast"
+towbar: true
+layout: "single"
+---

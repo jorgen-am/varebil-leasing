@@ -1,0 +1,22 @@
+---
+title: "Vito "
+brand: "Mercedes"
+descriptionHtml: "<h2>Mercedes-Benz Vito, med 6 m³ lastevolum og 2.500 kg hengervekt, leasing varebil uten innskudd</h2><p>Mercedes-Benz Vito 114 CDI PRO A1 er en solid varebil med 136 hk, 9-trinns automatgir og bakhjulsdrift. Den leveres med 2 seter, 5 dører og et lastevolum på hele 6,0 kubikkmeter. Med tillatt totalvekt på 3.000 kg og en nyttelast på 858 kg får du en robust arbeidspartner med høy kapasitet. Den faste tilhengerfesteløsningen gir godkjent hengervekt på 2.500 kg.</p><p>Denne Vito-utgaven er utstyrt med praktiske løsninger som skyvedør på begge sider, ryggekamera, Multibeam LED hovedlykter og DISTRONIC PLUS avstandsholder. Komforten ivaretas av blant annet oppvarmede seter, DAB+ radio og klimaanlegg. Med mørke ruter og varmeisolerende glass ligger alt til rette for både komfort og effektivitet – året rundt.</p>"
+equipment: "<p>LED baklamper</p><p>HOLD-funksjon</p><p>Ryggekamera</p><p>DAB+ radio</p><p>Blindsoneassistent</p><p>Elektrisk justerbare sidespeil</p><p>Skyvedør på venstre side</p><p>Varmedempende glass</p><p>Elektrisk oppvarmede seter</p><p>Mørke ruter i passasjerrom</p><p>Multifunksjonsratt</p><p>Tilhengerfeste (fast) med 2500 kg kapasitet</p><p>9G-Tronic automatgir</p><p>Multibeam LED hovedlykter</p><p>Avstandsholder DISTRONIC PLUS</p>"
+modeldescription: "114 CDI PRO A1"
+price0: "10190"
+mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/90720fd5232ddd1de969f9af7f2b9f410380adf7-850x450.jpg?fm=webp&q=80"
+fuel: "Fossilt"
+gear: "Automat"
+drive: "Bakhjulsdrift"
+range: ""
+capacity: "6"
+performance: "136"
+doors: "5"
+seats: "2"
+yearmodel: ""
+color: ""
+interest: "Fast"
+towbar: true
+layout: "single"
+---
