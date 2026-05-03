@@ -13,26 +13,29 @@
         
         <div class="grid-container auto">
             {{ range $allCars }}
-            <div class="car-card" data-slug="{{ .Params.slug.current }}">
-                <button class="favorite-btn" data-slug="{{ .File.TranslationBaseName }}" onclick="toggleFavorite(this.getAttribute('data-slug'), this)"> <span class="heart-icon">♡</span>Lagre som favoritt</button>
+                <div class="car-card" data-slug="{{ .Params.slug.current }}">
+                    <div class="car-card-content">
+                        <!-- Velg for sammenligning -->
+                        <button class="select-btn" data-slug="{{ .File.TranslationBaseName }}" data-img="{{ .Params.mainImageUrl }}" onclick="toggleSelection(this.dataset.slug, this.dataset.img, event)"> </button>
+                        <!-- Legg til som favoritt-->
+                        <button class="favorite-btn" data-slug="{{ .File.TranslationBaseName }}" onclick="toggleFavorite(this.getAttribute('data-slug'), this)"> </button>
 
-                {{ if .Params.mainImageUrl }}
-                    <img src="{{ .Params.mainImageUrl }}" alt="{{ .Title }}">
-                {{ end }}
-    
-                <h3>{{ .Params.brand }} {{ .Title }}</h3>
-                <p class="car-subheader">{{ .Params.modeldescription }}</p>
-                <p class="car-main-properties">
-                    {{ if .Params.fuel }}<span>{{ .Params.fuel | humanize }}</span>{{ end }}
-                    {{ if .Params.drive }} <span>{{ .Params.drive | humanize }}</span>{{ end }}
-                    {{ if .Params.gear }} <span>{{ .Params.gear | humanize }}</span>{{ end }}
-                </p>    
-                <p><strong>Fra kr {{ .Params.price0 }},- mva</strong></p>
-                
-                <a href="{{ .RelPermalink }}" style="display: inline-block; margin-top: 10px; padding: 8px 12px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">
-                    Se tilbud
-                </a>
-            </div>
+                        {{ if .Params.mainImageUrl }}
+                            <img src="{{ .Params.mainImageUrl }}" alt="{{ .Title }}">
+                        {{ end }}
+            
+                        <h3>{{ .Params.brand }} {{ .Title }}</h3>
+                        <p class="car-subheader">{{ .Params.modeldescription }}</p>
+                        <p class="car-main-properties">
+                            {{ if .Params.fuel }}<span>{{ .Params.fuel | humanize }}</span>{{ end }}
+                            {{ if .Params.drive }} <span>{{ .Params.drive | humanize }}</span>{{ end }}
+                            {{ if .Params.gear }} <span>{{ .Params.gear | humanize }}</span>{{ end }}
+                        </p>    
+                        <p><strong>Fra kr {{ .Params.price0 }},- mva</strong></p>
+                        
+                        <a href="{{ .Permalink }}" class="btn">Les mer</a>
+                    </div>
+                </div>
             {{ else }}
                 <p>Ingen biler ble funnet. Har du kjørt <code>node fetch-sanity.js</code>?</p>
             {{ end }}

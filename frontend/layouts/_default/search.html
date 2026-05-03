@@ -37,14 +37,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Her bruker vi nøyaktig samme HTML-struktur som du har i list.html
                 container.innerHTML += `
                     <div class="car-card" data-slug="{{ .Params.slug.current }}">
-                        <button class="favorite-btn" data-slug="{{ .File.TranslationBaseName }}" onclick="toggleFavorite(this.getAttribute('data-slug'), this)"> <span class="heart-icon">♡</span>Lagre som favoritt</button>
-                        ${item.bilde ? `<img src="${item.bilde}" alt="${item.title}" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">` : ''}
-                        <h3 style="margin: 10px 0 5px 0;">${item.merke} ${item.title}</h3>
-                        <p style="color: #666; font-size: 0.9em; margin-bottom: 5px;">${item.modell}</p>
-                        <p><strong>Fra kr ${item.pris},- mva</strong></p>
-                        <a href="${item.permalink}" style="display: block; margin-top: 10px; padding: 10px; background: #000; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; text-align: center;">
-                            Se tilbud
-                        </a>
+                        <!-- Bilens visuelle innhold -->
+                        <div class="car-card-content">
+                            <!-- Velg for sammenligning -->
+                            <button class="select-btn" data-slug="{{ .File.TranslationBaseName }}" data-img="{{ .Params.mainImageUrl }}" onclick="toggleSelection(this.dataset.slug, this.dataset.img, event)"> </button>
+                            <!-- Legg til som favoritt-->
+                            <button class="favorite-btn" data-slug="{{ .File.TranslationBaseName }}" onclick="toggleFavorite(this.getAttribute('data-slug'), this)"> </button>
+                            ${item.bilde ? `<img src="${item.bilde}" alt="${item.title}" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">` : ''}
+                            <h3 style="margin: 10px 0 5px 0;">${item.merke} ${item.title}</h3>
+                            <p style="color: #666; font-size: 0.9em; margin-bottom: 5px;">${item.modell}</p>
+                            <p><strong>Fra kr ${item.pris},- mva</strong></p>
+                            <a href="${item.permalink}" style="display: block; margin-top: 10px; padding: 10px; background: #000; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; text-align: center;">
+                                Se tilbud
+                            </a>
+                        </div>
                     </div>
                 `;
             });

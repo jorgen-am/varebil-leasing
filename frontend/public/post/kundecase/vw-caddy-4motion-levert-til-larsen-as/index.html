@@ -3,11 +3,11 @@
 <head><script src="/varebil-leasing/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=varebil-leasing/livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <title>Levering av VW Caddy 4Motion til Larsen AS</title>
-    <link rel="icon" type="image/png" href="http://localhost:1313/varebil-leasing/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="http://localhost:1313/varebil-leasing/favicon.svg" />
-    <link rel="shortcut icon" href="http://localhost:1313/varebil-leasing/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="http://localhost:1313/varebil-leasing/apple-touch-icon.png" />
-    <link rel="manifest" href="http://localhost:1313/varebil-leasing/site.webmanifest" />
+    <link rel="icon" type="image/png" href="http://localhost:1313/varebil-leasing/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="http://localhost:1313/varebil-leasing/images/favicon.svg" />
+    <link rel="shortcut icon" href="http://localhost:1313/varebil-leasing/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="http://localhost:1313/varebil-leasing/images/apple-touch-icon.png" />
+    <link rel="manifest" href="http://localhost:1313/varebil-leasing/images/site.webmanifest" />
     <link rel="stylesheet" href="http://localhost:1313/varebil-leasing/css/globals.css">
 </head>
 <body>
@@ -100,8 +100,6 @@
                         </ul>
                     </li>
             
-                    <li><a href="http://localhost:1313/varebil-leasing/favoritter/">Favoritter</a></li>
-
                     <li><a href="http://localhost:1313/varebil-leasing/omtaler/">Omtaler</a></li>
 
                     <li class="nav-item dropdown">
@@ -111,20 +109,22 @@
                             <li><a href="http://localhost:1313/varebil-leasing/kontakt-oss/">Kontakt oss</a></li>
                         </ul>
                     </li>
+
+                    <li><a href="http://localhost:1313/varebil-leasing/favoritter/" class="heart-icon">♡</a></li>
+
+                    <li>
+                        <form action="http://localhost:1313/varebil-leasing/sok/" method="get" class="search-form">
+                            <input type="text" id="search-input" name="q" placeholder="Søk etter varebil...">
+                            <button type="submit">Søk</button>
+                            <ul id="search-results"></ul>
+                        </form>
+                    </li>
+            
+                    <li class="contact-info"><a href="tel:&#43;47%20966%2044%20001">Ring</a></li>        
             
                 </ul>
             </nav>
                           
-            <div class="contact-info">
-                <a href="tel:&#43;47%20966%2044%20001">&#43;47 966 44 001</a>
-            </div>
-        </div>
-        <div class="container">
-            <form action="http://localhost:1313/varebil-leasing/sok/" method="get" class="search-form">
-                <input type="text" id="search-input" name="q" placeholder="Søk etter varebil...">
-                <button type="submit">Søk</button>
-                <ul id="search-results"></ul> 
-            </form>
         </div>
     </header>
     <main>    
@@ -132,7 +132,7 @@
 <article style="max-width: 800px; margin: 0 auto; padding: 40px 20px;">
     <h1>Levering av VW Caddy 4Motion til Larsen AS</h1>
     <p style="font-size: 1.2em; color: #555; font-style: italic; margin-top: 20px;">Larsen AS har fått levert en VW Caddy 4Motion gjennom Automedia AS. Les hvorfor bilen passer deres arbeidshverdag og hvorfor de valgte oss igjen.</p>
-    <p style="color: #666;">02.05.2026 | Kundecase</p>
+    <p style="color: #666;">03.05.2026 | Kundecase</p>
 
     
     <img src="https://cdn.sanity.io/images/1lzskaub/production/0cf0bcf57629d76aaee3eb6f697a480966ec42b3-802x386.jpg" alt="Levering av VW Caddy 4Motion til Larsen AS" style="width: 100%; border-radius: 15px; margin: 20px 0;">
@@ -144,6 +144,22 @@
 </article>
 
     </main>    
+
+    
+    <div id="selection-bar" class="selection-bar" style="display: none;">
+        <div class="selection-header">
+            <span>Valgte biler (<span id="selection-count">0</span>)</span>
+            <button onclick="closeSelectionBar()" class="close-bar">×</button>
+        </div>
+        
+        <div id="selection-items" class="selection-items">
+            
+        </div>
+    
+        <div class="selection-footer">
+            <a href="http://localhost:1313/varebil-leasing/sammenlign" class="compare-btn">Gå til side for valgte biler</a>
+        </div>
+    </div>
 
     <footer style="background: #222; color: white; padding: 60px 20px; margin-top: 80px;">
     <div>
@@ -261,23 +277,17 @@
 <script>
 
 
+
+
 function getFavorites() {
     return JSON.parse(localStorage.getItem('car_favorites')) || [];
 }
 
 function toggleFavorite(slug, button) {
-    
-    console.log("Mottatt slug:", slug);
-
-    
     if (!slug || slug === "undefined" || slug === "") {
         slug = button.getAttribute('data-slug') || button.closest('[data-slug]')?.dataset.slug;
     }
-
-    if (!slug) {
-        console.error("KRITISK FEIL: Knappen mangler slug-data.", button);
-        return;
-    }
+    if (!slug) return;
 
     let favorites = getFavorites().filter(item => item && item !== "");
     const heart = button.querySelector('.heart-icon');
@@ -287,14 +297,11 @@ function toggleFavorite(slug, button) {
         favorites.splice(index, 1);
         button.classList.remove('is-favorite');
         if (heart) heart.innerText = '♡';
-        console.log("Fjernet:", slug);
     } else {
         favorites.push(slug);
         button.classList.add('is-favorite');
         if (heart) heart.innerText = '♥';
-        console.log("Lagt til:", slug);
     }
-    
     localStorage.setItem('car_favorites', JSON.stringify(favorites));
 }
 
@@ -308,7 +315,6 @@ function toggleFaq(element) {
     element.classList.toggle('open');
 }
 
-
 function checkEmptyFavs() {
     const container = document.getElementById('favorites-container');
     if (container && container.children.length === 0) {
@@ -316,14 +322,10 @@ function checkEmptyFavs() {
     }
 }
 
-
 function updateFavoriteUI() {
     const favorites = getFavorites();
-    
     document.querySelectorAll('.favorite-btn').forEach(btn => {
-        
         const slug = btn.getAttribute('data-slug') || btn.closest('[data-slug]')?.dataset.slug;
-
         if (slug && favorites.includes(slug)) {
             btn.classList.add('is-favorite');
             const heart = btn.querySelector('.heart-icon');
@@ -338,12 +340,12 @@ function updateFavoriteUI() {
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    
-    
-    updateFavoriteUI();
 
-    
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateFavoriteUI();
+    updateSelectionUI(); 
+
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             document.querySelectorAll('.dropdown-menu').forEach(menu => {
@@ -353,65 +355,50 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    
-    document.querySelectorAll('.read-more').forEach(link => {
-        link.addEventListener('click', (e) => e.stopPropagation());
-    });
-
-
-    
-    const jsonPath = '/varebil-leasing/index.json';
+    const jsonPath = window.location.origin + '/varebil-leasing/index.json';
 
     fetch(jsonPath)
-    .then(response => {
-        if (!response.ok) throw new Error("Fant ikke JSON-filen");
-        return response.json();
-    })
-    .then(data => {
-        
-        const searchInput = document.getElementById('search-input');
-        if (searchInput) {
-            setupSearch(data, searchInput);
-        }
+        .then(response => {
+            if (!response.ok) throw new Error("Fant ikke JSON-filen");
+            return response.json();
+        })
+        .then(data => {
+            window.globalCarData = data;
+            console.log("✅ Bildata lastet suksessfullt");
 
-        
-        const favContainer = document.getElementById('favorites-container');
-        if (favContainer) {
-            renderFavorites(data, favContainer);
-        }
-    })
-    .catch(err => console.error("Feil ved lasting av bildata:", err));
+            if (window.location.href.indexOf('sammenlign') > -1) {
+                renderComparison();
+            }
+
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) setupSearch(data, searchInput);
+
+            const favContainer = document.getElementById('favorites-container');
+            if (favContainer) renderFavorites(data, favContainer);
+        })
+        .catch(err => console.error("❌ Feil ved lasting av bildata:", err));
 });
+
 
 
 
 
 function setupSearch(data, input) {
     const resultsList = document.getElementById('search-results');
-    const fuse = new Fuse(data, {
-        keys: ['title', 'merke', 'modell'],
-        threshold: 0.3
-    });
+    const fuse = new Fuse(data, { keys: ['title', 'merke', 'modell'], threshold: 0.3 });
 
     input.addEventListener('input', () => {
         const results = fuse.search(input.value);
         const favorites = getFavorites();
         resultsList.innerHTML = ''; 
-        
         results.forEach(result => {
             const item = result.item;
             const isFav = favorites.includes(item.slug);
-            
             resultsList.innerHTML += `
-                <li class="car-card-mini" style="display: flex; align-items: center; padding: 10px; border-bottom: 1px solid #eee;">
-                    <img src="${item.bilde}" style="width: 50px; margin-right: 15px; border-radius: 4px;">
-                    <div style="flex-grow: 1;">
-                        <a href="${item.permalink}" style="text-decoration: none; color: inherit;">
-                            <strong>${item.merke || ''} ${item.title}</strong>
-                        </a>
-                    </div>
-                    <button class="favorite-btn ${isFav ? 'is-favorite' : ''}" 
-                            onclick="event.stopPropagation(); toggleFavorite('${item.slug}', this)">
+                <li class="car-card-mini">
+                    <img src="${item.bilde}" style="width: 50px; margin-right: 15px;">
+                    <a href="${item.permalink}"><strong>${item.merke || ''} ${item.title}</strong></a>
+                    <button class="favorite-btn ${isFav ? 'is-favorite' : ''}" onclick="toggleFavorite('${item.slug}', this)">
                         <span class="heart-icon">${isFav ? '♥' : '♡'}</span>
                     </button>
                 </li>`;
@@ -420,43 +407,173 @@ function setupSearch(data, input) {
 }
 
 function renderFavorites(allCars, container) {
-    if (!container) container = document.getElementById('favorites-container');
-    const loader = document.getElementById('favorites-loader');
     const favSlugs = getFavorites();
-
-    if (loader) loader.style.display = 'none';
-    if (!container) return;
-
     if (favSlugs.length === 0) {
         container.innerHTML = '<p>Du har ikke lagret noen favoritter ennå.</p>';
         return;
     }
-
-    
     const favoriteCars = allCars.filter(car => favSlugs.includes(car.slug));
     container.innerHTML = '';
-
     favoriteCars.forEach(item => {
-        
-        const prisTekst = (item.pris && item.pris > 0) ? `fra kr ${item.pris},- mva` : "Kontakt for pris";
-        
         container.innerHTML += `
             <div class="car-card" data-slug="${item.slug}">
-                <img src="${item.bilde}" alt="${item.title}">
+                <img src="${item.bilde}">
                 <div class="car-card-content">
                     <h3>${item.merke || ''} ${item.title}</h3>
-                    <p class="price">${prisTekst}</p>
-                    <div class="car-card-buttons">
-                        <a href="${item.permalink}" class="btn">Les mer</a>
-                        <button class="favorite-btn is-favorite" 
-                                onclick="toggleFavorite('${item.slug}', this); this.closest('.car-card').remove(); checkEmptyFavs();">
-                            <span class="heart-icon">♥</span> Fjern
-                        </button>
+                    <button class="favorite-btn is-favorite" onclick="toggleFavorite('${item.slug}', this); this.closest('.car-card').remove(); checkEmptyFavs();">
+                        <span class="heart-icon">♥</span> <i>Fjern</i>
+                    </button>
+                </div>
+            </div>`;
+    });
+}
+
+function getSelectedCars() {
+    return JSON.parse(localStorage.getItem('selected_cars') || '[]');
+}
+
+function toggleSelection(slug, img, event) {
+    if (event) event.preventDefault();
+    let selected = getSelectedCars();
+    const index = selected.findIndex(item => item.slug === slug);
+    if (index > -1) {
+        selected.splice(index, 1);
+    } else {
+        selected.push({ slug, img });
+    }
+    localStorage.setItem('selected_cars', JSON.stringify(selected));
+    updateSelectionUI();
+}
+
+function removeFromCompare(slug) {
+    let selected = getSelectedCars();
+    selected = selected.filter(car => car.slug !== slug);
+    localStorage.setItem('selected_cars', JSON.stringify(selected));
+    updateSelectionUI();
+    renderComparison(); 
+}
+
+function closeSelectionBar() {
+    const bar = document.getElementById('selection-bar');
+    if (bar) bar.style.display = 'none';
+}
+
+function updateSelectionUI() {
+    const selected = getSelectedCars();
+    const bar = document.getElementById('selection-bar');
+    const container = document.getElementById('selection-items');
+    const countSpan = document.getElementById('selection-count');
+    if (!bar || !container) return;
+
+    bar.style.display = selected.length > 0 ? 'flex' : 'none';
+    if (countSpan) countSpan.innerText = selected.length;
+
+    container.innerHTML = selected.map(car => `
+        <div class="selected-item">
+            <img src="${car.img}">
+            <button onclick="toggleSelection('${car.slug}', '${car.img}')" class="remove-item">×</button>
+        </div>
+    `).join('');
+
+    document.querySelectorAll('.select-btn').forEach(btn => {
+        const isSelected = selected.some(item => item.slug === btn.dataset.slug);
+        if (isSelected) {
+            btn.classList.add('selected');
+        } else {
+            btn.classList.remove('selected');
+        }
+    });
+}
+
+function renderComparison() {
+    const selected = getSelectedCars();
+    const data = window.globalCarData;
+    const loader = document.getElementById('compare-loader');
+    const grid = document.getElementById('compare-grid');
+    const emptyMsg = document.getElementById('compare-empty');
+
+    if (!data || selected.length === 0) {
+        if (loader) loader.style.display = 'none';
+        if (emptyMsg) emptyMsg.style.display = 'block';
+        if (grid) grid.style.display = 'none';
+        return;
+    }
+
+    const carsToCompare = selected.map(sel => data.find(c => c.slug === sel.slug)).filter(Boolean);
+
+    if (carsToCompare.length > 0) {
+        buildCompareTable(carsToCompare);
+        if (loader) loader.style.display = 'none';
+        if (emptyMsg) emptyMsg.style.display = 'none';
+        if (grid) grid.style.display = 'grid';
+    }
+}
+
+function buildCompareTable(cars) {
+    const grid = document.getElementById('compare-grid');
+    if (!grid) return;
+
+    grid.innerHTML = ''; 
+
+    const specsToShow = [
+        { label: 'ØKONOMI', isSeparator: true },
+        { label: 'Leasingpris (0,- innskudd)', key: 'pris', suffix: ',-' },
+        { label: 'Rente', key: 'interest', suffix: '%' },
+        
+        { label: 'TEKNISK', isSeparator: true },
+        { label: 'Årsmodell', key: 'yearmodel' },
+        { label: 'Drivstoff', key: 'fuel' },
+        { label: 'Girkasse', key: 'gear' },
+        { label: 'Hjuldrift', key: 'drive' },
+        { label: 'Effekt (HK)', key: 'performance' },
+        { label: 'Batterikapasitet', key: 'capacity' },
+        { label: 'Ladehastighet', key: 'charging' },
+        { label: 'Rekkevidde (WLTP)', key: 'range', suffix: ' km' },
+        
+        { label: 'EKSTERIØR & INTERIØR', isSeparator: true },
+        { label: 'Farge', key: 'color' },
+        { label: 'Interiør', key: 'interior' },
+        { label: 'Dører', key: 'doors' },
+        { label: 'Seter', key: 'seats' },
+        { label: 'Hengerfeste', key: 'towbar', isBoolean: true }
+    ];
+
+    cars.forEach(car => {
+        let specsHtml = specsToShow.map(spec => {
+            let val = car[spec.key];
+            if (val === undefined || val === null || val === "" || val === 0) {
+                val = '—';
+            } else if (spec.isBoolean) {
+                val = (val === true || val === "true") ? 'Ja' : 'Nei';
+            } else if (val !== '—' && spec.suffix) {
+                val = val + spec.suffix;
+            }
+            return `<li><strong>${spec.label}:</strong> ${val}</li>`;
+        }).join('');
+
+        grid.innerHTML += `
+            <div class="car-card" data-slug="${car.slug}">
+                <div class="car-card-img-container">
+                    <img src="${car.bilde}" alt="${car.title}">
+                </div>
+                <div class="car-card-content">
+                    <h3>${car.merke || ''} ${car.title}</h3>
+                    <ul class="car-specs-list" style="list-style:none; padding:0;">
+                        ${specsHtml}
+                    </ul>
+                    <div class="card-footer">
+                        <a href="${car.permalink}" class="read-more">Se detaljer</a>
+                        <button onclick="removeFromCompare('${car.slug}')" class="remove-btn">Fjern</button>
                     </div>
                 </div>
             </div>`;
     });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateSelectionUI();
+});
+
 </script>
 </body>
 </html>

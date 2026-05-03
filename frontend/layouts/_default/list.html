@@ -1,42 +1,77 @@
 {{ define "main" }}
 <section>
-    <h1 style="text-align: center; margin-bottom: 40px;">{{ .Title }}</h1>
+    <h1>{{ .Title }}</h1>
     {{ $displayPages := .Pages }}
     {{ if or (eq .RelPermalink "/biler/") (.IsHome) }}
         {{/* Henter alle sider fra hele nettstedet som har feltet 'brand' definert */}}
         {{ $displayPages = where .Site.RegularPages "Params.brand" "!=" nil }}
     {{ end }}
-    <h2 style="text-align: center; color: #666; font-size: 1.2em; font-weight: normal; margin-bottom: 40px;">
+    <h2>
         Våre biler ({{ len $displayPages }} funnet)
     </h2>
     
     <div class="grid-container">
     
         {{ range $displayPages }}
-        <div class="car-card" data-slug="{{ .Params.slug.current }}">
-            <button class="favorite-btn" data-slug="{{ .File.TranslationBaseName }}" onclick="toggleFavorite(this.getAttribute('data-slug'), this)"> <span class="heart-icon">♡</span>Lagre som favoritt</button>
-            {{ if .Params.mainImageUrl }}
-            <img src="{{ .Params.mainImageUrl }}" alt="{{ .Title }}" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
-            {{ end }}
 
-            <h3 style="margin: 10px 0 5px 0;">{{ .Params.brand }} {{ .Title }}</h3>
-            <p style="color: #666; font-size: 0.9em; margin-bottom: 5px;">{{ .Params.modeldescription }}</p>
-            
-            {{/* Oppdaterte tekniske felt (fuel, gear, drive) */}}
-            <p style="font-size: 0.85em; color: #444; margin-bottom: 10px;">
-                {{ if .Params.fuel }}<span style="background: #f0f0f0; padding: 2px 6px; border-radius: 4px; margin-right: 4px;">{{ .Params.fuel }}</span>{{ end }}
-                {{ if .Params.drive }}<span style="background: #f0f0f0; padding: 2px 6px; border-radius: 4px; margin-right: 4px;">{{ .Params.drive }}</span>{{ end }}
-                {{ if .Params.gear }}<span style="background: #f0f0f0; padding: 2px 6px; border-radius: 4px;">{{ .Params.gear }}</span>{{ end }}
-            </p>
+        <div class="car-card" 
+            data-slug="{{ .File.TranslationBaseName }}"
+            data-brand="{{ .Params.brand | lower | urlize }}"
+            data-model="{{ .Params.modeldescription | lower | urlize }}"
+            data-price="{{ .Params.price0 }}"
+            data-fuel="{{ .Params.fuel | lower | urlize }}"
+            data-gear="{{ .Params.gear | lower | urlize }}"
+            data-year="{{ .Params.yearmodel }}"
+            data-drive="{{ .Params.drive | lower | urlize }}"
+            data-range="{{ .Params.range }}"
+            data-interest="{{ .Params.interest }}" 
+            data-quote="{{ .Params.quote }}"
+            data-doors="{{ .Params.doors }}"
+            data-seats="{{ .Params.seats }}"
+            data-interior="{{ .Params.interior | urlize }}"
+            data-color="{{ .Params.color | urlize }}"
+            data-capacity="{{ .Params.capacity }}"
+            data-chargetime="{{ .Params.charging }}"
+            data-towbar="{{ with .Params.towbar }}{{ . }}{{ end }}"
+            data-fastdelivery="{{ with .Params.fastdelivery }}{{ . }}{{ end }}"
+            data-campaign="{{ with .Params.campaign }}{{ . }}{{ end }}">
 
-            <p><strong>Fra kr {{ .Params.price0 }},- mva</strong></p>
+            <!-- Bilens visuelle innhold -->
+            <div class="car-card-content">
+                <!-- Velg for sammenligning -->
+                <button class="select-btn" data-slug="{{ .File.TranslationBaseName }}" data-img="{{ .Params.mainImageUrl }}" onclick="toggleSelection(this.dataset.slug, this.dataset.img, event)"> </button>
+                <!-- Legg til som favoritt-->
+                <button class="favorite-btn" data-slug="{{ .File.TranslationBaseName }}" onclick="toggleFavorite(this.getAttribute('data-slug'), this)"> </button>
 
-            <a href="{{ .RelPermalink }}" style="display: block; margin-top: 10px; padding: 10px; background: #000; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; text-align: center;">
-                Se tilbud
-            </a>
+                {{ if .Params.mainImageUrl }}
+                <img src="{{ .Params.mainImageUrl }}" alt="{{ .Title }}" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+                {{ end }}
+    
+                <h3>{{ .Params.brand }} {{ .Title }}</h3>
+                <p>{{ .Params.modeldescription }}</p>
+                
+                <!-- Oppdaterte tekniske felt (fuel, gear, drive) -->
+                <p>
+                    {{ if .Params.fuel }}<span>{{ .Params.fuel }}</span>{{ end }}
+                    {{ if .Params.drive }}<span>{{ .Params.drive }}</span>{{ end }}
+                    {{ if .Params.gear }}<span >{{ .Params.gear }}</span>{{ end }}
+                </p>
+
+                <!-- Prisvisning -->
+                <p class="price">
+                    {{ if .Params.price0 }}
+                        Fra kr {{ lang.FormatNumber 0 .Params.price0 }},- ink. mva
+                    {{ else }}
+                        Kontakt for pris
+                    {{ end }}
+                </p>
+
+                <a href="{{ .Permalink }}" class="btn">Les mer</a>
+            </div>
         </div>
+
         {{ else }}
-            <p style="text-align: center; grid-column: 1 / -1;">Ingen biler ble funnet i denne kategorien.</p>
+            <p>Ingen biler ble funnet i denne kategorien.</p>
         {{ end }}
     </div>
 </section>
