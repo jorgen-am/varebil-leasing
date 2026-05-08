@@ -10,7 +10,7 @@ port = 1316
   home = ["HTML", "RSS", "JSON"]
 
 [permalinks]
-  posts = "/:section/:contentbasename/"
+  post = "/:section/:contentbasename/"
   biler = "/:section/:contentbasename/"
 
 [taxonomies]

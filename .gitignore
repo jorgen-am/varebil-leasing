@@ -1,0 +1,10 @@
+# Hugo mapper
+frontend/public/
+public/
+resources/
+
+# Mac-spesifikke filer
+.DS_Store
+
+# Node mapper
+node_modules/
