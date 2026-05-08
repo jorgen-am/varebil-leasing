@@ -14,7 +14,7 @@
     
         {{ range $displayPages }}
 
-        <div class="car-card" 
+        <a href="{{ .Permalink }}" class="car-card" 
             data-slug="{{ .File.TranslationBaseName }}"
             data-brand="{{ .Params.brand | lower | urlize }}"
             data-model="{{ .Params.modeldescription | lower | urlize }}"
@@ -41,7 +41,7 @@
                 <!-- Velg for sammenligning -->
                 <button class="select-btn" data-slug="{{ .File.TranslationBaseName }}" data-img="{{ .Params.mainImageUrl }}" onclick="toggleSelection(this.dataset.slug, this.dataset.img, event)"> </button>
                 <!-- Legg til som favoritt-->
-                <button class="favorite-btn" data-slug="{{ .File.TranslationBaseName }}" onclick="toggleFavorite(this.getAttribute('data-slug'), this)"> </button>
+                <button class="favorite-btn" data-slug="{{ .File.TranslationBaseName }}" onclick="toggleFavorite(this.getAttribute('data-slug'), this, event)"> </button>
 
                 {{ if .Params.mainImageUrl }}
                 <img src="{{ .Params.mainImageUrl }}" alt="{{ .Title }}" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
@@ -66,9 +66,9 @@
                     {{ end }}
                 </p>
 
-                <a href="{{ .Permalink }}" class="btn">Les mer</a>
+                <div class="btn">Les mer</div>
             </div>
-        </div>
+        </a>
 
         {{ else }}
             <p>Ingen biler ble funnet i denne kategorien.</p>

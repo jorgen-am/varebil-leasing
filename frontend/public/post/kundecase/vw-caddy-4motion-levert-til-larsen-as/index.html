@@ -17,14 +17,14 @@
 
             <div class="logo">
                 
-                <a href="http://localhost:1313/varebil-leasing/"><img src="http://localhost:1313/varebil-leasing/images/logo.png" alt="Varebil leasing logo">Varebil Leasing</a>
+                <a href="http://localhost:1313/varebil-leasing/"><img src="http://localhost:1313/varebil-leasing/images/logo.png" alt="Varebil leasing logo">Varebil leasing<span>.no</span></a>
             </div>
 
             <nav>
                 <ul class="nav-menu">
                     
                     <li class="nav-item dropdown">
-                        <a href="http://localhost:1313/varebil-leasing/biler/">Biler ▼</a>
+                        <a href="http://localhost:1313/varebil-leasing/biler/">Varebiler ▼</a>
                         <ul class="dropdown-menu">
                             
                                 
@@ -132,7 +132,7 @@
 <article style="max-width: 800px; margin: 0 auto; padding: 40px 20px;">
     <h1>Levering av VW Caddy 4Motion til Larsen AS</h1>
     <p style="font-size: 1.2em; color: #555; font-style: italic; margin-top: 20px;">Larsen AS har fått levert en VW Caddy 4Motion gjennom Automedia AS. Les hvorfor bilen passer deres arbeidshverdag og hvorfor de valgte oss igjen.</p>
-    <p style="color: #666;">03.05.2026 | Kundecase</p>
+    <p style="color: #666;">07.05.2026 | Kundecase</p>
 
     
     <img src="https://cdn.sanity.io/images/1lzskaub/production/0cf0bcf57629d76aaee3eb6f697a480966ec42b3-802x386.jpg" alt="Levering av VW Caddy 4Motion til Larsen AS" style="width: 100%; border-radius: 15px; margin: 20px 0;">
@@ -201,48 +201,12 @@
 
         <div class="footer-links" style="display: flex; gap: 15px; justify-content: center;">
             
-            <a href="http://localhost:1313/varebil-leasing/biler/citroen/" style="color: #888; text-decoration: none; font-size: 0.9em;">
-                Citroën
+            <a href="http://localhost:1313/varebil-leasing/tjenester/" style="color: #888; text-decoration: none; font-size: 0.9em;">
+                Tjenester
             </a>
             
-            <a href="http://localhost:1313/varebil-leasing/biler/ford/" style="color: #888; text-decoration: none; font-size: 0.9em;">
-                Ford
-            </a>
-            
-            <a href="http://localhost:1313/varebil-leasing/biler/isuzu/" style="color: #888; text-decoration: none; font-size: 0.9em;">
-                Isuzu
-            </a>
-            
-            <a href="http://localhost:1313/varebil-leasing/biler/kia/" style="color: #888; text-decoration: none; font-size: 0.9em;">
-                Kia
-            </a>
-            
-            <a href="http://localhost:1313/varebil-leasing/biler/maxus/" style="color: #888; text-decoration: none; font-size: 0.9em;">
-                Maxus
-            </a>
-            
-            <a href="http://localhost:1313/varebil-leasing/biler/mercedes/" style="color: #888; text-decoration: none; font-size: 0.9em;">
-                Mercedes
-            </a>
-            
-            <a href="http://localhost:1313/varebil-leasing/biler/opel/" style="color: #888; text-decoration: none; font-size: 0.9em;">
-                Opel
-            </a>
-            
-            <a href="http://localhost:1313/varebil-leasing/biler/peugeot/" style="color: #888; text-decoration: none; font-size: 0.9em;">
-                Peugeot
-            </a>
-            
-            <a href="http://localhost:1313/varebil-leasing/biler/renault/" style="color: #888; text-decoration: none; font-size: 0.9em;">
-                Renault
-            </a>
-            
-            <a href="http://localhost:1313/varebil-leasing/biler/toyota/" style="color: #888; text-decoration: none; font-size: 0.9em;">
-                Toyota
-            </a>
-            
-            <a href="http://localhost:1313/varebil-leasing/biler/volkswagen/" style="color: #888; text-decoration: none; font-size: 0.9em;">
-                Volkswagen
+            <a href="http://localhost:1313/varebil-leasing/biler/" style="color: #888; text-decoration: none; font-size: 0.9em;">
+                Våre biler
             </a>
             
             <a href="http://localhost:1313/varebil-leasing/omtaler/" style="color: #888; text-decoration: none; font-size: 0.9em;">
@@ -250,19 +214,11 @@
             </a>
             
             <a href="http://localhost:1313/varebil-leasing/artikler/" style="color: #888; text-decoration: none; font-size: 0.9em;">
-                Nyheter &amp; Artikler
-            </a>
-            
-            <a href="http://localhost:1313/varebil-leasing/tjenester/" style="color: #888; text-decoration: none; font-size: 0.9em;">
-                Våre Tjenester
+                Artikler
             </a>
             
             <a href="http://localhost:1313/varebil-leasing/kontakt/" style="color: #888; text-decoration: none; font-size: 0.9em;">
-                Kontakt oss
-            </a>
-            
-            <a href="http://localhost:1313/varebil-leasing/sitemap/" style="color: #888; text-decoration: none; font-size: 0.9em;">
-                Sideoversikt
+                Kontakt
             </a>
             
         </div>
@@ -273,307 +229,348 @@
     </div>
 </footer>
 
-<script src="http://localhost:1313/varebil-leasing/js/fuse.js"></script>
-<script>
 
 
 
 
-function getFavorites() {
-    return JSON.parse(localStorage.getItem('car_favorites')) || [];
-}
-
-function toggleFavorite(slug, button) {
-    if (!slug || slug === "undefined" || slug === "") {
-        slug = button.getAttribute('data-slug') || button.closest('[data-slug]')?.dataset.slug;
-    }
-    if (!slug) return;
-
-    let favorites = getFavorites().filter(item => item && item !== "");
-    const heart = button.querySelector('.heart-icon');
-    const index = favorites.indexOf(slug);
+<script id="js-utils-favorites">
     
-    if (index > -1) {
-        favorites.splice(index, 1);
-        button.classList.remove('is-favorite');
-        if (heart) heart.innerText = '♡';
-    } else {
-        favorites.push(slug);
-        button.classList.add('is-favorite');
-        if (heart) heart.innerText = '♥';
+    function getFavorites() {
+        return JSON.parse(localStorage.getItem('car_favorites')) || [];
     }
-    localStorage.setItem('car_favorites', JSON.stringify(favorites));
-}
-
-function toggleFaq(element) {
-    const allCards = document.querySelectorAll('.faq-card');
-    allCards.forEach(card => {
-        if (card !== element && card.classList.contains('open')) {
-            card.classList.remove('open');
-        }
-    });
-    element.classList.toggle('open');
-}
-
-function checkEmptyFavs() {
-    const container = document.getElementById('favorites-container');
-    if (container && container.children.length === 0) {
-        container.innerHTML = "<p>Du har ikke lagret noen favoritter ennå.</p>";
+    
+    function getSelectedCars() {
+        return JSON.parse(localStorage.getItem('selected_cars') || '[]');
     }
-}
-
-function updateFavoriteUI() {
-    const favorites = getFavorites();
-    document.querySelectorAll('.favorite-btn').forEach(btn => {
-        const slug = btn.getAttribute('data-slug') || btn.closest('[data-slug]')?.dataset.slug;
-        if (slug && favorites.includes(slug)) {
-            btn.classList.add('is-favorite');
-            const heart = btn.querySelector('.heart-icon');
-            if (heart) heart.innerText = '♥';
-        } else {
-            btn.classList.remove('is-favorite');
-            const heart = btn.querySelector('.heart-icon');
-            if (heart) heart.innerText = '♡';
-        }
-    });
-}
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    updateFavoriteUI();
-    updateSelectionUI(); 
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            document.querySelectorAll('.dropdown-menu').forEach(menu => {
-                menu.style.display = 'none';
-                setTimeout(() => { menu.style.display = ''; }, 500);
-            });
-        }
-    });
-
-    const jsonPath = window.location.origin + '/varebil-leasing/index.json';
-
-    fetch(jsonPath)
-        .then(response => {
-            if (!response.ok) throw new Error("Fant ikke JSON-filen");
-            return response.json();
-        })
-        .then(data => {
-            window.globalCarData = data;
-            console.log("✅ Bildata lastet suksessfullt");
-
-            if (window.location.href.indexOf('sammenlign') > -1) {
-                renderComparison();
+    
+    function toggleFaq(element) {
+        const allCards = document.querySelectorAll('.faq-card');
+        allCards.forEach(card => {
+            if (card !== element && card.classList.contains('open')) {
+                card.classList.remove('open');
             }
-
-            const searchInput = document.getElementById('search-input');
-            if (searchInput) setupSearch(data, searchInput);
-
-            const favContainer = document.getElementById('favorites-container');
-            if (favContainer) renderFavorites(data, favContainer);
-        })
-        .catch(err => console.error("❌ Feil ved lasting av bildata:", err));
-});
-
-
-
-
-
-function setupSearch(data, input) {
-    const resultsList = document.getElementById('search-results');
-    const fuse = new Fuse(data, { keys: ['title', 'merke', 'modell'], threshold: 0.3 });
-
-    input.addEventListener('input', () => {
-        const results = fuse.search(input.value);
-        const favorites = getFavorites();
-        resultsList.innerHTML = ''; 
-        results.forEach(result => {
-            const item = result.item;
-            const isFav = favorites.includes(item.slug);
-            resultsList.innerHTML += `
-                <li class="car-card-mini">
-                    <img src="${item.bilde}" style="width: 50px; margin-right: 15px;">
-                    <a href="${item.permalink}"><strong>${item.merke || ''} ${item.title}</strong></a>
-                    <button class="favorite-btn ${isFav ? 'is-favorite' : ''}" onclick="toggleFavorite('${item.slug}', this)">
-                        <span class="heart-icon">${isFav ? '♥' : '♡'}</span>
-                    </button>
-                </li>`;
         });
-    });
-}
-
-function renderFavorites(allCars, container) {
-    const favSlugs = getFavorites();
-    if (favSlugs.length === 0) {
-        container.innerHTML = '<p>Du har ikke lagret noen favoritter ennå.</p>';
-        return;
+        element.classList.toggle('open');
     }
-    const favoriteCars = allCars.filter(car => favSlugs.includes(car.slug));
-    container.innerHTML = '';
-    favoriteCars.forEach(item => {
-        container.innerHTML += `
-            <div class="car-card" data-slug="${item.slug}">
-                <img src="${item.bilde}">
-                <div class="car-card-content">
-                    <h3>${item.merke || ''} ${item.title}</h3>
-                    <button class="favorite-btn is-favorite" onclick="toggleFavorite('${item.slug}', this); this.closest('.car-card').remove(); checkEmptyFavs();">
-                        <span class="heart-icon">♥</span> <i>Fjern</i>
-                    </button>
-                </div>
-            </div>`;
-    });
-}
-
-function getSelectedCars() {
-    return JSON.parse(localStorage.getItem('selected_cars') || '[]');
-}
-
-function toggleSelection(slug, img, event) {
-    if (event) event.preventDefault();
-    let selected = getSelectedCars();
-    const index = selected.findIndex(item => item.slug === slug);
-    if (index > -1) {
-        selected.splice(index, 1);
-    } else {
-        selected.push({ slug, img });
-    }
-    localStorage.setItem('selected_cars', JSON.stringify(selected));
-    updateSelectionUI();
-}
-
-function removeFromCompare(slug) {
-    let selected = getSelectedCars();
-    selected = selected.filter(car => car.slug !== slug);
-    localStorage.setItem('selected_cars', JSON.stringify(selected));
-    updateSelectionUI();
-    renderComparison(); 
-}
-
-function closeSelectionBar() {
-    const bar = document.getElementById('selection-bar');
-    if (bar) bar.style.display = 'none';
-}
-
-function updateSelectionUI() {
-    const selected = getSelectedCars();
-    const bar = document.getElementById('selection-bar');
-    const container = document.getElementById('selection-items');
-    const countSpan = document.getElementById('selection-count');
-    if (!bar || !container) return;
-
-    bar.style.display = selected.length > 0 ? 'flex' : 'none';
-    if (countSpan) countSpan.innerText = selected.length;
-
-    container.innerHTML = selected.map(car => `
-        <div class="selected-item">
-            <img src="${car.img}">
-            <button onclick="toggleSelection('${car.slug}', '${car.img}')" class="remove-item">×</button>
-        </div>
-    `).join('');
-
-    document.querySelectorAll('.select-btn').forEach(btn => {
-        const isSelected = selected.some(item => item.slug === btn.dataset.slug);
-        if (isSelected) {
-            btn.classList.add('selected');
-        } else {
-            btn.classList.remove('selected');
+    
+    
+    function toggleFavorite(slug, button, event) {
+        if (event) {
+            event.preventDefault();
+            event.stopPropagation();
         }
-    });
-}
-
-function renderComparison() {
-    const selected = getSelectedCars();
-    const data = window.globalCarData;
-    const loader = document.getElementById('compare-loader');
-    const grid = document.getElementById('compare-grid');
-    const emptyMsg = document.getElementById('compare-empty');
-
-    if (!data || selected.length === 0) {
-        if (loader) loader.style.display = 'none';
-        if (emptyMsg) emptyMsg.style.display = 'block';
-        if (grid) grid.style.display = 'none';
-        return;
-    }
-
-    const carsToCompare = selected.map(sel => data.find(c => c.slug === sel.slug)).filter(Boolean);
-
-    if (carsToCompare.length > 0) {
-        buildCompareTable(carsToCompare);
-        if (loader) loader.style.display = 'none';
-        if (emptyMsg) emptyMsg.style.display = 'none';
-        if (grid) grid.style.display = 'grid';
-    }
-}
-
-function buildCompareTable(cars) {
-    const grid = document.getElementById('compare-grid');
-    if (!grid) return;
-
-    grid.innerHTML = ''; 
-
-    const specsToShow = [
-        { label: 'ØKONOMI', isSeparator: true },
-        { label: 'Leasingpris (0,- innskudd)', key: 'pris', suffix: ',-' },
-        { label: 'Rente', key: 'interest', suffix: '%' },
+        if (!slug || slug === "undefined" || slug === "") {
+            slug = button.getAttribute('data-slug') || button.closest('[data-slug]')?.dataset.slug;
+        }
+        if (!slug) return;
+    
+        let favorites = getFavorites().filter(item => item && item !== "");
+        const heart = button.querySelector('.heart-icon');
+        const index = favorites.indexOf(slug);
         
-        { label: 'TEKNISK', isSeparator: true },
-        { label: 'Årsmodell', key: 'yearmodel' },
-        { label: 'Drivstoff', key: 'fuel' },
-        { label: 'Girkasse', key: 'gear' },
-        { label: 'Hjuldrift', key: 'drive' },
-        { label: 'Effekt (HK)', key: 'performance' },
-        { label: 'Batterikapasitet', key: 'capacity' },
-        { label: 'Ladehastighet', key: 'charging' },
-        { label: 'Rekkevidde (WLTP)', key: 'range', suffix: ' km' },
-        
-        { label: 'EKSTERIØR & INTERIØR', isSeparator: true },
-        { label: 'Farge', key: 'color' },
-        { label: 'Interiør', key: 'interior' },
-        { label: 'Dører', key: 'doors' },
-        { label: 'Seter', key: 'seats' },
-        { label: 'Hengerfeste', key: 'towbar', isBoolean: true }
-    ];
-
-    cars.forEach(car => {
-        let specsHtml = specsToShow.map(spec => {
-            let val = car[spec.key];
-            if (val === undefined || val === null || val === "" || val === 0) {
-                val = '—';
-            } else if (spec.isBoolean) {
-                val = (val === true || val === "true") ? 'Ja' : 'Nei';
-            } else if (val !== '—' && spec.suffix) {
-                val = val + spec.suffix;
+        if (index > -1) {
+            favorites.splice(index, 1);
+            button.classList.remove('is-favorite');
+            if (heart) heart.innerText = '♡';
+        } else {
+            favorites.push(slug);
+            button.classList.add('is-favorite');
+            if (heart) heart.innerText = '♥';
+        }
+        localStorage.setItem('car_favorites', JSON.stringify(favorites));
+    }
+    
+    function updateFavoriteUI() {
+        const favorites = getFavorites();
+        document.querySelectorAll('.favorite-btn').forEach(btn => {
+            const slug = btn.getAttribute('data-slug') || btn.closest('[data-slug]')?.dataset.slug;
+            if (slug && favorites.includes(slug)) {
+                btn.classList.add('is-favorite');
+                const heart = btn.querySelector('.heart-icon');
+                if (heart) heart.innerText = '♥';
+            } else {
+                btn.classList.remove('is-favorite');
+                const heart = btn.querySelector('.heart-icon');
+                if (heart) heart.innerText = '♡';
             }
-            return `<li><strong>${spec.label}:</strong> ${val}</li>`;
-        }).join('');
-
-        grid.innerHTML += `
-            <div class="car-card" data-slug="${car.slug}">
-                <div class="car-card-img-container">
-                    <img src="${car.bilde}" alt="${car.title}">
-                </div>
-                <div class="car-card-content">
-                    <h3>${car.merke || ''} ${car.title}</h3>
-                    <ul class="car-specs-list" style="list-style:none; padding:0;">
-                        ${specsHtml}
-                    </ul>
-                    <div class="card-footer">
-                        <a href="${car.permalink}" class="read-more">Se detaljer</a>
-                        <button onclick="removeFromCompare('${car.slug}')" class="remove-btn">Fjern</button>
-                    </div>
-                </div>
-            </div>`;
-    });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    updateSelectionUI();
-});
-
+        });
+    }
+    
+    function checkEmptyFavs() {
+        const container = document.getElementById('favorites-container');
+        if (container && container.children.length === 0) {
+            container.innerHTML = "<p>Du har ikke lagret noen favoritter ennå.</p>";
+        }
+    }
 </script>
+
+
+
+
+
+<script id="js-comparison">
+    function toggleSelection(slug, img, event) {
+        if (event) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        let selected = getSelectedCars();
+        const index = selected.findIndex(item => item.slug === slug);
+        if (index > -1) {
+            selected.splice(index, 1);
+        } else {
+            selected.push({ slug, img });
+        }
+        localStorage.setItem('selected_cars', JSON.stringify(selected));
+        updateSelectionUI();
+    }
+    
+    function removeFromCompare(slug, event) {
+        if (event) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        let selected = getSelectedCars().filter(car => car.slug !== slug);
+        localStorage.setItem('selected_cars', JSON.stringify(selected));
+        updateSelectionUI();
+        if (typeof renderComparison === "function") renderComparison(); 
+    }
+    
+    function closeSelectionBar() {
+        const bar = document.getElementById('selection-bar');
+        if (bar) bar.style.display = 'none';
+    }
+    
+    function updateSelectionUI() {
+        const selected = getSelectedCars();
+        const bar = document.getElementById('selection-bar');
+        const container = document.getElementById('selection-items');
+        const countSpan = document.getElementById('selection-count');
+        if (!bar || !container) return;
+    
+        bar.style.display = selected.length > 0 ? 'flex' : 'none';
+        if (countSpan) countSpan.innerText = selected.length;
+    
+        
+        container.innerHTML = selected.map(car => `
+            <div class="selected-item">
+                <img src="${car.img}">
+                <button onclick="toggleSelection('${car.slug}', '${car.img}', event)" class="remove-item">×</button>
+            </div>
+        `).join('');
+    
+        document.querySelectorAll('.select-btn').forEach(btn => {
+            const isSelected = selected.some(item => item.slug === btn.dataset.slug);
+            isSelected ? btn.classList.add('selected') : btn.classList.remove('selected');
+        });
+    }
+    
+    function renderComparison() {
+        const selected = getSelectedCars();
+        const data = window.globalCarData;
+        const grid = document.getElementById('compare-grid');
+        const loader = document.getElementById('compare-loader');
+        const emptyMsg = document.getElementById('compare-empty');
+    
+        if (!data || selected.length === 0) {
+            if (loader) loader.style.display = 'none';
+            if (emptyMsg) emptyMsg.style.display = 'block';
+            if (grid) grid.style.display = 'none';
+            return;
+        }
+    
+        const carsToCompare = selected.map(sel => data.find(c => c.slug === sel.slug)).filter(Boolean);
+        if (carsToCompare.length > 0) {
+            buildCompareTable(carsToCompare);
+            if (loader) loader.style.display = 'none';
+            if (emptyMsg) emptyMsg.style.display = 'none';
+            if (grid) grid.style.display = 'grid';
+        }
+    }
+    
+    function buildCompareTable(cars) {
+        const grid = document.getElementById('compare-grid');
+        if (!grid) return;
+        grid.innerHTML = ''; 
+    
+        const specsToShow = [
+            { label: 'ØKONOMI', isSeparator: true },
+            { label: 'Leasingpris (0,- innskudd)', key: 'pris', suffix: ',-' },
+            { label: 'Rente', key: 'interest', suffix: '%' },
+            
+            { label: 'TEKNISK', isSeparator: true },
+            { label: 'Årsmodell', key: 'yearmodel' },
+            { label: 'Drivstoff', key: 'fuel' },
+            { label: 'Girkasse', key: 'gear' },
+            { label: 'Hjuldrift', key: 'drive' },
+            { label: 'Effekt (HK)', key: 'performance' },
+            { label: 'Batterikapasitet', key: 'capacity' },
+            { label: 'Ladehastighet', key: 'charging' },
+            { label: 'Rekkevidde (WLTP)', key: 'range', suffix: ' km' },
+            
+            { label: 'EKSTERIØR & INTERIØR', isSeparator: true },
+            { label: 'Farge', key: 'color' },
+            { label: 'Interiør', key: 'interior' },
+            { label: 'Dører', key: 'doors' },
+            { label: 'Seter', key: 'seats' },
+            { label: 'Hengerfeste', key: 'towbar', isBoolean: true }
+        ];
+    
+        cars.forEach(car => {
+            let specsHtml = specsToShow.map(spec => {
+                let val = car[spec.key];
+                if (!val) val = '—';
+                else if (spec.isBoolean) val = (val === true || val === "true") ? 'Ja' : 'Nei';
+                else if (spec.suffix) val = val + spec.suffix;
+                return `<li><strong>${spec.label}:</strong> ${val}</li>`;
+            }).join('');
+    
+                
+                grid.innerHTML += `
+                <a href="${car.permalink}" class="car-card" data-slug="${car.slug}">
+                    <button class="favorite-btn" data-slug="${car.slug}" onclick="toggleFavorite('${car.slug}', this, event)"></button>
+                    <button onclick="removeFromCompare('${car.slug}', event)" class="remove-btn">X</button>
+                    <div class="car-card-img-container"><img src="${car.bilde}"></div>
+                    <div class="car-card-content">
+                        <h3>${car.merke || ''} ${car.title}</h3>
+                        <ul class="car-specs-list" style="list-style:none; padding:0;">${specsHtml}</ul>
+                        <div class="card-footer"><span class="read-more">Se detaljer</span></div>
+                    </div>
+                </a>`;
+        });
+    }
+</script>
+
+
+
+
+<script src="http://localhost:1313/varebil-leasing/js/fuse.js"></script>
+<script id="js-search-favorites-render">
+    function setupSearch(data, input) {
+        const resultsList = document.getElementById('search-results');
+        const fuse = new Fuse(data, { keys: ['title', 'merke', 'modell'], threshold: 0.3 });
+    
+        input.addEventListener('input', () => {
+            const results = fuse.search(input.value);
+            const favorites = getFavorites();
+            resultsList.innerHTML = ''; 
+            results.forEach(result => {
+                const item = result.item;
+                const isFav = favorites.includes(item.slug);
+                
+                resultsList.innerHTML += `
+                    <li class="car-card-mini">
+                        <img src="${item.bilde}" style="width: 50px;">
+                        <a href="${item.permalink}"><strong>${item.merke || ''} ${item.title}</strong></a>
+                        <button class="favorite-btn ${isFav ? 'is-favorite' : ''}" onclick="toggleFavorite('${item.slug}', this, event)">
+                            <span class="heart-icon">${isFav ? '♥' : '♡'}</span>
+                        </button>
+                    </li>`;
+            });
+        });
+    }
+    
+    function renderFavorites(allCars, container) {
+        
+        
+        if (container) container.innerHTML = '';
+
+        
+        if (!allCars || !Array.isArray(allCars)) {
+            console.warn("renderFavorites: Ingen bildata mottatt.");
+            return;
+        }
+
+        
+        const favSlugs = getFavorites();
+        if (favSlugs.length === 0) {
+            container.innerHTML = '<p>Du har ikke lagret noen favoritter ennå.</p>';
+            return;
+        }
+
+        
+        const favoriteCars = allCars.filter(car => favSlugs.includes(car.slug));
+        
+        favoriteCars.forEach(item => {
+            const fuel = item.fuel ? `<span>${item.fuel}</span>` : '';
+            const drive = item.drive ? `<span>${item.drive}</span>` : '';
+            const gear = item.gear ? `<span>${item.gear}</span>` : '';
+            const modelDisplay = item.modell ? `<span>${item.modell}</span>` : '';
+
+            
+            const priceDisplay = item.pris 
+                ? `Fra kr ${Number(item.pris).toLocaleString('nb-NO')},- ink. mva` 
+                : 'Kontakt for pris';
+            
+            
+            container.innerHTML += `
+                <a href="${item.permalink}" class="car-card" data-slug="${item.slug}">
+                    <button class="favorite-btn is-favorite" 
+                            onclick="toggleFavorite('${item.slug}', this, event); this.closest('.car-card').remove(); checkEmptyFavs();">
+                    </button>                    
+                    <div class="car-card-img-container">
+                        <img src="${item.bilde}" alt="${item.title}">
+                    </div>
+                    <div class="car-card-content">
+                        <h3>${item.merke || ''} ${item.title}</h3>
+                        <p class="model-description">${modelDisplay}</p>
+                        
+                        <p class="car-specs-mini">
+                            ${fuel} ${drive} ${gear}
+                        </p>
+
+                        <p class="price">
+                            ${priceDisplay}
+                        </p>
+
+                        <div class="btn">Les mer</div>
+
+                    </div>
+                </a>`;
+        });
+    }
+</script>
+
+
+
+
+
+<script id="js-main-init">
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        updateFavoriteUI();
+        updateSelectionUI();
+    
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.dropdown-menu').forEach(m => m.style.display = 'none');
+            }
+        });
+    
+        
+        const jsonPath = window.location.origin + '/varebil-leasing/index.json';
+        fetch(jsonPath)
+            .then(response => response.ok ? response.json() : Promise.reject())
+            .then(data => {
+                window.globalCarData = data; 
+                
+                if (window.location.href.includes('sammenlign')) {
+                    renderComparison();
+                }
+
+                const searchInput = document.getElementById('search-input');
+                if (searchInput) setupSearch(data, searchInput);
+
+                
+                const favContainer = document.getElementById('favorites-container');
+                if (favContainer) {
+                    console.log("Data sendes til renderFavorites:", data); 
+                    renderFavorites(data, favContainer);
+                }
+            })
+            .catch(err => console.error("Data-feil:", err));
+    });
+    </script>
 </body>
 </html>

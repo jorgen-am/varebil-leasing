@@ -13,29 +13,62 @@
         
         <div class="grid-container auto">
             {{ range $allCars }}
-                <div class="car-card" data-slug="{{ .Params.slug.current }}">
-                    <div class="car-card-content">
-                        <!-- Velg for sammenligning -->
-                        <button class="select-btn" data-slug="{{ .File.TranslationBaseName }}" data-img="{{ .Params.mainImageUrl }}" onclick="toggleSelection(this.dataset.slug, this.dataset.img, event)"> </button>
-                        <!-- Legg til som favoritt-->
-                        <button class="favorite-btn" data-slug="{{ .File.TranslationBaseName }}" onclick="toggleFavorite(this.getAttribute('data-slug'), this)"> </button>
+            <a href="{{ .Permalink }}" class="car-card" 
+                data-slug="{{ .File.TranslationBaseName }}"
+                data-brand="{{ .Params.brand | lower | urlize }}"
+                data-model="{{ .Params.modeldescription | lower | urlize }}"
+                data-price="{{ .Params.price0 }}"
+                data-fuel="{{ .Params.fuel | lower | urlize }}"
+                data-gear="{{ .Params.gear | lower | urlize }}"
+                data-year="{{ .Params.yearmodel }}"
+                data-drive="{{ .Params.drive | lower | urlize }}"
+                data-range="{{ .Params.range }}"
+                data-interest="{{ .Params.interest }}" 
+                data-quote="{{ .Params.quote }}"
+                data-doors="{{ .Params.doors }}"
+                data-seats="{{ .Params.seats }}"
+                data-interior="{{ .Params.interior | urlize }}"
+                data-color="{{ .Params.color | urlize }}"
+                data-capacity="{{ .Params.capacity }}"
+                data-chargetime="{{ .Params.charging }}"
+                data-towbar="{{ with .Params.towbar }}{{ . }}{{ end }}"
+                data-fastdelivery="{{ with .Params.fastdelivery }}{{ . }}{{ end }}"
+                data-campaign="{{ with .Params.campaign }}{{ . }}{{ end }}">
 
-                        {{ if .Params.mainImageUrl }}
-                            <img src="{{ .Params.mainImageUrl }}" alt="{{ .Title }}">
+                <!-- Bilens visuelle innhold -->
+                <div class="car-card-content">
+                    <!-- Velg for sammenligning -->
+                    <button class="select-btn" data-slug="{{ .File.TranslationBaseName }}" data-img="{{ .Params.mainImageUrl }}" onclick="toggleSelection(this.dataset.slug, this.dataset.img, event)"></button>
+                    <!-- Legg til som favoritt-->
+                    <button class="favorite-btn" data-slug="{{ .File.TranslationBaseName }}" onclick="toggleFavorite(this.getAttribute('data-slug'), this, event)"></button>
+
+                    {{ if .Params.mainImageUrl }}
+                    <img src="{{ .Params.mainImageUrl }}" alt="{{ .Title }}" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+                    {{ end }}
+        
+                    <h3>{{ .Params.brand }} {{ .Title }}</h3>
+                    <p>{{ .Params.modeldescription }}</p>
+                    
+                    <!-- Oppdaterte tekniske felt (fuel, gear, drive) -->
+                    <p>
+                        {{ if .Params.fuel }}<span>{{ .Params.fuel }}</span>{{ end }}
+                        {{ if .Params.drive }}<span>{{ .Params.drive }}</span>{{ end }}
+                        {{ if .Params.gear }}<span >{{ .Params.gear }}</span>{{ end }}
+                    </p>
+
+                    <!-- Prisvisning -->
+                    <p class="price">
+                        {{ if .Params.price0 }}
+                            Fra kr {{ lang.FormatNumber 0 .Params.price0 }},- ink. mva
+                        {{ else }}
+                            Kontakt for pris
                         {{ end }}
-            
-                        <h3>{{ .Params.brand }} {{ .Title }}</h3>
-                        <p class="car-subheader">{{ .Params.modeldescription }}</p>
-                        <p class="car-main-properties">
-                            {{ if .Params.fuel }}<span>{{ .Params.fuel | humanize }}</span>{{ end }}
-                            {{ if .Params.drive }} <span>{{ .Params.drive | humanize }}</span>{{ end }}
-                            {{ if .Params.gear }} <span>{{ .Params.gear | humanize }}</span>{{ end }}
-                        </p>    
-                        <p><strong>Fra kr {{ .Params.price0 }},- mva</strong></p>
-                        
-                        <a href="{{ .Permalink }}" class="btn">Les mer</a>
-                    </div>
+                    </p>
+
+                    <div class="btn">Les mer</div>
                 </div>
+            </a>
+
             {{ else }}
                 <p>Ingen biler ble funnet. Har du kjørt <code>node fetch-sanity.js</code>?</p>
             {{ end }}
