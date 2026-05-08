@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Leasing av Toyota varebil on Varebil leasing</title>
+    <link>http://localhost:1313/varebil-leasing/biler/toyota/</link>
+    <description>Recent content in Leasing av Toyota varebil on Varebil leasing</description>
+    <generator>Hugo</generator>
+    <language>nb-no</language>
+    <atom:link href="http://localhost:1313/varebil-leasing/biler/toyota/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hilux pickup</title>
+      <link>http://localhost:1313/varebil-leasing/biler/leasing-pickup-toyota-hilux-uten-forskudd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/varebil-leasing/biler/leasing-pickup-toyota-hilux-uten-forskudd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Proace </title>
+      <link>http://localhost:1313/varebil-leasing/biler/leasing-toyota-proace-city-electric-50-kwh-l1-comfort-uten-innskudd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/varebil-leasing/biler/leasing-toyota-proace-city-electric-50-kwh-l1-comfort-uten-innskudd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Proace </title>
+      <link>http://localhost:1313/varebil-leasing/biler/leasing-toyota-proace-electric-75-kwh-l1-comfort-uten-innskudd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/varebil-leasing/biler/leasing-toyota-proace-electric-75-kwh-l1-comfort-uten-innskudd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Proace </title>
+      <link>http://localhost:1313/varebil-leasing/biler/leasing-toyota-proace-l1-comfort-diesel-varebil-uten-innskudd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/varebil-leasing/biler/leasing-toyota-proace-l1-comfort-diesel-varebil-uten-innskudd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Proace </title>
+      <link>http://localhost:1313/varebil-leasing/biler/leasing-varebil-toyota-proace/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/varebil-leasing/biler/leasing-varebil-toyota-proace/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Proace </title>
+      <link>http://localhost:1313/varebil-leasing/biler/varebil-leasing-toyota-proace-uten-innskudd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/varebil-leasing/biler/varebil-leasing-toyota-proace-uten-innskudd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Proace City </title>
+      <link>http://localhost:1313/varebil-leasing/biler/leasing-toyota-proace-city-varebil-uten-innskudd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/varebil-leasing/biler/leasing-toyota-proace-city-varebil-uten-innskudd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Proace City </title>
+      <link>http://localhost:1313/varebil-leasing/biler/leasing-varebil-toyota-proace-city-l1-pris/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/varebil-leasing/biler/leasing-varebil-toyota-proace-city-l1-pris/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Proace EV </title>
+      <link>http://localhost:1313/varebil-leasing/biler/leasing-varebil-toyota-proace-ev-l2-pris-uten-innskudd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/varebil-leasing/biler/leasing-varebil-toyota-proace-ev-l2-pris-uten-innskudd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Proace EV </title>
+      <link>http://localhost:1313/varebil-leasing/biler/leasing-varebil-toyota-proace-ev-pris/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/varebil-leasing/biler/leasing-varebil-toyota-proace-ev-pris/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Proace EV City </title>
+      <link>http://localhost:1313/varebil-leasing/biler/leasing-toyota-proace-ev-city-pris-varebil/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/varebil-leasing/biler/leasing-toyota-proace-ev-city-pris-varebil/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
