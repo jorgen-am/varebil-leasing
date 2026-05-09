@@ -10,9 +10,9 @@ port = 1316
   home = ["HTML", "RSS", "JSON"]
 
 [permalinks]
-  post = ":section/:contentbasename"
-  biler = ":section/:contentbasename"
-
+  post = "/post/:title/"
+  biler = "/biler/:slug/"
+  
 [taxonomies]
   drivlinje = "drivlinje"
   gir = "gir"
