@@ -221,13 +221,13 @@ ${finalBody}`);
   const descriptionHtml = toHTML(car.description || []);
 
   const content = `---
-title: "${(car.title || '').replace(/"/g, '\\"')}"
-brand: "${car.brand || ''}"
-descriptionHtml: "${descriptionHtml.replace(/"/g, '\\"').replace(/\n/g, '')}"
-equipment: "${equipmentHtml.replace(/"/g, '\\"').replace(/\n/g, '')}"
-modeldescription: "${(car.modeldescription || '').replace(/"/g, '\\"')}"
+title: "${(car.title || '').replace(/"/g, '')}"
+slug: "${String(car.slug || car.title || '').toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-')}"
+modeldescription: "${(car.modeldescription || '').replace(/"/g, '')}"
+mainImageUrl: "${car.mainImageUrl ? car.mainImageUrl.replace(/\\/g, '') + '?fm=webp&q=80' : ''}"
+descriptionHtml: "${descriptionHtml.replace(/"/g, "'").replace(/\n/g, ' ')}"
+equipment: "${equipmentHtml.replace(/"/g, "'").replace(/\n/g, ' ')}"
 price0: "${car.price0 || '0'}"
-mainImageUrl: "${car.mainImageUrl ? car.mainImageUrl + '?fm=webp&q=80' : ''}"
 fuel: "${car.fuel || ''}"
 gear: "${car.gear || ''}"
 drive: "${car.drive || ''}"
