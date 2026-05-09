@@ -10,8 +10,8 @@ port = 1316
   home = ["HTML", "RSS", "JSON"]
 
 [permalinks]
-  post = ":section/:contentbasename/"
-  biler = ":section/:contentbasename/"
+  post = ":section/:contentbasename"
+  biler = ":section/:contentbasename"
 
 [taxonomies]
   drivlinje = "drivlinje"
@@ -34,7 +34,7 @@ port = 1316
 
   [[menu.main]]
     name = "Artikler"
-    url = "/artikler/"
+    url = "/post/"
     weight = 31
 
   [[menu.main]]
