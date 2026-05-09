@@ -8,11 +8,16 @@
 
     <!-- Biler -->    
     <section class="cars">
-        {{ $allCars := where .Site.RegularPages "Params.brand" "!=" nil }}
-        <h2>Våre Biler ({{ len $allCars }} funnet)</h2>
+        {{/* Vi henter alle vanlige sider som ligger under /content/biler/ uansett undermappe */}}
+        {{ $displayPages := where .Site.RegularPages "Section" "biler" }}
+    
+        {{/* Sorter gjerne etter tittel så det ser ryddig ut */}}
+        {{ $displayPages = sort $displayPages "Title" "asc" }}
+    
+        <h2>Våre biler ({{ len $displayPages }} funnet)</h2>
         
         <div class="grid-container auto">
-            {{ range $allCars }}
+            {{ range $displayPages }}
             <a href="{{ .Permalink }}" class="car-card" 
                 data-slug="{{ .File.TranslationBaseName }}"
                 data-brand="{{ .Params.brand | lower | urlize }}"
