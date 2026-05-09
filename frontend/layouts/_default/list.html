@@ -1,11 +1,12 @@
 {{ define "main" }}
 <section>
     <h1>{{ .Title }}</h1>
-    {{/* Vi henter alle vanlige sider som ligger under /content/biler/ uansett undermappe */}}
-    {{ $displayPages := where .Site.RegularPages "Section" "biler" }}
+    {{ $displayPages :=  where .Site.RegularPages "Section" "biler" }}
 
-    {{/* Sorter gjerne etter tittel så det ser ryddig ut */}}
-    {{ $displayPages = sort $displayPages "Title" "asc" }}
+    {{/* Hvis vi er i en undermappe (f.eks. /biler/ford/), filtrer så vi kun ser biler i den mappen */}}
+    {{ if and (ne .RelPermalink "/biler/") (not .IsHome) }}
+        {{ $displayPages = .Pages }}
+    {{ end }}
 
     <h2> Våre biler ({{ len $displayPages }} funnet)</h2>
     
