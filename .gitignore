@@ -8,3 +8,6 @@ resources/
 
 # Node mapper
 node_modules/
+
+# .env
+echo ".env" >> .gitignore

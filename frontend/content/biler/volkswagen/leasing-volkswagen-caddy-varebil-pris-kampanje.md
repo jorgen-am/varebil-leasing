@@ -3,6 +3,7 @@ title: "Caddy"
 brand: "Volkswagen"
 slug: "leasing-volkswagen-caddy-varebil-pris-kampanje"
 layout: "single"
+mainimages: "https://cdn.sanity.io/images/1lzskaub/production/929f43fd9add98096e0528f3691ad7d5a319cc8f-850x450.jpg?fm=webp&q=80"
 shopimage: "https://cdn.prod.website-files.com/581884d6ec4143c342e9f6da/647f174e9164253eabab662d_Volkswagen%20Caddy%20side%2C%20front.jpg"
 gallery: 
   - "https://cdn.sanity.io/images/1lzskaub/production/929f43fd9add98096e0528f3691ad7d5a319cc8f-850x450.jpg?fm=webp&q=80"

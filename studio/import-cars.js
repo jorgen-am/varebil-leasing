@@ -1,3 +1,4 @@
+require('dotenv').config({ path: require('path').resolve(__dirname, '../.env') });
 const fs = require('fs');
 const Papa = require('papaparse');
 const axios = require('axios');
@@ -6,9 +7,9 @@ const { htmlToBlocks } = require('@sanity/block-tools');
 const { JSDOM } = require('jsdom');
 
 // --- KONFIGURASJON ---
-const projectId = '1lzskaub'; 
-const dataset = 'production';
-const apiToken = 'skoy2IU2ZL2p8WzeIEVfqy5XtMLOMR7HXafTEs6o4zh4jeFkMzXwYifWcFZEdYki8cXovhP2T4SJuxx4hxEyz5WZ2o4KfOTLnlMu23fjInHWQFqtTB4vpfU4PBs3GQ0ljV8sYB5MlrC6gZvodeNORmJlknVOE9ZZ1ykbe8tFqHlaV8Sr6O2y'
+const projectId = process.env.SANITY_PROJECT_ID;
+const dataset = process.env.SANITY_DATASET;
+const apiToken = process.env.SANITY_TOKEN;
 // ---------------------
 
 const client = axios.create({

@@ -1,13 +1,15 @@
+require('dotenv').config({ path: require('path').resolve(__dirname, '../.env') });
 const { createClient } = require('@sanity/client');
 const { toHTML } = require('@portabletext/to-html');
 const fs = require('fs');
 const path = require('path');
 
 const client = createClient({
-  projectId: '1lzskaub',
-  dataset: 'production',
+  projectId: process.env.SANITY_PROJECT_ID,
+  dataset: process.env.SANITY_DATASET,
   useCdn: false,
   apiVersion: '2023-05-01',
+  token: process.env.SANITY_TOKEN,
 });
 
 function blocksToText(blocks) {

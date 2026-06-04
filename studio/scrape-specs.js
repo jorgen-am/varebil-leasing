@@ -12,6 +12,7 @@
 //   npm install playwright
 //   npx playwright install chromium
 
+require('dotenv').config({ path: require('path').resolve(__dirname, '../.env') });
 const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');

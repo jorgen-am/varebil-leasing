@@ -3,6 +3,7 @@ title: "Caddy"
 brand: "Volkswagen"
 slug: "leasing-volkswagen-caddy-cargo-pluss-4motion-uten-innskudd-kampanje"
 layout: "single"
+mainimages: "https://cdn.sanity.io/images/1lzskaub/production/7584a0df19f4f168d057cac7fc9c3149c37bd0fc-1000x500.jpg?fm=webp&q=80"
 shopimage: "https://cdn.prod.website-files.com/581884d6ec4143c342e9f6da/68cbba7c6837ff3c0178a464_VW%20Caddy%202.0%20TDI%20Cargo%20Pluss%20122%20front%20side.jpg"
 gallery: 
   - "https://cdn.sanity.io/images/1lzskaub/production/7584a0df19f4f168d057cac7fc9c3149c37bd0fc-1000x500.jpg?fm=webp&q=80"
