@@ -1,22 +1,114 @@
 ---
 title: "EV9 firmabil"
-slug: "-object-object-"
-modeldescription: "GT-line"
-mainImageUrl: "https://cdn.sanity.io/images/1lzskaub/production/058e114ba73fc5a429780000f251ecdae3197c1b-700x450.jpg?fm=webp&q=80"
-descriptionHtml: "<h2>Kia EV9 GT Line VAN leasing varebil uten innskudd</h2><p>Kia EV9 GT Line VAN er en helelektrisk varebil med SUV-egenskaper, høy komfort og lang rekkevidde. Modellen er konvertert fra personbil til varebil og tilbyr to seter i front, romslig varerom og firehjulsdrift – perfekt for bedrifter som ønsker en innovativ og stilfull løsning for elektrisk varetransport. Med imponerende ytelser og moderne sikkerhetsfunksjoner er dette et førsteklasses valg for profesjonelle behov.</p><p>EV9 GT Line VAN har en elektrisk rekkevidde (WLTP) på opptil 512 km, en systemeffekt på 384 hk (282 kW) og akselererer fra 0–100 km/t på kun 5,3 sekunder. Bilen har 5 dører, 2 seter, og et meget romslig varerom. Ladetid fra 10–80 % er ned mot 24 minutter med hurtiglading. Tilhengerfeste er standard, og bilen kan trekke opptil 2 500 kg.</p><p>Automedia AS har flest 5-stjerners anmeldelser på Google, og har siden 2009 vært en ledende aktør innen leasing til bedriftsmarkedet. Vi er kjent for personlig oppfølging og raske leveranser.</p>"
-equipment: "<p>Firehjulsdrift (AWD) for trygg kjøring året rundt</p><p>Oppvarmede og ventilerte seter i førerkabin</p><p>Navigasjon med sanntidstrafikk og OTA-oppdateringer</p><p>3D-kamera med 360° visning for enkel manøvrering</p><p>Blindsonekamera og filholderassistent for økt sikkerhet</p><p>12,3&quot; digitalt førerdisplay og infotainment-løsning</p><p>Trådløs Apple CarPlay og Android Auto</p><p>Adaptiv cruisekontroll og automatisk nødbrems</p><p>Panorama glasstak og ambient belysning</p><p>Elektrisk justerbare seter med minnefunksjon</p><p>Tilhengerfeste med hengervekt på opptil 2 500 kg</p>"
-price0: "11274"
-fuel: "Elektrisk"
-gear: "Automat"
-drive: "AWD"
-range: "512"
-capacity: "2.2"
-performance: "384"
-doors: "5"
-seats: "2"
-yearmodel: "2025"
-color: ""
-interest: "Fast"
-towbar: true
+brand: "Kia"
+slug: "leasing-kia-ev9-varebil-firmabil-uten-innskudd"
 layout: "single"
+mainimages: "https://cdn.sanity.io/images/1lzskaub/production/058e114ba73fc5a429780000f251ecdae3197c1b-700x450.jpg?fm=webp&q=80"
+shopimage: "https://cdn.prod.website-files.com/581884d6ec4143c342e9f6da/6707a22db8a760875f825089_Kia-ev9-gt-line-kampanje.jpg"
+gallery: 
+  - "https://cdn.sanity.io/images/1lzskaub/production/058e114ba73fc5a429780000f251ecdae3197c1b-700x450.jpg?fm=webp&q=80"
+  - "https://cdn.sanity.io/images/1lzskaub/production/a80595670db62ea7d35efc8981b05452c20d6850-700x450.jpg?fm=webp&q=80"
+  - "https://cdn.sanity.io/images/1lzskaub/production/ecd0b280a04c295884257760e1198295b97da322-1000x500.jpg?fm=webp&q=80"
+modeldescription: "GT-line"
+
+alttext: "Kia EV9 AWD GT-line varebil Leasing Kampanje Automedia AS"
+
+pricezero: "11274"
+
+interest: "Fast"
+
+quote: "21248"
+
+fuel: "Elektrisitet"
+
+body: "Varebil"
+
+drive: "AWD"
+
+gear: "Automat"
+
+numberofgears: "1"
+
+doors: "5"
+
+seats: "2"
+
+performancehk: "384"
+
+performancewatt: "283"
+
+torque: "700"
+
+range: "505"
+
+grossbattery: "99"
+
+netbattery: "96"
+
+chargingdc: "240"
+
+maxhomechargeac: "11"
+
+chargingspeed: "24"
+
+powerusage: "22.8"
+
+warranty: "7 år/150.000 km"
+
+batterywarranty: "7 år / 150.000 km"
+
+allowedtotalweight: "3240"
+
+kerbweight: "2564"
+
+payloadincdriver: "676"
+
+trailerwbreak: "2500"
+
+trailerwobreak: "750"
+
+length: "5015"
+
+widthwomirrors: "1980"
+
+height: "1780"
+
+wheelbase: "3100"
+
+yearmodel: "2025"
+
+color: "white"
+
+interior: "black"
+
+campaign: true
+
+fastdelivery: true
+
+metatitle: "Kia EV9 AWD GT-line varebil leasing uten innskudd Firmabil"
+
+metadescription: "15000 km/år -  fast rente -  vinterhjul -  frakt/klargjøring -  vrakpant. Vi tilbyr forsikring -  bom -  lade- -  drivstoffkort og service på EN faktura"
+
+opengraphtitle: "Kia EV9 AWD GT-line varebil leasing uten innskudd Firmabil"
+
+opengraphdescription: "15000 km/år -  fast rente -  vinterhjul -  frakt/klargjøring -  vrakpant. Vi tilbyr forsikring -  bom -  lade- -  drivstoffkort og service på EN faktura"
+
+shortterm: "FALSE"
+
+pricecomment: "Abc"
+
+salesman: "ingen"
+
+availability: "FALSE"
+
+consultant: "none"
+
+sourceslug: "https://www.motorbasen.no/sider/modell.asp?Id=2420"
+
+chosepage: "Leasing Firmabil"
+
+shop: "kia"
+
+descriptionHtml: "<h2>Kia EV9 GT Line VAN leasing varebil uten innskudd</h2><p>Kia EV9 GT Line VAN er en helelektrisk varebil med SUV-egenskaper - høy komfort og lang rekkevidde. Modellen er konvertert fra personbil til varebil og tilbyr to seter i front - romslig varerom og firehjulsdrift – perfekt for bedrifter som ønsker en innovativ og stilfull løsning for elektrisk varetransport. Med imponerende ytelser og moderne sikkerhetsfunksjoner er dette et førsteklasses valg for profesjonelle behov.</p><p>EV9 GT Line VAN har en elektrisk rekkevidde (WLTP) på opptil 512 km - en systemeffekt på 384 hk (282 kW) og akselererer fra 0–100 km/t på kun 5 - 3 sekunder. Bilen har 5 dører - 2 seter - og et meget romslig varerom. Ladetid fra 10–80 % er ned mot 24 minutter med hurtiglading. Tilhengerfeste er standard - og bilen kan trekke opptil 2 500 kg.</p><p>Automedia AS har flest 5-stjerners anmeldelser på Google - og har siden 2009 vært en ledende aktør innen leasing til bedriftsmarkedet. Vi er kjent for personlig oppfølging og raske leveranser.</p>"
+equipmentHtml: "<p>Firehjulsdrift (AWD) for trygg kjøring året rundt</p><p>Oppvarmede og ventilerte seter i førerkabin</p><p>Navigasjon med sanntidstrafikk og OTA-oppdateringer</p><p>3D-kamera med 360° visning for enkel manøvrering</p><p>Blindsonekamera og filholderassistent for økt sikkerhet</p><p>12 - 3&quot; digitalt førerdisplay og infotainment-løsning</p><p>Trådløs Apple CarPlay og Android Auto</p><p>Adaptiv cruisekontroll og automatisk nødbrems</p><p>Panorama glasstak og ambient belysning</p><p>Elektrisk justerbare seter med minnefunksjon</p><p>Tilhengerfeste med hengervekt på opptil 2 500 kg</p>"
 ---

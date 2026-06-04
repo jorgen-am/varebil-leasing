@@ -1,0 +1,145 @@
+<a href="{{ .Permalink | default "#" }}" class="car-card" 
+   data-slug="{{ .File.TranslationBaseName }}" 
+   data-brand="{{ .Params.brand }}" 
+   data-model="{{ .Params.modeldescription }}" 
+   data-price="{{ .Params.price0 | default "0" }}" 
+   data-fuel="{{ .Params.fuel }}" 
+   data-gear="{{ .Params.gear }}" 
+   data-year="{{ .Params.yearmodel }}" 
+   data-drive="{{ .Params.drive }}" 
+   data-range="{{ .Params.range }}" 
+   data-interest="{{ .Params.interest }}" 
+   data-quote="{{ .Params.quote }}" 
+   data-doors="{{ .Params.doors }}" 
+   data-seats="{{ .Params.seats }}" 
+   data-interior="{{ .Params.interior }}" 
+   data-color="{{ .Params.color }}" 
+   data-towbar="{{ if .Params.towbar }}true{{ else }}false{{ end }}" 
+   data-fastdelivery="{{ if .Params.fastdelivery }}true{{ else }}false{{ end }}" 
+   data-campaign="{{ if .Params.campaign }}true{{ else }}false{{ end }}" 
+   data-price60="{{ .Params.price60 | default "0" }}" 
+   data-price100="{{ .Params.price100 | default "0" }}" 
+   data-priceads0="{{ .Params.priceads0 | default "0" }}" 
+   data-performance-hk="{{ .Params.performance_hk }}" 
+   data-performance-watt="{{ .Params.performance_watt }}" 
+   data-torque="{{ .Params.torque }}" 
+   data-engines="{{ .Params.number_of_engines }}" 
+   data-co2="{{ .Params.co2_emission }}" 
+   data-gears-count="{{ .Params.number_of_gears }}" 
+   data-battery-gross="{{ .Params.gross_battery }}" 
+   data-battery-net="{{ .Params.net_battery }}" 
+   data-charging-dc="{{ .Params.charging_dc }}" 
+   data-homecharge-max="{{ .Params.max_home_charge_ac }}" 
+   data-homecharge-1phase="{{ index .Params "1_phase_home_charge_ac" }}" 
+   data-charging-speed="{{ .Params.charging_speed }}" 
+   data-power-usage="{{ .Params.power_usage }}" 
+   data-weight-total="{{ .Params.allowed_total_weight }}" 
+   data-weight-kerb="{{ .Params.kerb_weight }}" 
+   data-weight-kerb-ex="{{ .Params.kerb_weight_ex_driver }}" 
+   data-payload="{{ .Params.payload_inc_driver }}" 
+   data-roof-load="{{ .Params.max_roof_load }}" 
+   data-trailer-w-brake="{{ .Params.trailer_w_break }}" 
+   data-trailer-wo-brake="{{ .Params.trailer_wo_break }}" 
+   data-boot-max="{{ .Params.max_boot_capacity }}" 
+   data-boot-min="{{ .Params.min_boot_capacity }}" 
+   data-length="{{ .Params.length }}" 
+   data-width-wo-mirrors="{{ .Params.width_wo_mirrors }}" 
+   data-width-w-mirrors="{{ .Params.width_w_mirrors }}" 
+   data-height="{{ .Params.height }}" 
+   data-wheelbase="{{ .Params.wheelbase }}" 
+   data-turning-circle="{{ .Params.turning_circle }}" 
+   data-warranty="{{ .Params.warranty }}" 
+   data-warranty-battery="{{ .Params.battery_warranty }}" 
+   data-warranty-paint="{{ .Params.warranty_paint }}" 
+   data-warranty-rust="{{ .Params.warranty_rust }}">
+
+    <button onclick="removeFromCompare('{{ .File.TranslationBaseName }}', event)" class="remove-btn">X</button>
+    <button class="favorite-btn" data-slug="{{ .File.TranslationBaseName }}" onclick="toggleFavorite('{{ .File.TranslationBaseName }}', this, event)"><span class="heart-icon">♡</span></button>
+    <button class="select-btn" data-slug="{{ .File.TranslationBaseName }}" data-img="{{ .Params.mainImageUrl }}" onclick="toggleSelection(this.dataset.slug, this.dataset.img, event)"> </button>
+    
+    <div class="car-card-img-container">
+        <img src="{{ .Params.mainImageUrl | default .Params.shopimage }}" alt="{{ .Title }}">
+    </div>
+    
+    <div class="car-card-content">
+        <h3>{{ .Params.brand }} {{ .Title }}</h3>
+        <p class="model-description">{{ .Params.modeldescription }}</p>
+        
+        <div class="car-specs-basic-view">
+            <p class="car-specs-mini">
+                <span>{{ .Params.fuel | default "—" }}</span> 
+                <span>{{ .Params.drive | default "—" }}</span> 
+                <span>{{ .Params.gear | default "—" }}</span>
+            </p>
+            <p class="price">
+                {{ if .Params.price0 }}
+                    Fra kr {{ lang.FormatNumber 0 .Params.price0 }},- eks. mva
+                {{ else }}
+                    Kontakt meg for pris
+                {{ end }}
+            </p>
+        </div>
+
+        <ul class="car-specs-all">
+            <li class="spec-section-title spec-main">Hovedspesifikasjoner</li>
+            <li class="spec-year spec-main"><strong>Årsmodell:</strong> <span>{{ .Params.yearmodel | default "—" }}</span></li>
+            <li class="spec-fuel spec-main"><strong>Drivstoff:</strong> <span>{{ .Params.fuel | default "—" }}</span></li>
+            <li class="spec-gear spec-main"><strong>Girkasse:</strong> <span>{{ .Params.gear | default "—" }}</span></li>
+            <li class="spec-drive spec-main"><strong>Hjuldrift:</strong> <span>{{ .Params.drive | default "—" }}</span></li>
+            <li class="spec-range spec-main"><strong>Rekkevidde (WLTP):</strong> <span>{{ if .Params.range }}{{ .Params.range }} km{{ else }}—{{ end }}</span></li>
+            <li class="spec-towbar spec-main"><strong>Hengerfeste:</strong> <span>{{ if .Params.towbar }}Ja{{ else }}Nei / Tilvalg{{ end }}</span></li>
+            <li class="spec-price0 spec-main"><strong>Leasingpris (0,- innskudd):</strong> <span>{{ if .Params.price0 }}kr {{ lang.FormatNumber 0 .Params.price0 }},-{{ else }}—{{ end }}</span></li>
+            <li class="spec-payload spec-main"><strong>Nyttelast inkl. sjåfør:</strong> <span>{{ if .Params.payload_inc_driver }}{{ .Params.payload_inc_driver }} kg{{ else }}—{{ end }}</span></li>
+            <li class="spec-hk spec-main"><strong>Effekt (HK):</strong> <span>{{ if .Params.performance_hk }}{{ .Params.performance_hk }} HK{{ else }}—{{ end }}</span></li>
+            <li class="spec-warranty spec-main"><strong>Nybilgaranti:</strong> <span>{{ .Params.warranty | default "—" }}</span></li>
+
+            <li class="spec-section-title spec-extended">Økonomi &amp; Priser i detalj</li>
+            <li class="spec-price60 spec-extended"><strong>Leasingpris (60' innskudd):</strong> <span>{{ if .Params.price60 }}kr {{ lang.FormatNumber 0 .Params.price60 }},-{{ else }}—{{ end }}</span></li>
+            <li class="spec-price100 spec-extended"><strong>Leasingpris (100' innskudd):</strong> <span>{{ if .Params.price100 }}kr {{ lang.FormatNumber 0 .Params.price100 }},-{{ else }}—{{ end }}</span></li>
+            <li class="spec-priceads0 spec-extended"><strong>Annonsepris (Eks. mva):</strong> <span>{{ if .Params.priceads0 }}kr {{ lang.FormatNumber 0 .Params.priceads0 }},-{{ else }}—{{ end }}</span></li>
+
+            <li class="spec-section-title spec-extended">Motor &amp; Ytelse utvidet</li>
+            <li class="spec-gears-count spec-extended"><strong>Antall gir:</strong> <span>{{ .Params.number_of_gears | default "—" }}</span></li>
+            <li class="spec-watt spec-extended"><strong>Effekt (kW):</strong> <span>{{ if .Params.performance_watt }}{{ .Params.performance_watt }} kW{{ else }}—{{ end }}</span></li>
+            <li class="spec-torque spec-extended"><strong>Dreiemoment:</strong> <span>{{ if .Params.torque }}{{ .Params.torque }} Nm{{ else }}—{{ end }}</span></li>
+            <li class="spec-engines spec-extended"><strong>Antall motorer:</strong> <span>{{ .Params.number_of_engines | default "—" }}</span></li>
+            <li class="spec-co2 spec-extended"><strong>CO2-utslipp:</strong> <span>{{ .Params.co2_emission | default "—" }}</span></li>
+
+            <li class="spec-section-title spec-extended">Batteri &amp; Lading</li>
+            <li class="spec-battery-gross spec-extended"><strong>Brutto batteri:</strong> <span>{{ if .Params.gross_battery }}{{ .Params.gross_battery }} kWh{{ else }}—{{ end }}</span></li>
+            <li class="spec-battery-net spec-extended"><strong>Netto batteri:</strong> <span>{{ if .Params.net_battery }}{{ .Params.net_battery }} kWh{{ else }}—{{ end }}</span></li>
+            <li class="spec-charging-dc spec-extended"><strong>Maks hurtiglading (DC):</strong> <span>{{ if .Params.charging_dc }}{{ .Params.charging_dc }} kW{{ else }}—{{ end }}</span></li>
+            <li class="spec-homecharge-max spec-extended"><strong>Maks normallading (AC):</strong> <span>{{ .Params.max_home_charge_ac | default "—" }}</span></li>
+            <li class="spec-homecharge-1phase spec-extended"><strong>1-fase lading (AC):</strong> <span>{{ index .Params "1_phase_home_charge_ac" | default "—" }}</span></li>
+            <li class="spec-charging-speed spec-extended"><strong>Ladehastighet:</strong> <span>{{ .Params.charging_speed | default "—" }}</span></li>
+            <li class="spec-power-usage spec-extended"><strong>Strømforbruk:</strong> <span>{{ .Params.power_usage | default "—" }}</span></li>
+
+            <li class="spec-section-title spec-extended">Vekt &amp; Dimensjoner</li>
+            <li class="spec-weight-total spec-extended"><strong>Tillatt totalvekt:</strong> <span>{{ if .Params.allowed_total_weight }}{{ .Params.allowed_total_weight }} kg{{ else }}—{{ end }}</span></li>
+            <li class="spec-weight-kerb spec-extended"><strong>Egenvekt:</strong> <span>{{ if .Params.kerb_weight }}{{ .Params.kerb_weight }} kg{{ else }}—{{ end }}</span></li>
+            <li class="spec-weight-kerb-ex spec-extended"><strong>Egenvekt ekskl. sjåfør:</strong> <span>{{ if .Params.kerb_weight_ex_driver }}{{ .Params.kerb_weight_ex_driver }} kg{{ else }}—{{ end }}</span></li>
+            <li class="spec-roof-load spec-extended"><strong>Maks taklast:</strong> <span>{{ if .Params.max_roof_load }}{{ .Params.max_roof_load }} kg{{ else }}—{{ end }}</span></li>
+            <li class="spec-trailer-w-brake spec-extended"><strong>Tilhengervekt m/brems:</strong> <span>{{ if .Params.trailer_w_break }}{{ .Params.trailer_w_break }} kg{{ else }}—{{ end }}</span></li>
+            <li class="spec-trailer-wo-brake spec-extended"><strong>Tilhengervekt u/brems:</strong> <span>{{ if .Params.trailer_wo_break }}{{ .Params.trailer_wo_break }} kg{{ else }}—{{ end }}</span></li>
+            <li class="spec-boot-max spec-extended"><strong>Maks bagasjerom:</strong> <span>{{ if .Params.max_boot_capacity }}{{ .Params.max_boot_capacity }} liter{{ else }}—{{ end }}</span></li>
+            <li class="spec-boot-min spec-extended"><strong>Minimum bagasjerom:</strong> <span>{{ if .Params.min_boot_capacity }}{{ .Params.min_boot_capacity }} liter{{ else }}—{{ end }}</span></li>
+            <li class="spec-length spec-extended"><strong>Lengde:</strong> <span>{{ if .Params.length }}{{ .Params.length }} mm{{ else }}—{{ end }}</span></li>
+            <li class="spec-width-wo-mirrors spec-extended"><strong>Bredde uten speil:</strong> <span>{{ if .Params.width_wo_mirrors }}{{ .Params.width_wo_mirrors }} mm{{ else }}—{{ end }}</span></li>
+            <li class="spec-width-w-mirrors spec-extended"><strong>Bredde med speil:</strong> <span>{{ if .Params.width_w_mirrors }}{{ .Params.width_w_mirrors }} mm{{ else }}—{{ end }}</span></li>
+            <li class="spec-height spec-extended"><strong>Høyde:</strong> <span>{{ if .Params.height }}{{ .Params.height }} mm{{ else }}—{{ end }}</span></li>
+            <li class="spec-wheelbase spec-extended"><strong>Akselavstand:</strong> <span>{{ if .Params.wheelbase }}{{ .Params.wheelbase }} mm{{ else }}—{{ end }}</span></li>
+            <li class="spec-turning-circle spec-extended"><strong>Svingdiameter:</strong> <span>{{ if .Params.turning_circle }}{{ .Params.turning_circle }} m{{ else }}—{{ end }}</span></li>
+
+            <li class="spec-section-title spec-extended">Eksteriør, Interiør &amp; Garanti</li>
+            <li class="spec-doors spec-extended"><strong>Dører:</strong> <span>{{ .Params.doors | default "—" }}</span></li>
+            <li class="spec-seats spec-extended"><strong>Seter:</strong> <span>{{ .Params.seats | default "—" }}</span></li>
+            <li class="spec-interior spec-extended"><strong>Interiør farge/stoff:</strong> <span>{{ .Params.interior | default "—" }}</span></li>
+            <li class="spec-color spec-extended"><strong>Farge:</strong> <span>{{ .Params.color | default "—" }}</span></li>
+            <li class="spec-warranty-battery spec-extended"><strong>Batterigaranti:</strong> <span>{{ .Params.battery_warranty | default "—" }}</span></li>
+            <li class="spec-warranty-paint spec-extended"><strong>Lakkgaranti:</strong> <span>{{ .Params.warranty_paint | default "—" }}</span></li>
+            <li class="spec-warranty-rust spec-extended"><strong>Rustgaranti:</strong> <span>{{ .Params.warranty_rust | default "—" }}</span></li>
+        </ul>
+
+        <div class="card-footer"><span class="read-more">Se detaljer</span></div>
+    </div>
+</a>

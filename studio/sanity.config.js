@@ -3,6 +3,9 @@ import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
 
+// IMPORTER DEN NYE CSS-FILEN HER:
+import './studio-custom.css';
+
 const myStructure = (S) =>
   S.list()
     .title('Innhold')

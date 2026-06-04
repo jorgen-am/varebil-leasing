@@ -1,0 +1,37 @@
+/* 1. STYLES DET GRÅ FILTET (Dropzonen) */
+[data-testid="field-gallery"] [data-test-id="file-target"] {
+    position: relative !important;
+    border:1px solid var(--card-border-color);
+    padding: 20px 20px 10px 20px !important;
+    cursor: pointer !important;
+}
+
+[data-testid="field-gallery"] [data-test-id="file-target"] [data-ui="Card"] {
+    border:0px solid var(--card-border-color);
+    padding:0px;
+}
+
+/* Skjul den kjedelige "No items"-teksten inni boksen */
+[data-testid="field-gallery"] [data-test-id="file-target"] [data-ui="Text"] {
+    display: none !important;
+}
+
+/* Legg til den nye, supertydelige UX-instruksjonen til selgerne midt i boksen */
+[data-testid="field-gallery"] [data-test-id="file-target"]::after {
+    content: "Dra og slipp bilder her";
+    display: block !important;
+    font-size: 15px !important;
+    margin-top: 20px;
+    text-align: center;
+}
+
+[data-testid="field-gallery"] [data-test-id="file-target"] img {
+height:auto;
+cursor: pointer;
+} 
+
+/* 2. SKJULER "ADD ITEM"-KNAPPEN */
+/* Finner knappen via dens unike test-id og fjerner den helt for å unngå forvirring */
+[data-testid="field-gallery"] button[data-testid="add-single-object-button"] {
+    display: none !important;
+}

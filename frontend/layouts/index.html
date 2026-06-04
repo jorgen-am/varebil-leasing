@@ -1,87 +1,20 @@
 {{ define "main" }}
     <!-- Hero -->
-    <section class="hero">
+    <section class="hero container">
         <h1>Leasing av varebil til din bedrift</h1>
         <p>Finn den perfekte arbeidsbilen med gunstig finansiering og reklame inkludert.</p>
         <a href="#biler" class="btn" style="background: #007bff; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold;">Se alle biler</a>
     </section>
 
-    <!-- Biler -->    
-    <section class="cars">
-        {{/* Vi henter alle vanlige sider som ligger under /content/biler/ uansett undermappe */}}
-        {{ $displayPages := where .Site.RegularPages "Section" "biler" }}
-    
-        {{/* Sorter gjerne etter tittel så det ser ryddig ut */}}
-        {{ $displayPages = sort $displayPages "Title" "asc" }}
-    
-        <h2>Våre biler ({{ len $displayPages }} funnet)</h2>
-        
-        <div class="grid-container auto">
-            {{ range $displayPages }}
-            <a href="{{ .Permalink }}" class="car-card" 
-                data-slug="{{ .File.TranslationBaseName }}"
-                data-brand="{{ .Params.brand | lower | urlize }}"
-                data-model="{{ .Params.modeldescription | lower | urlize }}"
-                data-price="{{ .Params.price0 }}"
-                data-fuel="{{ .Params.fuel | lower | urlize }}"
-                data-gear="{{ .Params.gear | lower | urlize }}"
-                data-year="{{ .Params.yearmodel }}"
-                data-drive="{{ .Params.drive | lower | urlize }}"
-                data-range="{{ .Params.range }}"
-                data-interest="{{ .Params.interest }}" 
-                data-quote="{{ .Params.quote }}"
-                data-doors="{{ .Params.doors }}"
-                data-seats="{{ .Params.seats }}"
-                data-interior="{{ .Params.interior | urlize }}"
-                data-color="{{ .Params.color | urlize }}"
-                data-capacity="{{ .Params.capacity }}"
-                data-chargetime="{{ .Params.charging }}"
-                data-towbar="{{ with .Params.towbar }}{{ . }}{{ end }}"
-                data-fastdelivery="{{ with .Params.fastdelivery }}{{ . }}{{ end }}"
-                data-campaign="{{ with .Params.campaign }}{{ . }}{{ end }}">
-
-                <!-- Bilens visuelle innhold -->
-                <div class="car-card-content">
-                    <!-- Velg for sammenligning -->
-                    <button class="select-btn" data-slug="{{ .File.TranslationBaseName }}" data-img="{{ .Params.mainImageUrl }}" onclick="toggleSelection(this.dataset.slug, this.dataset.img, event)"></button>
-                    <!-- Legg til som favoritt-->
-                    <button class="favorite-btn" data-slug="{{ .File.TranslationBaseName }}" onclick="toggleFavorite(this.getAttribute('data-slug'), this, event)"></button>
-
-                    {{ if .Params.mainImageUrl }}
-                    <img src="{{ .Params.mainImageUrl }}" alt="{{ .Title }}" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
-                    {{ end }}
-        
-                    <h3>{{ .Params.brand }} {{ .Title }}</h3>
-                    <p>{{ .Params.modeldescription }}</p>
-                    
-                    <!-- Oppdaterte tekniske felt (fuel, gear, drive) -->
-                    <p>
-                        {{ if .Params.fuel }}<span>{{ .Params.fuel }}</span>{{ end }}
-                        {{ if .Params.drive }}<span>{{ .Params.drive }}</span>{{ end }}
-                        {{ if .Params.gear }}<span >{{ .Params.gear }}</span>{{ end }}
-                    </p>
-
-                    <!-- Prisvisning -->
-                    <p class="price">
-                        {{ if .Params.price0 }}
-                            Fra kr {{ lang.FormatNumber 0 .Params.price0 }},- ink. mva
-                        {{ else }}
-                            Kontakt for pris
-                        {{ end }}
-                    </p>
-
-                    <div class="btn">Les mer</div>
-                </div>
-            </a>
-
-            {{ else }}
-                <p>Ingen biler ble funnet. Har du kjørt <code>node fetch-sanity.js</code>?</p>
-            {{ end }}
-        </div>
+    <!-- Biler -->   
+    <section class="car-list container">
+        <h2>Våre varebiler for leasing</h2>
+        <div id="filter-sort-container"></div>
+        <div id="main-cars-grid" data-page="frontpage" class="grid-container"></div>
     </section>
     
     <!-- hvorfor -->
-    <section class="why">
+    <section class="why container">
         <div class="grid-container two">
             <div>
                 <h3>Prisgaranti</h3>
@@ -99,7 +32,7 @@
     </section>
     
     <!-- omtaler -->
-    <section class="reviews">
+    <section class="omtaler-list container">
         <h2>Hva våre kunder sier</h2>
         <div class="grid-container auto" >
             {{/* Vi henter de 3 første (nyeste) fra den ferdig sorterte JSON-filen */}}
@@ -138,7 +71,7 @@
     </section>
 
     <!-- FAQ -->
-    <section class="faq">
+    <section class="faq-list container">
         <h2>Ofte stilte spørsmål (FAQ)</h2>
         <div class="column-container two">
             {{/* Vi henter sider fra mappen /post/faq/ */}}
@@ -170,7 +103,7 @@
     </section>
 
     <!-- ansatte -->
-    <section class="employees">
+    <section class="ansatte-list container">
         <h2>Snakk med en av våre rådgivere</h2>
         <div class="grid-container auto">
             {{ range .Site.Data.employees }}
@@ -208,5 +141,4 @@
             {{ end }}
         </div>
     </section>
-
  {{ end }}

@@ -1,454 +1,862 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>{{ .Title }}</title>
-    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
-    <link rel="shortcut icon" href="/images/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
-    <link rel="manifest" href="/images/site.webmanifest" />
-    <link rel="stylesheet" href="/css/globals.css">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ .Title }}</title>
+        <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+        <link rel="shortcut icon" href="/images/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+        <link rel="manifest" href="/images/site.webmanifest" />
+        <link rel="stylesheet" href="/css/globals.css">
+    </head>
+    <body>
 
-    <header class="site-header">
-        <div class="container">
+        <header class="site-header">
+            <div class="container">
 
-            <div class="logo">
-                <!--a href="/">{{ .Site.Data.settings.title }}</a-->
-                <a href="/"><img src="/images/logo.png" alt="Varebil leasing logo">Varebil leasing<span>.no</span></a>
-            </div>
+                <div class="logo">
+                    <!--a href="/">{{ .Site.Data.settings.title }}</a-->
+                    <a href="/"><img src="/images/logo.png" alt="Varebil leasing logo">Varebil leasing<span>.no</span></a>
+                </div>
 
-            <nav>
-                <ul class="nav-menu">
-                    
-                    <li class="nav-item dropdown">
-                        <a href="/biler/">Våre biler ▼</a>
-                        <ul class="dropdown-menu">
-                            {{ with .Site.GetPage "/biler" }}
-                                {{ range .Sections.ByTitle }}
-                                    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-                                {{ end }}
-                            {{ end }}
-                        </ul>
-                    </li>
-                                
-                    <li class="nav-item dropdown">
-                        <a href="/tjenester/">Tjenester ▼</a>
-                        <ul class="dropdown-menu">
-                            {{ with .Site.GetPage "/tjenester" }}
-                                {{ range .Pages.ByTitle }}
-                                    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-                                {{ end }}
-                            {{ end }}
-                        </ul>
-                    </li>
-            
-                    <li class="nav-item dropdown">
-                        <a href="/post/">Artikler ▼</a>
-                        <ul class="dropdown-menu">
-                            {{ with .Site.GetPage "/post" }}
-                                {{ range .Sections.ByTitle }}
-                                    {{ if and (not (in .Title "http")) (ne .Title "Generelt") }}
+                <nav>
+                    <ul class="nav-menu">
+                        
+                        <li class="nav-item dropdown">
+                            <a href="/biler/">Våre biler ▼</a>
+                            <ul class="dropdown-menu">
+                                {{ with .Site.GetPage "/biler" }}
+                                    {{ range .Sections.ByTitle }}
                                         <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
                                     {{ end }}
                                 {{ end }}
-                            {{ end }}
-                        </ul>
-                    </li>
-            
-                    <li><a href="/omtaler/">Omtaler</a></li>
-
-                    <li class="nav-item dropdown">
-                        <a href="#">Om oss ▼</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/ansatte/">Ansatte</a></li>
-                            <li><a href="/kontakt-oss/">Kontakt oss</a></li>
-                        </ul>
-                    </li>
-
-                    <li><a href="/favoritter/" class="heart-icon">♡</a></li>
-
-                    <li>
-                        <form action="{{ "sok/" | relURL }}" method="get" class="search-form">
-                            <input type="text" id="search-input" name="q" placeholder="Søk etter varebil...">
-                            <button type="submit">Søk</button>
-                            <ul id="search-results"></ul>
-                        </form>
-                    </li>
-            
-                    <li class="contact-info"><a href="tel:{{ .Site.Data.settings.phone }}"><!--{{ .Site.Data.settings.phone }}-->Ring</a></li>        
-            
-                </ul>
-            </nav>
-                          
-        </div>
-    </header>
-    <main>    
-    {{ block "main" . }}{{ end }}
-    </main>    
-
-    <!-- Sammnlingning forhåndsvisning -->
-    <div id="selection-bar" class="selection-bar" style="display: none;">
-        <div class="selection-header">
-            <span>Valgte biler (<span id="selection-count">0</span>)</span>
-            <button onclick="closeSelectionBar()" class="close-bar">×</button>
-        </div>
-        
-        <div id="selection-items" class="selection-items">
-            <!-- Bilder av valgte biler havner her -->
-        </div>
-    
-        <div class="selection-footer">
-            <a href="/sammenlign" class="compare-btn">Gå til side for valgte biler</a>
-        </div>
-    </div>
-
-    {{ partial "footer.html" . }}
-
-
-<!-- =============================== -->
-<!-- 1. Modul: Verktøy og Favoritter -->
-<!-- =============================== -->
-<script id="js-utils-favorites">
-    // --- HJELPEFUNKSJONER ---
-    function getFavorites() {
-        return JSON.parse(localStorage.getItem('car_favorites')) || [];
-    }
-    
-    function getSelectedCars() {
-        return JSON.parse(localStorage.getItem('selected_cars') || '[]');
-    }
-    
-    function toggleFaq(element) {
-        const allCards = document.querySelectorAll('.faq-card');
-        allCards.forEach(card => {
-            if (card !== element && card.classList.contains('open')) {
-                card.classList.remove('open');
-            }
-        });
-        element.classList.toggle('open');
-    }
-    
-    // --- FAVORITT-LOGIKK ---
-    function toggleFavorite(slug, button, event) {
-        if (event) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
-        if (!slug || slug === "undefined" || slug === "") {
-            slug = button.getAttribute('data-slug') || button.closest('[data-slug]')?.dataset.slug;
-        }
-        if (!slug) return;
-    
-        let favorites = getFavorites().filter(item => item && item !== "");
-        const heart = button.querySelector('.heart-icon');
-        const index = favorites.indexOf(slug);
-        
-        if (index > -1) {
-            favorites.splice(index, 1);
-            button.classList.remove('is-favorite');
-            if (heart) heart.innerText = '♡';
-        } else {
-            favorites.push(slug);
-            button.classList.add('is-favorite');
-            if (heart) heart.innerText = '♥';
-        }
-        localStorage.setItem('car_favorites', JSON.stringify(favorites));
-    }
-    
-    function updateFavoriteUI() {
-        const favorites = getFavorites();
-        document.querySelectorAll('.favorite-btn').forEach(btn => {
-            const slug = btn.getAttribute('data-slug') || btn.closest('[data-slug]')?.dataset.slug;
-            if (slug && favorites.includes(slug)) {
-                btn.classList.add('is-favorite');
-                const heart = btn.querySelector('.heart-icon');
-                if (heart) heart.innerText = '♥';
-            } else {
-                btn.classList.remove('is-favorite');
-                const heart = btn.querySelector('.heart-icon');
-                if (heart) heart.innerText = '♡';
-            }
-        });
-    }
-    
-    function checkEmptyFavs() {
-        const container = document.getElementById('favorites-container');
-        if (container && container.children.length === 0) {
-            container.innerHTML = "<p>Du har ikke lagret noen favoritter ennå.</p>";
-        }
-    }
-</script>
-
-<!-- =============================== -->
-<!-- 2. Modul: Sammenligning -->
-<!-- =============================== -->
-
-<script id="js-comparison">
-    function toggleSelection(slug, img, event) {
-        if (event) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
-        let selected = getSelectedCars();
-        const index = selected.findIndex(item => item.slug === slug);
-        if (index > -1) {
-            selected.splice(index, 1);
-        } else {
-            selected.push({ slug, img });
-        }
-        localStorage.setItem('selected_cars', JSON.stringify(selected));
-        updateSelectionUI();
-    }
-    
-    function removeFromCompare(slug, event) {
-        if (event) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
-        let selected = getSelectedCars().filter(car => car.slug !== slug);
-        localStorage.setItem('selected_cars', JSON.stringify(selected));
-        updateSelectionUI();
-        if (typeof renderComparison === "function") renderComparison(); 
-    }
-    
-    function closeSelectionBar() {
-        const bar = document.getElementById('selection-bar');
-        if (bar) bar.style.display = 'none';
-    }
-    
-    function updateSelectionUI() {
-        const selected = getSelectedCars();
-        const bar = document.getElementById('selection-bar');
-        const container = document.getElementById('selection-items');
-        const countSpan = document.getElementById('selection-count');
-        if (!bar || !container) return;
-    
-        bar.style.display = selected.length > 0 ? 'flex' : 'none';
-        if (countSpan) countSpan.innerText = selected.length;
-    
-        // Vis frem HTML    
-        container.innerHTML = selected.map(car => `
-            <div class="selected-item">
-                <img src="${car.img}">
-                <button onclick="toggleSelection('${car.slug}', '${car.img}', event)" class="remove-item">×</button>
-            </div>
-        `).join('');
-    
-        document.querySelectorAll('.select-btn').forEach(btn => {
-            const isSelected = selected.some(item => item.slug === btn.dataset.slug);
-            isSelected ? btn.classList.add('selected') : btn.classList.remove('selected');
-        });
-    }
-    
-    function renderComparison() {
-        const selected = getSelectedCars();
-        const data = window.globalCarData;
-        const grid = document.getElementById('compare-grid');
-        const loader = document.getElementById('compare-loader');
-        const emptyMsg = document.getElementById('compare-empty');
-    
-        if (!data || selected.length === 0) {
-            if (loader) loader.style.display = 'none';
-            if (emptyMsg) emptyMsg.style.display = 'block';
-            if (grid) grid.style.display = 'none';
-            return;
-        }
-    
-        const carsToCompare = selected.map(sel => data.find(c => c.slug === sel.slug)).filter(Boolean);
-        if (carsToCompare.length > 0) {
-            buildCompareTable(carsToCompare);
-            if (loader) loader.style.display = 'none';
-            if (emptyMsg) emptyMsg.style.display = 'none';
-            if (grid) grid.style.display = 'grid';
-        }
-    }
-    
-    function buildCompareTable(cars) {
-        const grid = document.getElementById('compare-grid');
-        if (!grid) return;
-        grid.innerHTML = ''; 
-    
-        const specsToShow = [
-            { label: 'ØKONOMI', isSeparator: true },
-            { label: 'Leasingpris (0,- innskudd)', key: 'pris', suffix: ',-' },
-            { label: 'Rente', key: 'interest', suffix: '%' },
-            
-            { label: 'TEKNISK', isSeparator: true },
-            { label: 'Årsmodell', key: 'yearmodel' },
-            { label: 'Drivstoff', key: 'fuel' },
-            { label: 'Girkasse', key: 'gear' },
-            { label: 'Hjuldrift', key: 'drive' },
-            { label: 'Effekt (HK)', key: 'performance' },
-            { label: 'Batterikapasitet', key: 'capacity' },
-            { label: 'Ladehastighet', key: 'charging' },
-            { label: 'Rekkevidde (WLTP)', key: 'range', suffix: ' km' },
-            
-            { label: 'EKSTERIØR & INTERIØR', isSeparator: true },
-            { label: 'Farge', key: 'color' },
-            { label: 'Interiør', key: 'interior' },
-            { label: 'Dører', key: 'doors' },
-            { label: 'Seter', key: 'seats' },
-            { label: 'Hengerfeste', key: 'towbar', isBoolean: true }
-        ];
-    
-        cars.forEach(car => {
-            let specsHtml = specsToShow.map(spec => {
-                let val = car[spec.key];
-                if (!val) val = '—';
-                else if (spec.isBoolean) val = (val === true || val === "true") ? 'Ja' : 'Nei';
-                else if (spec.suffix) val = val + spec.suffix;
-                return `<li><strong>${spec.label}:</strong> ${val}</li>`;
-            }).join('');
-    
-                // Vis frem HTML    
-                grid.innerHTML += `
-                <a href="${car.permalink}" class="car-card" data-slug="${car.slug}">
-                    <button class="favorite-btn" data-slug="${car.slug}" onclick="toggleFavorite('${car.slug}', this, event)"></button>
-                    <button onclick="removeFromCompare('${car.slug}', event)" class="remove-btn">X</button>
-                    <div class="car-card-img-container"><img src="${car.bilde}"></div>
-                    <div class="car-card-content">
-                        <h3>${car.merke || ''} ${car.title}</h3>
-                        <ul class="car-specs-list" style="list-style:none; padding:0;">${specsHtml}</ul>
-                        <div class="card-footer"><span class="read-more">Se detaljer</span></div>
-                    </div>
-                </a>`;
-        });
-    }
-</script>
-
-<!-- =============================== -->
-<!-- 3. Modul: Søk og Favoritt-visning -->
-<!-- =============================== -->
-<script src="/js/fuse.js"></script>
-<script id="js-search-favorites-render">
-    function setupSearch(data, input) {
-        const resultsList = document.getElementById('search-results');
-        const fuse = new Fuse(data, { keys: ['title', 'merke', 'modell'], threshold: 0.3 });
-    
-        input.addEventListener('input', () => {
-            const results = fuse.search(input.value);
-            const favorites = getFavorites();
-            resultsList.innerHTML = ''; 
-            results.forEach(result => {
-                const item = result.item;
-                const isFav = favorites.includes(item.slug);
-                // Vis frem HTML    
-                resultsList.innerHTML += `
-                    <li class="car-card-mini">
-                        <img src="${item.bilde}" style="width: 50px;">
-                        <a href="${item.permalink}"><strong>${item.merke || ''} ${item.title}</strong></a>
-                        <button class="favorite-btn ${isFav ? 'is-favorite' : ''}" onclick="toggleFavorite('${item.slug}', this, event)">
-                            <span class="heart-icon">${isFav ? '♥' : '♡'}</span>
-                        </button>
-                    </li>`;
-            });
-        });
-    }
-    
-    function renderFavorites(allCars, container) {
-        // 1. Tøm ALLTID containeren med en gang. 
-        // Dette fjerner "Laster..." uansett om det er feil i dataene eller ikke.
-        if (container) container.innerHTML = '';
-
-        // 2. Sikkerhetssjekk: Har vi data å jobbe med?
-        if (!allCars || !Array.isArray(allCars)) {
-            console.warn("renderFavorites: Ingen bildata mottatt.");
-            return;
-        }
-
-        // 3. Sjekk om brukeren faktisk har favoritter
-        const favSlugs = getFavorites();
-        if (favSlugs.length === 0) {
-            container.innerHTML = '<p>Du har ikke lagret noen favoritter ennå.</p>';
-            return;
-        }
-
-        // 4. Filtrer og tegn biler
-        const favoriteCars = allCars.filter(car => favSlugs.includes(car.slug));
-        
-        favoriteCars.forEach(item => {
-            const fuel = item.fuel ? `<span>${item.fuel}</span>` : '';
-            const drive = item.drive ? `<span>${item.drive}</span>` : '';
-            const gear = item.gear ? `<span>${item.gear}</span>` : '';
-            const modelDisplay = item.modell ? `<span>${item.modell}</span>` : '';
-
-            // Prisformatering (tilsvarer lang.FormatNumber)
-            const priceDisplay = item.pris 
-                ? `Fra kr ${Number(item.pris).toLocaleString('nb-NO')},- ink. mva` 
-                : 'Kontakt for pris';
-            
-            // Vis frem HTML    
-            container.innerHTML += `
-                <a href="${item.permalink}" class="car-card" data-slug="${item.slug}">
-                    <button class="favorite-btn is-favorite" 
-                            onclick="toggleFavorite('${item.slug}', this, event); this.closest('.car-card').remove(); checkEmptyFavs();">
-                    </button>                    
-                    <div class="car-card-img-container">
-                        <img src="${item.bilde}" alt="${item.title}">
-                    </div>
-                    <div class="car-card-content">
-                        <h3>${item.merke || ''} ${item.title}</h3>
-                        <p class="model-description">${modelDisplay}</p>
-                        
-                        <p class="car-specs-mini">
-                            ${fuel} ${drive} ${gear}
-                        </p>
-
-                        <p class="price">
-                            ${priceDisplay}
-                        </p>
-
-                        <div class="btn">Les mer</div>
-
-                    </div>
-                </a>`;
-        });
-    }
-</script>
-
-<!-- =============================== -->
-<!-- 4. Modul: Main (Oppstart) -->
-<!-- =============================== -->
-
-<script id="js-main-init">
-    document.addEventListener('DOMContentLoaded', () => {
-        // 1. Umiddelbar UI-oppdatering fra localStorage
-        updateFavoriteUI();
-        updateSelectionUI();
-    
-        // 2. Globale lyttere
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                document.querySelectorAll('.dropdown-menu').forEach(m => m.style.display = 'none');
-            }
-        });
-    
-        // 3. Henting av data og kontekst-spesifikk rendering
-        const jsonPath = window.location.origin + '/varebil-leasing/index.json';
-        fetch(jsonPath)
-            .then(response => response.ok ? response.json() : Promise.reject())
-            .then(data => {
-                window.globalCarData = data; // Lagrer data globalt
+                            </ul>
+                        </li>
+                                    
+                        <li class="nav-item dropdown">
+                            <a href="/tjenester/">Tjenester ▼</a>
+                            <ul class="dropdown-menu">
+                                {{ with .Site.GetPage "/tjenester" }}
+                                    {{ range .Pages.ByTitle }}
+                                        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                                    {{ end }}
+                                {{ end }}
+                            </ul>
+                        </li>
                 
-                if (window.location.href.includes('sammenlign')) {
-                    renderComparison();
+                        <li class="nav-item dropdown">
+                            <a href="/post/">Artikler ▼</a>
+                            <ul class="dropdown-menu">
+                                {{ with .Site.GetPage "/post" }}
+                                    {{ range .Sections.ByTitle }}
+                                        {{ if and (not (in .Title "http")) (ne .Title "Generelt") }}
+                                            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                                        {{ end }}
+                                    {{ end }}
+                                {{ end }}
+                            </ul>
+                        </li>
+                
+                        <li><a href="/omtaler/">Omtaler</a></li>
+
+                        <li class="nav-item dropdown">
+                            <a href="#">Om oss ▼</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/ansatte/">Ansatte</a></li>
+                                <li><a href="/kontakt-oss/">Kontakt oss</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-contact"><a href="tel:{{ .Site.Data.settings.phone }}"><!--{{ .Site.Data.settings.phone }}-->Ring</a></li>        
+
+                        <li class="nav-search">
+                            <form action="{{ "sok/" | relURL }}" method="get" class="search-form">
+                                <input type="text" id="search-input" name="q" placeholder="Søk etter varebil...">
+                                <button type="submit">Søk</button>
+                                <ul id="search-results"></ul>
+                            </form>
+                        </li>
+                
+                        <li class="nav-favorites"><a href="/favoritter/" class="heart-icon">♡</a></li>
+                
+                    </ul>
+                </nav>
+                            
+            </div>
+        </header>
+        <main>    
+        {{ block "main" . }}{{ end }}
+        </main>    
+
+        <!-- Sammnlingning forhåndsvisning -->
+        <div id="selection-bar" class="selection-bar" style="display: none;">
+            <div class="selection-header">
+                <span>Valgte biler (<span id="selection-count">0</span>)</span>
+                <button onclick="closeSelectionBar()" class="close-bar">×</button>
+            </div>
+            
+            <div id="selection-items" class="selection-items">
+                <!-- Bilder av valgte biler havner her -->
+            </div>
+        
+            <div class="selection-footer">
+                <a href="/sammenlign" class="compare-btn">Gå til side for valgte biler</a>
+            </div>
+        </div>
+        
+        {{ partial "footer.html" . }}
+
+        <script src="/js/fuse.js"></script>
+        <script id="js-app-core">
+            // Global kilde med bil-data fra JSON
+            let allCars = [];
+
+            // ==========================================
+            // 1. GLOBALE FUNKSJONER & HJELPERE
+            // ==========================================
+            function getFavorites() {
+                return JSON.parse(localStorage.getItem('favorites')) || [];
+            }
+
+            function getSelectedCars() {
+                return JSON.parse(localStorage.getItem('selected_cars')) || [];
+            }
+
+            function formatNoPrice(price) {
+                if (!price || price === 0 || price === "0") return "Kontakt for pris";
+                return "Fra kr " + Number(price).toLocaleString('nb-NO') + ",- eks. mva";
+            }
+
+            function formatNoPricePure(price) {
+                if (!price || price === 0 || price === "0") return "—";
+                return "kr " + Number(price).toLocaleString('nb-NO') + ",-";
+            }
+
+            // ==========================================
+            // 2. GENERERE HTML FRA JSON-DATA (Fikset for små bokstaver fra Hugo JSON)
+            // ==========================================
+            function createCarCardHTML(car, context = 'default') {
+                const favorites = getFavorites();
+                const isFav = favorites.includes(car.slug);
+                const selected = getSelectedCars();
+                const isSelected = selected.some(item => item.slug === car.slug);
+                
+                // Hugo konverterer alt til kun små bokstaver i index.json
+                const fuel = car.fuel || "—";
+                const drive = car.drive || "—";
+                const gear = car.gear || "—";
+                
+                // VIKTIG FIKS: Hent prisen fra 'pricezero' i stedet for 'price0'
+                const currentPrice = car.pricezero || car.price0 || "0"; 
+                const priceText = formatNoPrice(currentPrice);
+                
+                // VIKTIG FIKS: Bruk kun små bokstaver for bilde-url
+                const imgUrl = car.mainimageurl || car.mainImageUrl || car.shopimage || "";
+
+                return `
+                <a href="${car.permalink || '#'}" class="car-card context-${context}" 
+                data-slug="${car.slug}" 
+                data-brand="${car.brand || ''}" 
+                data-model="${car.modeldescription || ''}"
+                data-price="${currentPrice}"
+                data-fuel="${fuel}"
+                data-gear="${gear}"
+                data-yearmodel="${car.yearmodel || ''}"
+                data-drive="${drive}"
+                data-range="${car.range || ''}"
+                data-interest="${car.interest || ''}"
+                data-quote="${car.quote || ''}"
+                data-doors="${car.doors || ''}"
+                data-seats="${car.seats || ''}"
+                data-interior="${car.interior || ''}"
+                data-color="${car.color || ''}"
+                data-towbar="${car.towbar ? 'true' : 'false'}"
+                data-fastdelivery="${car.fastdelivery ? 'true' : 'false'}"
+                data-campaign="${car.campaign ? 'true' : 'false'}"
+                data-shortterm="${car.shortterm || ''}"
+                data-availability="${car.availability || ''}"
+                data-body="${car.body || ''}"
+                data-numberofgears="${car.numberofgears || ''}"
+                data-performancehk="${car.performancehk || ''}"
+                data-performancewatt="${car.performancewatt || ''}"
+                data-torque="${car.torque || ''}"
+                data-grossbattery="${car.grossbattery || ''}"
+                data-netbattery="${car.netbattery || ''}"
+                data-chargingdc="${car.chargingdc || ''}"
+                data-maxhomechargeac="${car.maxhomechargeac || ''}"
+                data-onephasehomechargeac="${car.onephasehomechargeac || ''}"
+                data-chargingspeed="${car.chargingspeed || ''}"
+                data-powerusage="${car.powerusage || ''}"
+                data-batterywarranty="${car.batterywarranty || ''}"
+                data-numberofengines="${car.numberofengines || ''}"
+                data-cotwoemission="${car.cotwoemission || ''}"
+                data-warranty="${car.warranty || ''}"
+                data-warrantypaint="${car.warrantypaint || ''}"
+                data-warrantyrust="${car.warrantyrust || ''}"
+                data-allowedtotalweight="${car.allowedtotalweight || ''}"
+                data-kerbweight="${car.kerbweight || ''}"
+                data-kerbweightexdriver="${car.kerbweightexdriver || ''}"
+                data-payloadincdriver="${car.payloadincdriver || ''}"
+                data-maxroofload="${car.maxroofload || ''}"
+                data-trailerwbreak="${car.trailerwbreak || ''}"
+                data-trailerwobreak="${car.trailerwobreak || ''}"
+                data-maxbootcapacity="${car.maxbootcapacity || ''}"
+                data-minbootcapacity="${car.minbootcapacity || ''}"
+                data-length="${car.length || ''}"
+                data-widthwomirrors="${car.widthwomirrors || ''}"
+                data-widthwmirrors="${car.widthwmirrors || ''}"
+                data-height="${car.height || ''}"
+                data-wheelbase="${car.wheelbase || ''}"
+                data-turningcircle="${car.turningcircle || ''}">
+
+                    <button onclick="removeFromCompare('${car.slug}', event)" class="remove-btn" style="${context === 'compare' ? '' : 'display:none'}">X</button>
+                    <button class="favorite-btn ${isFav ? 'is-favorite' : ''}" data-slug="${car.slug}" onclick="toggleFavorite('${car.slug}', this, event)"><span class="heart-icon">${isFav ? '♥' : '♡'}</span></button>
+                    <button class="select-btn ${isSelected ? 'selected' : ''}" data-slug="${car.slug}" data-img="${imgUrl}" onclick="toggleSelection(this.dataset.slug, this.dataset.img, event)" style="${context === 'compare' ? 'display:none' : ''}"> </button>
+                    
+                    <div class="car-card-img-container">
+                        <img src="${imgUrl}" alt="${car.brand || ''} ${car.title || ''}">
+                    </div>
+                    
+                    <div class="car-card-content">
+                        <h3>${car.brand || ''} ${car.title || ''}</h3>
+                        <p class="model-description">${car.modeldescription || ''}</p>
+                        
+                        <div class="car-specs-basic-view">
+                            <p class="car-specs-mini">
+                                <span>${fuel}</span> 
+                                <span>${car.range ? car.range + ' km' : ''}</span> 
+                                <span>${car.maxbootcapacity ? car.maxbootcapacity + ' liter' : ''}</span>
+                                <span>${drive}</span> 
+                                <span>${gear}</span>
+                                <span>${car.doors || ''}</span></li>
+                                <span>${car.seats || ''}</span>
+                            </p>
+                            <p class="price">${priceText}</p>
+                        </div>
+
+${context === 'compare' ? `
+                        <ul class="car-specs-all">
+                            <li class="spec-section-title spec-main">Hovedspesifikasjoner</li>
+                            <li class="spec-year spec-main"><span class="data-property">Årsmodell:</span> <span>${car.yearmodel || ''}</span></li>
+                            <li class="spec-fuel spec-main"><span class="data-property">Drivstoff:</span> <span>${fuel}</span></li>
+                            <li class="spec-gear spec-main"><span class="data-property">Girkasse:</span> <span>${gear}</span></li>
+                            <li class="spec-drive spec-main"><span class="data-property">Hjuldrift:</span> <span>${drive}</span></li>
+                            <li class="spec-range spec-main"><span class="data-property">Rekkevidde (WLTP):</span> <span>${car.range ? car.range + ' km' : ''}</span></li>
+                            <li class="spec-towbar spec-main"><span class="data-property">Hengerfeste:</span> <span>${car.towbar ? 'Ja' : 'Nei / Tilvalg'}</span></li>
+                            <li class="spec-payload spec-main"><span class="data-property">Nyttelast inkl. sjåfør:</span> <span>${car.payloadincdriver || ''} kg</span></li>
+                            <li class="spec-hk spec-main"><span class="data-property">Effekt (HK):</span> <span>${car.performancehk ? car.performancehk + ' HK' : ''}</span></li>
+                            <li class="spec-warranty spec-main"><span class="data-property">Nybilgaranti:</span> <span>${car.warranty || ''}</span></li>
+
+                            <li class="spec-section-title spec-extended">Økonomi &amp; Priser i detalj</li>
+                            <li class="spec-price0 spec-main"><span class="data-property">Leasingpris (0,- innskudd):</span> <span>${formatNoPricePure(currentPrice)}</span></li>
+                            <li class="spec-price60 spec-extended"><span class="data-property">Leasingpris (60' innskudd):</span> <span>${formatNoPricePure(car.pricesixty || '')}</span></li>
+                            <li class="spec-price100 spec-extended"><span class="data-property">Leasingpris (100' innskudd):</span> <span>${formatNoPricePure(car.pricehundred || '')}</span></li>
+                            <li class="spec-priceads0 spec-extended"><span class="data-property">Annonsepris (Eks. mva):</span> <span>${formatNoPricePure(car.priceadszero || '')}</span></li>
+
+                            <li class="spec-section-title spec-extended engine">Motor &amp; Ytelse utvidet</li>
+                            <li class="spec-gears-count spec-extended engine"><span class="data-property">Antall gir:</span> <span>${car.numberofgears || ''}</span></li>
+                            <li class="spec-watt spec-extended engine"><span class="data-property">Effekt (kW):</span> <span>${car.performancewatt ? car.performancewatt + ' kW' : ''}</span></li>
+                            <li class="spec-torque spec-extended engine"><span class="data-property">Dreiemoment:</span> <span>${car.torque ? car.torque + ' Nm' : ''}</span></li>
+                            <li class="spec-engines spec-extended engine"><span class="data-property">Antall motorer:</span> <span>${car.numberofengines || ''}</span></li>
+                            <li class="spec-co2 spec-extended engine"><span class="data-property">CO2-utslipp:</span> <span>${car.cotwoemission || ''}</span></li>
+
+                            <li class="spec-section-title spec-extended elpower">Batteri &amp; Lading</li>
+                            <li class="spec-battery-gross spec-extended elpower"><span class="data-property">Brutto batteri:</span> <span>${car.grossbattery ? car.grossbattery + ' kWh' : ''}</span></li>
+                            <li class="spec-battery-net spec-extended elpower"><span class="data-property">Netto batteri:</span> <span>${car.netbattery ? car.netbattery + ' kWh' : ''}</span></li>
+                            <li class="spec-charging-dc spec-extended elpower"><span class="data-property">Maks hurtiglading (DC):</span> <span>${car.chargingdc ? car.chargingdc + ' kW' : ''}</span></li>
+                            <li class="spec-homecharge-max spec-extended elpower"><span class="data-property">Maks normallading (AC):</span> <span>${car.maxhomechargeac || ''}</span></li>
+                            <li class="spec-homecharge-1phase spec-extende elpower"><span class="data-property">1-fase lading (AC):</span> <span>${car.onephasehomechargeac || ''}</span></li>
+                            <li class="spec-charging-speed spec-extended elpower"><span class="data-property">Ladehastighet:</span> <span>${car.chargingspeed || ''}</span></li>
+                            <li class="spec-power-usage spec-extended elpower"><span class="data-property">Strømforbruk:</span> <span>${car.powerusage || ''}</span></li>
+
+                            <li class="spec-section-title spec-extended dimenions">Vekt &amp; Dimensjoner</li>
+                            <li class="spec-weight-total spec-extended dimenions"><span class="data-property">Tillatt totalvekt:</span> <span>${car.allowedtotalweight ? car.allowedtotalweight + ' kg' : ''}</span></li>
+                            <li class="spec-weight-kerb spec-extended dimenions"><span class="data-property">Egenvekt:</span> <span>${car.kerbweight ? car.kerbweight + ' kg' : ''}</span></li>
+                            <li class="spec-weight-kerb-ex spec-extended dimenions"><span class="data-property">Egenvekt ekskl. sjåfør:</span> <span>${car.kerbweightexdriver ? car.kerbweightexdriver + ' kg' : ''}</span></li>
+                            <li class="spec-roof-load spec-extended dimenions"><span class="data-property">Maks taklast:</span> <span>${car.maxroofload ? car.maxroofload + ' kg' : ''}</span></li>
+                            <li class="spec-trailer-w-brake spec-extended dimenions"><span class="data-property">Tilhengervekt m/brems:</span> <span>${car.trailerwbreak ? car.trailerwbreak + ' kg' : ''}</span></li>
+                            <li class="spec-trailer-wo-brake spec-extended dimenions"><span class="data-property">Tilhengervekt u/brems:</span> <span>${car.trailerwobreak ? car.trailerwobreak + ' kg' : ''}</span></li>
+                            <li class="spec-boot-max spec-extended dimenions"><span class="data-property">Maks bagasjerom:</span> <span>${car.maxbootcapacity ? car.maxbootcapacity + ' liter' : ''}</span></li>
+                            <li class="spec-boot-min spec-extended dimenions"><span class="data-property">Minimum bagasjerom:</span> <span>${car.minbootcapacity ? car.minbootcapacity + ' liter' : ''}</span></li>
+                            <li class="spec-length spec-extended dimenions"><span class="data-property">Lengde:</span> <span>${car.length ? car.length + ' mm' : ''}</span></li>
+                            <li class="spec-width-wo-mirrors spec-extended dimenions"><span class="data-property">Bredde uten speil:</span> <span>${car.widthwomirrors ? car.widthwomirrors + ' mm' : ''}</span></li>
+                            <li class="spec-width-w-mirrors spec-extended dimenions"><span class="data-property">Bredde med speil:</span> <span>${car.widthwmirrors ? car.widthwmirrors + ' mm' : ''}</span></li>
+                            <li class="spec-height spec-extended dimenions"><span class="data-property">Høyde:</span> <span>${car.height ? car.height + ' mm' : ''}</span></li>
+                            <li class="spec-wheelbase spec-extended dimenions"><span class="data-property">Akselavstand:</span> <span>${car.wheelbase ? car.wheelbase + ' mm' : ''}</span></li>
+                            <li class="spec-turning-circle spec-extended dimenions"><span class="data-property">Svingdiameter:</span> <span>${car.turningcircle ? car.turningcircle + ' m' : ''}</span></li>
+
+                            <li class="spec-section-title spec-extended appearance">Eksteriør og Interiør</li>
+                            <li class="spec-doors spec-extended appearance"><span class="data-property">Dører:</span> <span>${car.doors || ''}</span></li>
+                            <li class="spec-seats spec-extended appearance"><span class="data-property">Seter:</span> <span>${car.seats || ''}</span></li>
+                            <li class="spec-interior spec-extended appearance"><span class="data-property">Interiør farge/stoff:</span> <span>${car.interior || ''}</span></li>
+                            <li class="spec-color spec-extended appearance"><span class="data-property">Farge:</span> <span>${car.color || ''}</span></li>
+
+                            <li class="spec-section-title spec-extended warranties">Garantier</li>
+                            <li class="spec-warranty-battery spec-extended warranties"><span class="data-property">Batterigaranti:</span> <span>${car.batterywarranty || ''}</span></li>
+                            <li class="spec-warranty-paint spec-extended warranties"><span class="data-property">Lakkgaranti:</span> <span>${car.warrantypaint || ''}</span></li>
+                            <li class="spec-warranty-rust spec-extended warranties"><span class="data-property">Rustgaranti:</span> <span>${car.warrantyrust || ''}</span></li>
+                        </ul>
+                        ` : ''}
+
+                        <div class="card-footer"><span class="read-more">Se mer om bilen</span></div>
+                    </div>
+                </a>`;
+            }
+
+            // ==========================================
+            // FILTER & SORTERING
+            // ==========================================
+
+            let activeFilters = {};
+            let activeSort = '';
+
+            // Checkbox-filter konfigurasjon
+            const CHECKBOX_FILTERS = [
+                { field: 'brand',        label: 'Merke',            dynamic: true  },
+                { field: 'fuel',         label: 'Drivstoff',        dynamic: false,
+                  options: [['Diesel','Diesel'],['Elektrisitet','Elektrisk'],['Bensin','Bensin']] },
+                { field: 'body',         label: 'Karosseri',        dynamic: false,
+                  options: [['Varebil','Varebil'],['Pickup','Pickup'],['Flerbruksbil','Flerbruksbil'],['Skapbil','Skapbil']] },
+                { field: 'drive',        label: 'Hjuldrift',        dynamic: false,
+                  options: [['Foran','Foran'],['Bak','Bak'],['AWD','AWD'],['4WD','4WD'],['4Motion','4Motion']] },
+                { field: 'doors',        label: 'Dører',            dynamic: false,
+                  options: [['2','2 dører'],['4','4 dører'],['5','5 dører']] },
+                { field: 'seats',        label: 'Seter',            dynamic: false,
+                  options: [['2','2 seter'],['3','3 seter'],['5','5 seter']] },
+                { field: 'lversion',     label: 'Lasteromversjon',  dynamic: true  },
+                { field: 'fastdelivery', label: 'Leveringstid',     dynamic: false,
+                  options: [['true','Rask levering']] },
+            ];
+
+            function renderFilterUI() {
+                const container = document.getElementById('filter-sort-container');
+                if (!container) return;
+
+                const checkboxGroups = CHECKBOX_FILTERS.map(cfg => `
+                    <div class="filter-group" id="filter-group-${cfg.field}">
+                        <div class="filter-group-label">${cfg.label}</div>
+                        <div class="filter-checkboxes" id="checkboxes-${cfg.field}">
+                            ${cfg.dynamic ? '' : (cfg.options || []).map(([val, label]) => `
+                                <label class="filter-checkbox-label">
+                                    <input type="checkbox" data-filter="${cfg.field}" value="${val}">
+                                    ${label}
+                                </label>`).join('')}
+                        </div>
+                    </div>`).join('');
+
+                container.innerHTML = `
+                <div class="filter-sort-bar">
+                    <div class="filters">
+                        ${checkboxGroups}
+                        <div class="range-filter">
+                            <label>Pris maks: <span id="filter-pricezero-val">Alle</span></label>
+                            <input type="range" id="filter-pricezero" data-filter="pricezero" min="0" max="30000" step="500" value="30000">
+                        </div>
+                        <div class="range-filter">
+                            <label>Rekkevidde min: <span id="filter-range-val">Alle</span></label>
+                            <input type="range" id="filter-range" data-filter="range" min="0" max="600" step="10" value="0">
+                        </div>
+                        <div class="range-filter">
+                            <label>Lasteromsvolum min: <span id="filter-maxbootcapacity-val">Alle</span></label>
+                            <input type="range" id="filter-maxbootcapacity" data-filter="maxbootcapacity" min="0" max="20000" step="100" value="0">
+                        </div>
+                        <div class="range-filter">
+                            <label>Totalvekt maks: <span id="filter-allowedtotalweight-val">Alle</span></label>
+                            <input type="range" id="filter-allowedtotalweight" data-filter="allowedtotalweight" min="0" max="5000" step="100" value="5000">
+                        </div>
+                    </div>
+                    <div class="sort-controls">
+                        <label for="sort-select">Sorter:</label>
+                        <select id="sort-select">
+                            <option value="">Standard</option>
+                            <option value="brand-asc">Merke A–Å</option>
+                            <option value="brand-desc">Merke Å–A</option>
+                            <option value="pricezero-asc">Pris lav–høy</option>
+                            <option value="pricezero-desc">Pris høy–lav</option>
+                            <option value="range-desc">Rekkevidde høy–lav</option>
+                            <option value="range-asc">Rekkevidde lav–høy</option>
+                            <option value="maxbootcapacity-desc">Lasteromsvolum høy–lav</option>
+                            <option value="maxbootcapacity-asc">Lasteromsvolum lav–høy</option>
+                            <option value="allowedtotalweight-desc">Totalvekt høy–lav</option>
+                            <option value="allowedtotalweight-asc">Totalvekt lav–høy</option>
+                            <option value="cotwoemission-asc">CO2 lav–høy</option>
+                            <option value="cotwoemission-desc">CO2 høy–lav</option>
+                        </select>
+                        <button id="reset-filters">Nullstill filter</button>
+                        <span id="cars-count"></span>
+                    </div>
+                </div>`;
+            }
+
+            function populateFilters(cars) {
+                // Dynamiske checkbox-grupper (brand og lversion) — bygges fra data
+                CHECKBOX_FILTERS.filter(cfg => cfg.dynamic).forEach(cfg => {
+                    const container = document.getElementById('checkboxes-' + cfg.field);
+                    if (!container || container.children.length > 0) return;
+                    const values = [...new Set(cars.map(c => c[cfg.field]).filter(Boolean))].sort();
+                    values.forEach(val => {
+                        const label = document.createElement('label');
+                        label.className = 'filter-checkbox-label';
+                        label.innerHTML = `<input type="checkbox" data-filter="${cfg.field}" value="${val}"> ${val}`;
+                        container.appendChild(label);
+                    });
+                });
+
+                // Sett maks-verdier på range-sliders basert på faktiske data
+                const prices = cars.map(c => parseFloat(c.pricezero)).filter(n => !isNaN(n));
+                const ranges = cars.map(c => parseFloat(c.range)).filter(n => !isNaN(n));
+                const boots = cars.map(c => parseFloat(c.maxbootcapacity)).filter(n => !isNaN(n));
+                const weights = cars.map(c => parseFloat(c.allowedtotalweight)).filter(n => !isNaN(n));
+
+                const priceSlider = document.getElementById('filter-pricezero');
+                if (priceSlider && prices.length) {
+                    const max = Math.ceil(Math.max(...prices) / 500) * 500;
+                    priceSlider.max = max;
+                    priceSlider.value = max;
+                    document.getElementById('filter-pricezero-val').textContent = 'Alle';
+                }
+                const rangeSlider = document.getElementById('filter-range');
+                if (rangeSlider && ranges.length) {
+                    rangeSlider.max = Math.ceil(Math.max(...ranges) / 10) * 10;
+                }
+                const bootSlider = document.getElementById('filter-maxbootcapacity');
+                if (bootSlider && boots.length) {
+                    bootSlider.max = Math.ceil(Math.max(...boots) / 100) * 100;
+                }
+                const weightSlider = document.getElementById('filter-allowedtotalweight');
+                if (weightSlider && weights.length) {
+                    const max = Math.ceil(Math.max(...weights) / 100) * 100;
+                    weightSlider.max = max;
+                    weightSlider.value = max;
+                    document.getElementById('filter-allowedtotalweight-val').textContent = 'Alle';
+                }
+            }
+
+            function setupFiltersAndSort(containerId = 'main-cars-grid', context = 'list') {
+                // Checkbox-filtre — delegert lytter på hele filter-sort-bar
+                const filterBar = document.getElementById('filter-sort-container');
+                if (filterBar) {
+                    filterBar.addEventListener('change', (e) => {
+                        if (e.target.type === 'checkbox') {
+                            const field = e.target.dataset.filter;
+                            if (!activeFilters[field]) activeFilters[field] = new Set();
+                            if (e.target.checked) {
+                                activeFilters[field].add(e.target.value);
+                            } else {
+                                activeFilters[field].delete(e.target.value);
+                                if (activeFilters[field].size === 0) delete activeFilters[field];
+                            }
+                            applyFiltersAndSort(containerId, context);
+                        }
+                    });
                 }
 
-                const searchInput = document.getElementById('search-input');
-                if (searchInput) setupSearch(data, searchInput);
+                // Range-sliders
+                const sliderConfigs = [
+                    { id: 'filter-pricezero',         labelId: 'filter-pricezero-val',         type: 'max', format: v => v >= parseInt(document.getElementById('filter-pricezero').max) ? 'Alle' : 'maks kr ' + parseInt(v).toLocaleString('no') },
+                    { id: 'filter-range',              labelId: 'filter-range-val',              type: 'min', format: v => v <= 0 ? 'Alle' : 'min ' + v + ' km' },
+                    { id: 'filter-maxbootcapacity',    labelId: 'filter-maxbootcapacity-val',    type: 'min', format: v => v <= 0 ? 'Alle' : 'min ' + v + ' l' },
+                    { id: 'filter-allowedtotalweight', labelId: 'filter-allowedtotalweight-val', type: 'max', format: v => v >= parseInt(document.getElementById('filter-allowedtotalweight').max) ? 'Alle' : 'maks ' + v + ' kg' },
+                ];
 
-                // VIKTIG: Sjekk at favContainer finnes OG at vi sender med 'data'
+                sliderConfigs.forEach(cfg => {
+                    const slider = document.getElementById(cfg.id);
+                    const label = document.getElementById(cfg.labelId);
+                    if (!slider) return;
+                    slider.addEventListener('input', () => {
+                        if (label) label.textContent = cfg.format(slider.value);
+                        activeFilters[cfg.id.replace('filter-', '')] = { type: cfg.type, value: parseFloat(slider.value), max: parseFloat(slider.max) };
+                        applyFiltersAndSort(containerId, context);
+                    });
+                });
+
+                // Sortering
+                const sortSelect = document.getElementById('sort-select');
+                if (sortSelect) {
+                    sortSelect.addEventListener('change', () => {
+                        activeSort = sortSelect.value;
+                        applyFiltersAndSort(containerId, context);
+                    });
+                }
+
+                // Nullstill
+                const resetBtn = document.getElementById('reset-filters');
+                if (resetBtn) {
+                    resetBtn.addEventListener('click', () => {
+                        activeFilters = {};
+                        activeSort = '';
+                        document.querySelectorAll('input[type="checkbox"][data-filter]').forEach(cb => cb.checked = false);
+                        document.querySelectorAll('input[type="range"][data-filter]').forEach(slider => {
+                            slider.value = slider.dataset.filter === 'pricezero' || slider.dataset.filter === 'allowedtotalweight' ? slider.max : slider.min;
+                        });
+                        sliderConfigs.forEach(cfg => {
+                            const label = document.getElementById(cfg.labelId);
+                            if (label) label.textContent = 'Alle';
+                        });
+                        if (sortSelect) sortSelect.value = '';
+                        applyFiltersAndSort(containerId, context);
+                    });
+                }
+            }
+
+            function applyFiltersAndSort(containerId = 'main-cars-grid', context = 'list') {
+                let cars = [...allCars];
+
+                // Bruk URL-slug for merkeside
+                const urlParts = window.location.pathname.split('/').filter(Boolean);
+                const currentSlug = urlParts[urlParts.length - 1] || '';
+                if (currentSlug !== 'biler' && currentSlug !== 'varebil-leasing') {
+                    cars = cars.filter(c => (c.brand || '').toLowerCase().replace(/[^a-z0-9]/g, '') === currentSlug.replace(/[^a-z0-9]/g, ''));
+                }
+
+                // Checkbox-filtre — OR innen samme gruppe, AND mellom grupper
+                const checkboxFields = ['brand','fuel','body','drive','doors','seats','lversion','fastdelivery'];
+                checkboxFields.forEach(field => {
+                    if (activeFilters[field] && activeFilters[field].size > 0) {
+                        const selected = activeFilters[field];
+                        if (field === 'doors' || field === 'seats') {
+                            cars = cars.filter(c => selected.has(String(Math.round(parseFloat(c[field] || 0)))));
+                        } else if (field === 'fastdelivery') {
+                            cars = cars.filter(c => c.fastdelivery === true || String(c.fastdelivery).toLowerCase() === 'true');
+                        } else {
+                            cars = cars.filter(c => selected.has(c[field] || ''));
+                        }
+                    }
+                });
+
+                // Range-sliders
+                if (activeFilters['pricezero']) {
+                    const cfg = activeFilters['pricezero'];
+                    if (cfg.value < cfg.max) cars = cars.filter(c => !c.pricezero || parseFloat(c.pricezero) <= cfg.value);
+                }
+                if (activeFilters['range']) {
+                    const cfg = activeFilters['range'];
+                    if (cfg.value > 0) cars = cars.filter(c => c.range && parseFloat(c.range) >= cfg.value);
+                }
+                if (activeFilters['maxbootcapacity']) {
+                    const cfg = activeFilters['maxbootcapacity'];
+                    if (cfg.value > 0) cars = cars.filter(c => c.maxbootcapacity && parseFloat(c.maxbootcapacity) >= cfg.value);
+                }
+                if (activeFilters['allowedtotalweight']) {
+                    const cfg = activeFilters['allowedtotalweight'];
+                    if (cfg.value < cfg.max) cars = cars.filter(c => !c.allowedtotalweight || parseFloat(c.allowedtotalweight) <= cfg.value);
+                }
+
+                // Sortering
+                if (activeSort) {
+                    const [field, dir] = activeSort.split('-');
+                    cars.sort((a, b) => {
+                        let va = a[field], vb = b[field];
+                        const numFields = ['pricezero','range','maxbootcapacity','allowedtotalweight','cotwoemission'];
+                        if (numFields.includes(field)) {
+                            va = parseFloat(va) || 0;
+                            vb = parseFloat(vb) || 0;
+                        } else {
+                            va = (va || '').toLowerCase();
+                            vb = (vb || '').toLowerCase();
+                        }
+                        if (va < vb) return dir === 'asc' ? -1 : 1;
+                        if (va > vb) return dir === 'asc' ? 1 : -1;
+                        return 0;
+                    });
+                }
+
+                // Oppdater antall
+                const countEl = document.getElementById('cars-count');
+                if (countEl) countEl.textContent = cars.length + ' biler';
+
+                renderCarGrid(cars, containerId, () => true, context);
+            }
+
+            // ==========================================
+            // 3. RENDERING AV BILKORT-GRID FRA JSON
+            // ==========================================
+            function renderCarGrid(carsArray, containerId, filterFn, context = 'default') {
+                const container = document.getElementById(containerId);
+                if (!container) return;
+
+                container.innerHTML = '';
+                const filteredCars = carsArray.filter(filterFn);
+
+                const emptyMsg = document.getElementById('compare-empty');
+                const gridEl = document.getElementById('compare-grid');
+
+                if (filteredCars.length === 0) {
+                    if (context === 'favorites') container.innerHTML = '<p>Du har ikke lagret noen favoritter ennå.</p>';
+                    if (context === 'compare') {
+                        if (emptyMsg) emptyMsg.style.display = 'block';
+                        if (gridEl) gridEl.style.display = 'none';
+                    }
+                    return;
+                }
+
+                if (context === 'compare') {
+                    if (emptyMsg) emptyMsg.style.display = 'none';
+                    if (gridEl) gridEl.style.display = 'grid';
+                }
+
+                let htmlOutput = '';
+                filteredCars.forEach(car => {
+                    htmlOutput += createCarCardHTML(car, context);
+                });
+                
+                container.innerHTML = htmlOutput;
+                
+                updateFavoriteUI();
+                updateSelectionUI();
+            }
+
+            // ==========================================
+            // 4. FAVORITT-LOGIKK
+            // ==========================================
+            function toggleFavorite(slug, btn, event) {
+                if (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                let favorites = getFavorites();
+                const index = favorites.indexOf(slug);
+
+                if (index > -1) {
+                    favorites.splice(index, 1);
+                } else {
+                    favorites.push(slug);
+                }
+
+                localStorage.setItem('favorites', JSON.stringify(favorites));
+                updateFavoriteUI();
+
                 const favContainer = document.getElementById('favorites-container');
                 if (favContainer) {
-                    console.log("Data sendes til renderFavorites:", data); // Debug-logg
-                    renderFavorites(data, favContainer);
+                    renderCarGrid(allCars, 'favorites-container', car => favorites.includes(car.slug), 'favorites');
                 }
-            })
-            .catch(err => console.error("Data-feil:", err));
-    });
-    </script>
-</body>
+            }
+
+            function updateFavoriteUI() {
+                const favorites = getFavorites();
+                document.querySelectorAll('.favorite-btn').forEach(btn => {
+                    const slug = btn.getAttribute('data-slug') || btn.dataset.slug;
+                    const icon = btn.querySelector('.heart-icon');
+                    if (favorites.includes(slug)) {
+                        btn.classList.add('is-favorite');
+                        if (icon) icon.innerText = '♥';
+                    } else {
+                        btn.classList.remove('is-favorite');
+                        if (icon) icon.innerText = '♡';
+                    }
+                });
+            }
+
+            // ==========================================
+            // 5. SAMMENLIGNINGS-LOGIKK
+            // ==========================================
+            function toggleSelection(slug, img, event) {
+                if (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                let selected = getSelectedCars();
+                const index = selected.findIndex(item => item.slug === slug);
+                if (index > -1) {
+                    selected.splice(index, 1);
+                } else {
+                    selected.push({ slug, img });
+                }
+                localStorage.setItem('selected_cars', JSON.stringify(selected));
+                updateSelectionUI();
+
+                const compareGrid = document.getElementById('compare-grid');
+                if (compareGrid || window.location.href.includes('sammenlign')) {
+                    const currentSelected = selected.map(s => s.slug);
+                    renderCarGrid(allCars, 'compare-grid', car => currentSelected.includes(car.slug), 'compare');
+                }
+            }
+
+            function removeFromCompare(slug, event) {
+                if (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                let selected = getSelectedCars().filter(car => car.slug !== slug);
+                localStorage.setItem('selected_cars', JSON.stringify(selected));
+                updateSelectionUI();
+                
+                const currentSelected = selected.map(s => s.slug);
+                renderCarGrid(allCars, 'compare-grid', car => currentSelected.includes(car.slug), 'compare');
+            }
+
+            function closeSelectionBar() {
+                const bar = document.getElementById('selection-bar');
+                if (bar) bar.style.display = 'none';
+            }
+
+            function updateSelectionUI() {
+                const selected = getSelectedCars();
+                const bar = document.getElementById('selection-bar');
+                const container = document.getElementById('selection-items');
+                const countSpan = document.getElementById('selection-count');
+                if (!bar || !container) return;
+
+                bar.style.display = selected.length > 0 ? 'flex' : 'none';
+                if (countSpan) countSpan.innerText = selected.length;
+
+                container.innerHTML = selected.map(car => `
+                    <div class="selected-item">
+                        <img src="${car.img}">
+                        <button onclick="toggleSelection('${car.slug}', '${car.img}', event)" class="remove-item">×</button>
+                    </div>
+                `).join('');
+
+                document.querySelectorAll('.select-btn').forEach(btn => {
+                    const slug = btn.getAttribute('data-slug') || btn.dataset.slug;
+                    const isSelected = selected.some(item => item.slug === slug);
+                    isSelected ? btn.classList.add('selected') : btn.classList.remove('selected');
+                });
+            }
+
+            // ==========================================
+            // 6. SØKEFUNKSJON (FUSE.JS)
+            // ==========================================
+            function setupSearch(cars, input) {
+                const resultsList = document.getElementById('search-results');
+                if (!resultsList || !window.Fuse) return;
+                
+                const fuse = new Fuse(cars, { keys: ['title', 'brand', 'modeldescription'], threshold: 0.3 });
+
+                input.addEventListener('input', () => {
+                    const results = fuse.search(input.value);
+                    const favorites = getFavorites();
+                    resultsList.innerHTML = ''; 
+                    
+                    results.forEach(result => {
+                        const car = result.item;
+                        const isFav = favorites.includes(car.slug);
+                        const imgUrl = car.mainImageUrl || car.shopimage || "";
+
+                        resultsList.innerHTML += `
+                            <li class="car-card-mini">
+                                <img src="${imgUrl}" style="width: 50px;">
+                                <a href="${car.permalink || '#'}"><strong>${car.brand || ''} ${car.title || ''}</strong></a>
+                                <button class="favorite-btn ${isFav ? 'is-favorite' : ''}" onclick="toggleFavorite('${car.slug}', this, event)">
+                                    <span class="heart-icon">${isFav ? '♥' : '♡'}</span>
+                                </button>
+                            </li>`;
+                    });
+                });
+            }
+
+            // ==========================================
+            // 7. INITIALISERING VIA FETCH AV /INDEX.JSON
+            // ==========================================
+            document.addEventListener('DOMContentLoaded', () => {
+                const mainGrid = document.getElementById('main-cars-grid');
+                const pageType = mainGrid ? (mainGrid.dataset.page || 'list') : null;
+                const frontpageGrid = pageType === 'frontpage' ? mainGrid : null;
+                const favContainer = document.getElementById('favorites-container');
+                const isComparePage = window.location.href.includes('sammenlign');
+                const searchInput = document.getElementById('search-input');
+
+                if (mainGrid || frontpageGrid || favContainer || isComparePage || searchInput) {
+                    
+                    fetch('/varebil-leasing/index.json')
+                        .then(res => res.json())
+                        .then(data => {
+                            allCars = data;
+
+                            updateFavoriteUI();
+                            updateSelectionUI();
+
+                            if (searchInput) setupSearch(allCars, searchInput);
+
+                            // --- 1. Sammenligningsside ---
+                            if (isComparePage) {
+                                const loader = document.getElementById('compare-loader');
+                                if (loader) loader.style.display = 'none';
+                                const selected = getSelectedCars().map(s => s.slug);
+                                renderCarGrid(allCars, 'compare-grid', car => selected.includes(car.slug), 'compare');
+                            }
+
+                            // --- 2. Favorittside ---
+                            if (favContainer) {
+                                const favorites = getFavorites();
+                                renderCarGrid(allCars, 'favorites-container', car => favorites.includes(car.slug), 'favorites');
+                            }
+
+                            // --- 3. Dedikert Søkeside (search.html) ---
+                            const searchQueryText = document.getElementById('search-query-text');
+                            if (searchQueryText && mainGrid) {
+                                const urlParams = new URLSearchParams(window.location.search);
+                                const query = urlParams.get('q') || '';
+                                searchQueryText.innerText = query;
+                                
+                                if (query.trim() !== '') {
+                                    const fuse = new Fuse(allCars, { keys: ['title', 'brand', 'modeldescription'], threshold: 0.3 });
+                                    const searchResults = fuse.search(query);
+                                    const filtered = searchResults.map(res => res.item);
+                                    
+                                    if (filtered.length > 0) {
+                                        renderCarGrid(filtered, 'main-cars-grid', car => true, 'list');
+                                    } else {
+                                        mainGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">Ingen biler matchet søket ditt. Prøv et annet søkeord.</p>';
+                                    }
+                                } else {
+                                    mainGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">Vennligst skriv inn et søkeord in søkefeltet.</p>';
+                                }
+                                return; 
+                            }
+
+                            // --- 4. Hovedliste (list.html) OG DYNAMISKE MERKESIDER ---
+                            if (mainGrid && pageType !== 'frontpage') {
+                                const urlParts = window.location.pathname.split('/').filter(Boolean);
+                                const currentSlug = urlParts[urlParts.length - 1] || '';
+
+                                // Bygg og injiser filter-UI
+                                renderFilterUI();
+
+                                // Populer dynamiske filter-dropdowns
+                                populateFilters(allCars);
+
+                                // Sett opp filter- og sorteringslyttere
+                                setupFiltersAndSort();
+
+                                if (currentSlug !== 'biler' && currentSlug !== 'varebil-leasing') {
+                                    // Merkeside — forhåndsvelg merkefilter
+                                    const brandFilter = document.getElementById('filter-brand');
+                                    if (brandFilter) {
+                                        const match = allCars.find(c => 
+                                            (c.brand || '').toLowerCase().replace(/[^a-z0-9]/g, '') === currentSlug.replace(/[^a-z0-9]/g, '')
+                                        );
+                                        if (match && brandFilter) brandFilter.value = match.brand;
+                                    }
+                                }
+
+                                applyFiltersAndSort('main-cars-grid', 'list');
+                            }
+
+                            // --- 5. Forside (index.html) ---
+                            if (frontpageGrid) {
+                                renderFilterUI();
+                                populateFilters(allCars);
+                                setupFiltersAndSort('main-cars-grid', 'frontpage');
+                                applyFiltersAndSort('main-cars-grid', 'frontpage');
+                            }
+
+                        }).catch(err => console.error("Feil ved lasting av bilkartotek:", err));
+                }
+            });
+        </script>
+        
+        <script>
+            function resetThumbBorders() {
+                const thumbs = document.querySelectorAll('.slideshow-thumb');
+                thumbs.forEach(thumb => thumb.style.borderColor = 'transparent');
+            }
+            window.addEventListener('DOMContentLoaded', () => {
+                const firstThumb = document.querySelector('.slideshow-thumb');
+                if (firstThumb) firstThumb.style.borderColor = '#0070f3';
+            });
+        </script>
+
+    </body>
 </html>

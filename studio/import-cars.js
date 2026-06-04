@@ -8,157 +8,269 @@ const { JSDOM } = require('jsdom');
 // --- KONFIGURASJON ---
 const projectId = '1lzskaub'; 
 const dataset = 'production';
-const apiToken = 'skzuZbi2qcpRAQJOOcD96edEIB4GZkr40YsMHikgRBMuFGpBycCLGMNm5IcWIiRFFTU6ZXclut6QxoniGESvcQGCKSpBNo2Iy81gQRQwHIT2haNbX9PVBoiSyVsSvQsqjceSZYQc92JjLCS9CdEk7pn7UBO9BNg1mjboxWJTri3x8ChsIiUv'; 
+const apiToken = 'skoy2IU2ZL2p8WzeIEVfqy5XtMLOMR7HXafTEs6o4zh4jeFkMzXwYifWcFZEdYki8cXovhP2T4SJuxx4hxEyz5WZ2o4KfOTLnlMu23fjInHWQFqtTB4vpfU4PBs3GQ0ljV8sYB5MlrC6gZvodeNORmJlknVOE9ZZ1ykbe8tFqHlaV8Sr6O2y'
 // ---------------------
 
-// --- HJELPEFUNKSJON FOR BILDEOPPLASTING ---
+const client = axios.create({
+  baseURL: `https://${projectId}.api.sanity.io/v2023-05-01/data/mutate/${dataset}`,
+  headers: {
+    Authorization: `Bearer ${apiToken}`,
+    'Content-Type': 'application/json'
+  }
+});
+
 const uploadImageFromUrl = async (url) => {
     if (!url || !url.trim().startsWith('http')) return null;
-    
     try {
-      const response = await axios.get(url.trim(), { responseType: 'arraybuffer' });
+      const response = await axios.get(url.trim(), { 
+        responseType: 'arraybuffer',
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+        }
+      });
       const buffer = Buffer.from(response.data, 'binary');
-      
       const assetResponse = await axios.post(
         `https://${projectId}.api.sanity.io/v2023-05-01/assets/images/${dataset}`,
         buffer,
-        {
-          headers: {
-            Authorization: `Bearer ${apiToken}`,
-            'Content-Type': 'image/jpeg', 
-          }
-        }
+        { headers: { Authorization: `Bearer ${apiToken}`, 'Content-Type': 'image/jpeg' } }
       );
-      
-      return {
-        _type: 'image',
-        asset: {
-          _type: "reference",
-          _ref: assetResponse.data.document._id
-        }
+      const uniqueKey = 'img_' + Math.random().toString(36).substr(2, 9);
+      return { 
+        _type: 'image', 
+        _key: uniqueKey,
+        asset: { _type: 'reference', _ref: assetResponse.data.document._id } 
       };
-    } catch (error) {
-      console.error(`Kunne ikke laste opp bilde fra ${url.substring(0, 50)}...:`, error.message);
+    } catch (err) {
+      console.error(`Kunne ikke laste opp bilde fra URL: ${url}`, err.message);
       return null;
     }
 };
 
-// --- OPPSETT FOR PORTABLE TEXT (HTML-konvertering) ---
 const defaultSchema = Schema.compile({
-    name: 'default',
-    types: [{ type: 'object', name: 'car', fields: [{ name: 'description', type: 'array', of: [{ type: 'block' }] }] }]
+  name: 'myBlog',
+  types: [{ type: 'object', name: 'blogPost', fields: [{title: 'Body', name: 'body', type: 'array', of: [{type: 'block'}]}] }]
 });
-const blockContentType = defaultSchema.get('car').fields.find(f => f.name === 'description').type;
+const blockContentType = defaultSchema.get('blogPost').fields.find((field) => field.name === 'body').type;
 
-const htmlToPortableText = (html) => {
-    if (!html) return [];
-    return htmlToBlocks(html, blockContentType, {
-        parseHtml: (html) => new JSDOM(html).window.document
-    });
+const htmlToPortableText = (htmlString) => {
+    if (!htmlString || htmlString.trim() === '') return [];
+    try {
+        const { window } = new JSDOM(`<html><body>${htmlString}</body></html>`);
+        return htmlToBlocks(htmlString, blockContentType, { 
+            parseHtml: (html) => {
+                const dom = new JSDOM(html);
+                return dom.window.document;
+            }
+        });
+    } catch (err) { 
+        console.error("Feil ved HTML-parsing:", err.message);
+        return []; 
+    }
 };
 
-const client = axios.create({
-    baseURL: `https://${projectId}.api.sanity.io/v2023-05-01/data/mutate/${dataset}`,
-    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiToken}` }
-});
+const cleanNumber = (val) => {
+    if (!val) return undefined;
+    const cleaned = String(val).replace(/[^0-9.,-]/g, '').replace(',', '.');
+    const parsed = parseInt(cleaned, 10);
+    return isNaN(parsed) ? undefined : parsed;
+};
 
-// --- START IMPORT ---
-const csvFile = fs.readFileSync('egenskaper-varebil.csv', 'utf8');
+const csvFilePath = './egenskaper-varebil.csv';
+const fileContent = fs.readFileSync(csvFilePath, 'utf8');
 
-Papa.parse(csvFile, {
+console.log('Starter import av bil-spesifikasjoner...\n');
+
+Papa.parse(fileContent, {
     header: true,
     skipEmptyLines: true,
+    // VIKTIG: Ingen transformHeader her — vi bruker CSV-kolonnenavn direkte (allerede lowercase uten mellomrom)
     complete: async (results) => {
-        const cleanData = results.data.map(row => {
-            const newRow = {};
-            Object.keys(row).forEach(key => { newRow[key.trim()] = row[key]; });
-            return newRow;
-        });
+        
+        for (const car of results.data) {
+            if (!car.slug || car.slug.trim() === '') continue;
 
-        console.log(`Starter import av ${cleanData.length} biler med bilder og tekstkonvertering...`);
+            console.log(`Behandler: ${car.brand || ''} ${car.title || 'Uten navn'}`);
+            const generatedCarId = `car-${car.slug.trim().toLowerCase().replace(/[^a-z0-9]/g, '-')}`;
 
-        for (const car of cleanData) {
-            if (!car.title || !car.slug) continue;
-
-            console.log(`\nBehandler: ${car.title}`);
-
-            // 1. Last opp hovedbilde (shopimage)
             let mainImage = null;
-            if (car.shopimage) {
-                console.log(`- Laster opp hovedbilde...`);
-                mainImage = await uploadImageFromUrl(car.shopimage);
-            }
-
-            // 2. Last opp galleri (mainimages - antar kommaseparert liste i CSV)
             let galleryImages = [];
-            if (car.mainimages) {
-                const urls = car.mainimages.split(',').filter(url => url.trim().length > 0);
-                console.log(`- Laster opp ${urls.length} galleribilder...`);
-                for (const url of urls) {
-                    const img = await uploadImageFromUrl(url);
-                    if (img) galleryImages.push(img);
+
+            if (car.shopimage && car.shopimage.trim() !== '') {
+                mainImage = await uploadImageFromUrl(car.shopimage.trim());
+            }
+
+            if (car.mainimages && car.mainimages.trim() !== '') {
+                const rawUrls = car.mainimages.split(';').map(url => url.trim()).filter(url => url !== '');
+                for (const url of rawUrls) {
+                    const imgRef = await uploadImageFromUrl(url);
+                    if (imgRef) galleryImages.push(imgRef);
+                }
+                if (!mainImage && galleryImages.length > 0) {
+                    mainImage = galleryImages[0];
                 }
             }
 
-            const mutations = [{
-                createOrReplace: {
-                    _type: 'car',
-                    _id: `car-${car.slug}`,
-                    title: car.title,
-                    slug: { _type: 'slug', current: car.slug },
-                    
-                    // Priser & Økonomi
-                    price0: Number(car.price0) || 0,
-                    price60: Number(car.price60) || 0,
-                    price100: Number(car.price100) || 0,
-                    priceads0: Number(car.priceads0) || 0,
-                    interest: car.interest,
+            // FIKS: Alle felt bruker nå eksakt samme navn som CSV-kolonner og Sanity-skjema.
+            // Tidligere feil:
+            //   1. transformHeader la til understreker (f.eks. 'performance_hk') som ikke finnes i CSV
+            //   2. carData brukte gammel camelCase (f.eks. 'performanceHk') som ikke finnes i car.js-skjema
+            const carData = {
+                _id: generatedCarId,
+                _type: 'car',
 
-                    // Tekniske detaljer
-                    brand: car.brand,
-                    quote: car.quote,
-                    modeldescription: car.modeldescription,
-                    fuel: car.fuel,
-                    drive: car.drive,
-                    range: car.range,
-                    gear: car.gear,
-                    performance: car.performance,
-                    doors: car.doors,
-                    seats: car.seats,
-                    yearmodel: car.yearmodel,
-                    color: car.color,
-                    interior: car.interior,
-                    charging: car.charging,
-                    capacity: car.capacity,
-                    towbar: car.towbar?.toUpperCase() === 'TRUE',
+                // Identifikasjon
+                title: car.title,
+                slug: { _type: 'slug', current: car.slug.trim() },
+                brand: car.brand,
+                modeldescription: car.modeldescription,
+                yearmodel: car.yearmodel,
 
-                    // Status-flagg
-                    frontpage: car.frontpage?.toUpperCase() === 'TRUE',
-                    campaign: car.campaign?.toUpperCase() === 'TRUE',
-                    fastdelivery: car.fastdelivery?.toUpperCase() === 'TRUE',
+                // Utseende
+                color: car.color,
+                interior: car.interior,
+                shopimage: car.shopimage,           // FIKS: var ikke med i det hele tatt
+                alttext: car.alttext,
 
-                    // Tekstområder (Konvertert til Portable Text)
-                    // Finn disse linjene i mutasjonen din og endre dem til:
-                    description: htmlToPortableText(car.description),
-                    equipment: htmlToPortableText(car.equipment),                   
+                // Grunnspesifikasjoner — FIKS: var bodyType, nå body (matcher car.js)
+                fuel: car.fuel,
+                body: car.body,                     // FIKS: var 'bodyType'
+                drive: car.drive,
+                gear: car.gear,
+                doors: cleanNumber(car.doors),
+                seats: cleanNumber(car.seats),
+                lversion: car.lversion,
+                towbar: car.towbar?.toUpperCase() === 'TRUE',
 
-                    // SEO
-                    metatitle: car.metatitle,
-                    metadescription: car.metadescription,
+                // Ytelse — FIKS: var 'performanceHk'/'performanceWatt' (camelCase)
+                performancehk: cleanNumber(car.performancehk),
+                performancewatt: cleanNumber(car.performancewatt),
+                torque: cleanNumber(car.torque),
+                numberofengines: cleanNumber(car.numberofengines),
+                cotwoemission: car.cotwoemission,
 
-                    // Bilder
-                    mainImage: mainImage,
-                    gallery: galleryImages
-                }
-            }];
+                // Batteri & Lading — FIKS: alle var camelCase og/eller hadde understreker
+                range: cleanNumber(car.range),
+                grossbattery: cleanNumber(car.grossbattery),
+                netbattery: cleanNumber(car.netbattery),
+                chargingdc: cleanNumber(car.chargingdc),        // FIKS: var 'carging_dc' (feil navn + skrivefeil)
+                maxhomechargeac: car.maxhomechargeac,
+                onephasehomechargeac: car.onephasehomechargeac,
+                chargingspeed: car.chargingspeed,               // FIKS: var 'carging_speed' (skrivefeil)
+                powerusage: car.powerusage,
+                batterywarranty: car.batterywarranty,
+
+                // Girkasse
+                numberofgears: cleanNumber(car.numberofgears),
+
+                // Garanti
+                warranty: car.warranty,
+                warrantypaint: car.warrantypaint,
+                warrantyrust: car.warrantyrust,
+
+                // Vekter
+                allowedtotalweight: cleanNumber(car.allowedtotalweight),
+                kerbweight: cleanNumber(car.kerbweight),
+                kerbweightexdriver: cleanNumber(car.kerbweightexdriver),
+                payloadincdriver: cleanNumber(car.payloadincdriver),
+                maxroofload: cleanNumber(car.maxroofload),
+
+                // Tilhenger — FIKS: var 'trailerWithBrake'/'trailerWithoutBrake' og 'trailer_w_break' (skrivefeil break/brake)
+                trailerwbreak: cleanNumber(car.trailerwbreak),
+                trailerwobreak: cleanNumber(car.trailerwobreak),
+
+                // Volum & Dimensjoner — FIKS: var camelCase og hadde understreker
+                maxbootcapacity: cleanNumber(car.maxbootcapacity),
+                minbootcapacity: cleanNumber(car.minbootcapacity),
+                length: cleanNumber(car.length),
+                widthwomirrors: cleanNumber(car.widthwomirrors),    // FIKS: var 'widthWithoutMirrors'
+                widthwmirrors: cleanNumber(car.widthwmirrors),      // FIKS: var 'widthWithMirrors'
+                height: cleanNumber(car.height),
+                wheelbase: cleanNumber(car.wheelbase),
+                turningcircle: car.turningcircle ? parseFloat(String(car.turningcircle).replace(',', '.')) : undefined,
+
+                // Priser — FIKS: var 'price0'/'price60'/'price100'/'priceads0'
+                pricezero: cleanNumber(car.pricezero),
+                pricesixty: cleanNumber(car.pricesixty),
+                pricehundred: cleanNumber(car.pricehundred),
+                priceadszero: cleanNumber(car.priceadszero),
+                interest: car.interest,
+                quote: car.quote,
+
+                // Status
+                frontpage: car.frontpage?.toUpperCase() === 'TRUE',
+                campaign: car.campaign?.toUpperCase() === 'TRUE',
+                fastdelivery: car.fastdelivery?.toUpperCase() === 'TRUE',
+                shop: car.shop,
+                chosepage: car.chosepage,
+                shortterm: car.shortterm,
+                pricecomment: car.pricecomment,
+                salesman: car.salesman,
+                availability: car.availability,
+                consultant: car.consultant,
+                sourceslug: car.sourceslug,
+                sourceslugad: car.sourceslugad,
+
+                // Innhold
+                description: htmlToPortableText(car.description),
+                equipment: htmlToPortableText(car.equipment),                   
+                
+                // SEO
+                metatitle: car.metatitle,
+                metadescription: car.metadescription,
+                opengraphtitle: car.opengraphtitle,
+                opengraphdescription: car.opengraphdescription,
+
+                // Bilder
+                mainimage: mainImage,
+                gallery: galleryImages
+            };
+
+            Object.keys(carData).forEach(key => carData[key] === undefined && delete carData[key]);
 
             try {
-                await client.post('', { mutations });
-                console.log(`✅ Suksess: ${car.title}`);
+                const createMutation = { createIfNotExists: carData };
+
+                const { 
+                    pricezero, pricesixty, pricehundred, priceadszero, interest, quote,
+                    frontpage, campaign, fastdelivery, description, equipment,
+                    metatitle, metadescription, opengraphtitle, opengraphdescription,
+                    mainimage: mImg, gallery: gal,
+                    ...technicalSpecs 
+                } = carData;
+
+                const patchMutation = {
+                    patch: {
+                        id: generatedCarId,
+                        set: technicalSpecs,
+                        //mainimage: mImg || null,
+                        setIfMissing: {
+                            pricezero: pricezero ?? null,
+                            pricesixty: pricesixty ?? null,
+                            pricehundred: pricehundred ?? null,
+                            priceadszero: priceadszero ?? null,
+                            interest: interest || "",
+                            quote: quote || "",
+                            frontpage: frontpage ?? false,
+                            campaign: campaign ?? false,
+                            fastdelivery: fastdelivery ?? false,
+                            description: description || [],
+                            equipment: equipment || [],
+                            metatitle: metatitle || "",
+                            metadescription: metadescription || "",
+                            opengraphtitle: opengraphtitle || "",
+                            opengraphdescription: opengraphdescription || "",
+                            //mainimage: mImg || null,
+                            gallery: gal || []
+                        }
+                    }
+                };
+
+                await client.post('', { mutations: [createMutation, patchMutation] });
+                console.log(` ✓ ${car.brand} ${car.title}`);
             } catch (err) {
-                console.error(`❌ Feil ved lagring av ${car.title}:`, err.response?.data || err.message);
+                console.error(`❌ Feil ved oppdatering av ${car.title}:`, err.response?.data || err.message);
             }
         }
-        console.log('\n🚀 Alt ferdig! Ta en kikk i Sanity Studio.');
+        console.log('\n🚀 Alt ferdig!');
     }
 });

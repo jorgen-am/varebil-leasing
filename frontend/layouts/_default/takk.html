@@ -1,9 +1,11 @@
 {{ define "main" }}
-<div class="thanks-container" style="text-align: center; padding: 60px 20px;">
-    <h1>{{ .Title }}</h1>
-    <div class="thanks-content">
-        {{ .Content }}
+<section class="thanks container">
+    <div class="thanks-container" style="text-align: center; padding: 60px 20px;">
+        <h1>{{ .Title }}</h1>
+        <div class="thanks-content">
+            {{ .Content }}
+        </div>
+        <a href="/" class="btn-home">Tilbake til forsiden</a>
     </div>
-    <a href="/" class="btn-home">Tilbake til forsiden</a>
-</div>
-{{ end }}
+</section>
+    {{ end }}

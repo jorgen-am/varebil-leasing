@@ -5,7 +5,7 @@ title = 'Varebil leasing'
 publishDir = "public"
 port = 1316
 
-# internsøk
+# Utdataformater for forsiden (Genererer index.json på roten)
 [outputs]
   home = ["HTML", "RSS", "JSON"]
 

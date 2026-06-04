@@ -1,82 +1,166 @@
 {{ define "main" }}
-    <main class="car-card">
-        <!-- Velg for sammenligning -->
+    <section class="single car-card container">
+
         <div class="car-card-content">
-            <button class="select-btn" data-slug="{{ .File.TranslationBaseName }}" data-img="{{ .Params.mainImageUrl }}" onclick="toggleSelection(this.dataset.slug, this.dataset.img, event)"> </button>
-            <!-- Legg til som favoritt-->
-            <button class="favorite-btn" data-slug="{{ .File.TranslationBaseName }}" onclick="toggleFavorite(this.getAttribute('data-slug'), this)"> </button>
-
-
-            {{ if .Params.mainImageUrl }}
-                <img src="{{ .Params.mainImageUrl }}" alt="{{ .Title }}" style="width: 100%; border-radius: 12px; margin-bottom: 20px;">
-            {{ end }}
-            
-            <h1>
-                {{ .Title }} 
-                {{ with .Params.price0 }} fra kr {{ . }},- pr mnd{{ end }}
-            </h1>
-            
-            <div class="specs-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px;">
-                {{ with .Params.fuel }}<div class="spec-item"><strong>Drivstoff:</strong> {{ . }}</div>{{ end }}
-                {{ with .Params.gear }}<div class="spec-item"><strong>Girkasse:</strong> {{ . }}</div>{{ end }}
-                {{ with .Params.drive }}<div class="spec-item"><strong>Hjuldrift:</strong> {{ . }}</div>{{ end }}
-                {{ with .Params.range }}<div class="spec-item"><strong>Rekkevidde:</strong> {{ . }}</div>{{ end }}
-                {{ with .Params.capacity }}<div class="spec-item"><strong>Lasterom:</strong> {{ . }}</div>{{ end }}
-                {{ with .Params.performance }}<div class="spec-item"><strong>Ytelse:</strong> {{ . }}</div>{{ end }}
-                {{ with .Params.doors }}<div class="spec-item"><strong>Antall dører:</strong> {{ . }}</div>{{ end }}
-                {{ with .Params.seats }}<div class="spec-item"><strong>Seter:</strong> {{ . }}</div>{{ end }}
-                {{ with .Params.yearmodel }}<div class="spec-item"><strong>Årsmodell:</strong> {{ . }}</div>{{ end }}
-                {{ with .Params.color }}<div class="spec-item"><strong>Farge:</strong> {{ . }}</div>{{ end }}
-                {{ with .Params.interest }}<div class="spec-item"><strong>Rente:</strong> {{ . }}</div>{{ end }}
-                
-                {{/* Spesialhåndtering for TRUE/FALSE feltet towbar */}}
-                {{ if isset .Params "towbar" }}
-                    <div class="spec-item">
-                        <strong>Tilhengerfeste:</strong> {{ if .Params.towbar }}Ja{{ else }}Nei{{ end }}
-                    </div>
-                {{ end }}
-            </div>
 
             {{/* Skjema */}}
             {{ partial "skjema-interessent.html" . }}
 
-            <section class="description" style="margin: 40px 0; line-height: 1.6;">
-                {{ .Params.descriptionHtml | safeHTML }}
-            </section>
+            <div class="buttons">
+                <button class="select-btn" data-slug="{{ .File.TranslationBaseName }}" data-img="{{ .Params.mainimages }}" onclick="toggleSelection(this.dataset.slug, this.dataset.img, event)"></button>
+                <button class="favorite-btn" data-slug="{{ .File.TranslationBaseName }}" onclick="toggleFavorite(this.getAttribute('data-slug'), this)"></button>
+            </div>
 
-            {{/* Utstyrsliste */}}
+            {{ if and .Params.gallery (gt (len .Params.gallery) 0) }}
+            <div class="slideshow-container">
+                
+                {{ $firstImage := index .Params.gallery 0 }}
+                <div class="main-slideshow-image">
+                    <img class="active-slide" id="active-slide" src="{{ $firstImage }}" alt="Hovedbilde {{ .Title }}">
+                </div>
+        
+                <div class="thumbnail-grid">
+                    {{ range $index, $imageUrl := .Params.gallery }}
+                        <div class="thumbnail-item">
+                            <img src="{{ $imageUrl }}" 
+                                 alt="Miniatyrbilde {{ add $index 1 }} av {{ $.Title }}" 
+                                 class="slideshow-thumb"
+                                 onclick="setSlide('{{ $imageUrl }}', this)">
+                        </div>
+                    {{ end }}
+                </div>
+            </div>
+            {{ else if .Params.shopimage }}
+            <div class="main-image-fallback">
+                <img src="{{ .Params.shopimage }}" alt="{{ .Title }}">
+            </div>
+            {{ end }}
+
+            <div class="car-info-header">
+                <h1>{{ .Params.brand }} {{ .Title }}</h1>
+                <p class="model-desc">{{ .Params.modeldescription }}</p>
+
+                {{ if .Params.pricezero }}
+                <div class="price-tag">
+                    <span class="price-amount">Fra kr {{ .Params.pricezero }},-</span>
+                    <span class="price-period">mnd eks. mva</span>
+                </div>
+                {{ end }}
+            </div>
+
+            {{/* 1. Eksisterende basistrekk */}}
+            <div class="specs">
+                {{ if .Params.yearmodel }}<div class="spec-item"><strong>Årsmodell:</strong> <span>{{ .Params.yearmodel }}</span></div>{{ end }}
+                {{ if .Params.fuel }}<div class="spec-item"><strong>Drivstoff:</strong> <span>{{ .Params.fuel }}</span></div>{{ end }}
+                {{ if .Params.gear }}<div class="spec-item"><strong>Girkasse:</strong> <span>{{ .Params.gear }}</span></div>{{ end }}
+                {{ if .Params.drive }}<div class="spec-item"><strong>Hjuldrift:</strong> <span>{{ .Params.drive }}</span></div>{{ end }}
+                {{ if .Params.lversion }}<div class="spec-item"><strong>Lengdeklasse:</strong> <span>{{ .Params.lversion }}</span></div>{{ end }}
+                {{ if .Params.color }}<div class="spec-item"><strong>Farge utvendig:</strong> <span>{{ .Params.color }}</span></div>{{ end }}
+                {{ if .Params.interior }}<div class="spec-item"><strong>Interiør:</strong> <span>{{ .Params.interior }}</span></div>{{ end }}
+                <div class="spec-item"><strong>Hengerfeste:</strong> <span>{{ if .Params.towbar }}Inkludert{{ else }}Nei / Tilvalg{{ end }}</span></div>
+            </div>
+
+            {{ if .Params.descriptionhtml }}
+            <div class="description">
+                <h2>Om bilen:</h2>
+                <div>
+                    {{ .Params.descriptionhtml | safeHTML }}
+                </div>
+            </div>
+            {{ end }}
+
             {{ if .Params.equipment }}
-            <div class="equipment-list" style="margin-bottom: 40px;">
+            <div class="equipment-list">
                 <h2>Inkludert utstyr:</h2>
-                <div style="column-count: 2; column-gap: 40px;">
+                <div>
                     {{ .Params.equipment | safeHTML }}
                 </div>
             </div>
             {{ end }}
 
-            <section style="background: #eef6ff; padding: 30px; border-radius: 8px; margin-bottom: 40px;">
+            {{/* 2. Tekniske spesifikasjoner (Vasket for store bokstaver og understreker) */}}
+            <div class="additions-list">
+                <h2>Tekniske spesifikasjoner og data:</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px;">
+                    
+                    {{/* Drivlinje & Basis */}}
+                    {{ if .Params.body }}<div class="spec-item"><strong>Karosseritype:</strong> <span>{{ .Params.body }}</span></div>{{ end }}
+                    {{ if .Params.numberofgears }}<div class="spec-item"><strong>Antall gir:</strong> <span>{{ .Params.numberofgears }}</span></div>{{ end }}
+                    {{ if .Params.doors }}<div class="spec-item"><strong>Antall dører:</strong> <span>{{ .Params.doors }}</span></div>{{ end }}
+                    {{ if .Params.seats }}<div class="spec-item"><strong>Antall seter:</strong> <span>{{ .Params.seats }}</span></div>{{ end }}
+
+                    {{/* Ytelser */}}
+                    {{ if .Params.performancehk }}<div class="spec-item"><strong>Ytelse:</strong> <span>{{ .Params.performancehk }} HK {{ if .Params.performancewatt }}({{ .Params.performancewatt }} kW){{ end }}</span></div>{{ end }}
+                    {{ if .Params.torque }}<div class="spec-item"><strong>Dreiemoment:</strong> <span>{{ .Params.torque }} Nm</span></div>{{ end }}
+                    {{ if .Params.numberofengines }}<div class="spec-item"><strong>Antall motorer:</strong> <span>{{ .Params.numberofengines }}</span></div>{{ end }}
+                    {{ if .Params.cotwoemission }}<div class="spec-item"><strong>CO₂-utslipp:</strong> <span>{{ .Params.cotwoemission }}</span></div>{{ end }}
+
+                    {{/* Batteri & Lading */}}
+                    {{ if .Params.range }}<div class="spec-item"><strong>Rekkevidde (WLTP):</strong> <span>{{ .Params.range }} km</span></div>{{ end }}
+                    {{ if .Params.grossbattery }}<div class="spec-item"><strong>Brutto batteri:</strong> <span>{{ .Params.grossbattery }} kWh</span></div>{{ end }}
+                    {{ if .Params.netbattery }}<div class="spec-item"><strong>Netto batteri:</strong> <span>{{ .Params.netbattery }} kWh</span></div>{{ end }}
+                    {{ if .Params.chargingdc }}<div class="spec-item"><strong>Maks hurtiglading (DC):</strong> <span>{{ .Params.chargingdc }} kW</span></div>{{ end }}
+                    {{ if .Params.maxhomechargeac }}<div class="spec-item"><strong>Maks normallading (AC):</strong> <span>{{ .Params.maxhomechargeac }}</span></div>{{ end }}
+                    {{ if .Params.onephasehomechargeac }}<div class="spec-item"><strong>1-fase lading (AC):</strong> <span>{{ .Params.onephasehomechargeac }}</span></div>{{ end }}
+                    {{ if .Params.chargingspeed }}<div class="spec-item"><strong>Ladehastighet:</strong> <span>{{ .Params.chargingspeed }}</span></div>{{ end }}
+                    {{ if .Params.powerusage }}<div class="spec-item"><strong>Strømforbruk:</strong> <span>{{ .Params.powerusage }}</span></div>{{ end }}
+
+                    {{/* Garantier */}}
+                    {{ if .Params.warranty }}<div class="spec-item"><strong>Nybilgaranti:</strong> <span>{{ .Params.warranty }}</span></div>{{ end }}
+                    {{ if .Params.batterywarranty }}<div class="spec-item"><strong>Batterigaranti:</strong> <span>{{ .Params.batterywarranty }}</span></div>{{ end }}
+                    {{ if .Params.warrantypaint }}<div class="spec-item"><strong>Lakkgaranti:</strong> <span>{{ .Params.warrantypaint }}</span></div>{{ end }}
+                    {{ if .Params.warrantyrust }}<div class="spec-item"><strong>Rustgaranti:</strong> <span>{{ .Params.warrantyrust }}</span></div>{{ end }}
+
+                    {{/* Vekter & Tilhenger */}}
+                    {{ if .Params.allowedtotalweight }}<div class="spec-item"><strong>Tillatt totalvekt:</strong> <span>{{ .Params.allowedtotalweight }} kg</span></div>{{ end }}
+                    {{ if .Params.kerbweight }}<div class="spec-item"><strong>Egenvekt:</strong> <span>{{ .Params.kerbweight }} kg</span></div>{{ end }}
+                    {{ if .Params.kerbweightexdriver }}<div class="spec-item"><strong>Egenvekt ekskl. sjåfør:</strong> <span>{{ .Params.kerbweightexdriver }} kg</span></div>{{ end }}
+                    {{ if .Params.payloadincdriver }}<div class="spec-item"><strong>Nyttelast inkl. sjåfør:</strong> <span>{{ .Params.payloadincdriver }} kg</span></div>{{ end }}
+                    {{ if .Params.maxroofload }}<div class="spec-item"><strong>Maks taklast:</strong> <span>{{ .Params.maxroofload }} kg</span></div>{{ end }}
+                    {{ if .Params.trailerwbreak }}<div class="spec-item"><strong>Tilhengervekt m/ brems:</strong> <span>{{ .Params.trailerwbreak }} kg</span></div>{{ end }}
+                    {{ if .Params.trailerwobreak }}<div class="spec-item"><strong>Tilhengervekt u/ brems:</strong> <span>{{ .Params.trailerwobreak }} kg</span></div>{{ end }}
+
+                    {{/* Dimensjoner & Volum */}}
+                    {{ if .Params.maxbootcapacity }}<div class="spec-item"><strong>Maks lasteromsvolum:</strong> <span>{{ .Params.maxbootcapacity }} liter</span></div>{{ end }}
+                    {{ if .Params.minbootcapacity }}<div class="spec-item"><strong>Minimum lasteromsvolum:</strong> <span>{{ .Params.minbootcapacity }} liter</span></div>{{ end }}
+                    {{ if .Params.length }}<div class="spec-item"><strong>Lengde:</strong> <span>{{ .Params.length }} mm</span></div>{{ end }}
+                    {{ if .Params.widthwomirrors }}<div class="spec-item"><strong>Bredde uten speil:</strong> <span>{{ .Params.widthwomirrors }} mm</span></div>{{ end }}
+                    {{ if .Params.widthwmirrors }}<div class="spec-item"><strong>Bredde med speil:</strong> <span>{{ .Params.widthwmirrors }} mm</span></div>{{ end }}
+                    {{ if .Params.height }}<div class="spec-item"><strong>Høyde:</strong> <span>{{ .Params.height }} mm</span></div>{{ end }}
+                    {{ if .Params.wheelbase }}<div class="spec-item"><strong>Akselavstand:</strong> <span>{{ .Params.wheelbase }} mm</span></div>{{ end }}
+                    {{ if .Params.turningcircle }}<div class="spec-item"><strong>Svingdiameter:</strong> <span>{{ .Params.turningcircle }} m</span></div>{{ end }}
+
+                    {{/* Leasingbetingelser i tillegg */}}
+                    {{ if .Params.interest }}<div class="spec-item"><strong>Kampanjerente:</strong> <span>{{ .Params.interest }}</span></div>{{ end }}
+                    {{ if .Params.quote }}<div class="spec-item"><strong>Tilbudsnummer (Quote):</strong> <span>{{ .Params.quote }}</span></div>{{ end }}
+
+                </div>
+            </div>
+
+            {{/* Resten av filen (why, employees) forblir uendret */}}
+            <div class="why">
                 <h2>Hvorfor velge Varebil Leasing?</h2>
                 <p>Vi tilbyr rask levering, gunstige betingelser og personlig oppfølging gjennom hele leasingperioden.</p>
-            </section>
+            </div>
 
-            <section class="employees" style="margin-top: 50px;">
+            <div class="employees">
                 <h2>Snakk med en av våre rådgivere</h2>
-                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                <div class="select-employee">
                     {{ range .Site.Data.employees }}
-                    <div class="employee-card" style="border: 1px solid #eee; padding: 20px; border-radius: 10px; text-align: center; width: 250px; background: white;">
+                    <div class="employee-card">
                         {{ if .bildeUrl }}
-                            <img src="{{ .bildeUrl }}" alt="{{ .title }}" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 10px;">
+                            <img src="{{ .bildeUrl }}" alt="{{ .title }}">
                         {{ else }}
-                            <div style="width: 120px; height: 120px; border-radius: 50%; background: #ddd; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center;">👤</div>
+                            <div class="employee-image-fallback">👤</div>
                         {{ end }}
-                        <h3 style="margin: 10px 0 5px 0; font-size: 1.2em;">{{ .title }}</h3>
+                        <h3>{{ .title }}</h3>
                         {{ if .tagtwo }}
-                            <p style="margin: 5px 0;"><a href="mailto:{{ .tagtwo }}" style="color: #007bff; text-decoration: none;">{{ .tagtwo }}</a></p>
+                            <p><a href="mailto:{{ .tagtwo }}">{{ .tagtwo }}</a></p>
                         {{ end }}
                     </div>
                     {{ end }}
                 </div>
-            </section>
+            </div>
         </div>
-    </main>
+    </section>
 {{ end }}

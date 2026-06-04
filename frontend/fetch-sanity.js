@@ -1,4 +1,4 @@
-const { createClient } = require('@sanity/client'); // Denne linjen manglet eller ble overskrevet
+const { createClient } = require('@sanity/client');
 const { toHTML } = require('@portabletext/to-html');
 const fs = require('fs');
 const path = require('path');
@@ -10,8 +10,6 @@ const client = createClient({
   apiVersion: '2023-05-01',
 });
 
-// Vi beholder denne for Frontmatter-felt som tittel, 
-// men bruker toHTML for selve innholdet.
 function blocksToText(blocks) {
   if (!blocks || !Array.isArray(blocks)) return '';
   return blocks
@@ -31,20 +29,78 @@ async function run() {
       "biler": *[_type == "car"] { 
         ..., 
         "mainImageUrl": mainImage.asset->url,
+        "galleryUrls": gallery[].asset->url,
         fuel,
-        gear,
+        body,
         drive,
-        range,
-        capacity,
-        performance,
+        gear,
+        numberofgears,
         doors,
         seats,
+        lversion,
+        performancehk,
+        performancewatt,
+        torque,
+        numberofengines,
+        cotwoemission,
+        range,
+        grossbattery,
+        netbattery,
+        chargingdc,
+        maxhomechargeac,
+        onephasehomechargeac,
+        chargingspeed,
+        powerusage,
+        warranty,
+        batterywarranty,
+        warrantypaint,
+        warrantyrust,
+        allowedtotalweight,
+        kerbweight,
+        kerbweightexdriver,
+        payloadincdriver,
+        maxroofload,
+        trailerwbreak,
+        trailerwobreak,
+        maxbootcapacity,
+        minbootcapacity,
+        length,
+        widthwomirrors,
+        widthwmirrors,
+        height,
+        wheelbase,
+        turningcircle,
         yearmodel,
         color,
+        interior,
         interest,
         towbar,
         equipment,
-        description
+        description,
+        pricezero,
+        pricesixty,
+        pricehundred,
+        priceadszero,
+        quote,
+        shopimage,
+        alttext,
+        mainimages,
+        shortterm,
+        pricecomment,
+        salesman,
+        availability,
+        consultant,
+        sourceslug,
+        sourceslugad,
+        chosepage,
+        shop,
+        frontpage,
+        campaign,
+        fastdelivery,
+        metatitle,
+        metadescription,
+        opengraphtitle,
+        opengraphdescription
       },
       "kategorier": *[_type == "categoryPage"] {
         title,
@@ -59,7 +115,7 @@ async function run() {
         ...,
         "kategoriNavn": category,
         "bildeUrl": mainImage.asset->url,
-        excerpt // Hente meta description
+        excerpt
       }
     }`);
 
@@ -113,7 +169,6 @@ async function run() {
       return cat !== 'employee' && cat !== 'ansatt';
     });
 
-    // --- 3. ARTIKLER (Nyheter, FAQ, osv) ---
     artiklerFiltered.forEach(post => {
       const rawCategory = post.kategoriNavn || 'Generelt';
       const catSlug = rawCategory.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-');
@@ -137,8 +192,7 @@ kategori: "${rawCategory.toLowerCase()}"
 bildeUrl: "${post.bildeUrl || ''}"
 bodyHtml: "${bodyHtml.replace(/"/g, '\\"').replace(/\n/g, '')}"
 layout: "body"
----`; 
-// Vi lar det være tomt her nede nå
+---`;
 
       fs.writeFileSync(path.join(postDir, `${slug}.md`), content);
     });
@@ -168,42 +222,36 @@ ${blocksToText(person.body)}`;
     });
     fs.writeFileSync(path.join(dataDir, 'employees.json'), JSON.stringify(ansatte, null, 2));
 
-// --- 5. BILER (Salgsobjekter) ---
-console.log('Sweep: Bygger /biler/ mappen med korrekt menystruktur...');
-const bilerBaseDir = path.join(__dirname, 'content', 'biler');
+    // --- 5. BILER ---
+    console.log('Sweep: Bygger /biler/ mappen med korrekt menystruktur...');
+    const bilerBaseDir = path.join(__dirname, 'content', 'biler');
 
-if (fs.existsSync(bilerBaseDir)) {
-    fs.rmSync(bilerBaseDir, { recursive: true, force: true });
-}
-fs.mkdirSync(bilerBaseDir, { recursive: true });
+    if (fs.existsSync(bilerBaseDir)) {
+        fs.rmSync(bilerBaseDir, { recursive: true, force: true });
+    }
+    fs.mkdirSync(bilerBaseDir, { recursive: true });
 
-// Hovedsiden for biler
-fs.writeFileSync(path.join(bilerBaseDir, '_index.md'), `---
+    fs.writeFileSync(path.join(bilerBaseDir, '_index.md'), `---
 title: "Våre biler"
 layout: "list"
 url: "/biler/"
 ---`);
 
-data.biler.forEach(car => {
-  if (!car.brand) return;
+    data.biler.forEach(car => {
+      if (!car.brand) return;
 
-  const brandSlug = car.brand.toLowerCase().replace(/[^\w\s]/g, "").replace(/\s+/g, '-');
-  const brandDir = path.join(bilerBaseDir, brandSlug);
+      const brandSlug = car.brand.toLowerCase().replace(/[^\w\s]/g, "").replace(/\s+/g, '-');
+      const brandDir = path.join(bilerBaseDir, brandSlug);
 
-  if (!fs.existsSync(brandDir)) {
-      fs.mkdirSync(brandDir, { recursive: true });
-      
-      // Finn SEO-dokumentet som matcher denne bilens merke (brandSlug)
-      const seoData = data.kategorier.find(kat => kat.slug === brandSlug);
+      if (!fs.existsSync(brandDir)) {
+          fs.mkdirSync(brandDir, { recursive: true });
+          
+          const seoData = data.kategorier.find(kat => kat.slug === brandSlug);
+          const finalTitle = seoData?.title || `Varebil leasing av ${car.brand}`;
+          const finalMeta = seoData?.description || `Finn gode tilbud på leasing av ${car.brand} varebil hos Automedia.`;
+          const finalBody = seoData?.body ? toHTML(seoData.body) : "";
 
-      // Definer titler og beskrivelser. Bruker data fra Sanity hvis de finnes, ellers fallback.
-      const finalTitle = seoData?.title || `Varebil leasing av ${car.brand}`;
-      const finalMeta = seoData?.description || `Finn gode tilbud på leasing av ${car.brand} varebil hos Automedia.`;
-      
-      // Konverter Portable Text (body) til HTML
-      const finalBody = seoData?.body ? toHTML(seoData.body) : "";
-
-      fs.writeFileSync(path.join(brandDir, '_index.md'), `---
+          fs.writeFileSync(path.join(brandDir, '_index.md'), `---
 title: "${finalTitle.replace(/"/g, '\\"')}"
 metadescription: "${finalMeta.replace(/"/g, '\\"')}"
 layout: "list"
@@ -214,52 +262,128 @@ menu:
     parent: "Biler"
 ---
 ${finalBody}`);
-  }
+      }
 
-  const carSlug = car.slug?.current || `bil-${Math.random().toString(36).substr(2, 5)}`;
-  const equipmentHtml = toHTML(car.equipment || []);
-  const descriptionHtml = toHTML(car.description || []);
+      const carSlug = car.slug?.current || `bil-${Math.random().toString(36).substr(2, 5)}`;
+      const equipmentHtml = toHTML(car.equipment || []);
+      const descriptionHtml = toHTML(car.description || []);
 
-  const content = `---
-title: "${(car.title || '').replace(/"/g, '')}"
-slug: "${String(car.slug || car.title || '').toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-')}"
-modeldescription: "${(car.modeldescription || '').replace(/"/g, '')}"
-mainImageUrl: "${car.mainImageUrl ? car.mainImageUrl.replace(/\\/g, '') + '?fm=webp&q=80' : ''}"
-descriptionHtml: "${descriptionHtml.replace(/"/g, "'").replace(/\n/g, ' ')}"
-equipment: "${equipmentHtml.replace(/"/g, "'").replace(/\n/g, ' ')}"
-price0: "${car.price0 || '0'}"
-fuel: "${car.fuel || ''}"
-gear: "${car.gear || ''}"
-drive: "${car.drive || ''}"
-range: "${car.range || ''}"
-capacity: "${car.capacity || ''}"
-performance: "${car.performance || ''}"
-doors: "${car.doors || ''}"
-seats: "${car.seats || ''}"
-yearmodel: "${car.yearmodel || ''}"
-color: "${car.color || ''}"
-interest: "${car.interest || ''}"
-towbar: ${car.towbar || false}
-layout: "single"
----`;
+      const brandValue = car.brand?.title || car.brand?.name || car.brand || '';
+      const cleanBrand = String(brandValue).replace(/"/g, '');
+      const cleanSlug = String(carSlug).toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-');
 
-  fs.writeFileSync(path.join(brandDir, `${carSlug}.md`), content);
-});
+      const galleryYaml = car.galleryUrls && car.galleryUrls.length > 0 
+        ? '\n' + car.galleryUrls.map(url => `  - "${url.replace(/\\/g, '')}?fm=webp&q=80"`).join('\n')
+        : ' []';
 
-console.log(`✅ Lagret ${data.biler.length} biler i /biler/[merke]/.`);
+      // Hjelpefunksjoner — skriver kun feltet hvis verdien ikke er tom
+      const f = (key, val) => {
+        const v = (val === null || val === undefined) ? '' : String(val).trim().replace(/\r?\n|\r/g, ' ');
+        return v ? `${key}: "${v.replace(/"/g, "'")}"\n` : '';
+      };
+      const fNum = (key, val) => {
+        const v = (val === null || val === undefined) ? '' : String(val).trim().replace(/\r?\n|\r/g, ' ');
+        return (v && v !== '0') ? `${key}: "${v}"\n` : '';
+      };
+      const fBool = (key, val) => val ? `${key}: true\n` : '';
 
+      const fields = [
+        `title: "${(car.title || '').replace(/"/g, '')}"`,
+        `brand: "${cleanBrand}"`,
+        `slug: "${cleanSlug}"`,
+        `layout: "single"`,
+        car.mainImageUrl ? `mainimages: "${car.mainImageUrl.replace(/\\/g, '')}?fm=webp&q=80"` : '',
+        car.shopimage    ? `shopimage: "${car.shopimage}"` : '',
+        galleryYaml !== ' []' ? `gallery: ${galleryYaml}` : '',
+        f('modeldescription', car.modeldescription),
+        f('alttext', car.alttext),
+        fNum('pricezero', car.pricezero),
+        fNum('pricesixty', car.pricesixty),
+        fNum('pricehundred', car.pricehundred),
+        fNum('priceadszero', car.priceadszero),
+        f('interest', car.interest),
+        f('quote', car.quote),
+        f('fuel', car.fuel),
+        f('body', car.body),
+        f('drive', car.drive),
+        f('gear', car.gear),
+        f('lversion', car.lversion),
+        fNum('numberofgears', car.numberofgears),
+        fNum('doors', car.doors),
+        fNum('seats', car.seats),
+        fNum('performancehk', car.performancehk),
+        fNum('performancewatt', car.performancewatt),
+        fNum('torque', car.torque),
+        fNum('numberofengines', car.numberofengines),
+        f('cotwoemission', car.cotwoemission),
+        fNum('range', car.range),
+        fNum('grossbattery', car.grossbattery),
+        fNum('netbattery', car.netbattery),
+        fNum('chargingdc', car.chargingdc),
+        f('maxhomechargeac', car.maxhomechargeac),
+        f('onephasehomechargeac', car.onephasehomechargeac),
+        f('chargingspeed', car.chargingspeed),
+        f('powerusage', car.powerusage),
+        f('warranty', car.warranty),
+        f('batterywarranty', car.batterywarranty),
+        f('warrantypaint', car.warrantypaint),
+        f('warrantyrust', car.warrantyrust),
+        fNum('allowedtotalweight', car.allowedtotalweight),
+        fNum('kerbweight', car.kerbweight),
+        fNum('kerbweightexdriver', car.kerbweightexdriver),
+        fNum('payloadincdriver', car.payloadincdriver),
+        fNum('maxroofload', car.maxroofload),
+        fNum('trailerwbreak', car.trailerwbreak),
+        fNum('trailerwobreak', car.trailerwobreak),
+        fNum('maxbootcapacity', car.maxbootcapacity),
+        fNum('minbootcapacity', car.minbootcapacity),
+        fNum('length', car.length),
+        fNum('widthwomirrors', car.widthwomirrors),
+        fNum('widthwmirrors', car.widthwmirrors),
+        fNum('height', car.height),
+        fNum('wheelbase', car.wheelbase),
+        f('turningcircle', car.turningcircle),
+        f('yearmodel', car.yearmodel),
+        f('color', car.color),
+        f('interior', car.interior),
+        fBool('towbar', car.towbar),
+        fBool('frontpage', car.frontpage),
+        fBool('campaign', car.campaign),
+        fBool('fastdelivery', car.fastdelivery),
+        f('metatitle', car.metatitle),
+        f('metadescription', car.metadescription),
+        f('opengraphtitle', car.opengraphtitle),
+        f('opengraphdescription', car.opengraphdescription),
+        f('shortterm', car.shortterm),
+        f('pricecomment', car.pricecomment),
+        f('salesman', car.salesman),
+        f('availability', car.availability),
+        f('consultant', car.consultant),
+        f('sourceslug', car.sourceslug),
+        f('sourceslugad', car.sourceslugad),
+        f('chosepage', car.chosepage),
+        f('shop', car.shop),
+        descriptionHtml ? `descriptionHtml: ${JSON.stringify(descriptionHtml)}` : '',
+        equipmentHtml   ? `equipmentHtml: ${JSON.stringify(equipmentHtml)}` : '',
+      ].filter(Boolean).join('\n');
+
+      const content = `---\n${fields}\n---`;
+
+
+      fs.writeFileSync(path.join(brandDir, `${carSlug}.md`), content);
+    });
+
+    console.log(`✅ Lagret ${data.biler.length} biler i /biler/[merke]/.`);
 
     // --- 7. TJENESTER ---
     const servicesDir = path.join(__dirname, 'content', 'tjenester');
     if (!fs.existsSync(servicesDir)) fs.mkdirSync(servicesDir, { recursive: true });
 
-    // Lag en _index.md for samlesiden /tjenester/
     const servicesIndex = path.join(servicesDir, '_index.md');
     if (!fs.existsSync(servicesIndex)) {
       fs.writeFileSync(servicesIndex, `---\ntitle: "Våre Tjenester"\nlayout: "list"\n---`);
     }
 
-    // Hent tjenester fra data-objektet (Sørg for at "tjenester": *[_type == "service"] er med i fetch-spørringen din øverst)
     const tjenester = await client.fetch(`*[_type == "service"] {
       ...,
       "image": image.asset->url
@@ -267,12 +391,8 @@ console.log(`✅ Lagret ${data.biler.length} biler i /biler/[merke]/.`);
 
     tjenester.forEach(service => {
       const slug = service.slug?.current || service.title.toLowerCase().replace(/\s+/g, '-');
-      
-      // Vi konverterer body (Portable Text) til HTML
       const bodyHtml = toHTML(service.body || []);
-      const leadHtml = (service.lead || '').replace(/\n/g, '<br>'); // Bevarer linjeskift fra lead som HTML
-      
-      // Velg hvilken kilde som skal brukes (body prioriteres)
+      const leadHtml = (service.lead || '').replace(/\n/g, '<br>');
       const finalHtml = bodyHtml || leadHtml;
 
       const content = `---
