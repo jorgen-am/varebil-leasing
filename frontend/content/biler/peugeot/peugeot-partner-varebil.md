@@ -26,7 +26,7 @@ fuel: "Diesel"
 
 body: "Skapbil"
 
-drive: "Foran"
+drive: "FWD"
 
 gear: "Automat"
 

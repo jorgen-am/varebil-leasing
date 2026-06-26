@@ -60,9 +60,9 @@ maxhomechargeac: "11"
 
 chargingspeed: "26"
 
-powerusage: "20-21.4 kWh/100 km"
+powerusage: "20-21,4 kWh/100 km"
 
-batterywarranty: "8 år/160.000 km"
+batterywarranty: "8 år/16000 km"
 
 allowedtotalweight: "3150"
 

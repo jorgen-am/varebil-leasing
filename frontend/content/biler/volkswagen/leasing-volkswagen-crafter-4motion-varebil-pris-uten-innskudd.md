@@ -22,7 +22,7 @@ fuel: "Diesel"
 
 body: "Varebil"
 
-drive: "4WD"
+drive: "AWD"
 
 gear: "Automat"
 

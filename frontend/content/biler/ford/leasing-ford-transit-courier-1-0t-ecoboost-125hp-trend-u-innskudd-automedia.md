@@ -11,9 +11,9 @@ gallery:
   - "https://cdn.sanity.io/images/1lzskaub/production/e00b0c6b3d8c7e7a24833498355f035a8acdbc4d-850x450.jpg?fm=webp&q=80"
   - "https://cdn.sanity.io/images/1lzskaub/production/30c352af35c78e5aec9a5223b97761a5b4bb0c43-850x450.jpg?fm=webp&q=80"
   - "https://cdn.sanity.io/images/1lzskaub/production/6562930ddeb1f4ec12c9b91758d2271e258ccc63-850x450.jpg?fm=webp&q=80"
-modeldescription: "1.0 T ECOBOOST 125HP TREND"
+modeldescription: "1 T ECOBOOST 125HP TREND"
 
-alttext: "Ford Transit Courier 1.0 T ECOBOOST foran venstre"
+alttext: "Ford Transit Courier 1 T ECOBOOST foran venstre"
 
 pricezero: "4790"
 
@@ -25,7 +25,7 @@ fuel: "Bensin"
 
 body: "Skapbil"
 
-drive: "Foran"
+drive: "FWD"
 
 gear: "Manuell"
 
@@ -53,9 +53,9 @@ onephasehomechargeac: "none"
 
 chargingspeed: "none"
 
-powerusage: "0.7 l/mil"
+powerusage: "0,7 l/mil"
 
-warranty: "5 år/200.000 km"
+warranty: "5 år/20000 km"
 
 batterywarranty: "none"
 

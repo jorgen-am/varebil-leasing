@@ -57,7 +57,7 @@ chargingspeed: "43 min"
 
 powerusage: "27,7 kWh/100 km"
 
-warranty: "5 år/100.000 km"
+warranty: "5 år/10000 km"
 
 allowedtotalweight: "3500"
 

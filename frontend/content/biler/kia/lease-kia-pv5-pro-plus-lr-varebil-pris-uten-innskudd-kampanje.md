@@ -23,7 +23,7 @@ fuel: "Elektrisitet"
 
 body: "Varebil"
 
-drive: "Foran"
+drive: "FWD"
 
 gear: "Automat"
 
@@ -55,9 +55,9 @@ chargingspeed: "39 min"
 
 powerusage: "19,1 kWh/100 km"
 
-warranty: "7 år/150.000 km"
+warranty: "7 år/15000 km"
 
-batterywarranty: "8 år/160.000 km"
+batterywarranty: "8 år/16000 km"
 
 warrantypaint: "5 år"
 

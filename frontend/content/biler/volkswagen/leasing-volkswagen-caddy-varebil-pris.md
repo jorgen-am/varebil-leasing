@@ -9,9 +9,9 @@ gallery:
   - "https://cdn.sanity.io/images/1lzskaub/production/929f43fd9add98096e0528f3691ad7d5a319cc8f-850x450.jpg?fm=webp&q=80"
   - "https://cdn.sanity.io/images/1lzskaub/production/0b449706db2b9732227e164da51b6bd0079f4e21-850x450.jpg?fm=webp&q=80"
   - "https://cdn.sanity.io/images/1lzskaub/production/022f83ba5c5fd58cd368bd06af745db1ce65c284-850x450.jpg?fm=webp&q=80"
-modeldescription: "Cargo Pluss 2.0 TDI DSG Loyds cargo gulv"
+modeldescription: "Cargo Pluss 2 TDI DSG Loyds cargo gulv"
 
-alttext: "Leasing av Volkswagen Caddy 2.0 TDI uten innskudd"
+alttext: "Leasing av Volkswagen Caddy 2 TDI uten innskudd"
 
 pricezero: "5490"
 
@@ -23,7 +23,7 @@ fuel: "CNG"
 
 body: "Varebil"
 
-drive: "Foran"
+drive: "FWD"
 
 gear: "Manuell"
 

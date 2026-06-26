@@ -65,3 +65,6 @@ port = 1316
       parent = "tjenester"
       url = "/tjenester/releasing/"
       weight = 3
+
+  [markup.goldmark.renderer]
+    unsafe = true

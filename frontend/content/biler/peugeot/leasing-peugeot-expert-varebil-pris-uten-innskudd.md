@@ -9,7 +9,7 @@ gallery:
   - "https://cdn.sanity.io/images/1lzskaub/production/d95dc9e1347f1721d67705d927943b06decba788-1000x500.jpg?fm=webp&q=80"
   - "https://cdn.sanity.io/images/1lzskaub/production/5eb1834b424945fe2874057227943cf1fa645be7-1000x500.jpg?fm=webp&q=80"
   - "https://cdn.sanity.io/images/1lzskaub/production/537d565ef9cf84ce4fe749d2dd2aa825ccab6e45-1000x500.jpg?fm=webp&q=80"
-modeldescription: "L2 Auto Mester 2.0 l"
+modeldescription: "L2 Auto Mester 2 l"
 
 alttext: "Leasing av Peugeot Expert -  pris uten innskudd"
 
@@ -23,7 +23,7 @@ fuel: "Diesel"
 
 body: "Skapbil"
 
-drive: "Foran"
+drive: "FWD"
 
 gear: "Manuell"
 
@@ -43,7 +43,7 @@ torque: "340"
 
 cotwoemission: "195"
 
-warranty: "5 år/200.000 km"
+warranty: "5 år/20000 km"
 
 allowedtotalweight: "3100"
 

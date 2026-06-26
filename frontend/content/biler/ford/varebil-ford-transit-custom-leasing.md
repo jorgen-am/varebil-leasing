@@ -9,7 +9,7 @@ gallery:
   - "https://cdn.sanity.io/images/1lzskaub/production/251a86e7ab33db6cd0acf9c74b1118760c43d697-850x450.jpg?fm=webp&q=80"
   - "https://cdn.sanity.io/images/1lzskaub/production/973ff079af028a40ab88fdfa161db1947b13d22f-850x450.jpg?fm=webp&q=80"
   - "https://cdn.sanity.io/images/1lzskaub/production/60fe6694941e7cd0a4e09ee5cd857bc80c30cc79-850x450.jpg?fm=webp&q=80"
-modeldescription: "2.0 TD Trend L2"
+modeldescription: "2 TD Trend L2"
 
 alttext: "Leasing av Ford Transit Custom varebil uten innskudd"
 
@@ -21,7 +21,7 @@ fuel: "Diesel"
 
 body: "Skapbil"
 
-drive: "Foran"
+drive: "FWD"
 
 gear: "Manuell"
 
@@ -41,7 +41,7 @@ torque: "390"
 
 cotwoemission: "192"
 
-warranty: "5 år/200.000 km"
+warranty: "5 år/20000 km"
 
 warrantyrust: "12 år"
 

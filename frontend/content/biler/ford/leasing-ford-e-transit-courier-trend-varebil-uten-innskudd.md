@@ -25,7 +25,7 @@ fuel: "Elektrisitet"
 
 body: "Varebil"
 
-drive: "Foran"
+drive: "FWD"
 
 gear: "Automat"
 
@@ -55,15 +55,15 @@ chargingdc: "100"
 
 maxhomechargeac: "11"
 
-onephasehomechargeac: "7.4"
+onephasehomechargeac: "7,4"
 
 chargingspeed: "23"
 
-powerusage: "16.0"
+powerusage: "16"
 
-warranty: "5 år/200.000 km"
+warranty: "5 år/20000 km"
 
-batterywarranty: "8 år/160.000 km"
+batterywarranty: "8 år/16000 km"
 
 warrantypaint: "3 år"
 

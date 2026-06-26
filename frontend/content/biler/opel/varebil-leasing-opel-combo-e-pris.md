@@ -19,7 +19,7 @@ fuel: "Elektrisitet"
 
 body: "Skapbil"
 
-drive: "Foran"
+drive: "FWD"
 
 gear: "Automat"
 
@@ -57,9 +57,9 @@ chargingspeed: "30 min"
 
 powerusage: "19,2 kWh/100 km"
 
-warranty: "5 år/200.000 km"
+warranty: "5 år/20000 km"
 
-batterywarranty: "8 år/160.000 km"
+batterywarranty: "8 år/16000 km"
 
 warrantyrust: "8 år"
 

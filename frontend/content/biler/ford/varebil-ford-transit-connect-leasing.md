@@ -21,7 +21,7 @@ fuel: "Diesel"
 
 body: "Skapbil"
 
-drive: "Foran"
+drive: "FWD"
 
 gear: "Manuell"
 
@@ -41,7 +41,7 @@ torque: "240"
 
 cotwoemission: "149"
 
-warranty: "5 år/200.000 km"
+warranty: "5 år/20000 km"
 
 allowedtotalweight: "2405"
 

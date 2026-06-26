@@ -1,5 +1,5 @@
 ---
-title: "Varebil leasing av Isuzu"
+title: "Leasing av Isuzu varebil"
 metadescription: "Finn gode tilbud på leasing av Isuzu varebil hos Automedia."
 layout: "list"
 url: "/biler/isuzu/"

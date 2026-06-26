@@ -23,7 +23,7 @@ fuel: "Diesel"
 
 body: "Varebil"
 
-drive: "Foran"
+drive: "FWD"
 
 gear: "Automat"
 

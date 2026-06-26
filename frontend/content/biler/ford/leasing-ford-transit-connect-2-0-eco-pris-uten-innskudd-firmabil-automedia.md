@@ -9,9 +9,9 @@ gallery:
   - "https://cdn.sanity.io/images/1lzskaub/production/2e7fbdbfa43615c411753ea156b4433fcc2b0a1c-850x450.jpg?fm=webp&q=80"
   - "https://cdn.sanity.io/images/1lzskaub/production/e0432b40ecd9e19d07612e9a17cdaf7b17adeba9-850x450.jpg?fm=webp&q=80"
   - "https://cdn.sanity.io/images/1lzskaub/production/a2a939137df9c59a551ba733bdf894b6ee7b6f99-850x450.jpg?fm=webp&q=80"
-modeldescription: "2.0 ECOBLUE L1 TREND"
+modeldescription: "2 ECOBLUE L1 TREND"
 
-alttext: "Ford Transit Connect 2.0 ECO L1"
+alttext: "Ford Transit Connect 2 ECO L1"
 
 pricezero: "4877"
 
@@ -43,7 +43,7 @@ torque: "320"
 
 cotwoemission: "164"
 
-warranty: "5 år/200.000 km"
+warranty: "5 år/20000 km"
 
 allowedtotalweight: "2400"
 

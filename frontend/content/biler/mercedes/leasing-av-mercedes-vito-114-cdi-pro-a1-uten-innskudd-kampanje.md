@@ -24,7 +24,7 @@ fuel: "Diesel"
 
 body: "Varebil"
 
-drive: "Bak"
+drive: "RWD"
 
 gear: "Manuell"
 

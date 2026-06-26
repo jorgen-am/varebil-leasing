@@ -51,11 +51,11 @@ maxhomechargeac: "11"
 
 chargingspeed: "24"
 
-powerusage: "22.8"
+powerusage: "22,8"
 
-warranty: "7 år/150.000 km"
+warranty: "7 år/15000 km"
 
-batterywarranty: "7 år / 150.000 km"
+batterywarranty: "7 år / 15000 km"
 
 allowedtotalweight: "3240"
 

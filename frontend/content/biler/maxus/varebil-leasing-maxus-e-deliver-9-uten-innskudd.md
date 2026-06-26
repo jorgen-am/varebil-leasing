@@ -21,7 +21,7 @@ fuel: "Elektrisitet"
 
 body: "Kombikupe"
 
-drive: "Foran"
+drive: "FWD"
 
 gear: "Automat"
 
@@ -57,9 +57,9 @@ chargingspeed: "30 min"
 
 powerusage: "16,5 kWh/100 km"
 
-warranty: "5 år/100.000 km"
+warranty: "5 år/10000 km"
 
-batterywarranty: "8 år/160.000 km"
+batterywarranty: "8 år/16000 km"
 
 warrantyrust: "12 år"
 

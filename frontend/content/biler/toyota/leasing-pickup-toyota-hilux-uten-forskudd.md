@@ -41,7 +41,7 @@ torque: "500"
 
 cotwoemission: "248"
 
-warranty: "5 år/200.000 km"
+warranty: "5 år/20000 km"
 
 allowedtotalweight: "3210"
 

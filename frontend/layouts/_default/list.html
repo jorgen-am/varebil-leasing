@@ -1,9 +1,14 @@
 {{ define "main" }}
 <section class="car-list container">
-    <h1>Våre varebiler for leasing</h1>
+    <h1>{{ .Title }}</h1>
+    {{ if .Content }}
+    <div class="brand-description">{{ .Content }}</div>
+    {{ end }}
 </section>
 <section class="car-list container">
     <div id="filter-sort-container"></div>
-    <div id="main-cars-grid" data-page="list" class="grid-container"></div>
+    <div class="main-cars-right">
+        <div id="main-cars-grid" data-page="list" class="grid-container"></div>
+    </div>
 </section>
 {{ end }}

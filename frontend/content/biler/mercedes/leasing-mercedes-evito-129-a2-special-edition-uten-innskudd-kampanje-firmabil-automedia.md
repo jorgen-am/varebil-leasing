@@ -23,7 +23,7 @@ fuel: "Elektrisitet"
 
 body: "Varebil"
 
-drive: "Foran"
+drive: "FWD"
 
 gear: "Automat"
 
@@ -49,7 +49,7 @@ chargingdc: "100"
 
 maxhomechargeac: "11"
 
-powerusage: "25.8-28.5 kWh/100 km"
+powerusage: "25,8-28,5 kWh/100 km"
 
 allowedtotalweight: "3200"
 

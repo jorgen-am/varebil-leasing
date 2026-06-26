@@ -249,7 +249,7 @@ url: "/biler/"
           fs.mkdirSync(brandDir, { recursive: true });
           
           const seoData = data.kategorier.find(kat => kat.slug === brandSlug);
-          const finalTitle = seoData?.title || `Varebil leasing av ${car.brand}`;
+          const finalTitle = seoData?.title || `Leasing av ${car.brand} varebil`;
           const finalMeta = seoData?.description || `Finn gode tilbud på leasing av ${car.brand} varebil hos Automedia.`;
           const finalBody = seoData?.body ? toHTML(seoData.body) : "";
 
@@ -377,6 +377,56 @@ ${finalBody}`);
 
     console.log(`✅ Lagret ${data.biler.length} biler i /biler/[merke]/.`);
 
+
+    // --- 6. KATEGORISIDER ---
+    console.log('Bygger kategorisider under /biler/...');
+
+    const CATEGORY_PAGES = [
+        // Drivstoff
+        { slug: 'leasing-varebil-diesel',       field: 'fuel',  value: 'Diesel',        defaultTitle: 'Leasing av diesel varebil' },
+        { slug: 'leasing-varebil-bensin',        field: 'fuel',  value: 'Bensin',        defaultTitle: 'Leasing av bensin varebil' },
+        { slug: 'leasing-varebil-elektrisk',     field: 'fuel',  value: 'Elektrisitet',  defaultTitle: 'Leasing av elektrisk varebil' },
+        { slug: 'leasing-varebil-cng',           field: 'fuel',  value: 'CNG',           defaultTitle: 'Leasing av CNG varebil' },
+        // Hjuldrift
+        { slug: 'leasing-varebil-awd',           field: 'drive', value: 'AWD',           defaultTitle: 'Leasing av varebil med AWD' },
+        { slug: 'leasing-varebil-4wd',           field: 'drive', value: '4WD',           defaultTitle: 'Leasing av varebil med 4WD' },
+        { slug: 'leasing-varebil-fwd',           field: 'drive', value: 'Foran',         defaultTitle: 'Leasing av varebil med forhjulstrekk' },
+        { slug: 'leasing-varebil-rwd',           field: 'drive', value: 'Bak',           defaultTitle: 'Leasing av varebil med bakhjulstrekk' },
+        { slug: 'leasing-varebil-4motion',       field: 'drive', value: '4Motion',       defaultTitle: 'Leasing av varebil med 4Motion' },
+        // Karosseri
+        { slug: 'leasing-varebil-varebil',       field: 'body',  value: 'Varebil',       defaultTitle: 'Leasing av varebil' },
+        { slug: 'leasing-varebil-pickup',        field: 'body',  value: 'Pickup',        defaultTitle: 'Leasing av pickup' },
+        { slug: 'leasing-varebil-flerbruksbil',  field: 'body',  value: 'Flerbruksbil',  defaultTitle: 'Leasing av flerbruksbil' },
+        { slug: 'leasing-varebil-skapbil',       field: 'body',  value: 'Skapbil',       defaultTitle: 'Leasing av skapbil' },
+        // Dører
+        { slug: 'leasing-varebil-2-dorer',       field: 'doors', value: '2',             defaultTitle: 'Leasing av varebil med 2 dører' },
+        { slug: 'leasing-varebil-4-dorer',       field: 'doors', value: '4',             defaultTitle: 'Leasing av varebil med 4 dører' },
+        { slug: 'leasing-varebil-5-dorer',       field: 'doors', value: '5',             defaultTitle: 'Leasing av varebil med 5 dører' },
+        // Seter
+        { slug: 'leasing-varebil-2-seter',       field: 'seats', value: '2',             defaultTitle: 'Leasing av varebil med 2 seter' },
+        { slug: 'leasing-varebil-3-seter',       field: 'seats', value: '3',             defaultTitle: 'Leasing av varebil med 3 seter' },
+        { slug: 'leasing-varebil-5-seter',       field: 'seats', value: '5',             defaultTitle: 'Leasing av varebil med 5 seter' },
+    ];
+
+    CATEGORY_PAGES.forEach(cat => {
+        const catDir = path.join(bilerBaseDir, cat.slug);
+        if (!fs.existsSync(catDir)) fs.mkdirSync(catDir, { recursive: true });
+
+        const seoData = data.kategorier.find(k => k.slug === cat.slug);
+        const finalTitle = seoData?.title || cat.defaultTitle;
+        const finalMeta = seoData?.description || `Finn gode tilbud på ${cat.defaultTitle.toLowerCase()} hos Automedia.`;
+        const finalBody = seoData?.body ? toHTML(seoData.body) : '';
+
+        fs.writeFileSync(path.join(catDir, '_index.md'), `---
+title: "${finalTitle.replace(/"/g, '\\"')}"
+metadescription: "${finalMeta.replace(/"/g, '\\"')}"
+layout: "list"
+url: "/biler/${cat.slug}/"
+---
+${finalBody}`);
+    });
+
+    console.log(`✅ Opprettet ${CATEGORY_PAGES.length} kategorisider.`);
     // --- 7. TJENESTER ---
     const servicesDir = path.join(__dirname, 'content', 'tjenester');
     if (!fs.existsSync(servicesDir)) fs.mkdirSync(servicesDir, { recursive: true });

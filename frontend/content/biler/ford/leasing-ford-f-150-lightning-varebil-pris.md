@@ -54,15 +54,15 @@ chargingdc: "150"
 
 maxhomechargeac: "11 kW"
 
-onephasehomechargeac: "7.4"
+onephasehomechargeac: "7,4"
 
 chargingspeed: "39 min"
 
-powerusage: "28.0"
+powerusage: "28"
 
-warranty: "5 år/100.000 km"
+warranty: "5 år/10000 km"
 
-batterywarranty: "8 år/160.000 km"
+batterywarranty: "8 år/16000 km"
 
 allowedtotalweight: "3500"
 

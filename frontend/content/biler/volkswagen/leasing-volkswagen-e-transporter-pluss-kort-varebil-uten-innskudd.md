@@ -4,7 +4,7 @@ brand: "Volkswagen"
 slug: "leasing-volkswagen-e-transporter-pluss-kort-varebil-uten-innskudd"
 layout: "single"
 mainimages: "https://cdn.sanity.io/images/1lzskaub/production/7ec6e95e12a4a6ab22345a5517ec74909f5411d9-1000x500.jpg?fm=webp&q=80"
-shopimage: "https://cdn.prod.website-files.com/581884d6ec4143c342e9f6da/67e28081f2f45ff72f84f022_VW%20Transporter%202.0%20TDI%20150HK%20Pluss%20Kort%20Auto%204WD%20Front.jpg"
+shopimage: "https://cdn.prod.website-files.com/581884d6ec4143c342e9f6da/67e28081f2f45ff72f84f022_VW%20Transporter%202%20TDI%20150HK%20Pluss%20Kort%20Auto%204WD%20Front.jpg"
 gallery: 
   - "https://cdn.sanity.io/images/1lzskaub/production/7ec6e95e12a4a6ab22345a5517ec74909f5411d9-1000x500.jpg?fm=webp&q=80"
   - "https://cdn.sanity.io/images/1lzskaub/production/5934c8d5c2cb5fb16741f82a1391ec715e2bb370-1000x500.jpg?fm=webp&q=80"
@@ -51,7 +51,7 @@ chargingdc: "125"
 
 maxhomechargeac: "11"
 
-powerusage: "25-28.1 kWh/100 km"
+powerusage: "25-28,1 kWh/100 km"
 
 allowedtotalweight: "3350"
 

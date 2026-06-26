@@ -23,7 +23,7 @@ fuel: "Elektrisitet"
 
 body: "Varebil"
 
-drive: "1"
+drive: "FWD"
 
 gear: "Automat"
 

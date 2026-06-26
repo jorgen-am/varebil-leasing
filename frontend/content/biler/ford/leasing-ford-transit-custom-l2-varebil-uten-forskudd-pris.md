@@ -9,7 +9,7 @@ gallery:
   - "https://cdn.sanity.io/images/1lzskaub/production/34901374ed11ff0d4a74d9cf6c0aead782b0a324-956x506.jpg?fm=webp&q=80"
   - "https://cdn.sanity.io/images/1lzskaub/production/548ee02361ca684a002cabf781de916644440c43-956x506.jpg?fm=webp&q=80"
   - "https://cdn.sanity.io/images/1lzskaub/production/1398cda7fc094dfe192a2a5f26d4a7b95de2ec8b-956x506.jpg?fm=webp&q=80"
-modeldescription: "2.0 EcoBlue L2"
+modeldescription: "2 EcoBlue L2"
 
 interest: "Fast"
 
@@ -19,7 +19,7 @@ fuel: "Diesel"
 
 body: "Skapbil"
 
-drive: "Foran"
+drive: "FWD"
 
 gear: "Manuell"
 
@@ -39,7 +39,7 @@ torque: "390"
 
 cotwoemission: "192"
 
-warranty: "5 år/200.000 km"
+warranty: "5 år/20000 km"
 
 warrantyrust: "12 år"
 

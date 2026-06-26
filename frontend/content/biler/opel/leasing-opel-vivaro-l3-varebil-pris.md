@@ -9,9 +9,9 @@ gallery:
   - "https://cdn.sanity.io/images/1lzskaub/production/e6090ed14cb2bfe1fed87a7cdd3f59335fc1fc3c-492x285.jpg?fm=webp&q=80"
   - "https://cdn.sanity.io/images/1lzskaub/production/57f4e1255bd016d8d78b7795f9283fd781b183a2-600x373.jpg?fm=webp&q=80"
   - "https://cdn.sanity.io/images/1lzskaub/production/7b400295cd7c116af0acb3ee9816e93fa34ec53e-554x321.png?fm=webp&q=80"
-modeldescription: "2.0 D L3 Elite"
+modeldescription: "2 D L3 Elite"
 
-alttext: "Leasing av Opel Vivaro 2.0 D L3 Elite varebil – romslighet og effektivitet uten innskudd"
+alttext: "Leasing av Opel Vivaro 2 D L3 Elite varebil – romslighet og effektivitet uten innskudd"
 
 interest: "Fast"
 
@@ -21,7 +21,7 @@ fuel: "Diesel"
 
 body: "Varebil"
 
-drive: "Foran"
+drive: "FWD"
 
 gear: "Automat"
 

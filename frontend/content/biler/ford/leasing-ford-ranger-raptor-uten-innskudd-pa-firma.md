@@ -9,9 +9,9 @@ gallery:
   - "https://cdn.sanity.io/images/1lzskaub/production/4e2fb2792e79b8b137a021b0dfe6f507377adab7-1000x500.jpg?fm=webp&q=80"
   - "https://cdn.sanity.io/images/1lzskaub/production/f2ca641497b0db44929c508d85d75fd93ed311e1-1000x500.jpg?fm=webp&q=80"
   - "https://cdn.sanity.io/images/1lzskaub/production/92e2eb88a6bb0dc4ac254e52e284ebf1f4d1fc65-1000x500.jpg?fm=webp&q=80"
-modeldescription: "Raptor 3.0 DoubleCab"
+modeldescription: "Raptor 3 DoubleCab"
 
-alttext: "Leasing av Ford Ranger Raptor 3.0 V6 EcoBoost 4WD DoubleCab som firmabil uten innskudd"
+alttext: "Leasing av Ford Ranger Raptor 3 V6 EcoBoost 4WD DoubleCab som firmabil uten innskudd"
 
 interest: "Fast"
 
@@ -39,7 +39,7 @@ torque: "491"
 
 cotwoemission: "315"
 
-warranty: "5 år/100.000 km"
+warranty: "5 år/10000 km"
 
 allowedtotalweight: "3130"
 

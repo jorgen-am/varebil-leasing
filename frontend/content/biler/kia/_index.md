@@ -1,5 +1,5 @@
 ---
-title: "Varebil leasing av Kia"
+title: "Leasing av Kia varebil"
 metadescription: "Finn gode tilbud på leasing av Kia varebil hos Automedia."
 layout: "list"
 url: "/biler/kia/"

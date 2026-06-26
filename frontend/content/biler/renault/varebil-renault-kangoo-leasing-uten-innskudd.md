@@ -23,7 +23,7 @@ fuel: "Bensin"
 
 body: "Minivan"
 
-drive: "Foran"
+drive: "FWD"
 
 gear: "Automat"
 

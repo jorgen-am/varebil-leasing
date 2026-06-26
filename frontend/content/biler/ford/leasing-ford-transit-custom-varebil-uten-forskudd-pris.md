@@ -9,7 +9,7 @@ gallery:
   - "https://cdn.sanity.io/images/1lzskaub/production/3735666f66542b46a4ce2cd8a78f9cca7bda843a-850x450.jpg?fm=webp&q=80"
   - "https://cdn.sanity.io/images/1lzskaub/production/b912fb14c074f56871ba8e75bcbe4e5aaeab95b4-850x450.jpg?fm=webp&q=80"
   - "https://cdn.sanity.io/images/1lzskaub/production/2e099c44f269a267932a14cbb559b3cd3b219e58-850x450.jpg?fm=webp&q=80"
-modeldescription: "2.0 EcoBlue Auto AWD L1 Limited"
+modeldescription: "2 EcoBlue Auto AWD L1 Limited"
 
 alttext: "Bilder av Ford Transit Custom front"
 
@@ -23,7 +23,7 @@ fuel: "Diesel"
 
 body: "Skapbil"
 
-drive: "Foran"
+drive: "FWD"
 
 gear: "Automat"
 
@@ -53,9 +53,9 @@ onephasehomechargeac: "none"
 
 chargingspeed: "none"
 
-powerusage: "8.6 L/100 km"
+powerusage: "8,6 L/100 km"
 
-warranty: "5 år/200.000 km"
+warranty: "5 år/20000 km"
 
 batterywarranty: "none"
 

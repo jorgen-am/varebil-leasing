@@ -26,7 +26,7 @@ fuel: "Elektrisitet"
 
 body: "Pickup"
 
-drive: "4WD"
+drive: "AWD"
 
 gear: "Automat"
 

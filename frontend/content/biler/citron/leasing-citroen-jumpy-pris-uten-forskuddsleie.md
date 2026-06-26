@@ -20,7 +20,7 @@ fuel: "Diesel"
 
 body: "Varebil"
 
-drive: "Foran"
+drive: "FWD"
 
 gear: "Manuell"
 
@@ -82,7 +82,7 @@ consultant: "none"
 
 sourceslug: "https://www.motorbasen.no/sider/6370/citroen-jumpy-iii-xl-l3h1-2-0-blue-hdi-150-hk"
 
-sourceslugad: "https://www.auto-data.net/no/citroen-jumpy-iii-xl-2.0-bluehdi-150hp-43947"
+sourceslugad: "https://www.auto-data.net/no/citroen-jumpy-iii-xl-2-bluehdi-150hp-43947"
 
 chosepage: "Leasing Firmabil"
 

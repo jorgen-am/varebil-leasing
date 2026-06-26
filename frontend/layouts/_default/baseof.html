@@ -2,13 +2,17 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
         <title>{{ .Title }}</title>
+        {{ if .Params.metadescription }}<meta name="description" content="{{ .Params.metadescription }}">{{ end }}
         <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
         <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
         <link rel="shortcut icon" href="/images/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
         <link rel="manifest" href="/images/site.webmanifest" />
         <link rel="stylesheet" href="/css/globals.css">
+        <!-- HubSpot -->
+        <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/1423425.js"></script>
     </head>
     <body>
 
@@ -17,15 +21,17 @@
 
                 <div class="logo">
                     <!--a href="/">{{ .Site.Data.settings.title }}</a-->
-                    <a href="/"><img src="/images/logo.png" alt="Varebil leasing logo">Varebil leasing<span>.no</span></a>
+                    <a href="/"><div class="logo-icon"></div><p>Varebil<br/><span>leasing</span>.no</p></a>
                 </div>
 
                 <nav>
+
                     <ul class="nav-menu">
-                        
-                        <li class="nav-item dropdown">
-                            <a href="/biler/">Våre biler ▼</a>
+                        <li class="nav-item dropdown" onclick="toggleFaq(this)">
+                            <a class="nav-screen" href="/biler/"><img class="nav-filter" alt="ikon biler" src="/images/icon-cars.png">Våre biler</a>
+                            <a class="nav-cell" ><img class="nav-filter" alt="ikon biler" src="/images/icon-cars.png">Våre biler</a>
                             <ul class="dropdown-menu">
+                                <li class="all-cars no-text"><a href="/biler/">Alle biler</a></li>
                                 {{ with .Site.GetPage "/biler" }}
                                     {{ range .Sections.ByTitle }}
                                         <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
@@ -34,9 +40,11 @@
                             </ul>
                         </li>
                                     
-                        <li class="nav-item dropdown">
-                            <a href="/tjenester/">Tjenester ▼</a>
+                        <li class="nav-item dropdown" onclick="toggleFaq(this)">
+                            <a class="nav-screen" href="/tjenester/"><img class="nav-filter" alt="ikon tjenester" src="/images/icon-service.png">Tjenester</a>
+                            <a class="nav-cell"><img class="nav-filter" alt="ikon tjenester" src="/images/icon-service.png">Tjenester</a>
                             <ul class="dropdown-menu">
+                                <li class="all-services"><a href="/tjenester/">Alle tjenester</a></li>
                                 {{ with .Site.GetPage "/tjenester" }}
                                     {{ range .Pages.ByTitle }}
                                         <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
@@ -46,8 +54,8 @@
                         </li>
                 
                         <li class="nav-item dropdown">
-                            <a href="/post/">Artikler ▼</a>
-                            <ul class="dropdown-menu">
+                            <a href="/post/"><img class="nav-filter" alt="ikon artikler" src="/images/icon-posts.png">Artikler</a>
+                            <!--ul class="dropdown-menu">
                                 {{ with .Site.GetPage "/post" }}
                                     {{ range .Sections.ByTitle }}
                                         {{ if and (not (in .Title "http")) (ne .Title "Generelt") }}
@@ -55,41 +63,50 @@
                                         {{ end }}
                                     {{ end }}
                                 {{ end }}
-                            </ul>
+                            </ul-->
                         </li>
                 
-                        <li><a href="/omtaler/">Omtaler</a></li>
+                        <li><a href="/omtaler/"><img class="nav-filter" alt="ikon ontaler" src="/images/icon-review.png">Omtaler</a></li>
 
-                        <li class="nav-item dropdown">
-                            <a href="#">Om oss ▼</a>
+                        <li class="nav-item dropdown" onclick="toggleFaq(this)">
+                            <a href="#"><img class="nav-filter" alt="ikon om oss" src="/images/icon-about.png">Om oss</a>
                             <ul class="dropdown-menu">
                                 <li><a href="/ansatte/">Ansatte</a></li>
                                 <li><a href="/kontakt-oss/">Kontakt oss</a></li>
                             </ul>
                         </li>
-
-                        <li class="nav-contact"><a href="tel:{{ .Site.Data.settings.phone }}"><!--{{ .Site.Data.settings.phone }}-->Ring</a></li>        
-
-                        <li class="nav-search">
-                            <form action="{{ "sok/" | relURL }}" method="get" class="search-form">
-                                <input type="text" id="search-input" name="q" placeholder="Søk etter varebil...">
-                                <button type="submit">Søk</button>
-                                <ul id="search-results"></ul>
-                            </form>
-                        </li>
                 
-                        <li class="nav-favorites"><a href="/favoritter/" class="heart-icon">♡</a></li>
-                
+                    </ul>
+
+                    <ul class="mobile-secondary-menu">
+                        <li class="nav-mobile"><a class="mobile-menu" onclick="toggleFaq(this)"><img class="nav-button nav-filter" alt="ikon mobil meny" src="/images/icon-bars.png">Vis meny</a></li>
+
+                        <li class="nav-contact no-text"><a href="tel:{{ .Site.Data.settings.phone }}"><!--{{ .Site.Data.settings.phone }}--><img class="nav-filter" alt="ikon ring" src="/images/icon-phone.png"><span>Ring oss</span></a></li>        
+                        <li class="nav-search no-text"><a href="#"class="compare-icon"><img class="nav-filter" alt="ikon søk" src="/images/icon-search.png"><span>Søk</span></a></li>
+                        <li class="nav-sammenlign no-text"><a href="/sammenlign/" class="compare-icon"><img class="nav-filter" alt="ikon sammenligning" src="/images/icon-compare-arrows.png"><span class="nav-badge" id="compare-badge"></span></a></li>
+                        <li class="nav-favorites no-text"><a href="/favoritter/" class="heart-icon"><img class="nav-filter" alt="ikon favoritter" src="/images/icon-heart.png"><span class="nav-badge" id="favorites-badge"></span></a></li>
                     </ul>
                 </nav>
                             
             </div>
         </header>
+
+        <section class="search-box container">
+            <form action="{{ "sok/" | relURL }}" method="get" class="search-form">
+                <div class="search-field-container">
+                    <button type="button" id="search-clear" onclick="clearSearch()" style="display:none">✕</button>
+                    <input type="text" id="search-input" name="q" placeholder="Søk etter varebil...">
+                    <button type="submit">Søk</button>
+                </div>
+                <ul id="search-results"></ul>
+            </form>
+        </section>
+
         <main>    
         {{ block "main" . }}{{ end }}
         </main>    
 
-        <!-- Sammnlingning forhåndsvisning -->
+        <!-- Sammnlingning forhåndsvisning 
         <div id="selection-bar" class="selection-bar" style="display: none;">
             <div class="selection-header">
                 <span>Valgte biler (<span id="selection-count">0</span>)</span>
@@ -97,13 +114,13 @@
             </div>
             
             <div id="selection-items" class="selection-items">
-                <!-- Bilder av valgte biler havner her -->
+               
             </div>
         
             <div class="selection-footer">
                 <a href="/sammenlign" class="compare-btn">Gå til side for valgte biler</a>
             </div>
-        </div>
+        </div> -->
         
         {{ partial "footer.html" . }}
 
@@ -155,7 +172,7 @@
                 const imgUrl = car.mainimageurl || car.mainImageUrl || car.shopimage || "";
 
                 return `
-                <a href="${car.permalink || '#'}" class="car-card context-${context}" 
+                <a href="${car.permalink || '#'}" class="car-card context-${context}${car.fuel && car.fuel.toLowerCase() === 'elektrisitet' ? ' is-electric' : ' is-combustion'}" 
                 data-slug="${car.slug}" 
                 data-brand="${car.brand || ''}" 
                 data-model="${car.modeldescription || ''}"
@@ -248,20 +265,22 @@ ${context === 'compare' ? `
                             <li class="spec-hk spec-main"><span class="data-property">Effekt (HK):</span> <span>${car.performancehk ? car.performancehk + ' HK' : ''}</span></li>
                             <li class="spec-warranty spec-main"><span class="data-property">Nybilgaranti:</span> <span>${car.warranty || ''}</span></li>
 
+                            <!--
                             <li class="spec-section-title spec-extended">Økonomi &amp; Priser i detalj</li>
                             <li class="spec-price0 spec-main"><span class="data-property">Leasingpris (0,- innskudd):</span> <span>${formatNoPricePure(currentPrice)}</span></li>
                             <li class="spec-price60 spec-extended"><span class="data-property">Leasingpris (60' innskudd):</span> <span>${formatNoPricePure(car.pricesixty || '')}</span></li>
                             <li class="spec-price100 spec-extended"><span class="data-property">Leasingpris (100' innskudd):</span> <span>${formatNoPricePure(car.pricehundred || '')}</span></li>
                             <li class="spec-priceads0 spec-extended"><span class="data-property">Annonsepris (Eks. mva):</span> <span>${formatNoPricePure(car.priceadszero || '')}</span></li>
+                            -->
 
-                            <li class="spec-section-title spec-extended engine">Motor &amp; Ytelse utvidet</li>
+                            <li class="spec-section-title spec-extended engine">Motor / Batteri</li>
                             <li class="spec-gears-count spec-extended engine"><span class="data-property">Antall gir:</span> <span>${car.numberofgears || ''}</span></li>
                             <li class="spec-watt spec-extended engine"><span class="data-property">Effekt (kW):</span> <span>${car.performancewatt ? car.performancewatt + ' kW' : ''}</span></li>
                             <li class="spec-torque spec-extended engine"><span class="data-property">Dreiemoment:</span> <span>${car.torque ? car.torque + ' Nm' : ''}</span></li>
                             <li class="spec-engines spec-extended engine"><span class="data-property">Antall motorer:</span> <span>${car.numberofengines || ''}</span></li>
                             <li class="spec-co2 spec-extended engine"><span class="data-property">CO2-utslipp:</span> <span>${car.cotwoemission || ''}</span></li>
 
-                            <li class="spec-section-title spec-extended elpower">Batteri &amp; Lading</li>
+                            <li class="spec-section-title spec-extended elpower">Motor / Batteri</li>
                             <li class="spec-battery-gross spec-extended elpower"><span class="data-property">Brutto batteri:</span> <span>${car.grossbattery ? car.grossbattery + ' kWh' : ''}</span></li>
                             <li class="spec-battery-net spec-extended elpower"><span class="data-property">Netto batteri:</span> <span>${car.netbattery ? car.netbattery + ' kWh' : ''}</span></li>
                             <li class="spec-charging-dc spec-extended elpower"><span class="data-property">Maks hurtiglading (DC):</span> <span>${car.chargingdc ? car.chargingdc + ' kW' : ''}</span></li>
@@ -334,7 +353,7 @@ ${context === 'compare' ? `
                 if (!container) return;
 
                 const checkboxGroups = CHECKBOX_FILTERS.map(cfg => `
-                    <div class="filter-group" id="filter-group-${cfg.field}">
+                    <div class="filter-group" id="filter-group-${cfg.field}" onclick="toggleFaq(this)">
                         <div class="filter-group-label">${cfg.label}</div>
                         <div class="filter-checkboxes" id="checkboxes-${cfg.field}">
                             ${cfg.dynamic ? '' : (cfg.options || []).map(([val, label]) => `
@@ -347,44 +366,54 @@ ${context === 'compare' ? `
 
                 container.innerHTML = `
                 <div class="filter-sort-bar">
+                    <div class="sort-controls">
+                        <div class="custom-select" id="sort-select-custom">
+                            <div class="custom-select-trigger">Sorter</div>
+                            <div class="custom-select-options">
+                                <div class="custom-option selected" data-value="">Standard</div>
+                                <div class="custom-option" data-value="brand-asc">Merke A–Å</div>
+                                <div class="custom-option" data-value="brand-desc">Merke Å–A</div>
+                                <div class="custom-option" data-value="pricezero-asc">Pris lav–høy</div>
+                                <div class="custom-option" data-value="pricezero-desc">Pris høy–lav</div>
+                                <div class="custom-option" data-value="range-desc">Rekkevidde høy–lav</div>
+                                <div class="custom-option" data-value="range-asc">Rekkevidde lav–høy</div>
+                                <div class="custom-option" data-value="maxbootcapacity-desc">Lasteromsvolum høy–lav</div>
+                                <div class="custom-option" data-value="maxbootcapacity-asc">Lasteromsvolum lav–høy</div>
+                                <div class="custom-option" data-value="allowedtotalweight-desc">Totalvekt høy–lav</div>
+                                <div class="custom-option" data-value="allowedtotalweight-asc">Totalvekt lav–høy</div>
+                                <div class="custom-option" data-value="cotwoemission-asc">CO2 lav–høy</div>
+                                <div class="custom-option" data-value="cotwoemission-desc">CO2 høy–lav</div>
+                            </div>
+                        </div>
+                        <button class="toggle-filter">Vis/skjul filter</button>
+                    </div>
+
                     <div class="filters">
-                        ${checkboxGroups}
-                        <div class="range-filter">
-                            <label>Pris maks: <span id="filter-pricezero-val">Alle</span></label>
+                        <div class="display-filtered-cars">
+                            <span id="cars-count"></span>
+                            <button id="reset-filters">Nullstill</button>
+                        </div>
+
+                        <div class="range-filter pricing-bar open">
+                            <label><span id="filter-pricezero-val">Månedsleie maks</span></label>
                             <input type="range" id="filter-pricezero" data-filter="pricezero" min="0" max="30000" step="500" value="30000">
                         </div>
-                        <div class="range-filter">
+
+                        ${checkboxGroups}
+                        <div class="range-filter" onclick="toggleFaq(this)">
                             <label>Rekkevidde min: <span id="filter-range-val">Alle</span></label>
                             <input type="range" id="filter-range" data-filter="range" min="0" max="600" step="10" value="0">
                         </div>
-                        <div class="range-filter">
+
+                        <div class="range-filter" onclick="toggleFaq(this)">
                             <label>Lasteromsvolum min: <span id="filter-maxbootcapacity-val">Alle</span></label>
                             <input type="range" id="filter-maxbootcapacity" data-filter="maxbootcapacity" min="0" max="20000" step="100" value="0">
                         </div>
-                        <div class="range-filter">
+
+                        <div class="range-filter" onclick="toggleFaq(this)">
                             <label>Totalvekt maks: <span id="filter-allowedtotalweight-val">Alle</span></label>
                             <input type="range" id="filter-allowedtotalweight" data-filter="allowedtotalweight" min="0" max="5000" step="100" value="5000">
                         </div>
-                    </div>
-                    <div class="sort-controls">
-                        <label for="sort-select">Sorter:</label>
-                        <select id="sort-select">
-                            <option value="">Standard</option>
-                            <option value="brand-asc">Merke A–Å</option>
-                            <option value="brand-desc">Merke Å–A</option>
-                            <option value="pricezero-asc">Pris lav–høy</option>
-                            <option value="pricezero-desc">Pris høy–lav</option>
-                            <option value="range-desc">Rekkevidde høy–lav</option>
-                            <option value="range-asc">Rekkevidde lav–høy</option>
-                            <option value="maxbootcapacity-desc">Lasteromsvolum høy–lav</option>
-                            <option value="maxbootcapacity-asc">Lasteromsvolum lav–høy</option>
-                            <option value="allowedtotalweight-desc">Totalvekt høy–lav</option>
-                            <option value="allowedtotalweight-asc">Totalvekt lav–høy</option>
-                            <option value="cotwoemission-asc">CO2 lav–høy</option>
-                            <option value="cotwoemission-desc">CO2 høy–lav</option>
-                        </select>
-                        <button id="reset-filters">Nullstill filter</button>
-                        <span id="cars-count"></span>
                     </div>
                 </div>`;
             }
@@ -414,7 +443,7 @@ ${context === 'compare' ? `
                     const max = Math.ceil(Math.max(...prices) / 500) * 500;
                     priceSlider.max = max;
                     priceSlider.value = max;
-                    document.getElementById('filter-pricezero-val').textContent = 'Alle';
+                    document.getElementById('filter-pricezero-val').textContent = 'Månedsleie maks';
                 }
                 const rangeSlider = document.getElementById('filter-range');
                 if (rangeSlider && ranges.length) {
@@ -433,6 +462,20 @@ ${context === 'compare' ? `
                 }
             }
 
+            function updateResetVisibility() {
+                const filtersDiv = document.querySelector('.filters');
+                const resetBtn = document.getElementById('reset-filters');
+                if (!filtersDiv || !resetBtn) return;
+
+                const anyChecked = filtersDiv.querySelectorAll('input[type="checkbox"]:checked').length > 0;
+                const anySliderActive = Array.from(filtersDiv.querySelectorAll('input[type="range"]')).some(slider => {
+                    const isMaxType = slider.dataset.filter === 'pricezero' || slider.dataset.filter === 'allowedtotalweight';
+                    return isMaxType ? parseFloat(slider.value) < parseFloat(slider.max) : parseFloat(slider.value) > parseFloat(slider.min);
+                });
+
+                resetBtn.style.display = (anyChecked || anySliderActive) ? 'inline-block' : 'none';
+            }
+
             function setupFiltersAndSort(containerId = 'main-cars-grid', context = 'list') {
                 // Checkbox-filtre — delegert lytter på hele filter-sort-bar
                 const filterBar = document.getElementById('filter-sort-container');
@@ -447,6 +490,7 @@ ${context === 'compare' ? `
                                 activeFilters[field].delete(e.target.value);
                                 if (activeFilters[field].size === 0) delete activeFilters[field];
                             }
+                            updateResetVisibility();
                             applyFiltersAndSort(containerId, context);
                         }
                     });
@@ -454,7 +498,7 @@ ${context === 'compare' ? `
 
                 // Range-sliders
                 const sliderConfigs = [
-                    { id: 'filter-pricezero',         labelId: 'filter-pricezero-val',         type: 'max', format: v => v >= parseInt(document.getElementById('filter-pricezero').max) ? 'Alle' : 'maks kr ' + parseInt(v).toLocaleString('no') },
+                    { id: 'filter-pricezero',         labelId: 'filter-pricezero-val',         type: 'max', format: v => v >= parseInt(document.getElementById('filter-pricezero').max) ? 'Månedsleie maks' : 'Månedsleie maks kr ' + parseInt(v).toLocaleString('no') },
                     { id: 'filter-range',              labelId: 'filter-range-val',              type: 'min', format: v => v <= 0 ? 'Alle' : 'min ' + v + ' km' },
                     { id: 'filter-maxbootcapacity',    labelId: 'filter-maxbootcapacity-val',    type: 'min', format: v => v <= 0 ? 'Alle' : 'min ' + v + ' l' },
                     { id: 'filter-allowedtotalweight', labelId: 'filter-allowedtotalweight-val', type: 'max', format: v => v >= parseInt(document.getElementById('filter-allowedtotalweight').max) ? 'Alle' : 'maks ' + v + ' kg' },
@@ -467,17 +511,34 @@ ${context === 'compare' ? `
                     slider.addEventListener('input', () => {
                         if (label) label.textContent = cfg.format(slider.value);
                         activeFilters[cfg.id.replace('filter-', '')] = { type: cfg.type, value: parseFloat(slider.value), max: parseFloat(slider.max) };
+                        updateResetVisibility();
                         applyFiltersAndSort(containerId, context);
                     });
                 });
 
-                // Sortering
-                const sortSelect = document.getElementById('sort-select');
-                if (sortSelect) {
-                    sortSelect.addEventListener('change', () => {
-                        activeSort = sortSelect.value;
-                        applyFiltersAndSort(containerId, context);
+                // Custom sort dropdown
+                const sortCustom = document.getElementById('sort-select-custom');
+                if (sortCustom) {
+                    const trigger = sortCustom.querySelector('.custom-select-trigger');
+                    const options = sortCustom.querySelectorAll('.custom-option');
+
+                    trigger.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        sortCustom.classList.toggle('open');
                     });
+
+                    options.forEach(option => {
+                        option.addEventListener('click', () => {
+                            options.forEach(o => o.classList.remove('selected'));
+                            option.classList.add('selected');
+                            trigger.textContent = option.textContent;
+                            sortCustom.classList.remove('open');
+                            activeSort = option.dataset.value;
+                            applyFiltersAndSort(containerId, context);
+                        });
+                    });
+
+                    document.addEventListener('click', () => sortCustom.classList.remove('open'));
                 }
 
                 // Nullstill
@@ -494,20 +555,62 @@ ${context === 'compare' ? `
                             const label = document.getElementById(cfg.labelId);
                             if (label) label.textContent = 'Alle';
                         });
-                        if (sortSelect) sortSelect.value = '';
+                        const trigger = document.querySelector('#sort-select-custom .custom-select-trigger');
+                        if (trigger) trigger.textContent = 'Sorter';
+                        document.querySelectorAll('#sort-select-custom .custom-option').forEach(o => {
+                            o.classList.toggle('selected', o.dataset.value === '');
+                        });
+
+                        updateResetVisibility();
+
                         applyFiltersAndSort(containerId, context);
                     });
                 }
             }
 
+            // Kategori-slug mapping: URL-slug → { felt, verdi }
+            const CATEGORY_SLUGS = {
+                'leasing-varebil-diesel':      { field: 'fuel',  value: 'Diesel' },
+                'leasing-varebil-bensin':      { field: 'fuel',  value: 'Bensin' },
+                'leasing-varebil-elektrisk':   { field: 'fuel',  value: 'Elektrisitet' },
+                'leasing-varebil-cng':         { field: 'fuel',  value: 'CNG' },
+                'leasing-varebil-awd':         { field: 'drive', value: 'AWD' },
+                'leasing-varebil-4wd':         { field: 'drive', value: '4WD' },
+                'leasing-varebil-fwd':         { field: 'drive', value: 'Foran' },
+                'leasing-varebil-rwd':         { field: 'drive', value: 'Bak' },
+                'leasing-varebil-4motion':     { field: 'drive', value: '4Motion' },
+                'leasing-varebil-varebil':     { field: 'body',  value: 'Varebil' },
+                'leasing-varebil-pickup':      { field: 'body',  value: 'Pickup' },
+                'leasing-varebil-flerbruksbil':{ field: 'body',  value: 'Flerbruksbil' },
+                'leasing-varebil-skapbil':     { field: 'body',  value: 'Skapbil' },
+                'leasing-varebil-2-dorer':     { field: 'doors', value: '2' },
+                'leasing-varebil-4-dorer':     { field: 'doors', value: '4' },
+                'leasing-varebil-5-dorer':     { field: 'doors', value: '5' },
+                'leasing-varebil-2-seter':     { field: 'seats', value: '2' },
+                'leasing-varebil-3-seter':     { field: 'seats', value: '3' },
+                'leasing-varebil-5-seter':     { field: 'seats', value: '5' },
+            };
+
             function applyFiltersAndSort(containerId = 'main-cars-grid', context = 'list') {
                 let cars = [...allCars];
 
-                // Bruk URL-slug for merkeside
+                // Bruk URL-slug for merkeside eller kategoriside
                 const urlParts = window.location.pathname.split('/').filter(Boolean);
                 const currentSlug = urlParts[urlParts.length - 1] || '';
+
                 if (currentSlug !== 'biler' && currentSlug !== 'varebil-leasing') {
-                    cars = cars.filter(c => (c.brand || '').toLowerCase().replace(/[^a-z0-9]/g, '') === currentSlug.replace(/[^a-z0-9]/g, ''));
+                    const categoryFilter = CATEGORY_SLUGS[currentSlug];
+                    if (categoryFilter) {
+                        // Kategoriside — filtrer på felt/verdi
+                        cars = cars.filter(c => {
+                            const val = String(c[categoryFilter.field] || '').toLowerCase();
+                            return val === categoryFilter.value.toLowerCase() ||
+                                   Math.round(parseFloat(val)) === parseInt(categoryFilter.value);
+                        });
+                    } else {
+                        // Merkeside — filtrer på brand
+                        cars = cars.filter(c => (c.brand || '').toLowerCase().replace(/[^a-z0-9]/g, '') === currentSlug.replace(/[^a-z0-9]/g, ''));
+                    }
                 }
 
                 // Checkbox-filtre — OR innen samme gruppe, AND mellom grupper
@@ -528,7 +631,7 @@ ${context === 'compare' ? `
                 // Range-sliders
                 if (activeFilters['pricezero']) {
                     const cfg = activeFilters['pricezero'];
-                    if (cfg.value < cfg.max) cars = cars.filter(c => !c.pricezero || parseFloat(c.pricezero) <= cfg.value);
+                    if (cfg.value < cfg.max) cars = cars.filter(c => c.pricezero && parseFloat(c.pricezero) <= cfg.value);
                 }
                 if (activeFilters['range']) {
                     const cfg = activeFilters['range'];
@@ -625,12 +728,14 @@ ${context === 'compare' ? `
                 }
 
                 localStorage.setItem('favorites', JSON.stringify(favorites));
-                updateFavoriteUI();
 
                 const favContainer = document.getElementById('favorites-container');
                 if (favContainer) {
                     renderCarGrid(allCars, 'favorites-container', car => favorites.includes(car.slug), 'favorites');
                 }
+
+                updateFavoriteUI();
+                updateNavBadges();
             }
 
             function updateFavoriteUI() {
@@ -664,13 +769,14 @@ ${context === 'compare' ? `
                     selected.push({ slug, img });
                 }
                 localStorage.setItem('selected_cars', JSON.stringify(selected));
-                updateSelectionUI();
 
                 const compareGrid = document.getElementById('compare-grid');
                 if (compareGrid || window.location.href.includes('sammenlign')) {
                     const currentSelected = selected.map(s => s.slug);
                     renderCarGrid(allCars, 'compare-grid', car => currentSelected.includes(car.slug), 'compare');
                 }
+
+                updateSelectionUI();
             }
 
             function removeFromCompare(slug, event) {
@@ -680,10 +786,11 @@ ${context === 'compare' ? `
                 }
                 let selected = getSelectedCars().filter(car => car.slug !== slug);
                 localStorage.setItem('selected_cars', JSON.stringify(selected));
-                updateSelectionUI();
-                
+
                 const currentSelected = selected.map(s => s.slug);
                 renderCarGrid(allCars, 'compare-grid', car => currentSelected.includes(car.slug), 'compare');
+
+                updateSelectionUI();
             }
 
             function closeSelectionBar() {
@@ -696,23 +803,26 @@ ${context === 'compare' ? `
                 const bar = document.getElementById('selection-bar');
                 const container = document.getElementById('selection-items');
                 const countSpan = document.getElementById('selection-count');
-                if (!bar || !container) return;
 
-                bar.style.display = selected.length > 0 ? 'flex' : 'none';
-                if (countSpan) countSpan.innerText = selected.length;
+                if (bar && container) {
+                    bar.style.display = selected.length > 0 ? 'flex' : 'none';
+                    if (countSpan) countSpan.innerText = selected.length;
 
-                container.innerHTML = selected.map(car => `
-                    <div class="selected-item">
-                        <img src="${car.img}">
-                        <button onclick="toggleSelection('${car.slug}', '${car.img}', event)" class="remove-item">×</button>
-                    </div>
-                `).join('');
+                    container.innerHTML = selected.map(car => `
+                        <div class="selected-item">
+                            <img src="${car.img}">
+                            <button onclick="toggleSelection('${car.slug}', '${car.img}', event)" class="remove-item">×</button>
+                        </div>
+                    `).join('');
+                }
 
                 document.querySelectorAll('.select-btn').forEach(btn => {
                     const slug = btn.getAttribute('data-slug') || btn.dataset.slug;
                     const isSelected = selected.some(item => item.slug === slug);
                     isSelected ? btn.classList.add('selected') : btn.classList.remove('selected');
                 });
+
+                updateNavBadges();
             }
 
             // ==========================================
@@ -736,11 +846,22 @@ ${context === 'compare' ? `
 
                         resultsList.innerHTML += `
                             <li class="car-card-mini">
-                                <img src="${imgUrl}" style="width: 50px;">
-                                <a href="${car.permalink || '#'}"><strong>${car.brand || ''} ${car.title || ''}</strong></a>
-                                <button class="favorite-btn ${isFav ? 'is-favorite' : ''}" onclick="toggleFavorite('${car.slug}', this, event)">
+                                <button class="mini-favorite-btn ${isFav ? 'is-favorite' : ''}" onclick="toggleFavorite('${car.slug}', this, event)">
                                     <span class="heart-icon">${isFav ? '♥' : '♡'}</span>
                                 </button>
+                                <a href="${car.permalink || '#'}">
+                                    <div class="search-mini-image">
+                                        <img src="${imgUrl}" style="width: 90px;">
+                                    </div>
+                                    <div class="search-mini-text">
+                                        <strong>
+                                            ${car.brand || ''} 
+                                            ${car.title || ''} 
+                                            ${car.modeldescription || ''}
+                                        </strong>
+                                        <p class="search-price">${formatNoPrice(car.pricezero)}</p>
+                                    </div>
+                                </a>
                             </li>`;
                     });
                 });
@@ -756,6 +877,9 @@ ${context === 'compare' ? `
                 const favContainer = document.getElementById('favorites-container');
                 const isComparePage = window.location.href.includes('sammenlign');
                 const searchInput = document.getElementById('search-input');
+
+                // Notifikasjonene i nav-menyen skal alltid oppdateres, uavhengig av sidetype
+                updateNavBadges();
 
                 if (mainGrid || frontpageGrid || favContainer || isComparePage || searchInput) {
                     
@@ -821,13 +945,20 @@ ${context === 'compare' ? `
                                 setupFiltersAndSort();
 
                                 if (currentSlug !== 'biler' && currentSlug !== 'varebil-leasing') {
-                                    // Merkeside — forhåndsvelg merkefilter
-                                    const brandFilter = document.getElementById('filter-brand');
-                                    if (brandFilter) {
-                                        const match = allCars.find(c => 
+                                    const categoryFilter = CATEGORY_SLUGS[currentSlug];
+                                    if (!categoryFilter) {
+                                        // Merkeside — forhåndsvelg merkefilter i checkbox
+                                        const match = allCars.find(c =>
                                             (c.brand || '').toLowerCase().replace(/[^a-z0-9]/g, '') === currentSlug.replace(/[^a-z0-9]/g, '')
                                         );
-                                        if (match && brandFilter) brandFilter.value = match.brand;
+                                        if (match) {
+                                            const cb = document.querySelector(`input[data-filter="brand"][value="${match.brand}"]`);
+                                            if (cb) {
+                                                cb.checked = true;
+                                                if (!activeFilters['brand']) activeFilters['brand'] = new Set();
+                                                activeFilters['brand'].add(match.brand);
+                                            }
+                                        }
                                     }
                                 }
 
@@ -844,7 +975,84 @@ ${context === 'compare' ? `
 
                         }).catch(err => console.error("Feil ved lasting av bilkartotek:", err));
                 }
+
+                // Toggle search box
+                document.querySelector('a.compare-icon')?.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    document.querySelector('.search-box')?.classList.toggle('open');
+                });
+
+                document.addEventListener('click', function(e) {
+                    const searchBox = document.querySelector('.search-box');
+                    if (searchBox && !searchBox.contains(e.target)) {
+                        searchBox.classList.remove('open');
+                    }
+                });
+
+                const searchClearBtn = document.getElementById('search-clear');
+                const searchInputEl = document.getElementById('search-input');
+
+                if (searchInputEl && searchClearBtn) {
+                    searchInputEl.addEventListener('input', () => {
+                        searchClearBtn.style.display = searchInputEl.value ? 'inline-block' : 'none';
+                    });
+                }
             });
+            function clearSearch() {
+                const el = document.getElementById('search-input');
+                const btn = document.getElementById('search-clear');
+                const results = document.getElementById('search-results');
+                if (el) el.value = '';
+                if (btn) btn.style.display = 'none';
+                if (results) results.innerHTML = '';
+                el?.focus();
+            }
+
+            /* Toggle mobile menu */
+            document.querySelector('.mobile-menu').addEventListener('click', function() {
+                document.querySelector('.nav-menu').classList.toggle('active');
+            });
+            
+            /* Toggle faq */
+            function toggleFaq(el) {
+                el.classList.toggle('open');
+            }
+
+            /* Toggle pricing information in form */
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.display-valprop')) {
+                    document.querySelector('.valprop').classList.toggle('expanded');
+                }
+            });
+
+            /* Toggle filter on mobile */
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.toggle-filter')) {
+                    const filterSortBar = document.querySelector('.filter-sort-bar');
+                    if (filterSortBar) {
+                        filterSortBar.classList.toggle('active');
+                    }
+                }
+            });
+
+            /* Compare en favorites notifictaions */
+            function updateNavBadges() {
+                const compareCount = getSelectedCars().length;
+                const favCount = getFavorites().length;
+
+                const compareBadge = document.getElementById('compare-badge');
+                const favBadge = document.getElementById('favorites-badge');
+
+                if (compareBadge) {
+                    compareBadge.textContent = compareCount;
+                    compareBadge.style.display = compareCount > 0 ? 'flex' : 'none';
+                }
+                if (favBadge) {
+                    favBadge.textContent = favCount;
+                    favBadge.style.display = favCount > 0 ? 'flex' : 'none';
+                }
+            }
         </script>
         
         <script>

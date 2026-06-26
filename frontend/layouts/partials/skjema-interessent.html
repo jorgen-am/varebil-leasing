@@ -2,56 +2,66 @@
     <h2 style="margin-top: 0;">Interessert i {{ .Params.brand }} {{ .Title }}?</h2>
     <p>Fyll ut skjemaet under, så kontakter vi deg med et uforpliktende tilbud på denne bilen.</p>
     
-    <form action="https://usebasin.com/f/81664e07f373" method="POST">
-        <input type="hidden" name="side_kilde" value="{{ .Title }}">
-        <input type="hidden" name="url_kilde" value="{{ .Permalink }}">
+    <form action="https://usebasin.com/f/210493886b91" method="POST" id="form" >
+        <!-- 1. Hidden field for price with visible label -->
+        <input type="hidden" name="merke_og_modell" value="{{ .Params.brand }} {{ .Title }}">
+        <input type="hidden" name="url" value="{{ .Permalink }}">
         <input type="hidden" name="_next" value="{{ "/takk/" | absURL }}">
 
-        <div pricing>
-            <label>Velg prisalternativ:</label>
-            <div>
-                <label>
-                    <input type="radio" name="pris_valg" value="pris-0-innskudd" checked>
-                    <span style="font-weight: bold;">{{ with .Params.price0 }}</span>
-                    <span style="font-size: 0.9em; color: #555;">Fra kr {{ . }},- mnd.</span>
-                    {{ end }}
-                </label>
+         <div pricing>
+            <label for="avtaleforslag" class="display-valprop">
+                <input type="hidden" id="avtaleforslag" name="avtaleforslag" value="{{ with .Params.pricezero }} {{ . }},- mnd. {{ end }}">
+                <p>{{ with .Params.pricezero }} Fra kr {{ . }},- per mnd. {{ end }} </p>
+                <span>Forslaget er et estimat og inkluderer:</span>
+            </label>
+            <div class="valprop">
+                <ul>
+                    <li>frakt og klargjøring</li>
+                    <li>vrakpantavgift</li>
+                    <li>0 innskudd</li>
+                    <li>15000 km/år</li>
+                    <li>Fast rente</li>
+                    <li>sommer- og vinterhjul</li>
+                </ul>
+                <p>Endelig pris tilpasses etter dialog rundt dine behov. Avtalene vi tilbyr er fra 2 til 5 år
+                Ref:</p>
             </div>
         </div>
 
         <div choices>
             <h4>Ønskede tilvalg:</h4>
-            <div>
-                <label><input type="checkbox" name="tilvalg_dekor" value="ja"> Bildekor</label>
-                <label><input type="checkbox" name="tilvalg_kjorebok" value="ja"> Kjørebok digital</label>
-                <label><input type="checkbox" name="tilvalg_forsikring" value="ja"> Forsikring</label>
-                <label><input type="checkbox" name="tilvalg_service" value="ja"> Serviceavtale</label>
-                <label><input type="checkbox" name="tilvalg_dekkhotell" value="ja"> Dekkhotell</label>
-                <label><input type="checkbox" name="tilvalg_bombrikke" value="ja"> Bombrikke</label>
-            </div>
+            <!-- 2. Checkbox group for services -->
+            <fieldset>
+                <label for="service_bildekor"><input type="checkbox" id="service_bildekor" name="services[]" value="Bildekor">Bildekor</label>
+                <label for="service_kjorebok"><input type="checkbox" id="service_kjorebok" name="services[]" value="Kjørebok digital">Kjørebok digital</label>
+                <label for="service_forsikring"><input type="checkbox" id="service_forsikring" name="services[]" value="Forsikring">Forsikring</label>
+                <label for="service_serviceavtale"><input type="checkbox" id="service_serviceavtale" name="services[]" value="Serviceavtale">Serviceavtale</label>
+                <label for="service_dekkhotell"><input type="checkbox" id="service_dekkhotell" name="services[]" value="Dekkhotell">Dekkhotell</label>
+                <label for="service_bombrikke"><input type="checkbox" id="service_bombrikke" name="services[]" value="Bombrikke">Bombrikke</label>
+            </fieldset>
         </div>
 
         <div names>
-            <input type="text" name="fornavn" placeholder="Fornavn *" required>
-            <input type="text" name="etternavn" placeholder="Etternavn *" required>
+            <input type="text" name="first_name" placeholder="Fornavn *" required>
+            <input type="text" name="last_name" placeholder="Etternavn *" required>
         </div>
         
         <div contact>
-            <input type="tel" name="telefon" placeholder="Telefonnummer *" required>
+            <input type="tel" name="phone" placeholder="Telefonnummer *" required>
             <input type="email" name="email" placeholder="E-post *" required>
         </div>
 
-        <input type="text" name="id_nummer" placeholder="Personnummer / Orgnummer *" required>
+        <input type="text" name="orgnummer" placeholder="Personnummer / Org. nummer *" required>
         
-        <textarea name="melding" placeholder="Eventuelle spørsmål eller spesielle ønsker..."></textarea>
+        <textarea name="message" placeholder="Eventuelle spørsmål eller spesielle ønsker..."></textarea>
 
         <div acceptance>
             <label>
-                <input type="checkbox" name="godkjenn_nyhetsbrev" required>
+                <input type="checkbox" name="akseptert_nyhetsbrev" required>
                 <span>Jeg godtar å bli kontaktet vedrørende dette tilbudet og samtykker til utsendelse av nyhetsbrev. *</span>
             </label>
         </div>
 
-        <button type="submit">Send uforpliktende forespørsel</button>
+        <button type="submit">Send forespørsel</button>
     </form>
 </div>

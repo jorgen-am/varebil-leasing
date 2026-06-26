@@ -8,7 +8,7 @@ shopimage: "https://cdn.prod.website-files.com/581884d6ec4143c342e9f6da/644a2b2d
 gallery: 
   - "https://cdn.sanity.io/images/1lzskaub/production/251a86e7ab33db6cd0acf9c74b1118760c43d697-850x450.jpg?fm=webp&q=80"
   - "https://cdn.sanity.io/images/1lzskaub/production/973ff079af028a40ab88fdfa161db1947b13d22f-850x450.jpg?fm=webp&q=80"
-modeldescription: "2.0 TDCI L1 Trend"
+modeldescription: "2 TDCI L1 Trend"
 
 alttext: "Leasing av Ford Transit Custom 2 - 0 TDCi L1 Trend varebil uten innskudd"
 
@@ -22,7 +22,7 @@ fuel: "Diesel"
 
 body: "Skapbil"
 
-drive: "Foran"
+drive: "FWD"
 
 gear: "Manuell"
 
@@ -42,7 +42,7 @@ torque: "360"
 
 cotwoemission: "192"
 
-warranty: "5 år/200.000 km"
+warranty: "5 år/20000 km"
 
 warrantyrust: "12 år"
 

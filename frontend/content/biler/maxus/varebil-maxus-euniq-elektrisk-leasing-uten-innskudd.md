@@ -19,6 +19,8 @@ fuel: "Elektrisitet"
 
 body: "Flerbruksbil"
 
+drive: "FWD"
+
 gear: "Automat"
 
 performancehk: "177"

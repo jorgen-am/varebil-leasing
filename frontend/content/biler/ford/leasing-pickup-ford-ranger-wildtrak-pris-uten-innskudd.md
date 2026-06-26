@@ -11,7 +11,7 @@ gallery:
   - "https://cdn.sanity.io/images/1lzskaub/production/98b4658409613845dbb3bdf7a32ab0580c9768c5-1000x500.jpg?fm=webp&q=80"
 modeldescription: "2.3 ECOBOOST A D/CAB WILDTRAK"
 
-alttext: "Ford Ranger 2.3 EcoBoost 281HK 4WD A D/Cab Wildtrak Van side"
+alttext: "Ford Ranger 2.3 EcoBoost 281HK AWD A D/Cab Wildtrak Van side"
 
 pricezero: "7190"
 
@@ -49,9 +49,9 @@ onephasehomechargeac: "none"
 
 chargingspeed: "none"
 
-powerusage: "10.7 l/100km"
+powerusage: "10,7 l/100km"
 
-warranty: "5 år/200.000 km"
+warranty: "5 år/20000 km"
 
 batterywarranty: "none"
 
@@ -121,7 +121,7 @@ consultant: "none"
 
 sourceslug: "https://www.motorbasen.no/sider/bil.asp?Id=61470"
 
-sourceslugad: "https://www.auto-data.net/no/ford-ranger-v-supercrew-americas-raptor-3.0-ecoboost-v6-405hp-4x4-automatic-49078"
+sourceslugad: "https://www.auto-data.net/no/ford-ranger-v-supercrew-americas-raptor-3-ecoboost-v6-405hp-4x4-automatic-49078"
 
 chosepage: "Leasing Firmabil"
 

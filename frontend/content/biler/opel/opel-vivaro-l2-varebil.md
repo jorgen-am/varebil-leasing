@@ -9,9 +9,9 @@ gallery:
   - "https://cdn.sanity.io/images/1lzskaub/production/d915babbb347b4c4f4e14a2974c9ed57b132b94f-850x450.jpg?fm=webp&q=80"
   - "https://cdn.sanity.io/images/1lzskaub/production/d236cd8502055770600f7e1cdf8f002712d6d23d-850x450.jpg?fm=webp&q=80"
   - "https://cdn.sanity.io/images/1lzskaub/production/1df3ecfe646db589c9bb2e1101ba57921581f891-850x450.jpg?fm=webp&q=80"
-modeldescription: "2.0 D L2 Elite"
+modeldescription: "2 D L2 Elite"
 
-alttext: "Leasing av Opel Vivaro 2.0 D L2 Elite varebil uten innskudd"
+alttext: "Leasing av Opel Vivaro 2 D L2 Elite varebil uten innskudd"
 
 interest: "Fast"
 
@@ -21,11 +21,11 @@ fuel: "Diesel"
 
 body: "Varebil"
 
-drive: "Foran"
+drive: "FWD"
 
 gear: "Automat"
 
-lversion: "2"
+lversion: "L2"
 
 performancehk: "145"
 

@@ -11,7 +11,7 @@ gallery:
   - "https://cdn.sanity.io/images/1lzskaub/production/ce28c5d23e4f8a93b5ddfc3590cfc2c8c322cdf5-850x450.jpg?fm=webp&q=80"
 modeldescription: "Comfort L1 2A"
 
-alttext: "Lease Toyota Proace 2.0D uten innskudd"
+alttext: "Lease Toyota Proace 2D uten innskudd"
 
 interest: "Fast"
 
@@ -21,7 +21,7 @@ fuel: "Elektrisitet"
 
 body: "Skapbil"
 
-drive: "Foran"
+drive: "FWD"
 
 gear: "Automat"
 
@@ -57,9 +57,9 @@ chargingspeed: "38 min"
 
 powerusage: "27,9 kWh/100 km"
 
-warranty: "5 år/200.000 km"
+warranty: "5 år/20000 km"
 
-batterywarranty: "8 år/160.000 km"
+batterywarranty: "8 år/16000 km"
 
 warrantypaint: "3 år"
 
