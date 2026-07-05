@@ -322,7 +322,8 @@ a.car-card ul li span.data-property {  text-align: left;}
 .single .form-container input[type="email" ] { display:block; width:100%; padding: 10px 0px; margin-bottom:10px; text-indent: 10px; }
 .single .form-container input[name="id_nummer" ] {display:block; width:100%; }
 .single .form-container textarea {display:block; width:100%; min-height: 100px; padding: 10px 0px;  margin-bottom:20px; text-indent: 10px; }
-.single .form-container button {display:block; width:100%; border-radius: var(--border-radius-basic); margin:20px 0px;}
+.single .form-container button {display:block; width:100%; border-radius: var(--border-radius-basic); margin:20px 0px; color: var(--white); background: var(--blue);}
+.single .form-container button:hover {background: var(--black);}
 
 .single .form-container div[pricing] {display: block; padding: 15px; border:1px solid  var(--ccc); border-radius: var(--border-radius-inner); }
 .single .form-container .valprop {display: block; height:0px; overflow: hidden; padding: 0px; transition: .2s;}
@@ -332,6 +333,8 @@ a.car-card ul li span.data-property {  text-align: left;}
 .single .form-container .valprop.expanded {height:160px; transition: .2s;}
 div[choices] fieldset { columns: 2; margin-bottom: 20px; border: none;}
 div[choices] fieldset label {display: block;}
+
+.single .btn-marketing {display: inline-block; width: 16px; height: 16px; background-image: url(/varebil-leasing/images/icon-info.png); background-size: 16px; cursor: pointer;}
 
 
 

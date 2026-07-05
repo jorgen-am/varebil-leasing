@@ -10,7 +10,7 @@
         <input type="hidden" name="_next" value="{{ "/takk/" | absURL }}">
 
          <div pricing>
-            <label class="display-valprop">
+            <label class="display-valprop" onclick="toggleFaq(this)">
                 <input type="hidden" id="leasingalternativ" name="leasingalternativ" value="{{ with .Params.pricezero }} {{ . }},- mnd. {{ end }}">
                 <p>{{ with .Params.pricezero }} Fra kr {{ . }},- per mnd. {{ end }} </p>
                 <span>Forslaget er et estimat og inkluderer:</span>
@@ -66,7 +66,7 @@
                 <input type="checkbox" name="akseptert_nyhetsbrev" required>
                 <span>Jeg godtar å bli kontaktet vedrørende dette tilbudet og samtykker til utsendelse av nyhetsbrev. *</span>
             </label>
-            <button class="btn-marketing"></button>
+            <a class="btn-marketing"></a>
             <div class="marketing-info">
                 <p class="accept-text">
                     Ved å markere her så gir du aktivt samtykke til å sende deg tilbud, informasjon og oppdateringer fra Automedia AS. Dette kan når som helst trekkes tilbake.
