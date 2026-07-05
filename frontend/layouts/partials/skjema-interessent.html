@@ -4,13 +4,14 @@
     
     <form action="https://usebasin.com/f/210493886b91" method="POST" id="form" >
         <!-- 1. Hidden field for price with visible label -->
-        <input type="hidden" name="merke_og_modell" value="{{ .Params.brand }} {{ .Title }}">
+        <input type="hidden" name="merke" value="{{ .Params.brand }}">
+        <input type="hidden" name="modell" value="{{ .Title }}">
         <input type="hidden" name="url" value="{{ .Permalink }}">
         <input type="hidden" name="_next" value="{{ "/takk/" | absURL }}">
 
          <div pricing>
-            <label for="avtaleforslag" class="display-valprop">
-                <input type="hidden" id="avtaleforslag" name="avtaleforslag" value="{{ with .Params.pricezero }} {{ . }},- mnd. {{ end }}">
+            <label class="display-valprop">
+                <input type="hidden" id="leasingalternativ" name="leasingalternativ" value="{{ with .Params.pricezero }} {{ . }},- mnd. {{ end }}">
                 <p>{{ with .Params.pricezero }} Fra kr {{ . }},- per mnd. {{ end }} </p>
                 <span>Forslaget er et estimat og inkluderer:</span>
             </label>
@@ -41,6 +42,11 @@
             </fieldset>
         </div>
 
+        <div class="notat hva-skjer-notat">
+            <span>Hva skjer etter henvendelsen?</span>
+            <br>Vi kontakter deg etter innsendt skjema, for å finne den rette bilen for akkurat ditt behov
+        </div>
+
         <div names>
             <input type="text" name="first_name" placeholder="Fornavn *" required>
             <input type="text" name="last_name" placeholder="Etternavn *" required>
@@ -60,8 +66,16 @@
                 <input type="checkbox" name="akseptert_nyhetsbrev" required>
                 <span>Jeg godtar å bli kontaktet vedrørende dette tilbudet og samtykker til utsendelse av nyhetsbrev. *</span>
             </label>
+            <button class="btn-marketing"></button>
+            <div class="marketing-info">
+                <p class="accept-text">
+                    Ved å markere her så gir du aktivt samtykke til å sende deg tilbud, informasjon og oppdateringer fra Automedia AS. Dette kan når som helst trekkes tilbake.
+                </p>
+            </div>
         </div>
 
         <button type="submit">Send forespørsel</button>
     </form>
+    <p>** Ved å legge inn personnummer så aksepterer du at det gjøres kredittvurdering. Dette er ikke et krav, men vil gjøre prosessen raskere.</p>
+    <p><span>Automedia AS reserverer seg for feil eller mangler, samt alle justeringer på pris og utstyr.</span></p>
 </div>
