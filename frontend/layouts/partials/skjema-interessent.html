@@ -7,7 +7,9 @@
         <input type="hidden" name="merke" value="{{ .Params.brand }}">
         <input type="hidden" name="modell" value="{{ .Title }}">
         <input type="hidden" name="url" value="{{ .Permalink }}">
-        <input type="hidden" name="quote" value="{{ .quote }}">
+        {{ with .Params.quote }}
+            <input type="hidden" name="quote" value="{{ . }}">
+        {{ end }}
         <input type="hidden" name="_next" value="{{ "/takk/" | absURL }}">
 
          <div pricing>
