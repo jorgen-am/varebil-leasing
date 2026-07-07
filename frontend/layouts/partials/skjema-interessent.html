@@ -14,7 +14,7 @@
 
          <div pricing>
             <label class="display-valprop" onclick="toggleFaq(this)">
-                <input type="hidden" id="leasingalternativ" name="leasingalternativ" value="{{ with .Params.pricezero }} {{ . }},- mnd. {{ end }}">
+                <input type="hidden" id="leasingalternativ" name="Leasingalternativ" value="{{ with .Params.pricezero }} {{ . }},- mnd. {{ end }}">
                 <p>{{ with .Params.pricezero }} Fra kr {{ . }},- per mnd. {{ end }} </p>
                 <span>Forslaget er et estimat og inkluderer:</span>
             </label>
@@ -35,12 +35,14 @@
         <div choices>
             <h4>Ønskede tilvalg:</h4>
             <!-- 2. Checkbox group for services -->
-            <label for="service_bildekor"><input type="checkbox" id="service_bildekor" name="Services[]" value="Bildekor">Bildekor</label>
-            <label for="service_kjorebok"><input type="checkbox" id="service_kjorebok" name="Services[]" value="Kjørebok digital">Kjørebok digital</label>
-            <label for="service_forsikring"><input type="checkbox" id="service_forsikring" name="Services[]" value="Forsikring">Forsikring</label>
-            <label for="service_serviceavtale"><input type="checkbox" id="service_serviceavtale" name="Services[]" value="Serviceavtale">Serviceavtale</label>
-            <label for="service_dekkhotell"><input type="checkbox" id="service_dekkhotell" name="Services[]" value="Dekkhotell">Dekkhotell</label>
-            <label for="service_bombrikke"><input type="checkbox" id="service_bombrikke" name="Services[]" value="Bombrikke">Bombrikke</label>
+            <input type="hidden" name="Tilvalg:">
+            <!--label for="service_bildekor"><input type="checkbox" id="service_bildekor" name="Services[]" value="Bildekor">Bildekor</label-->
+            <label for="service_forsikring"><input type="checkbox" id="service_forsikring" name="forsikring" data-name="Forsikring:" value="Forsikring">Forsikring</label>
+            <label for="service_serviceavtale"><input type="checkbox" id="service_serviceavtale" name="serviceavtale" data-name="Serviceavtale:" value="Serviceavtale">Serviceavtale</label>
+            <label for="service_dekkhotell"><input type="checkbox" id="service_dekkhotell" name="dekkhotell" data-name="Dekkhotell:" value="Dekkhotell">Dekkhotell</label>
+            <label for="service_bombrikke"><input type="checkbox" id="service_bombrikke" name="bombrikke" data-name="Bombrikke:" value="Bombrikke">Bombrikke</label>
+            <label for="service_bildekor"><input type="checkbox" id="service_bildekor" name="bildekor" data-name="Bildekor:" value="Bildekor">Bildekor</label>
+            <label for="service_kjorebok"><input type="checkbox" id="service_kjorebok" name="kjorebok" data-name="Kjørebok:" value="Kjørebok digital">Kjørebok digital</label>
         </div>
 
         <div class="notat hva-skjer-notat">
@@ -49,22 +51,22 @@
         </div>
 
         <div names>
-            <input type="text" name="first_name" placeholder="Fornavn *" required>
-            <input type="text" name="last_name" placeholder="Etternavn *" required>
+            <input type="text" name="first_name" data-name="Fornavn:" placeholder="Fornavn *" required>
+            <input type="text" name="last_name" data-name="Etternavn:" placeholder="Etternavn *" required>
         </div>
         
         <div contact>
-            <input type="tel" name="phone" placeholder="Telefonnummer *" required>
-            <input type="email" name="email" placeholder="E-post *" required>
+            <input type="tel" name="phone" data-name="Telefonnummer:" placeholder="Telefonnummer *" required>
+            <input type="email" name="email" data-name="E-post adresse:" placeholder="E-post *" required>
         </div>
 
-        <input type="text" name="orgnummer" placeholder="Personnummer / Org. nummer *" required>
+        <input type="text" name="orgnummer" data-name="Orgnummer:" placeholder="Personnummer / Org. nummer *" required>
         
-        <textarea name="message" placeholder="Eventuelle spørsmål eller spesielle ønsker..."></textarea>
+        <textarea name="message" data-name="Melding:" placeholder="Eventuelle spørsmål eller spesielle ønsker..."></textarea>
 
         <div acceptance>
             <label>
-                <input type="checkbox" name="akseptert_nyhetsbrev" required>
+                <input type="checkbox" name="akseptert_nyhetsbrev" data-name="Markedsføring:" required>
                 <span>Jeg godtar å bli kontaktet vedrørende dette tilbudet og samtykker til utsendelse av nyhetsbrev. *</span>
             </label>
             <a class="btn-marketing"></a>
