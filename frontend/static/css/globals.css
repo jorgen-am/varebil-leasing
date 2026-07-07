@@ -331,8 +331,8 @@ a.car-card ul li span.data-property {  text-align: left;}
 .single .form-container .display-valprop p { margin: 0px 0px;}
 .single .form-container .display-valprop span { display:block; margin-top: 5px; font-size: 0.8em;}
 .single .form-container .valprop.expanded {height:160px; transition: .2s;}
-div[choices] fieldset { columns: 2; margin-bottom: 20px; border: none;}
-div[choices] fieldset label {display: block;}
+div[choices] div { columns: 2; margin-bottom: 20px; border: none;}
+div[choices] div label {display: block;}
 
 .single .btn-marketing {display: inline-block; width: 16px; height: 16px; background-image: url(/varebil-leasing/images/icon-info.png); background-size: 16px; cursor: pointer;}
 
