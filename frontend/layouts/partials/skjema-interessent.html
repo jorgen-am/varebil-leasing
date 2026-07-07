@@ -10,7 +10,6 @@
         {{ with .Params.quote }}
             <input type="hidden" name="quote" value="{{ . }}">
         {{ end }}
-        <!--input type="hidden" name="_next" value="{{ "/takk/" | absURL }}" -->
 
          <div pricing>
             <label class="display-valprop" onclick="toggleFaq(this)">
@@ -78,7 +77,7 @@
                 </p>
             </div>
         </div>
-
+        <input type="hidden" name="_next" value="{{ "/takk/" | absURL }}">
         <button type="submit">Send forespørsel</button>
     </form>
     <p>** Ved å legge inn personnummer så aksepterer du at det gjøres kredittvurdering. Dette er ikke et krav, men vil gjøre prosessen raskere.</p>
