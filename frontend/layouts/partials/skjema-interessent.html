@@ -10,7 +10,7 @@
         {{ with .Params.quote }}
             <input type="hidden" name="quote" value="{{ . }}">
         {{ end }}
-        <input type="hidden" name="_next" value="{{ "/takk/" | absURL }}">
+        <!--input type="hidden" name="_next" value="{{ "/takk/" | absURL }}" -->
 
          <div pricing>
             <label class="display-valprop" onclick="toggleFaq(this)">
@@ -35,13 +35,13 @@
         <div choices>
             <h4>Ønskede tilvalg:</h4>
             <!-- 2. Checkbox group for services -->
-            <fieldset>
-                <label for="service_bildekor"><input type="checkbox" id="service_bildekor" name="services[]" value="Bildekor">Bildekor</label>
-                <label for="service_kjorebok"><input type="checkbox" id="service_kjorebok" name="services[]" value="Kjørebok digital">Kjørebok digital</label>
-                <label for="service_forsikring"><input type="checkbox" id="service_forsikring" name="services[]" value="Forsikring">Forsikring</label>
-                <label for="service_serviceavtale"><input type="checkbox" id="service_serviceavtale" name="services[]" value="Serviceavtale">Serviceavtale</label>
-                <label for="service_dekkhotell"><input type="checkbox" id="service_dekkhotell" name="services[]" value="Dekkhotell">Dekkhotell</label>
-                <label for="service_bombrikke"><input type="checkbox" id="service_bombrikke" name="services[]" value="Bombrikke">Bombrikke</label>
+            <fieldset name="Services">
+                <label for="service_bildekor"><input type="checkbox" id="service_bildekor" name="Services[]" value="Bildekor">Bildekor</label>
+                <label for="service_kjorebok"><input type="checkbox" id="service_kjorebok" name="Services[]" value="Kjørebok digital">Kjørebok digital</label>
+                <label for="service_forsikring"><input type="checkbox" id="service_forsikring" name="Services[]" value="Forsikring">Forsikring</label>
+                <label for="service_serviceavtale"><input type="checkbox" id="service_serviceavtale" name="Services[]" value="Serviceavtale">Serviceavtale</label>
+                <label for="service_dekkhotell"><input type="checkbox" id="service_dekkhotell" name="Services[]" value="Dekkhotell">Dekkhotell</label>
+                <label for="service_bombrikke"><input type="checkbox" id="service_bombrikke" name="Services[]" value="Bombrikke">Bombrikke</label>
             </fieldset>
         </div>
 
