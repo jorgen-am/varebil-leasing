@@ -37,12 +37,12 @@
             <div>
                 <input type="hidden" name="Tilvalg:">
                 <!--label for="service_bildekor"><input type="checkbox" id="service_bildekor" name="Services[]" value="Bildekor">Bildekor</label-->
-                <label for="service_forsikring"><input type="checkbox" id="service_forsikring" name="forsikring" data-name="Forsikring:" value="Forsikring">Forsikring</label>
-                <label for="service_serviceavtale"><input type="checkbox" id="service_serviceavtale" name="serviceavtale" data-name="Serviceavtale:" value="Serviceavtale">Serviceavtale</label>
-                <label for="service_dekkhotell"><input type="checkbox" id="service_dekkhotell" name="dekkhotell" data-name="Dekkhotell:" value="Dekkhotell">Dekkhotell</label>
-                <label for="service_bombrikke"><input type="checkbox" id="service_bombrikke" name="bombrikke" data-name="Bombrikke:" value="Bombrikke">Bombrikke</label>
-                <label for="service_bildekor"><input type="checkbox" id="service_bildekor" name="bildekor" data-name="Bildekor:" value="Bildekor">Bildekor</label>
-                <label for="service_kjorebok"><input type="checkbox" id="service_kjorebok" name="kjorebok" data-name="Kjørebok:" value="Kjørebok digital">Kjørebok digital</label>
+                <label for="service_forsikring"><input type="checkbox" id="service_forsikring" name="Forsikring" data-name="Forsikring:" value="Ja">Forsikring</label>
+                <label for="service_serviceavtale"><input type="checkbox" id="service_serviceavtale" name="Serviceavtale" data-name="Serviceavtale:" value="Ja">Serviceavtale</label>
+                <label for="service_dekkhotell"><input type="checkbox" id="service_dekkhotell" name="Dekkhotell" data-name="Dekkhotell:" value="Ja">Dekkhotell</label>
+                <label for="service_bombrikke"><input type="checkbox" id="service_bombrikke" name="Bombrikke" data-name="Bombrikke:" value="Ja">Bombrikke</label>
+                <label for="service_bildekor"><input type="checkbox" id="service_bildekor" name="Bildekor" data-name="Bildekor:" value="Ja">Bildekor</label>
+                <label for="service_kjorebok"><input type="checkbox" id="service_kjorebok" name="Kjorebok" data-name="Kjørebok:" value="Ja">Kjørebok digital</label>
             </div>    
         </div>
 
@@ -52,22 +52,22 @@
         </div>
 
         <div names>
-            <input type="text" name="first_name" data-name="Fornavn:" placeholder="Fornavn *" required>
-            <input type="text" name="last_name" data-name="Etternavn:" placeholder="Etternavn *" required>
+            <input type="text" name="Firstname" data-name="Fornavn:" placeholder="Fornavn *" required>
+            <input type="text" name="Lastname" data-name="Etternavn:" placeholder="Etternavn *" required>
         </div>
         
         <div contact>
-            <input type="tel" name="phone" data-name="Telefonnummer:" placeholder="Telefonnummer *" required>
-            <input type="email" name="email" data-name="E-post adresse:" placeholder="E-post *" required>
+            <input type="tel" name="Phone" data-name="Telefonnummer:" placeholder="Telefonnummer *" required>
+            <input type="email" name="Email" data-name="E-post adresse:" placeholder="E-post *" required>
         </div>
 
-        <input type="text" name="orgnummer" data-name="Orgnummer:" placeholder="Personnummer / Org. nummer *" required>
+        <input type="text" name="Orgnummer" data-name="Orgnummer:" placeholder="Personnummer / Org. nummer *" required>
         
         <textarea name="message" data-name="Melding:" placeholder="Eventuelle spørsmål eller spesielle ønsker..."></textarea>
 
         <div acceptance>
             <label>
-                <input type="checkbox" name="akseptert_nyhetsbrev" data-name="Markedsføring:" required>
+                <input type="checkbox" name="Nyhetsbrev" data-name="Markedsføring:" required>
                 <span>Jeg godtar å bli kontaktet vedrørende dette tilbudet og samtykker til utsendelse av nyhetsbrev. *</span>
             </label>
             <a class="btn-marketing"></a>
@@ -77,7 +77,7 @@
                 </p>
             </div>
         </div>
-        <input type="hidden" name="_next" value="{{ "/takk/" | absURL }}">
+        <!--input type="hidden" name="_next" value="{{ "/takk/" | absURL }}"-->
         <button type="submit">Send forespørsel</button>
     </form>
     <p>** Ved å legge inn personnummer så aksepterer du at det gjøres kredittvurdering. Dette er ikke et krav, men vil gjøre prosessen raskere.</p>
