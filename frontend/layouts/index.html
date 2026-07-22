@@ -1,9 +1,10 @@
 {{ define "main" }}
     <!-- Hero -->
     <section class="hero container">
-        <h1>Leasing av varebil til din bedrift</h1>
-        <p>Finn den perfekte arbeidsbilen med gunstig finansiering og reklame inkludert.</p>
-        <a href="#biler" class="btn" style="background: #007bff; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold;">Se alle biler</a>
+        <h1>Leasing av varebil uten krav til innskudd</h1>
+        <h3>Finn den perferkte varebilen for deg,  med gunstig finansiering, raskest mulig levering og personlig service.</h3>
+        <p>Finner du ikke bilen du ser etter? Vi har biler som ikke annonseres, så ikke vent,</p>
+        <a href="kontakt" class="btn">Snakk med oss i dag!</a>
     </section>
 
     <!-- Biler -->   
@@ -13,134 +14,5 @@
         <div class="main-cars-right">
             <div id="main-cars-grid" data-page="frontpage" class="grid-container"></div>
         </div>
-    </section>
-    
-    <!-- hvorfor -->
-    <section class="why container">
-        <div class="grid-container two">
-            <div>
-                <h3>Prisgaranti</h3>
-                <p>Vi tilbyr markedets beste betingelser på leasing med bildekor.</p>
-            </div>
-            <div>
-                <h3>Alt på én faktura</h3>
-                <p>Enkelt og oversiktlig for din regnskapsfører.</p>
-            </div>
-            <div>
-                <h3>Personlig oppfølging</h3>
-                <p>Eget kontaktpunkt gjennom hele leasingperioden.</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- omtaler -->
-    <section class="omtaler-list container">
-        <h2>Hva våre kunder sier</h2>
-        <div class="grid-container auto" >
-            {{/* Vi henter de 3 første (nyeste) fra den ferdig sorterte JSON-filen */}}
-            {{ range first 9 .Site.Data.reviews }}
-            <div style="border: 1px solid #eee; padding: 30px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between;">
-                
-                <div>
-                    <div style="color: #ffbc00; margin-bottom: 10px;">
-                        {{ if ge .rating 5 }}★★★★★{{ else if eq .rating 4 }}★★★★☆{{ else }}★★★☆☆{{ end }}
-                    </div>
-                    <p style="font-style: italic; color: #444; line-height: 1.5; margin-bottom: 20px;">
-                        "{{ if gt (len .content) 150 }}{{ substr .content 0 150 }}...{{ else }}{{ .content }}{{ end }}"
-                    </p>
-                </div>
-
-                <div style="display: flex; align-items: center; gap: 12px; border-top: 1px solid #f9f9f9; padding-top: 15px;">
-                    <div style="width: 35px; height: 35px; background: #eef6ff; color: #007bff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9em;">
-                        {{ substr .author 0 1 }}
-                    </div>
-                    <div>
-                        <strong style="display: block; font-size: 0.9em;">{{ .author }}</strong>
-                        <span style="font-size: 0.75em; color: #999;">
-                            {{ substr .date 4 11 }}
-                        </span>
-                    </div>
-                </div>
-            </div>
-            {{ end }}
-        </div>
-
-        <div style="text-align: center; margin-top: 40px;">
-            <a href="/omtaler/" style="display: inline-block; padding: 12px 30px; background: #007bff; color: white; text-decoration: none; border-radius: 50px; font-weight: bold;">
-                Les alle 124 omtaler
-            </a>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq-list container">
-        <h2>Ofte stilte spørsmål (FAQ)</h2>
-        <div class="column-container two">
-            {{/* Vi henter sider fra mappen /post/faq/ */}}
-            {{ range (where .Site.RegularPages "Section" "post").ByPublishDate.Reverse }}
-                {{ if eq .Params.kategori "faq" }}
-                    <div class="faq-card" onclick="toggleFaq(this)">
-                        <h3>{{ .Title }}</h3>
-                        <div class="faq-content">
-                            {{ if .Params.excerpt }}
-                                <p class="faq-excerpt">
-                                    {{ .Params.excerpt }}
-                                </p>
-                            {{ end }}
-                        
-                            <a href="{{ .RelPermalink }}" class="read-more">
-                                Les hele svaret →
-                            </a>
-                        </div>
-                    </div>
-                {{ end }}
-            {{ end }}
-    
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="/post/faq/" style="padding: 12px 25px; background: #007bff; color: white; border-radius: 5px; text-decoration: none; font-weight: bold;">
-                    Se alle spørsmål og svar
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ansatte -->
-    <section class="ansatte-list container">
-        <h2>Snakk med en av våre rådgivere</h2>
-        <div class="grid-container auto">
-            {{ range .Site.Data.employees }}
-            {{ $slug := .slug.current }}
-            <div class="employee-card" style="border: 1px solid #eee; padding: 20px; border-radius: 10px; text-align: center; width: 250px; background: white; transition: transform 0.2s ease;">
-                
-                <a href="/ansatte/{{ $slug }}/" style="text-decoration: none; color: inherit; display: block;">
-                    {{ if .bildeUrl }}
-                        <img src="{{ .bildeUrl }}" alt="{{ .title }}" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; border: 1px solid #eee;">
-                    {{ else }}
-                        <div style="width: 120px; height: 120px; border-radius: 50%; background: #ddd; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center;">👤</div>
-                    {{ end }}
-                    
-                    <h3 style="margin: 10px 0 5px 0; font-size: 1.2em; color: #222;">{{ .title }}</h3>
-                </a>
-        
-                <p style="font-size: 0.9em; color: #666; margin-bottom: 10px;">{{ .campaignlink }}</p>
-        
-                <div style="margin-top: 15px; border-top: 1px solid #f9f9f9; padding-top: 10px;">
-                    {{ if .tagtwo }}
-                        <p style="margin: 5px 0; font-size: 0.85em;">
-                            <a href="mailto:{{ .tagtwo }}" style="color: #007bff; text-decoration: none;">📧 Send e-post</a>
-                        </p>
-                    {{ end }}
-        
-                    <div style="display: flex; gap: 10px; justify-content: center; margin-top: 10px;">
-                        <a href="/ansatte/{{ $slug }}/" style="padding: 5px 12px; background: #eee; color: #333; text-decoration: none; border-radius: 4px; font-size: 0.8em; font-weight: bold;">Les mer</a>
-                        
-                        {{ if .tagone }}
-                            <a href="{{ .tagone }}" target="_blank" style="padding: 5px 12px; background: #0077b5; color: white; text-decoration: none; border-radius: 4px; font-size: 0.8em;">LinkedIn</a>
-                        {{ end }}
-                    </div>
-                </div>
-            </div>
-            {{ end }}
-        </div>
-    </section>
- {{ end }}
+    </section>    
+{{ end }}

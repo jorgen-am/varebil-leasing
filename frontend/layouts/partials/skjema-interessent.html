@@ -1,5 +1,6 @@
 <div class="form-container" id="interesseskjema">
-    <h2 style="margin-top: 0;">Interessert i {{ .Params.brand }} {{ .Title }}?</h2>
+    <h3>Forslag pris leasing varebil</h3>
+    <!--h3 style="margin-top: 0;">Interessert i {{ .Params.brand }} {{ .Title }}?</h3-->
     <p>Fyll ut skjemaet under, så kontakter vi deg med et uforpliktende tilbud på denne bilen.</p>
     
     <form action="https://usebasin.com/f/6fdd01cefd45" method="POST" id="form" >
@@ -11,13 +12,13 @@
             <input type="hidden" name="quote" value="{{ . }}">
         {{ end }}
 
-         <div pricing>
+         <div pricing class="pricing" onclick="toggleFaq(this)">
             <label class="display-valprop" onclick="toggleFaq(this)">
                 <input type="hidden" id="leasingalternativ" name="Leasingalternativ" value="{{ with .Params.pricezero }} {{ . }},- mnd. {{ end }}">
                 <p>{{ with .Params.pricezero }} Fra kr {{ . }},- per mnd. {{ end }} </p>
-                <span>Forslaget er et estimat og inkluderer:</span>
             </label>
             <div class="valprop">
+                <span>Forslaget er et estimat og inkluderer:</span>
                 <ul>
                     <li>frakt og klargjøring</li>
                     <li>vrakpantavgift</li>
@@ -47,8 +48,8 @@
         </div>
 
         <div class="notat hva-skjer-notat">
-            <span>Hva skjer etter henvendelsen?</span>
-            <br>Vi kontakter deg etter innsendt skjema, for å finne den rette bilen for akkurat ditt behov
+            <p>Hva skjer etter henvendelsen?
+            <span>Vi kontakter deg via telefon eller epost for å finne den bilen som passer akkurat ditt behov.</span></p>
         </div>
 
         <div names>
@@ -72,6 +73,7 @@
             </label>
             <a class="btn-marketing"></a>
             <div class="marketing-info">
+                <a class="btn-marketing close"></a>
                 <p class="accept-text">
                     Ved å markere her så gir du aktivt samtykke til å sende deg tilbud, informasjon og oppdateringer fra Automedia AS. Dette kan når som helst trekkes tilbake.
                 </p>
@@ -81,5 +83,5 @@
         <button type="submit">Send forespørsel</button>
     </form>
     <p>** Ved å legge inn personnummer så aksepterer du at det gjøres kredittvurdering. Dette er ikke et krav, men vil gjøre prosessen raskere.</p>
-    <p><span>Automedia AS reserverer seg for feil eller mangler, samt alle justeringer på pris og utstyr.</span></p>
+    <p class="italic">Automedia AS reserverer seg for feil eller mangler, samt alle justeringer på pris og utstyr.</p>
 </div>

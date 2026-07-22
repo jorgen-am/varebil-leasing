@@ -31,12 +31,14 @@
                             <a class="nav-screen" href="/biler/"><img class="nav-filter" alt="ikon biler" src="/images/icon-cars.png">Våre biler</a>
                             <a class="nav-cell" ><img class="nav-filter" alt="ikon biler" src="/images/icon-cars.png">Våre biler</a>
                             <ul class="dropdown-menu">
-                                <li class="all-cars no-text"><a href="/biler/">Alle biler</a></li>
-                                {{ with .Site.GetPage "/biler" }}
-                                    {{ range .Sections.ByTitle }}
-                                        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                                <div class="submenu">
+                                    <li class="all-cars no-text"><a href="/biler/">• Alle leasing varebiler</a></li>
+                                    {{ with .Site.GetPage "/biler" }}
+                                        {{ range .Sections.ByTitle }}
+                                            <li><a href="{{ .RelPermalink }}">• {{ .Title }}</a></li>
+                                        {{ end }}
                                     {{ end }}
-                                {{ end }}
+                                </div>
                             </ul>
                         </li>
                                     
@@ -44,37 +46,42 @@
                             <a class="nav-screen" href="/tjenester/"><img class="nav-filter" alt="ikon tjenester" src="/images/icon-service.png">Tjenester</a>
                             <a class="nav-cell"><img class="nav-filter" alt="ikon tjenester" src="/images/icon-service.png">Tjenester</a>
                             <ul class="dropdown-menu">
-                                <li class="all-services"><a href="/tjenester/">Alle tjenester</a></li>
-                                {{ with .Site.GetPage "/tjenester" }}
-                                    {{ range .Pages.ByTitle }}
-                                        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                                <div class="submenu">
+                                    <li class="all-services"><a href="/tjenester/">• Alle tjenester</a></li>
+                                    {{ with .Site.GetPage "/tjenester" }}
+                                        {{ range .Pages.ByTitle }}<li><a href="{{ .RelPermalink }}">• {{ .Title }}</a></li>{{ end }}
                                     {{ end }}
-                                {{ end }}
+                                </div>
                             </ul>
                         </li>
                 
                         <li class="nav-item dropdown">
                             <a href="/post/"><img class="nav-filter" alt="ikon artikler" src="/images/icon-posts.png">Artikler</a>
                             <!--ul class="dropdown-menu">
-                                {{ with .Site.GetPage "/post" }}
-                                    {{ range .Sections.ByTitle }}
-                                        {{ if and (not (in .Title "http")) (ne .Title "Generelt") }}
-                                            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                                <div class="submenu">
+                                    {{ with .Site.GetPage "/post" }}
+                                        {{ range .Sections.ByTitle }}
+                                            {{ if and (not (in .Title "http")) (ne .Title "Generelt") }}
+                                                <li><a href="{{ .RelPermalink }}">• {{ .Title }}</a></li>
+                                            {{ end }}
                                         {{ end }}
                                     {{ end }}
-                                {{ end }}
+                                </div>
                             </ul-->
                         </li>
                 
                         <li><a href="/omtaler/"><img class="nav-filter" alt="ikon ontaler" src="/images/icon-review.png">Omtaler</a></li>
 
-                        <li class="nav-item dropdown" onclick="toggleFaq(this)">
+                        <li><a href="/kontakt-oss/"><img class="nav-filter" alt="ikon om oss" src="/images/icon-about.png">Om oss</a></li>
+                        <!--li class="nav-item dropdown" onclick="toggleFaq(this)">
                             <a href="#"><img class="nav-filter" alt="ikon om oss" src="/images/icon-about.png">Om oss</a>
                             <ul class="dropdown-menu">
-                                <li><a href="/ansatte/">Ansatte</a></li>
-                                <li><a href="/kontakt-oss/">Kontakt oss</a></li>
+                                <div class="submenu">
+                                    <li><a href="/ansatte/">Ansatte</a></li>
+                                    <li><a href="/kontakt-oss/">Kontakt oss</a></li>
+                                </div>
                             </ul>
-                        </li>
+                        </li-->
                 
                     </ul>
 
@@ -106,21 +113,6 @@
         {{ block "main" . }}{{ end }}
         </main>    
 
-        <!-- Sammnlingning forhåndsvisning 
-        <div id="selection-bar" class="selection-bar" style="display: none;">
-            <div class="selection-header">
-                <span>Valgte biler (<span id="selection-count">0</span>)</span>
-                <button onclick="closeSelectionBar()" class="close-bar">×</button>
-            </div>
-            
-            <div id="selection-items" class="selection-items">
-               
-            </div>
-        
-            <div class="selection-footer">
-                <a href="/sammenlign" class="compare-btn">Gå til side for valgte biler</a>
-            </div>
-        </div> -->
         
         {{ partial "footer.html" . }}
 
@@ -1026,6 +1018,13 @@ ${context === 'compare' ? `
                 }
             });
 
+            /* Toggle pricing information in form */
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.btn-marketing')) {
+                    document.querySelector('.marketing-info').classList.toggle('expanded');
+                }
+            });
+
             /* Toggle filter on mobile */
             document.addEventListener('click', function(e) {
                 if (e.target.closest('.toggle-filter')) {
@@ -1064,6 +1063,15 @@ ${context === 'compare' ? `
                 const firstThumb = document.querySelector('.slideshow-thumb');
                 if (firstThumb) firstThumb.style.borderColor = '#0070f3';
             });
+
+            function setSlide(url, thumbEl) {
+                const activeSlide = document.getElementById('active-slide');
+                if (activeSlide) activeSlide.src = url;
+                resetThumbBorders();
+                if (thumbEl) thumbEl.style.borderColor = '#0070f3';
+            }
+
+
         </script>
 
     </body>

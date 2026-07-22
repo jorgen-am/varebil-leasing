@@ -1,50 +1,196 @@
-<footer style="background: #222; color: white; padding: 60px 20px; margin-top: 80px;">
-    <div class="container">
-        <h2>Følg oss</h2>
-        <behold-widget feed-id="gmGbEIJSilsSP0hszxXt"></behold-widget>
-        
-        <script>
-            (() => {
-                if (window.__beholdLoaded) return;
-                window.__beholdLoaded = true;
-                const s = document.createElement("script");
-                s.type = "module";
-                s.src = "https://w.behold.so/widget.js";
-                document.head.appendChild(s);
-            })();
-        </script>
-    </div>
+    <!-- hvorfor -->
+    <section class="why container">
+        <h2>Hvorfor Varebil leasing fra Automedia?</h2>
+        <div class="grid-container three">
 
-    <div class="container">
-        <h2>Nyhetsbrev</h2>
-        Motta de beste tilbudene, relevant informasjon, oppdateringer om biler og lavere priser før alle andre.
-        <form>
-            <fieldset>
-                <label>Fornavn:<input type="text"></label>
-                <label>Etternavn:<input type="text"></label>
-                <label>Epost<input type="email"></label>
-                <input type="submit" data-action="submit" data-callback="onSubmit" class="newsletterfield goto-submit" value="Meld meg på!">
-            </fieldset>
-        </form>
-    </div>
+            <div class="sellingpoint uteninnskudd"  onclick="toggleFaq(this)">
+                <img class="nav-filter" alt="ikon tjenester" src="http://localhost:1313/varebil-leasing/images/icon-null-innskudd.png">
+                <h4>Ingen krav til innskudd?</h4>
+                <div class="argument">
+                    Uten forskuddsleie/inskudd er terskelen for ett sikkert og trygt bilhold gjennom leasing mye lavere for de fleste.
+                    <a class="read-more" href="../post/leasing-uten-innskudd/">Les mer om leasing uten innskudd</a>
+                </div>
+            </div>
+            
+            <div class="sellingpoint merkeuavhengig"  onclick="toggleFaq(this)">
+                <img class="nav-filter" alt="ikon tjenester" src="http://localhost:1313/varebil-leasing/images/icon-merkeuavhengig.png">
+                <h4>Merkeuavhengig</h4>
+                <div class="argument">
+                    Varebil leasing fra Automedia tilbyr leasing av alle de store merkenene inne varebil. Vårt fokus er gi deg beste avtalen for best mulig bil etter ditt behov
+                </div>
+            </div>
+            
+            <!--div class="sellingpoint forsikring"  onclick="toggleFaq(this)">
+                <img class="nav-filter" alt="ikon tjenester" src="http://localhost:1313/varebil-leasing/images/icon-service.png">
+                <h4>Billig forsikring</h4>
+                <div class="argument">
+                    Automedia tilbyr kanskje den rimeligste forsikringen i markedet for leasing. Vi har også flere alternativer å velge, da behovene ofte er forskjellige.
+                </div>
+            </div-->
+    
+            <div class="sellingpoint ingenkrav"  onclick="toggleFaq(this)">
+                <img class="nav-filter" alt="ikon tjenester" src="http://localhost:1313/varebil-leasing/images/icon-reklame-rabatt.png">
+                <h4>Skal gi best pris</h4>
+                <div class="argument">
+                    Vårt oppdrag er å formidle de beste prisene for den beste bilen til akkurat ditt behov. Med gode avtaler på alle merker skal vi kunne være ditt foretrukne valg når alle tall er på bordet.
+                </div>
+            </div>
 
-    <div class="container">
-        <div>
-            <h2>Om Varebilleasing.no</h2>
-            <p>Varebilleasing.no er en tjeneste fra Automedia AS, som gjør det enklere å lease varebil – både for privatpersoner og bedrifter. Vi kombinerer leasing, markedsføring og teknologi for å gi kundene våre forutsigbare bilavtaler, tydelig kommunikasjon og gode totalopplevelser.</p>
-            <p>Gjennom Varebilleasing.no får du tilgang til et bredt utvalg biler, konkurransedyktige vilkår og løsninger som er tilpasset både hverdagsbruk og profesjonelle behov.Vi leverer biler over hele Norge og legger stor vekt på personlig oppfølging, transparens og trygghet i alle ledd.</p>
+            <div class="sellingpoint reklame"  onclick="toggleFaq(this)">
+                <img class="nav-filter" alt="ikon tjenester" src="http://localhost:1313/varebil-leasing/images/icon-ingen-ai.png">
+                <h4>Ingen AI, kun personlig service</h4>
+                <div class="argument">
+                    Hos oss snakker du med en person - en kontakt med kunnskap, erfaring og høy servicevilje. AI er fantastisk, men det kan rett og slett ikke erstatte menneskelig samtale, service og forståelse. 
+                </div>
+            </div>
+
+            <div class="sellingpoint releasing"  onclick="toggleFaq(this)">
+                <img class="nav-filter" alt="ikon tjenester" src="http://localhost:1313/varebil-leasing/images/icon-releasing.png">
+                <h4>Releasing tjeneste</h4>
+                <div class="argument">
+                    Det kan være vanskelig å håndtere formalitetene rundt dette, og ikke minst finne noen som vil overta avtalen din. Her tilbyr vi hjelp til begge deler gjennom vår Releasing tjeneste.
+                    <a class="read-more" href="../tjenester/releasing/">Les om ReLeasing her</a>
+                </div>
+            </div>
+    
+            <div class="sellingpoint personell"  onclick="toggleFaq(this)">
+                <img class="nav-filter" alt="ikon tjenester" src="http://localhost:1313/varebil-leasing/images/icon-personell.png">
+                <h4>Kyndig personell</h4>
+                <div class="argument">
+                    De ansatte i Automedia har tilsammen over 70 års eraring fra bilbransen. I tillegg til et svært høyt kunnskapsnivå, så har vi et fokus på kundeservice og kjøpshjelp som få matcher.
+                    <a class="read-more" href="../omtaler/">Les våre omtaler</a>
+                </div>
+            </div>
+
         </div>
+    </section>
+    
+    <!-- omtaler -->
+    <section class="omtaler-list container">
+        <h2>Hva våre kunder sier</h2>
+        <div class="grid-container auto" >
+            {{/* Vi henter de 3 første (nyeste) fra den ferdig sorterte JSON-filen */}}
+            {{ range first 9 .Site.Data.reviews }}
+            <div style="border: 1px solid #eee; padding: 30px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between;">
+                
+                <div>
+                    <div style="color: #ffbc00; margin-bottom: 10px;">
+                        {{ if ge .rating 5 }}★★★★★{{ else if eq .rating 4 }}★★★★☆{{ else }}★★★☆☆{{ end }}
+                    </div>
+                    <p style="font-style: italic; color: #444; line-height: 1.5; margin-bottom: 20px;">
+                        "{{ if gt (len .content) 150 }}{{ substr .content 0 150 }}...{{ else }}{{ .content }}{{ end }}"
+                    </p>
+                </div>
 
-        <div class="footer-links" style="display: flex; gap: 15px; justify-content: center;">
-            {{ range .Site.Menus.main }}
-            <a href="{{ .URL }}" style="color: #888; text-decoration: none; font-size: 0.9em;">
-                {{ .Name }}
-            </a>
+                <div style="display: flex; align-items: center; gap: 12px; border-top: 1px solid #f9f9f9; padding-top: 15px;">
+                    <div style="width: 35px; height: 35px; background: #eef6ff; color: #007bff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9em;">
+                        {{ substr .author 0 1 }}
+                    </div>
+                    <div>
+                        <strong style="display: block; font-size: 0.9em;">{{ .author }}</strong>
+                        <span style="font-size: 0.75em; color: #999;">
+                            {{ substr .date 4 11 }}
+                        </span>
+                    </div>
+                </div>
+            </div>
             {{ end }}
         </div>
 
-        <div style="border-top: 1px solid #333; width: 100%; padding-top: 20px; text-align: center; color: #666; font-size: 0.85em;">
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="/omtaler/" class="btn secondary">
+                Les alle 124 omtaler
+            </a>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-list container">
+        <h2>Ofte stilte spørsmål (FAQ)</h2>
+        <div class="column-container two">
+            {{/* Vi henter sider fra mappen /post/faq/ */}}
+            {{ range (where .Site.RegularPages "Section" "post").ByPublishDate.Reverse }}
+                {{ if eq .Params.kategori "faq" }}
+                    <div class="faq-card" onclick="toggleFaq(this)">
+                        <h3>{{ .Title }}</h3>
+                        <div class="faq-content">
+                            {{ if .Params.excerpt }}
+                                <p class="faq-excerpt">
+                                    {{ .Params.excerpt }}
+                                </p>
+                            {{ end }}
+                        
+                            <a href="{{ .RelPermalink }}" class="read-more">
+                                Les hele svaret →
+                            </a>
+                        </div>
+                    </div>
+                {{ end }}
+            {{ end }}
+        </div>
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="/post/faq/"  class="btn secondary">
+                Se alle spørsmål og svar
+            </a>
+        </div>
+</section>    
+
+
+    <section class="newsletter container">
+        <div class="newsletter-content">
+            <div>
+                <h2>Meld deg på vårt Nyhetsbrev</h2>
+                <p>Ikke gå glipp av den beste avtalen - Hold deg oppdatert med det siste fra Automedia AS, få tilsendt rett i innboksen:</p>
+                <ul>
+                    <li>De beste tilbudene</li>
+                    <li>Nyheter innen leasing</li>
+                    <li>Aktuelle kampanjer</li>
+                </ul>
+                <form>
+                    <div class="formname">
+                        <label>Fornavn:<input name="Firstname" type="text" placeholder="Fornavn *" required></label>
+                        <label>Etternavn:<input name="Lastname"  type="text"  placeholder="Etternavn *" required></label>
+                    </div>
+                    <label>Epost:<input  name="Email" type="email" placeholder="E-post *" required></label>
+                    <input type="submit" data-action="submit" data-callback="onSubmit" class="btn" value="Få tilbudene først">
+                </form>
+            </div>
+
+            <div class="newsletter-phone"></div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+    <div class="container">
+        <h2>Følg oss</h2>
+        <behold-widget feed-id="gmGbEIJSilsSP0hszxXt"></behold-widget>
+    </div>
+
+    <div class="container">
+
+        <h2>Om Varebilleasing.no</h2>
+        <div class="footer-about-columns grid-container">
+            <div>Varebilleasing.no er en tjeneste fra Automedia AS, som gjør det enklere å lease varebil – både for privatpersoner og bedrifter. Vi kombinerer leasing, markedsføring og teknologi for å gi kundene våre forutsigbare bilavtaler, tydelig kommunikasjon og gode totalopplevelser.</div>
+            <div>Gjennom Varebilleasing.no får du tilgang til et bredt utvalg biler, konkurransedyktige vilkår og løsninger som er tilpasset både hverdagsbruk og profesjonelle behov.Vi leverer biler over hele Norge og legger stor vekt på personlig oppfølging, transparens og trygghet i alle ledd.</div>
+            <div class="footer-about-links"> {{ range .Site.Menus.main }}<a href="{{ .URL }}">{{ .Name }}</a>{{ end }}</div>
+        </div>
+
+        <div class="footer-copyright">
             &copy; {{ now.Format "2006" }} Automedia AS. Alle rettigheter reservert.
         </div>
+
     </div>
 </footer>
+
+<script>
+    (() => {
+        if (window.__beholdLoaded) return;
+        window.__beholdLoaded = true;
+        const s = document.createElement("script");
+        s.type = "module";
+        s.src = "https://w.behold.so/widget.js";
+        document.head.appendChild(s);
+    })();
+</script>
