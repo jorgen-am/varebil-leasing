@@ -37,9 +37,9 @@ port = 1316
     url = "/post/"
     weight = 31
 
-  [[menu.main]]
-    name = "Kontakt"
-    url = "/kontakt/"
+[[menu.main]]
+    name = "Om oss"
+    url = "/om-oss/"
     weight = 40
 
   [[menu.main]]
@@ -47,24 +47,6 @@ port = 1316
     identifier = "tjenester"
     url = "/tjenester/"
     weight = 3
-
-  [[menu.main]]
-      name = "Leasing"
-      parent = "tjenester"
-      url = "/tjenester/leasing/"
-      weight = 1
-
-  [[menu.main]]
-      name = "Forsikring"
-      parent = "tjenester"
-      url = "/tjenester/forsikring/"
-      weight = 2
-
-  [[menu.main]]
-      name = "Releasing"
-      parent = "tjenester"
-      url = "/tjenester/releasing/"
-      weight = 3
 
   [markup.goldmark.renderer]
     unsafe = true

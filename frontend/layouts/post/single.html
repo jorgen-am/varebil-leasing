@@ -13,5 +13,36 @@
             {{ .Params.bodyHtml | safeHTML }}
         </div>
     </article>
+
+    {{ if eq .Section "post" }}
+    {{ $alleArtikler := where .Site.RegularPages "Section" "post" }}
+    {{ $andreArtikler := where $alleArtikler "Permalink" "ne" .Permalink }}
+    {{ $sisteArtikler := first 3 ($andreArtikler.ByDate.Reverse) }}
+
+    {{ if $sisteArtikler }}
+        <div class="articles-list" style="margin-top: 60px; border-top: 1px solid #eee; padding-top: 40px;">
+            <h2>Les også</h2>
+            <div class="grid-container">
+                {{ range $sisteArtikler }}
+                <article style="border: 1px solid #eee; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; background: #fff;">
+                    {{ if .Params.bildeUrl }}
+                    <a href="{{ .Permalink }}">
+                        <img src="{{ .Params.bildeUrl }}" alt="{{ .Title }}" style="width: 100%; height: 180px; object-fit: cover;">
+                    </a>
+                    {{ end }}
+                    <div style="padding: 20px; flex-grow: 1;">
+                        <span style="background: #eee; padding: 2px 8px; border-radius: 4px; font-size: 0.7em; text-transform: uppercase;">{{ .Params.kategori }}</span>
+                        <h2 style="font-size: 1.3em; margin: 10px 0;"><a href="{{ .Permalink }}" style="color: #222; text-decoration: none;">{{ .Title }}</a></h2>
+                    </div>
+                    <div style="padding: 0 20px 20px;">
+                        <a href="{{ .Permalink }}" style="font-weight: bold; color: #007bff; text-decoration: none;">Les artikkel &rarr;</a>
+                    </div>
+                </article>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+    {{ end }}
+
 </section>
 {{ end }}

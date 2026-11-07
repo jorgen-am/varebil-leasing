@@ -9,7 +9,15 @@ export default {
     { name: 'image', title: 'Bilde', type: 'image', options: { hotspot: true } },
     { name: 'alt', title: 'Alt-tekst bilde', type: 'string' },
     { name: 'email', title: 'E-post kontakt', type: 'string' },
-    { name: 'salesman', title: 'Selger/Kontaktperson', type: 'string' },
+    { 
+      name: 'salesman', 
+      title: 'Kontaktperson (ansatt)', 
+      type: 'reference', 
+      to: [{ type: 'post' }],
+      options: {
+        filter: 'category == "ansatt" || category == "employee"'
+      }
+    },
     { name: 'metatitle', title: 'SEO Tittel', type: 'string' },
     { name: 'metadescription', title: 'SEO Beskrivelse', type: 'text' }
   ]

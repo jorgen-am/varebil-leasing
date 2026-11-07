@@ -14,7 +14,7 @@
         <!-- HubSpot -->
         <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/1423425.js"></script>
     </head>
-    <body>
+    <body class="{{ if .IsHome }}home{{ else }}section-{{ .Section }}{{ end }}{{ if and (eq .Section "biler") .IsPage }} bil{{ end }}{{ range $taxonomy, $null := .Site.Taxonomies }}{{ with $.Param $taxonomy }}{{ range . }} taxonomy-{{ $taxonomy }}-{{ . | urlize }}{{ end }}{{ end }}{{ end }}">
 
         <header class="site-header">
             <div class="container">
@@ -72,17 +72,16 @@
                 
                         <li><a href="/omtaler/"><img class="nav-filter" alt="ikon ontaler" src="/images/icon-review.png">Omtaler</a></li>
 
-                        <li><a href="/kontakt-oss/"><img class="nav-filter" alt="ikon om oss" src="/images/icon-about.png">Om oss</a></li>
-                        <!--li class="nav-item dropdown" onclick="toggleFaq(this)">
-                            <a href="#"><img class="nav-filter" alt="ikon om oss" src="/images/icon-about.png">Om oss</a>
+                        <li class="nav-item dropdown" onclick="toggleFaq(this)">
+                            <a href="/om-oss/"><img class="nav-filter" alt="ikon om oss" src="/images/icon-about.png">Om oss</a>
                             <ul class="dropdown-menu">
                                 <div class="submenu">
-                                    <li><a href="/ansatte/">Ansatte</a></li>
-                                    <li><a href="/kontakt-oss/">Kontakt oss</a></li>
+                                    <li><a href="/om-oss/">• Om virksomheten</a></li>
+                                    <li><a href="/ansatte/">• Ansatte</a></li>
+                                    <li><a href="/kontakt-oss/">• Kontakt oss</a></li>
                                 </div>
                             </ul>
-                        </li-->
-                
+                        </li>                
                     </ul>
 
                     <ul class="mobile-secondary-menu">
@@ -134,7 +133,7 @@
 
             function formatNoPrice(price) {
                 if (!price || price === 0 || price === "0") return "Kontakt for pris";
-                return "Fra kr " + Number(price).toLocaleString('nb-NO') + ",- eks. mva";
+                return `Fra kr <span class="price-amount">${Number(price).toLocaleString('nb-NO')}</span>,- eks. mva`;
             }
 
             function formatNoPricePure(price) {
@@ -229,17 +228,17 @@
                     
                     <div class="car-card-content">
                         <h3>${car.brand || ''} ${car.title || ''}</h3>
-                        <p class="model-description">${car.modeldescription || ''}</p>
+                        <h3 class="model-description">${car.modeldescription || ''}</h3>
                         
                         <div class="car-specs-basic-view">
                             <p class="car-specs-mini">
                                 <span>${fuel}</span> 
                                 <span>${car.range ? car.range + ' km' : ''}</span> 
-                                <span>${car.maxbootcapacity ? car.maxbootcapacity + ' liter' : ''}</span>
                                 <span>${drive}</span> 
                                 <span>${gear}</span>
-                                <span>${car.doors || ''}</span></li>
-                                <span>${car.seats || ''}</span>
+                                <span>${car.doors || ''} dører</span></li>
+                                <!--span>${car.seats || ''} seter</span-->
+                                <span>${car.maxbootcapacity ? car.maxbootcapacity + ' liter' : ''}</span>
                             </p>
                             <p class="price">${priceText}</p>
                         </div>
@@ -310,7 +309,7 @@ ${context === 'compare' ? `
                         </ul>
                         ` : ''}
 
-                        <div class="card-footer"><span class="read-more">Se mer om bilen</span></div>
+                        <!--div class="card-footer"><span class="read-more">Se mer om bilen</span></div-->
                     </div>
                 </a>`;
             }
@@ -388,7 +387,7 @@ ${context === 'compare' ? `
 
                         <div class="range-filter pricing-bar open">
                             <label><span id="filter-pricezero-val">Månedsleie maks</span></label>
-                            <input type="range" id="filter-pricezero" data-filter="pricezero" min="0" max="30000" step="500" value="30000">
+                            <input type="range" id="filter-pricezero" data-filter="pricezero" min="3829" max="14000" step="100" value="14000">
                         </div>
 
                         ${checkboxGroups}
@@ -1057,22 +1056,22 @@ ${context === 'compare' ? `
         <script>
             function resetThumbBorders() {
                 const thumbs = document.querySelectorAll('.slideshow-thumb');
-                thumbs.forEach(thumb => thumb.style.borderColor = 'transparent');
+                thumbs.forEach(thumb => thumb.style.opacity = '0.5');
             }
             window.addEventListener('DOMContentLoaded', () => {
                 const firstThumb = document.querySelector('.slideshow-thumb');
-                if (firstThumb) firstThumb.style.borderColor = '#0070f3';
+                if (firstThumb) firstThumb.style.opacity = '1';
             });
 
             function setSlide(url, thumbEl) {
                 const activeSlide = document.getElementById('active-slide');
                 if (activeSlide) activeSlide.src = url;
                 resetThumbBorders();
-                if (thumbEl) thumbEl.style.borderColor = '#0070f3';
+                if (thumbEl) thumbEl.style.opacity = '1';
             }
 
-
+            const rangeInput = document.getElementById('filter-pricezero');
         </script>
-
+        
     </body>
 </html>

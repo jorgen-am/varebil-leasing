@@ -13,17 +13,63 @@
         </div>
         
         {{ if .Params.salesman }}
-        <div style="margin-top: 50px; padding: 30px; background: #f9f9f9; border-radius: 15px; display: flex; align-items: center; gap: 20px;">
-            <div style="font-size: 1.5em;">👤</div>
-            <div>
-                <p style="margin: 0; color: #666; font-size: 0.9em;">Kontaktperson:</p>
-                <h4 style="margin: 5px 0;">{{ .Params.salesman }}</h4>
+        <div class="salesman-card">
+            <!-- Bilde -->
+            {{ if .Params.salesmanimage }}
+                <div class="salesman-profile">
+                    <img src="{{ .Params.salesmanimage }}" alt="{{ .Params.salesman }}">
+                </div>
+            {{ else }}
+                <div class="salesman-avatar">👤</div>
+            {{ end }}
+            <div class="salesman-info">
+                <h4>{{ .Params.salesman }}</h4>
+                <!-- Stillingstittel -->
+                {{ if .Params.salesmancampaign }}
+                    <p class="salesman-position">{{ .Params.salesmancampaign }}</p>
+                {{ end }}
+                <!-- Utdrag -->
+                {{ if .Params.salesmanexcerpt }}
+                    <p>{{ .Params.salesmanexcerpt }}</p>
+                {{ end }}
+                <!-- lenke -->
+                {{ if .Params.salesmancampaign }}
+                <!--a href="{{ .Params.salesmancampaign }}">Les mer om {{ .Params.salesman }}</a-->
+                <a href="{{ .Params.salesmancampaign }}">Mer om meg</a>
+                {{ end }}
+            </div>
+            <div class="push"></div>
+            <div class="salesman-contact">
+                <!-- Kontaktinformasjon -->
                 {{ if .Params.email }}
-                    <a href="mailto:{{ .Params.email }}" style="color: #007bff; text-decoration: none;">{{ .Params.email }}</a>
+                    E-post: <a href="mailto:{{ .Params.email }}">{{ .Params.email }}</a>
+                {{ end }}
+                {{ if .Params.salesmanphone }}
+                    Telefonnummer: <a href="tel:{{ .Params.salesmanphone }}">{{ .Params.salesmanphone }}</a>
+                {{ end }}
+                {{ if .Params.salesmanlinkedin }}
+                    <a href="{{ .Params.salesmanlinkedin }}" target="_blank" rel="noopener">LinkedIn</a>
                 {{ end }}
             </div>
         </div>
         {{ end }}
+
+        <nav>
+            <ul>
+                {{ range .Site.RegularPages }}
+                    {{ if eq .Section "tjenester" }}
+                    <li>
+                        <a href="{{ .Permalink }}">{{ .Title }}</a>
+                    </li>
+                    {{ end }}
+                {{ end }}
+            </ul>
+        </nav>
+        
     </article>
+    {{ $alleArtikler := where .Site.RegularPages "Section" "post" }}
+    {{ $andreArtikler := where $alleArtikler "Permalink" "ne" .Permalink }}
+    {{ $sisteArtikler := first 3 ($andreArtikler.ByDate.Reverse) }}
+
 </section>
 {{ end }}

@@ -429,16 +429,23 @@ ${finalBody}`);
     console.log(`✅ Opprettet ${CATEGORY_PAGES.length} kategorisider.`);
     // --- 7. TJENESTER ---
     const servicesDir = path.join(__dirname, 'content', 'tjenester');
-    if (!fs.existsSync(servicesDir)) fs.mkdirSync(servicesDir, { recursive: true });
-
-    const servicesIndex = path.join(servicesDir, '_index.md');
-    if (!fs.existsSync(servicesIndex)) {
-      fs.writeFileSync(servicesIndex, `---\ntitle: "Våre Tjenester"\nlayout: "list"\n---`);
+    if (fs.existsSync(servicesDir)) {
+        console.log('Sweep: Rydder gamle tjenester...');
+        fs.rmSync(servicesDir, { recursive: true, force: true });
     }
+    fs.mkdirSync(servicesDir, { recursive: true });
+    fs.writeFileSync(path.join(servicesDir, '_index.md'), `---\ntitle: "Våre Tjenester"\nlayout: "list"\n---`);
 
     const tjenester = await client.fetch(`*[_type == "service"] {
       ...,
-      "image": image.asset->url
+      "image": image.asset->url,
+      "salesmanName": salesman->title,
+      "salesmanImage": salesman->mainImage.asset->url,
+      "salesmanEmail": salesman->tagtwo,
+      "salesmanPhone": salesman->readtime,
+      "salesmanLinkedin": salesman->tagone,
+      "salesmanCampaign": salesman->campaignlink,
+      "salesmanExcerpt": salesman->metadescription
     }`);
 
     tjenester.forEach(service => {
@@ -447,16 +454,29 @@ ${finalBody}`);
       const leadHtml = (service.lead || '').replace(/\n/g, '<br>');
       const finalHtml = bodyHtml || leadHtml;
 
+      // Hent ansatt-data fra GROQ-resolvert referanse
+      const salesmanName = service.salesmanName || '';
+      const salesmanImage = service.salesmanImage || '';
+      const salesmanEmail = service.salesmanEmail || service.email || '';
+      const salesmanPhone = service.salesmanPhone || '';
+      const salesmanLinkedin = service.salesmanLinkedin || '';
+      const salesmanCampaign = service.salesmanCampaign || '';
+      const salesmanExcerpt = service.salesmanExcerpt || '';
+
       const content = `---
 title: "${(service.title || '').replace(/"/g, '\\"')}"
 image: "${service.image || ''}"
 alt: "${(service.alt || '').replace(/"/g, '\\"')}"
-email: "${service.email || ''}"
-salesman: "${service.salesman || ''}"
+email: "${salesmanEmail}"
+salesman: "${salesmanName}"
+salesmanimage: "${salesmanImage}"
+salesmanphone: "${salesmanPhone}"
+salesmanlinkedin: "${salesmanLinkedin}"
+salesmancampaign: "${salesmanCampaign}"
+salesmanexcerpt: "${salesmanExcerpt}"
 metatitle: "${(service.metatitle || '').replace(/"/g, '\\"')}"
 metadescription: "${(service.metadescription || '').replace(/"/g, '\\"')}"
 bodyHtml: "${finalHtml.replace(/"/g, '\\"').replace(/\r?\n|\r/g, '')}"
-layout: "single"
 ---`;
 
       fs.writeFileSync(path.join(servicesDir, `${slug}.md`), content);

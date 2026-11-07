@@ -48,15 +48,15 @@
 
                 {{/* 1. Eksisterende basistrekk */}}
                 <div class="specs">
-                    {{ if .Params.fuel }}<div class="spec-item drivstoff"><span>{{ .Params.fuel }}</span><strong>Drivstoff</strong></div>{{ end }}
-                    {{ if .Params.maxbootcapacity }}<div class="spec-item lasterom"><span>{{ .Params.maxbootcapacity }} l</span><strong>Lasterom</strong></div>{{ end }}
-                    {{ if .Params.drive }}<div class="spec-item hjuldrift"><span>{{ .Params.drive }}</span><strong>Hjuldrift</strong></div>{{ end }}
-                    {{ if .Params.gear }}<div class="spec-item gir"><span>{{ .Params.gear }}</span><strong>Girkasse</strong></div>{{ end }}
-                    {{ if .Params.doors }}<div class="spec-item dorer"><span>{{ .Params.doors }}</span><strong>Dører</strong></div>{{ end }}
-                    {{ if .Params.seats }}<div class="spec-item seter"><span>{{ .Params.seats }}</span><strong>Seter</strong></div>{{ end }}
-                    {{ if .Params.numberofgears }}<div class="spec-item antall-gir"><span>{{ .Params.numberofgears }}</span><strong>Gir</strong></div>{{ end }}
-                    {{ if .Params.lversion }}<div class="spec-item lengdeversjon"><span>{{ .Params.lversion }}</span><strong>Lengdeklasse</strong> </div>{{ end }}
-                    {{ if .Params.yearmodel }}<div class="spec-item arsmodell"><span>{{ .Params.yearmodel }}</span><strong>Produksjonsår</strong></div>{{ end }}
+                    {{ if .Params.fuel }}<div class="spec-item drivstoff"><strong>Drivstoff</strong><span>{{ .Params.fuel }}</span></div>{{ end }}
+                    {{ if .Params.maxbootcapacity }}<div class="spec-item lasterom"><strong>Lasterom</strong><span>{{ .Params.maxbootcapacity }} l</span></div>{{ end }}
+                    {{ if .Params.drive }}<div class="spec-item hjuldrift"><strong>Hjuldrift</strong><span>{{ .Params.drive }}</span></div>{{ end }}
+                    {{ if .Params.gear }}<div class="spec-item gir"><strong>Hjuldrift</strong><span>{{ .Params.gear }}</span></div>{{ end }}
+                    {{ if .Params.doors }}<div class="spec-item dorer"><strong>Dører</strong><span>{{ .Params.doors }}</span></div>{{ end }}
+                    {{ if .Params.seats }}<div class="spec-item seter"><strong>Seter</strong><span>{{ .Params.seats }}</span></div>{{ end }}
+                    {{ if .Params.numberofgears }}<div class="spec-item antall-gir"><strong>Gir</strong><span>{{ .Params.numberofgears }}</span></div>{{ end }}
+                    {{ if .Params.lversion }}<div class="spec-item lengdeversjon"><strong>Lengdeklasse</strong><span>{{ .Params.lversion }}</span></div>{{ end }}
+                    {{ if .Params.yearmodel }}<div class="spec-item arsmodell"><strong>Produksjonsår</strong><span>{{ .Params.yearmodel }}</span></div>{{ end }}
                 </div>
 
                 {{ if .Params.descriptionhtml }}
@@ -141,21 +141,29 @@
                 <div class="employees">
                     <h2>Snakk med en av våre rådgivere</h2>
                     <div class="select-employee">
+
                         {{ range .Site.Data.employees }}
                         <div class="employee-card">
-                            {{ if .bildeUrl }}
-                                <img src="{{ .bildeUrl }}" alt="{{ .title }}">
-                            {{ else }}
-                                <div class="employee-image-fallback">👤</div>
-                            {{ end }}
-                            <h3>{{ .title }}</h3>
-                            {{ if .tagtwo }}
-                                <p><a href="mailto:{{ .tagtwo }}">{{ .tagtwo }}</a></p>
-                            {{ end }}
+
+                            <div class="employee-image">
+                                {{ if .bildeUrl }}
+                                <img src="{{ .bildeUrl }}" alt="{{ .title }}"> {{ else }} 
+                                <!--div class="employee-image-fallback">👤</div--> 
+                                {{ end }} 
+                            </div>    
+
+                            <div class="employee-contact">
+                                {{ .title }}
+                                {{ .position }}
+                                {{ if .readtime }} <a href="tel:{{ .readtime }}">{{ .readtime }}</a> {{ end }}
+                                {{ if .tagtwo }} <a href="mailto:{{ .tagtwo }}">{{ .tagtwo }}</a> {{ end }}
+                            </div>
                         </div>
                         {{ end }}
+
                     </div>
                 </div>
+            </div>    
         </div>
     </section>
 {{ end }}
