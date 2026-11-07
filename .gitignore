@@ -10,4 +10,5 @@ resources/
 node_modules/
 
 # .env
-echo ".env" >> .gitignore
+echo ".env" >> .gitignore.DS_Store
+.tmp.driveupload/

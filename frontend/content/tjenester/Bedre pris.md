@@ -1,11 +1,15 @@
 ---
-title: "Bedre pris leasing varebil"
+title: "Bedre pris?"
 image: ""
 alt: "Ønsker du å gå ut av leasingavtalen før tiden? Med releasing hjelper vi deg gjøre det billigere, raskere, enkelt og helt trygt."
 email: "jorgen@automedia.as"
-salesman: "Jørgen"
+salesman: "Jørgen Hanisch"
+salesmanimage: "https://cdn.sanity.io/images/1lzskaub/production/39f6249a224cb9041edf4df622eb15079c7a727a-518x518.jpg"
+salesmanphone: "41420541"
+salesmanlinkedin: "https://www.linkedin.com/in/jorgenhanisch/"
+salesmancampaign: "Releasing / Web / Marked"
+salesmanexcerpt: "Har du lurt på hvorfor Automedia dukker opp på så og si alle søk innen leasing? Jeg har laget siden, og kan svare på dette."
 metatitle: "Fått leasingtilbud, men lurer på om det kan bli bedre?"
 metadescription: "Er det vanskelig å finne konkurrende priser på nett eller er du usikker på om du har fått det beste alternativet? Det er nesten alltid mulig å gjøre et tilbud bedre. Og du taper ingenting på å spørre."
 bodyHtml: "<h2>Kan du få en bedre leasingavtale på varebil?</h2><p>Så og si alle leasingtilbud er forskjellige. Du har dine unike behov for kjørelengde, avtaletid, bilspesifikasjon, forsikring, service og mer til.</p><p>‍</p><p>Derfor er det ofte vanskelig å vurdere om det tilbudet du har fått er virkelig bra. Hvis du er usikker, eller bare ønsker deg den beste prisen på din avtale.</p><p>‍</p><p><strong>Dette kan vi hjelpe deg enkelt med.</strong></p><p>Bare fyll ut skjemaet under og send over tilbudet du har fått (Maks 15 mb)</p><p>Eller ta en telefon til meg på <a href=\"tel:96644001\">966 44 001</a></p>"
-layout: "single"
 ---
